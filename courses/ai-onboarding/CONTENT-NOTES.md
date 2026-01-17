@@ -79,9 +79,9 @@ Detailed notes, examples, and research for each module.
 
 ---
 
-## Bob Scenarios to Develop
+## Joe Scenarios to Develop
 
-### Bob's Character
+### Joe's Character
 
 - Mid-career professional, probably accounting or operations
 - Not tech-averse, just hasn't updated mental models
@@ -93,63 +93,63 @@ Detailed notes, examples, and research for each module.
 ### Scenario Bank
 
 **Module 1: What Is This Thing?**
-- Bob asks "Do you remember what we talked about yesterday?"
+- Joe asks "Do you remember what we talked about yesterday?"
 - Gets confused response, concludes AI has amnesia
 - Doesn't understand there's no persistent memory by default
 
 **Module 2: Ghost in the Machine**
-- Bob asks the same question twice, gets different answers
+- Joe asks the same question twice, gets different answers
 - Accuses AI of being inconsistent or lying
 - Doesn't understand probabilistic output
 
 **Module 3: The Problem Isn't the AI**
-- Bob: "Write me an email"
+- Joe: "Write me an email"
 - Gets generic email, sighs
-- Bob: "Write me a GOOD email"
+- Joe: "Write me a GOOD email"
 - Gets slightly less generic email, declares AI useless
 
 **Module 4: Writing Is Thinking**
-- Bob: "Make it more professional"
-- AI makes changes Bob doesn't like
-- Bob: "No, not like that. More professional."
+- Joe: "Make it more professional"
+- AI makes changes Joe doesn't like
+- Joe: "No, not like that. More professional."
 - Cycle continues because "professional" means nothing specific
 
 **Module 5: Know Thyself**
-- Bob accepts an AI email that sounds "smart"
+- Joe accepts an AI email that sounds "smart"
 - Sends it to client
 - Client confused because tone doesn't match their relationship
-- Bob never defined his voice, so AI couldn't match it
+- Joe never defined his voice, so AI couldn't match it
 
 **Module 6: One-Shot Catastrophe**
-- Side-by-side: Bob's one attempt vs. someone iterating
+- Side-by-side: Joe's one attempt vs. someone iterating
 - Same starting prompt, wildly different final results
-- Bob gave up after step 1; the other person took 5 steps
+- Joe gave up after step 1; the other person took 5 steps
 
 **Module 7: Context Starvation**
-- Bob: "Write a presentation for the meeting"
+- Joe: "Write a presentation for the meeting"
 - AI: Produces generic corporate presentation
-- Bob: "That's not what I needed at all!"
+- Joe: "That's not what I needed at all!"
 - Narrator: "But how was the AI supposed to know?"
-- Reveals everything Bob assumed AI would know
+- Reveals everything Joe assumed AI would know
 
 **Module 8: Credulity Trap**
-- Bob includes AI statistics in board presentation
+- Joe includes AI statistics in board presentation
 - CFO: "Where did you get these numbers?"
-- Bob: "The AI"
+- Joe: "The AI"
 - Numbers are completely fabricated
-- Bob's credibility destroyed
+- Joe's credibility destroyed
 
 **Module 9: Copy-Paste Career Killer**
-- Bob sends AI email to client without reading carefully
-- Email promises delivery date Bob can't meet
-- Email uses first name with someone Bob has never met
-- Client annoyed, boss annoyed, Bob confused
+- Joe sends AI email to client without reading carefully
+- Email promises delivery date Joe can't meet
+- Email uses first name with someone Joe has never met
+- Client annoyed, boss annoyed, Joe confused
 
 **Module 10: Blame Game**
-- Bob has folder called "AI Fails" on his desktop
+- Joe has folder called "AI Fails" on his desktop
 - Shows colleagues screenshots as proof AI doesn't work
 - Every screenshot shows a vague one-shot prompt
-- Bob has never considered he might be the problem
+- Joe has never considered he might be the problem
 
 ---
 
