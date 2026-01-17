@@ -78,7 +78,7 @@ Planning for delivery format, artwork, voiceover, and technical implementation.
 
 **Option A: Illustrated/Animated**
 - Stylized 2D animation
-- Character design for Bob (and possibly narrator)
+- Character design for Joe (and possibly narrator)
 - Can control every frame
 - Scalable for updates
 - Easier to produce than live action
@@ -96,9 +96,9 @@ Planning for delivery format, artwork, voiceover, and technical implementation.
 - Experimental but potentially efficient
 - Quality control challenges
 
-**Recommended:** Option A (illustrated) for Bob scenarios and conceptual content, with screen recordings for technical demos. Most cohesive, most controllable.
+**Recommended:** Option A (illustrated) for Joe scenarios and conceptual content, with screen recordings for technical demos. Most cohesive, most controllable.
 
-### Character Design: Bob
+### Character Design: Joe
 
 **Personality:**
 - Everyman professional, mid-40s
@@ -178,7 +178,7 @@ Planning for delivery format, artwork, voiceover, and technical implementation.
 ### Script Format
 
 **For each module:**
-1. Cold open (Bob makes mistake)
+1. Cold open (Joe makes mistake)
 2. Narrator intro: "What went wrong here?"
 3. Explanation with visuals
 4. Correct approach demonstrated
@@ -313,7 +313,7 @@ Planning for delivery format, artwork, voiceover, and technical implementation.
 ## Open Questions
 
 - [ ] What's the realistic budget for production?
-- [ ] Should Bob be animated or illustrated stills with motion?
+- [ ] Should Joe be animated or illustrated stills with motion?
 - [ ] Do we want a "face" for the narrator or just voice?
 - [ ] How much interactivity is needed vs. passive video?
 - [ ] Should modules stand alone or require sequential completion?
