@@ -22,7 +22,7 @@
 - The training process in plain terms (not technical, but accurate)
 - What it can see, what it remembers, what it forgets (context windows, no persistence)
 
-**Bob Scenario:** Bob asks Claude "Do you remember what we talked about yesterday?" and is confused when it doesn't.
+**Joe Scenario:** Joe asks Claude "Do you remember what we talked about yesterday?" and is confused when it doesn't.
 
 ---
 
@@ -41,14 +41,14 @@
 - Probabilistic output: why you can ask the same question twice and get different answers
 - The implications: it's a tool that requires a skilled operator
 
-**Bob Scenario:** Bob gets offended when Claude "changes its mind" and accuses it of being inconsistent. He doesn't realize he's arguing with statistics.
+**Joe Scenario:** Joe gets offended when Claude "changes its mind" and accuses it of being inconsistent. He doesn't realize he's arguing with statistics.
 
 ---
 
 ## PART TWO: THE PREREQUISITES NOBODY MENTIONS
 *The uncomfortable truth about why "AI isn't working" for you*
 
-### Module 3: The Problem Isn't the AI, Bob
+### Module 3: The Problem Isn't the AI, Joe
 **Duration:** 30-35 min
 
 **Learning Objectives:**
@@ -62,7 +62,7 @@
 - The "vague request, disappointing result" cycle
 - Exercise: Articulate what you actually need before touching the keyboard
 
-**Bob Scenario:** Bob types "write me an email" and gets generic slop. He tries "write me a GOOD email" and gets slightly better slop. He concludes AI is useless.
+**Joe Scenario:** Joe types "write me an email" and gets generic slop. He tries "write me a GOOD email" and gets slightly better slop. He concludes AI is useless.
 
 **Exercise:** Before/after comparison. Learner writes what they want, then refines it through guided questions, then sees the difference in output.
 
@@ -82,7 +82,7 @@
 - Specificity as a learnable skill
 - The gap between what you meant and what you typed
 
-**Bob Scenario:** Bob says "make it more professional" and is frustrated when the AI doesn't read his mind about what "professional" means in his specific context.
+**Joe Scenario:** Joe says "make it more professional" and is frustrated when the AI doesn't read his mind about what "professional" means in his specific context.
 
 **Exercise:** Ambiguity audit. Learner reviews their own past prompts (or provided examples) and identifies every ambiguous word or assumption.
 
@@ -102,14 +102,14 @@
 - Developing taste: the skill nobody teaches
 - Exercise: Define quality for your own work before asking AI to produce it
 
-**Bob Scenario:** Bob accepts AI output because it "sounds smart" even though it doesn't match his company's voice or his actual position on the topic.
+**Joe Scenario:** Joe accepts AI output because it "sounds smart" even though it doesn't match his company's voice or his actual position on the topic.
 
 **Exercise:** Quality definition worksheet. Learner articulates what makes writing good in THEIR context—tone, length, evidence standards, audience expectations.
 
 ---
 
 ## PART THREE: THE FASTEST WAYS TO FAIL
-*A comprehensive catalog of mistakes, demonstrated by our friend Bob*
+*A comprehensive catalog of mistakes, demonstrated by our friend Joe*
 
 ### Module 6: The One-Shot Catastrophe
 **Duration:** 25-30 min
@@ -125,7 +125,7 @@
 - Why iteration isn't optional—it's the whole point
 - Demo: Same task, one-shot vs. iterative approaches
 
-**Bob Scenario:** Bob types a query, gets a response, sighs, and closes the tab. He never considers saying "that's close, but..."
+**Joe Scenario:** Joe types a query, gets a response, sighs, and closes the tab. He never considers saying "that's close, but..."
 
 **Demo:** Side-by-side video showing one-shot attempt vs. 4-5 turn iterative refinement on the same task. Dramatic quality difference.
 
@@ -145,7 +145,7 @@
 - Building context systematically: who, what, why, for whom, constraints
 - Demo: Identical requests with minimal vs. rich context
 
-**Bob Scenario:** Bob asks for "a presentation for the meeting" without specifying what meeting, who's attending, what they already know, what decision needs to be made, or what format is expected.
+**Joe Scenario:** Joe asks for "a presentation for the meeting" without specifying what meeting, who's attending, what they already know, what decision needs to be made, or what format is expected.
 
 **Framework:** The Context Checklist
 - WHO is this for? (audience, their knowledge level, their concerns)
@@ -170,7 +170,7 @@
 - The verification mindset
 - Your job isn't to accept or reject—it's to evaluate and refine
 
-**Bob Scenario:** Bob includes AI-generated statistics in a client proposal without checking them. His boss finds three hallucinated numbers. Bob blames the AI.
+**Joe Scenario:** Joe includes AI-generated statistics in a client proposal without checking them. His boss finds three hallucinated numbers. Joe blames the AI.
 
 **Checklist:** What to verify
 - Specific facts, numbers, statistics (ALWAYS verify)
@@ -195,7 +195,7 @@
 - Real consequences of unreviewed AI work
 - Building an editing workflow
 
-**Bob Scenario:** Bob sends an AI-written email to a client. It includes a commitment Bob can't keep and a tone that doesn't match the relationship. The client is confused and annoyed.
+**Joe Scenario:** Joe sends an AI-written email to a client. It includes a commitment Joe can't keep and a tone that doesn't match the relationship. The client is confused and annoyed.
 
 **Framework:** The Review Protocol
 1. Read it as if a stranger wrote it (because one did)
@@ -220,7 +220,7 @@
 - The feedback loop: bad output means unclear input
 - Learned helplessness from Siri, Alexa, and years of disappointment
 
-**Bob Scenario:** Bob has a folder of screenshots titled "AI Fails" that he shows colleagues to prove AI doesn't work. Every screenshot is a vague one-shot prompt.
+**Joe Scenario:** Joe has a folder of screenshots titled "AI Fails" that he shows colleagues to prove AI doesn't work. Every screenshot is a vague one-shot prompt.
 
 **Reframe Exercise:** Take a "failed" interaction and diagnose what the human input lacked.
 
