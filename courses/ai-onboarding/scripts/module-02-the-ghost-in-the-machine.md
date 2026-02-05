@@ -284,6 +284,46 @@ Your job is to direct it well.
 
 ---
 
+## MODULE 2 QUIZ
+
+**Question 1:**  
+The narrator says you should "never anthropomorphize" AI and then teaches you how to do it properly. The correct approach is:
+- A) Avoid all conversational language with AI
+- B) Treat the AI as if it has real feelings and opinions
+- C) Engage naturally in conversation while understanding it's not a person
+- D) Only use formal, technical commands
+
+**Correct Answer: C**
+
+**Question 2:**  
+Joe asks Claude the same question twice and gets two different answers. The best explanation is:
+- A) Claude remembered the first answer and deliberately chose a different one
+- B) Claude is randomly generating nonsense
+- C) The system produces probabilistic output—different samples from the same patterns can yield different results
+- D) There's a technical glitch in Claude's memory
+
+**Correct Answer: C**
+
+**Question 3:**  
+The narrator compares effective AI interaction to:
+- A) Programming a computer with precise commands
+- B) Directing a theatrical performance
+- C) Having a debate with an expert
+- D) Searching a library catalog
+
+**Correct Answer: B**
+
+**Question 4:**  
+Which of these is something the AI does NOT have?
+- A) The ability to generate fluent text
+- B) Access to patterns from vast training data
+- C) Persistent goals or stakes in your success
+- D) The capacity to respond to your questions
+
+**Correct Answer: C**
+
+---
+
 ## REFLECTION QUESTIONS
 
 1. When you've used AI tools before, did you ever feel like you were "talking to someone"? What assumptions came with that feeling?
