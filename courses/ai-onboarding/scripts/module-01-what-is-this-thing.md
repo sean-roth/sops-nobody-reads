@@ -359,7 +359,7 @@ It's a start.
 
 ---
 
-## QUIZ QUESTIONS (for end of Part One)
+## MODULE 1 QUIZ
 
 **Question 1:**  
 When an AI like Claude gives a very confident-sounding answer, this means:
@@ -387,6 +387,15 @@ The narrator suggests that humanity's only cultural framework for "non-human int
 - D) Mythology and folklore
 
 **Correct Answer: D**
+
+**Question 4:**  
+The narrator says AI is best understood as:
+- A) A thinking machine with genuine understanding
+- B) Fancy autocomplete, like your phone's keyboard suggestions
+- C) Pattern completion at massive scale—sophisticated but still prediction
+- D) A digital person with a different kind of consciousness
+
+**Correct Answer: C**
 
 ---
 
