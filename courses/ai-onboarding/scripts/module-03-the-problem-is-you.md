@@ -389,6 +389,46 @@ That's not a failure of the AI. That's the process working exactly as it should.
 
 ---
 
+## MODULE 3 QUIZ
+
+**Question 1:**  
+Joe types "Write me a good email" and gets generic output. The most likely reason is:  
+- A) The AI isn't capable of writing good emails  
+- B) Joe didn't pay for the premium version  
+- C) Joe provided no context about who it was for, what it was about, or how it should sound  
+- D) The AI was having a bad day  
+
+**Correct Answer: C**
+
+**Question 2:**  
+When Joe asks the AI to "make it more professional," the core problem is:  
+- A) The AI doesn't understand the word "professional"  
+- B) "Professional" means different things in different contexts and Joe hasn't defined what he means  
+- C) The AI is ignoring Joe's instructions  
+- D) Joe needs a different AI tool  
+
+**Correct Answer: B**
+
+**Question 3:**  
+Joe sends an AI-generated email to a long-time client. The client thinks it sounds unlike Joe. This happened because:  
+- A) The AI deliberately changed Joe's voice  
+- B) Joe never defined his communication style, so the AI produced statistically average text  
+- C) The AI was trained on bad email examples  
+- D) Joe's client is being unreasonable  
+
+**Correct Answer: B**
+
+**Question 4 (Scenario):**  
+Sarah needs AI help writing a project update. Which approach will produce the best result?  
+- A) "Write me a project update"  
+- B) "Write me an amazing, detailed, impressive project update"  
+- C) "I need a 1-page update for my director on the website redesign project. We're on track for the March deadline, but the vendor is 2 weeks behind on the design mockups, which I've escalated. Tone should be factual and solutions-oriented—my director values brevity and hates surprises. Include a risk section and next steps."  
+- D) "Please write the best project update you possibly can"  
+
+**Correct Answer: C**
+
+---
+
 ## END OF PART ONE
 
 *[VISUAL: Part One completion card.]*
@@ -410,84 +450,6 @@ It's in you.
 *[FADE TO BLACK]*
 
 *[CTA: "Continue to Part Two" / enrollment prompt]*
-
----
-
-## PART ONE ASSESSMENT
-
-*[Quiz covering all three modules. Mix of factual recall and scenario-based questions.]*
-
-**Question 1:**  
-When an AI gives a confident-sounding answer, this indicates:  
-- A) The AI is certain the information is correct  
-- B) The AI has verified the information against reliable sources  
-- C) Nothing about accuracy—fluent text sounds confident regardless of correctness  
-- D) The AI has high internal confidence scores  
-
-**Correct Answer: C** *(Module 1)*
-
-**Question 2:**  
-Joe asks Claude about a conversation they had yesterday. Claude says it doesn't recall. This is because:  
-- A) Claude is lying  
-- B) Claude has a bug in its memory system  
-- C) Each conversation starts fresh with no memory of previous sessions  
-- D) Claude only remembers important conversations  
-
-**Correct Answer: C** *(Module 1)*
-
-**Question 3:**  
-The narrator compares effective AI interaction to:  
-- A) Programming a computer  
-- B) Directing a theatrical performance  
-- C) Arguing with a colleague  
-- D) Searching a database  
-
-**Correct Answer: B** *(Module 2)*
-
-**Question 4:**  
-"Anthropomorphizing correctly" means:  
-- A) Treating the AI as if it has feelings  
-- B) Refusing to use conversational language with AI  
-- C) Engaging naturally while understanding it's not a person  
-- D) Giving the AI a human name  
-
-**Correct Answer: C** *(Module 2)*
-
-**Question 5:**  
-Joe types "Write me a good email" and gets generic output. The most likely reason is:  
-- A) The AI isn't capable of writing good emails  
-- B) Joe didn't pay for the premium version  
-- C) Joe provided no context about who it was for, what it was about, or how it should sound  
-- D) The AI was having a bad day  
-
-**Correct Answer: C** *(Module 3)*
-
-**Question 6:**  
-When Joe asks the AI to "make it more professional," the core problem is:  
-- A) The AI doesn't understand the word "professional"  
-- B) "Professional" means different things in different contexts and Joe hasn't defined what he means  
-- C) The AI is ignoring Joe's instructions  
-- D) Joe needs a different AI tool  
-
-**Correct Answer: B** *(Module 3)*
-
-**Question 7:**  
-Joe sends an AI-generated email to a long-time client. The client thinks it sounds unlike Joe. This happened because:  
-- A) The AI deliberately changed Joe's voice  
-- B) Joe never defined his communication style, so the AI produced statistically average text  
-- C) The AI was trained on bad email examples  
-- D) Joe's client is being unreasonable  
-
-**Correct Answer: B** *(Module 3)*
-
-**Question 8 (Scenario):**  
-Sarah needs AI help writing a project update. Which approach will produce the best result?  
-- A) "Write me a project update"  
-- B) "Write me an amazing, detailed, impressive project update"  
-- C) "I need a 1-page update for my director on the website redesign project. We're on track for the March deadline, but the vendor is 2 weeks behind on the design mockups, which I've escalated. Tone should be factual and solutions-oriented—my director values brevity and hates surprises. Include a risk section and next steps."  
-- D) "Please write the best project update you possibly can"  
-
-**Correct Answer: C** *(Module 3)*
 
 ---
 
