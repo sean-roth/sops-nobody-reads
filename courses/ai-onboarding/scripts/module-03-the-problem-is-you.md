@@ -118,6 +118,62 @@ There's a step missing. And that step has a name.
 **NARRATOR (V.O.):**  
 Thinking.
 <!-- I'm really curious how this will land. Humans are sensitive about their cognitive capabilities, a lot of ego wrapped up in it. But Thinking is the missing piece.   -->
+
+---
+
+## BUT FIRST — JOE WITHOUT THE MACHINE
+
+**NARRATOR (V.O.):**  
+But before we go further—let's be fair to Joe. Because Joe is not bad at his job. Not even close.
+
+*[SCENE: Joe's desk. Same day. Different email—this one he's writing himself. No AI. He's replying to Dave Kowalski at Pacific Ridge Supply about a late shipment.]*
+
+*[Joe types. Fast. No hesitation. His fingers move like he's having a conversation.]*
+
+*[We see the email take shape: He opens warmly but gets to the point. References the specific PO number. Notes the downstream impact—his client's install crew is on-site Thursday, can't work without the parts. Asks for an updated ETA by end of day. Firm, but not hostile. Closes with "Appreciate it, Dave—I know these things happen. Just need to keep my guys in the loop."]*
+
+*[Hits send. Forty-five seconds. Done. He doesn't even pause to reread it.]*
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**  
+Did you see what just happened? Joe wrote a clear, effective, well-calibrated email in under a minute. No framework. No checklist. No conscious effort at all.
+
+But watch what he actually did.
+
+*[VISUAL: The email reappears. As the narrator speaks, invisible layers of knowledge light up beneath each sentence—like an X-ray revealing the skeleton under the skin.]*
+
+**NARRATOR (V.O.):**  
+He knew Dave. Not "knew of"—*knew.* They've worked together for six years. Joe has signed dozens of invoices from Pacific Ridge. They've navigated late shipments before. They had a pricing dispute two years ago that got tense before they sorted it out. Dave respects directness. Dave also takes things personally if you come in too hot.
+
+*[VISUAL: Each piece of history appears briefly—a stack of invoices, a tense phone call, a handshake at a trade show—then fades. Quick flashes. Not a timeline. A feeling.]*
+
+**NARRATOR (V.O.):**  
+Joe's brain integrated all of that—six years of relationship, dozens of interactions, a mental model of who Dave is and how he operates—and used it to calibrate every sentence. The warmth of the opening. The specificity of the ask. The tone that says "I'm serious" without saying "I'm angry." Even that closing line—"I know these things happen"—is a precise instrument. It says: *I'm not blaming you, but I do need this handled.*
+
+Joe didn't think about any of this. He just *wrote.*
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**  
+This is what's called tacit knowledge—the things you know so well that you don't know you know them. Every professional has an enormous store of it. Years of relationships, resolved conflicts, learned preferences, pattern recognition, institutional memory—all running in the background, all informing every decision, none of it conscious.
+
+When Joe writes an email himself, his tacit knowledge does the work invisibly. His brain pulls from a vast, unsorted archive of experience and produces the right words for the right person at the right moment.
+
+It's remarkable, actually. And it's the reason Joe is good at his job.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**  
+It's also the reason he's struggling with AI.
+
+*[VISUAL: Split screen. Left: Joe writing to Dave—fluid, natural, confident. Right: Joe typing "Write me an email" into the AI—stiff, uncertain, lost.]*
+
+**NARRATOR (V.O.):**  
+Because AI can't access tacit knowledge. It can't see the six years with Dave, the pricing dispute, the handshake at the trade show. It doesn't know that Margaret prefers directness or that your director hates surprises. All of that context—the stuff your brain serves up automatically—lives only inside your head.
+
+To work with AI, you have to do something you've never had to do before: take knowledge that has always been automatic and make it *explicit.*
+
 ---
 
 ## CLEAR THINKING PRECEDES CLEAR PROMPTING
@@ -129,10 +185,12 @@ This is the single most important sentence in this entire course. If you remembe
 
 **NARRATOR (V.O.):**  
 Clear thinking precedes clear prompting.
-<!-- So important. Maybe we should take this a step further, and add that clear prompting is just clear writing. Demystify the prompting jargon. -->
+
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
+And clear prompting is just clear writing. There's no special language. No code. No secret syntax. Just saying what you mean—completely, specifically, and out loud.
+
 Not prompt engineering. Not magic words. Not templates or frameworks or secret techniques. *Thinking.* The boring, difficult, unglamorous work of figuring out what you actually want before you ask a machine to produce it.
 
 *[VISUAL: Return to Joe at his desk, replaying the cold open—but this time, we see inside his head. The context he already knows but didn't share.]*
@@ -153,14 +211,14 @@ Joe knew all of this. Every bit of it. It was sitting right there in his head—
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
-And here's the thing—this isn't because Joe is lazy. It's because when Joe writes an email himself, he doesn't consciously think through all this context. It's automatic. He knows Margaret. He knows the project. His brain integrates all of it without explicit effort, and his fingers produce an email that reflects everything he knows.
+And here's the thing—this isn't because Joe is lazy. We just watched him write a perfect email to Dave in forty-five seconds. When Joe writes an email himself, he doesn't consciously think through all this context. It's automatic. He knows Margaret. He knows the project. His brain integrates all of it without explicit effort, and his fingers produce an email that reflects everything he knows.
 
 But the machine isn't Joe. The machine knows nothing about Margaret, nothing about shipping documentation, nothing about Tuesday's meeting, nothing about their rapport. Remember Module 1? The machine sees only what's in the current conversation. Everything else is darkness.
 
-Joe's mistake isn't laziness. It's *assumption.* He assumed the AI could access the same context his own brain accesses automatically. As if thinking it were the same as typing it.
+Joe's mistake isn't laziness or a lack of skill. It's *assumption.* He assumed the AI could access the same tacit knowledge his own brain accesses automatically. As if thinking it were the same as typing it.
 
 It isn't.
-<!-- We should tie this into, what if Joe just wrote an email to Margaret? It might be informative to take AI away and just make them think about the process that they do on instinct, any professional has written dozens of emails a week, they don't think about it. They add that context as they write but it's never an explicit process. This is a communication course I guess. Ahg, there is something on the edge of my words that I'm trying to get to about the Human/AI connection.    -->
+
 ---
 
 ## WRITING IS THINKING MADE VISIBLE
@@ -173,7 +231,7 @@ Now. This problem goes deeper than prompts. Much deeper.
 **NARRATOR (V.O.):**  
 There's a concept that writers and teachers have understood for centuries: writing is thinking made visible. The act of putting words on a page isn't just *recording* your thoughts—it's *forming* them. You don't fully know what you think until you try to write it down.
 
-This is why a journal helps you process emotions you couldn't name. Why writing a business plan reveals gaps you hadn't noticed. Why explaining a problem in an email sometimes solves the problem before you hit send?
+This is why a journal helps you process emotions you couldn't name. Why writing a business plan reveals gaps you hadn't noticed. Why explaining a problem in an email sometimes solves the problem before you hit send.
 <!-- this is good, clear but brief examples, and ties back to the email issue from the start.    -->
 *[Beat.]*
 
@@ -382,6 +440,8 @@ That's not a failure of the AI. That's the process working exactly as it should.
 **Key Concepts:**
 
 - Clear thinking precedes clear prompting—this is the foundation
+- Clear prompting is just clear writing—no special language required
+- Tacit knowledge is what you know so well you don't know you know it—AI requires making it explicit
 - Adding adjectives to a vague request doesn't make it specific
 - Vague prompts reveal vague thinking: writing makes the gap visible
 - Words like "professional," "good," and "better" are feelings, not instructions
@@ -465,9 +525,17 @@ It's in you.
 **Restaurant metaphor:**
 - Brief. Punchy. Don't belabor it. One visual beat—1950s diner, bewildered waiter—and move on. The audience should get the analogy instantly.
 
+**Joe without the machine (NEW):**
+- This scene is critical for audience respect. Before we tell Joe what he's doing wrong with AI, we show him being *good* at his actual job. The audience needs to see competence first.
+- The vendor email should feel effortless. Forty-five seconds, no hesitation. This is a man who knows what he's doing.
+- The "X-ray" visual—layers of invisible knowledge lighting up beneath each sentence—is the signature moment. Don't linger on individual details (no lore dump). Quick flashes: invoices, a tense call, a handshake. The *feeling* of accumulated experience, not a biography.
+- The split screen (Joe writing to Dave vs. Joe prompting AI) should land as a genuine puzzle: same person, same brain, wildly different outcomes. That contrast IS the lesson.
+- "Tacit knowledge" should be introduced casually—name it, define it in one line, move on. Don't make it feel academic. It's just a useful label for something the audience already experiences every day.
+
 **"Clear thinking" section:**
 - The floating context around Joe's head is the key visual of the whole module. Everything he knows, vivid and detailed, orbiting his head—while the text box below shows only "Write me an email." The contrast is the argument. Make it stark.
 - This section should feel revelatory, not accusatory. Narrator's tone: "look at everything you already knew—you just forgot to share it."
+- The callback to Joe's Dave email ("We just watched him write a perfect email in forty-five seconds") should reinforce that this is a translation problem, not a competence problem.
 
 **"Writing is thinking" section:**
 - This is the intellectual heart. Don't rush.
@@ -499,22 +567,25 @@ It's in you.
 - Cold open / three strikes: ~2 min
 - Diagnosis / restaurant metaphor: ~3 min
 - Uncomfortable truth / good news reframe: ~3 min
-- Clear thinking section: ~6 min
+- Joe without the machine / tacit knowledge: ~2 min
+- Clear thinking section: ~5 min
 - Writing is thinking: ~6 min
 - Know thyself: ~5 min
 - The fix / sixty-second check: ~2 min
 - Joe's redemption: ~3 min
 - Part One conclusion: ~2 min
-- Target total: ~30 min (allow ±2 min)
+- Target total: ~31 min (allow ±2 min)
 
 **Visual continuity across Part One:**
 - Module 1 introduced mythology (oracles, genies, trickster gods). Module 3 callbacks with the Oracle at Delphi's "Know Thyself." Thread maintained across all three modules.
 - Module 2 introduced theater/directing as a metaphor. Module 3 briefly echoes this—Joe is still performing badly, and his redemption is a better "performance." Thread maintained.
 - Module 1's context window concept pays off concretely here: Joe now understands in practical terms what it means to fill that window with useful information.
+- The tacit→explicit theme connects to every future module in Part Two: every skill taught is fundamentally about making the implicit explicit.
 
 **Music / sound notes:**
 - Light comedy under cold open (vaudeville-style timing for the three strikes)
 - Slight gravity, but warmth, under "the uncomfortable truth"
+- Competence and ease under Joe's vendor email—the sound of someone in flow
 - Intellectual curiosity under "writing is thinking"—the sound of realizing something
 - Quiet unease under Margaret reading the wrong-sounding email
 - Clean clarity under "the fix"—the fog lifts
