@@ -54,7 +54,8 @@ Attempt three: "Write me a really good, professional email that will impress my 
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
-Notice what changed between attempts. He added adjectives. Good. Really good. Professional. Impressive. More adjectives, bigger adjectives, stacked on top of each other like a child putting extra candles on a birthday cake hoping it'll make the cake taste better.
+Notice what changed between attempts. He added adjectives. Good. Really good. Professional. Impressive. More adjectives, bigger adjectives, stacked on top of each other like a child putting extra candles on a birthday cake, hoping it'll make the cake taste better.
+<!-- Hmm, I'm wondering if the viewer will think that we are calling them a child. Then again, it would be a jarring image and get an emotional response that would help the lesson stick. Maybe leave it and see how it plays in the course. Plus, we need to work on the tone. We are going for a less-than-serious tone, but we need to be mindful not slip into needless aggression. -->
 
 *[VISUAL: Each adjective highlights and floats off the prompt, leaving the bare request behind.]*
 
@@ -74,6 +75,7 @@ This is like walking into a restaurant and saying "bring me food." When the wait
 At no point did you mention that you're allergic to shellfish, that you had Italian for lunch, or that you're celebrating an anniversary. You just kept adding adjectives to the word "food" and wondering why the kitchen can't read your mind.
 
 The kitchen isn't psychic. Neither is the machine.
+<!-- I'm seeing this as a double beat with the child putting birthday candles on the cake. Are we illustrating the idea twice, not a bad idea because this is so fundamental. I like the diner example. I guess the cake one shows the reason for shoving adjectives into a prompt doesn't really work, and this one is talking about context. Yeah, I'm getting it now. Just thinking out loud.   -->
 
 ---
 
@@ -91,7 +93,7 @@ The problem isn't the AI.
 
 **NARRATOR (V.O.):**  
 The AI did exactly what it was designed to do. It took the input it received and completed the pattern. "Write me an email" is a pattern that matches millions of generic emails in its training data. So that's what it produced. A perfectly average email, drawn from the great ocean of perfectly average emails that humans have been writing since the invention of electronic mail.
-
+<!-- Did we explain what training data is in an earlier module? This week has been crazy.     -->
 You asked for average. You got average. The machine didn't fail. It *succeeded*—at the wrong task. Because you gave it the wrong task.
 
 *[Beat.]*
@@ -115,7 +117,7 @@ There's a step missing. And that step has a name.
 
 **NARRATOR (V.O.):**  
 Thinking.
-
+<!-- I'm really curious how this will land. Humans are sensitive about their cognitive capabilities, a lot of ego wrapped up in it. But Thinking is the missing piece.   -->
 ---
 
 ## CLEAR THINKING PRECEDES CLEAR PROMPTING
@@ -127,7 +129,7 @@ This is the single most important sentence in this entire course. If you remembe
 
 **NARRATOR (V.O.):**  
 Clear thinking precedes clear prompting.
-
+<!-- So important. Maybe we should take this a step further, and add that clear prompting is just clear writing. Demystify the prompting jargon. -->
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
@@ -158,7 +160,7 @@ But the machine isn't Joe. The machine knows nothing about Margaret, nothing abo
 Joe's mistake isn't laziness. It's *assumption.* He assumed the AI could access the same context his own brain accesses automatically. As if thinking it were the same as typing it.
 
 It isn't.
-
+<!-- We should tie this into, what if Joe just wrote an email to Margaret? It might be informative to take AI away and just make them think about the process that they do on instinct, any professional has written dozens of emails a week, they don't think about it. They add that context as they write but it's never an explicit process. This is a communication course I guess. Ahg, there is something on the edge of my words that I'm trying to get to about the Human/AI connection.    -->
 ---
 
 ## WRITING IS THINKING MADE VISIBLE
@@ -171,8 +173,8 @@ Now. This problem goes deeper than prompts. Much deeper.
 **NARRATOR (V.O.):**  
 There's a concept that writers and teachers have understood for centuries: writing is thinking made visible. The act of putting words on a page isn't just *recording* your thoughts—it's *forming* them. You don't fully know what you think until you try to write it down.
 
-This is why a journal helps you process emotions you couldn't name. Why writing a business plan reveals gaps you hadn't noticed. Why explaining a problem in an email sometimes solves the problem before you hit send.
-
+This is why a journal helps you process emotions you couldn't name. Why writing a business plan reveals gaps you hadn't noticed. Why explaining a problem in an email sometimes solves the problem before you hit send?
+<!-- this is good, clear but brief examples, and ties back to the email issue from the start.    -->
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
@@ -229,7 +231,7 @@ Now try to define it. Not with another vague word—with specific, concrete inst
 If you found that difficult, you've just discovered something important. You've located the gap. And that gap—between what you feel and what you can articulate—is where most AI "failures" live.
 
 Not in the machine. In the space between your intuition and your words.
-
+<!-- Beautiful. This is the difficult part. Understanding that the real value of AI comes within the space between humans and AI, not the nouns of each, but the verbs that are created between the two. That space where creation and exploration are accelerated in a way neither can achieve on its own. -->
 ---
 
 ## KNOW THYSELF
@@ -248,7 +250,7 @@ Turns out, it's also the beginning of effective AI use.
 
 **NARRATOR (V.O.):**  
 Because here's the question underneath everything we've discussed. If you can't clearly define what good writing looks like in *your* context—your voice, your standards, your audience—how will you know when the machine gets it right?
-
+<!-- If this is the question underneath everything, it should be broader and more true than just, here is how to write a good email. That space that only AI and humans can create when the bridge of communication is functioning properly. Still show the email, but get to the deeper heart of the matter. Joe was out of alignment. Human alignment is the whole point of this course, yeah that's it. Human alignment is the deepest problem. Always has been. Eating berries in a cave and needing to share, pointless conquests throughout history, whether or not everyone should get quality healthcare. Way off scope but all showing the same things. Humans are constantly oscillating between order and chaos; that's a feature not a bug.   -->
 *[SCENE: Joe, reading a freshly generated email. It's polished. Crisp sentences. Confident assertions. It sounds... smart? Authoritative? He nods. Hits send.]*
 
 **NARRATOR (V.O.):**  
