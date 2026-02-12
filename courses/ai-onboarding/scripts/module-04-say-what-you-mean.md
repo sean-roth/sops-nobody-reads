@@ -291,7 +291,7 @@ The first message was a thinking aid. The second message was the real prompt. An
 **NARRATOR (V.O.):**  
 Marcus doesn't know what a context window is. He's never heard the term "prompt engineering." He just told the machine who he is, what he knows, and what he doesn't know. And the conversation did the rest.
 
-This is the thing the AI industry doesn't want you to realize: there is no secret. There is no technique. There's just a person with domain knowledge—twenty years of understanding soil and seasons and what grows where—having a conversation with a tool that can turn that knowledge into finished work.
+This is the thing that gets lost in all the noise about prompt engineering and AI mastery: there is no secret. There is no technique. There's just a person with domain knowledge—twenty years of understanding soil and seasons and what grows where—having a conversation with a tool that can turn that knowledge into finished work.
 
 AI is a multiplier. It amplifies what you bring to the conversation. If you bring twenty years of expertise, you get content that sounds like an expert. If you bring nothing—no context, no knowledge, no specificity—you get nothing useful back. The machine can only multiply what's there.
 
