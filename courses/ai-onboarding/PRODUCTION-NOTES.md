@@ -245,34 +245,44 @@ Planning for delivery format, artwork, voiceover, and technical implementation.
 
 ---
 
-## Pricing Considerations
+## Pricing
 
-### Direct Sales (B2C/Prosumer)
+*See ROADMAP.md for full pricing strategy. Summary here for production planning context.*
 
-**Comparable products:**
-- Coursera courses: $50-100
-- LinkedIn Learning: subscription
-- Premium courses (cohort-based): $500-2000
-- Enterprise training: $200-500/seat
+### B2B (Primary Revenue)
 
-**Potential pricing:**
-- Individual license: $199-299
-- Team license (5-10 seats): $799-1,499
-- Enterprise: Custom pricing
+- **Stage 1 pilot: $1,497** (first 3-5 clients)
+- **Stage 1 standard: $2,497** (company license, unlimited seats)
+- **Full program: $7,997** (all 3 stages)
+
+Company license model — no per-seat pricing. One number, unlimited seats, project-based sale. Matches how ICP buys training.
+
+### Individual (Secondary — Organic/Inbound)
+
+- Stage 1 Part One: Free (lead magnet)
+- Stage 1 Complete: $149
+- Full bundle: $597
 
 ### Lead Magnet Version
 
-- Free excerpt (1-2 modules, ~30 min)
-- Module 1 (What is this thing?) + Module 6 (One-shot catastrophe)
-- Ends with CTA for full course
-- Also serves as sample for SOPs Nobody Reads capability
+- Stage 1 Part One (Modules 1-3, ~75 min): Free for individuals
+- Ends with CTA for Part Two (paid) and SOPs Nobody Reads
+- B2B buyers always purchase the complete Stage 1
 
-### Enterprise/White-Label
+### White-Label / Custom (Future)
 
-- Custom branding
-- Additional modules for specific industries
-- Integration with client's existing training
-- Premium pricing: $5,000-20,000+ depending on scope
+- Custom branding, industry-specific modules, LMS integration support
+- Priced per engagement — starts at $5,000+
+- Not a priority until Stage 1 is proven in market
+
+### Production Cost Implications
+
+At $2,497 per company license with near-zero marginal cost (digital delivery), profitability depends on production investment vs. volume:
+- Professional voiceover (~$200-500/finished hour x ~2.75 hours): $550-1,375
+- Animation/design: largest variable cost
+- SCORM packaging: one-time
+- Break-even at ~2-5 sales depending on production approach
+- Every sale after that is nearly pure margin
 
 ---
 

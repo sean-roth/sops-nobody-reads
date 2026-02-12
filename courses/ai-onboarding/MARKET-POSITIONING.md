@@ -4,6 +4,36 @@ How "So You Want to Work with AI!" fits into the existing training landscape.
 
 ---
 
+## The Driver's Ed Angle
+
+This course is **driver's ed for AI.** Not the car — the skill of driving.
+
+We don't teach a specific tool (though it's best with Claude). We teach the rules of the road, basic maintenance, and hand them a travel brochure for road trips.
+
+### Why This Analogy Works
+
+- **Nobody thinks driver's ed expires.** The rules of the road don't change when a new car model comes out. Clear thinking and communication don't change when Claude gets an update.
+- **It's obviously a prerequisite.** You wouldn't hand someone keys without it. You shouldn't hand someone an AI subscription without it.
+- **It's tool-agnostic but not tool-ignorant.** Driving schools use a specific car. We teach with Claude. But the skills transfer to anything.
+- **It justifies the price differently.** Nobody haggles over driver's ed. It's foundational. You either have it or you don't.
+- **It's evergreen.** The content doesn't become obsolete when the next model drops. Foundational skills are permanent.
+
+### The Three Stages as Driver's Ed
+
+| Stage | Driver's Ed Equivalent | What They Learn |
+|-------|----------------------|-----------------|
+| Stage 1: Work With the Machine | Rules of the road + basic driving | What AI is, how to communicate with it, how to evaluate output |
+| Stage 2: Customize the Machine | Maintenance, customizing your vehicle, knowing your route | Claude Projects, custom instructions, MCP, workflows |
+| Stage 3: Build With the Machine | Road trips — long-haul navigation, building your own rig | Agents, Claude Code, multi-agent orchestration |
+
+### Messaging Implications
+
+- **For the reluctant buyer:** "You wouldn't let someone drive without training. Why are you letting them use AI without it?"
+- **For the 'we already did AI training' objection:** "Did you teach them prompt tricks, or did you teach them how to drive? There's a difference."
+- **For the evergreen concern:** "AI tools change every month. The skills we teach don't. That's why this isn't an expense — it's an investment your team keeps forever."
+
+---
+
 ## The Gap We Fill
 
 ### What Exists (Anthropic & Others)
@@ -183,7 +213,7 @@ People complete courses but still can't get useful output because the courses ta
 → "They can learn what buttons to click. They won't learn why they're still frustrated afterward. We address the thinking skills that make tutorials actually useful."
 
 **"AI is changing too fast—won't this be outdated?"**
-→ "Tool features change. Clear thinking, quality recognition, and communication skills don't. We teach the foundation that makes you effective with ANY AI tool."
+→ "Tool features change. Clear thinking, quality recognition, and communication skills don't. This is driver's ed, not a car manual. The rules of the road don't change when a new model comes out."
 
 **"This seems expensive for training."**
 → "What's the cost of your team wasting 30 minutes a day on ineffective AI use? Or worse, embarrassing errors from unreviewed output?"

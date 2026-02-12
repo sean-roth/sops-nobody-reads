@@ -143,28 +143,86 @@ Stage 3 workbook: Agent design, orchestration, automation building
 
 ---
 
-## Pricing Strategy (Preliminary)
+## Pricing Strategy
 
-### Individual / Self-Paced
-- Stage 1 Part One: Free (lead magnet)
-- Stage 1 Part Two: $49-99
-- Stage 2: $149-299
-- Stage 3: $299-499
-- Full bundle (all three stages): $399-749
+*Updated February 2026 based on market research. See MARKET-RESEARCH-FEB26.md for competitive context.*
 
-### Business / Team License
-- Stage 1 (full): $500-1,500 per company (unlimited seats)
-- Stage 2: $1,500-3,000 per company
-- Stage 3: $3,000-5,000 per company
-- Full program: $5,000-8,000 per company
-- Custom onboarding + course delivery: priced per engagement
+### Core Principle: Company License, Not Per-Seat
 
-### Workbook-Only Option
-- Individual workbook (any stage): $19-29
-- All workbooks bundle: $49-69
-- Low price point, high volume potential, zero marginal cost
+Sell to companies as a project, not a subscription. One price, unlimited seats, no seat counting. This matches how the ICP (50-500 employee companies) buys training, removes friction from the sale, and encourages full-team adoption.
 
-*Pricing to be validated by market. Start with Stage 1, let client conversations inform the rest.*
+**Why not per-seat:**
+- Adds friction (buyer counts heads, approves additions, manages licenses)
+- Discourages adoption ("do we really need it for the warehouse crew?")
+- Creates sticker shock at scale (100 seats x $149 = $14,900 vs. $2,497 flat)
+- ICP doesn't buy per-seat — they buy projects
+
+### B2B Pricing (Primary Revenue)
+
+**Stage 1: Work With the Machine**
+- **Pilot price: $1,497** — First 3-5 clients. Same deliverable, lower barrier. Gets testimonials and case studies.
+- **Standard price: $2,497** — Company license, unlimited seats.
+- **Enterprise (500+ employees): Custom** — Quote per conversation. Starts at $4,997.
+
+**Future Stages (framework — validate with Stage 1 client feedback):**
+
+| Stage | Company License | Enterprise |
+|-------|----------------|------------|
+| Stage 1: Work With the Machine | $2,497 | Custom |
+| Stage 2: Customize the Machine | $3,497 | Custom |
+| Stage 3: Build With the Machine | $4,497 | Custom |
+| **Full Program Bundle** | **$7,997** | **Custom** |
+
+Full program saves ~24% vs. buying individually ($10,491).
+
+**What's included in every company license:**
+- All modules for that stage
+- Workbook Companion files (Claude-as-tutor prompts)
+- SCORM 1.2/2004 package (drops into any LMS)
+- Quiz/assessment modules with completion tracking
+- 1 year of content updates
+
+### Why These Numbers
+
+- **$2,497 sits between the $1,500 Basic SOP package and $3,000 Standard** — familiar territory for the ICP
+- At 50 employees = $50/person (vs. $874 industry average per-learner spend)
+- At 100 employees = $25/person
+- Less than one day of a corporate trainer ($2,000-5,000) for reusable content they keep forever
+- Premium enough to signal professional quality; low enough for manager approval without C-suite escalation
+- **Evergreen content justifies the investment** — this is driver's ed, not a car manual. It doesn't expire.
+
+### SOPs Nobody Reads Bundle Pricing
+
+Each product is the on-ramp for the other:
+- SOP prospect → "Your team needs AI literacy first" → Course
+- Course prospect → "Now convert your SOPs into training" → SOPs Nobody Reads
+
+| Bundle | Price | Savings |
+|--------|-------|---------|
+| AI Course Stage 1 + 1 SOP Module | $3,497 | ~$500 |
+| AI Course Stage 1 + Standard SOP Package | $4,997 | ~$500 |
+| AI Course Full Program + Premium SOP Package | $14,997 | ~$3,000 |
+
+### Individual / Self-Paced (Secondary — Organic/Inbound)
+
+Not the primary sales channel. Feeds the B2B pipeline.
+
+| Product | Price |
+|---------|-------|
+| Stage 1 Part One | Free (lead magnet) |
+| Stage 1 Complete | $149 |
+| Stage 2 | $249 |
+| Stage 3 | $349 |
+| Full bundle | $597 |
+| Workbook only (any stage) | $29 |
+
+### The Buyer's Objection Handler
+
+**"That's expensive for an online course."**
+> "At $2,497 for your whole company, that's less than $50 per person for professional AI training they can start using this week. Compare that to $2,000-5,000 for one day of a trainer who walks out the door. This stays in your LMS forever."
+
+**"We can just use free resources."**
+> "You can. And most teams do — then 6 months later they're still getting garbage output and blaming the AI. This is driver's ed. You wouldn't skip it and hand someone the keys."
 
 ---
 
