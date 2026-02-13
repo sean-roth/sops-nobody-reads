@@ -1,132 +1,122 @@
 # SOPsNobodyReads.com
 
-> Turn documents nobody reads into training everyone completes.
+> Turn documents nobody reads into training that sticks.
 
 ---
 
-## 🚀 Quick Start - Today's Setup
+## What This Is
 
-### Accounts to Create (in order)
-1. **Domain** → [Namecheap](https://namecheap.com) or [Porkbun](https://porkbun.com) - sopsnobodyreads.com
-2. **Google Workspace** → [workspace.google.com](https://workspace.google.com) - hello@sopsnobodyreads.com ($6/mo)
-3. **Moxie** → [withmoxie.com](https://withmoxie.com) - Pro plan ($20/mo)
-4. **Carrd** → [carrd.co](https://carrd.co) - Pro plan ($19/yr)
-5. **SCORM Cloud** → [scormcloud.com](https://cloud.scorm.com) - Free tier
+SOPs Nobody Reads converts company documentation into SCORM-compliant training modules that employees actually retain. We don't make training people enjoy — we make mandatory training that works.
 
-### DNS Setup (after domain + Google Workspace)
-Add these records at your registrar:
-- MX records for Google Workspace email
-- TXT record for domain verification
-- CNAME for Carrd custom domain
+## Production Pipeline
 
-### Social Accounts to Claim
-- [ ] LinkedIn: /company/sopsnobodyreads
-- [ ] YouTube: @sopsnobodyreads  
-- [ ] Instagram: @sopsnobodyreads
-- [ ] Twitter/X: @sopsnobodyreads (just to hold)
+See [`workflows/PRODUCTION-PIPELINE.md`](workflows/PRODUCTION-PIPELINE.md) for the full technical workflow.
 
----
+```
+Client SOPs → Analysis → Script → Visuals → Audio → SCORM Assembly → Testing → Delivery
+```
 
-## Business Overview
-
-**Service:** SOP-to-Training module conversion  
-**Target:** SMBs (50-500 employees) with compliance, onboarding, or process training needs  
-**Delivery:** SCORM packages compatible with any LMS  
-**Turnaround:** 2 weeks (reducing as we optimize)  
-
-## Pricing
-
-| Tier | Deliverable | Price |
-|------|-------------|-------|
-| Basic | 30-min training module (text + quiz) | $1,500 |
-| Standard | 60-min module + video scripts | $3,000 |
-| Premium | Full onboarding program (5+ modules) | $10,000+ |
-
-See [docs/pricing.md](docs/pricing.md) for volume discounts, rush fees, and objection handling.
-
-## Tech Stack
-
-| Need | Tool | Cost |
-|------|------|------|
-| Website | Carrd | $19/year |
-| Email | Google Workspace | $6/month |
-| CRM/Invoicing | Moxie Pro | $20/month |
-| Payments | Stripe (via Moxie) | 2.9% + $0.30 |
-| Previews | SCORM Cloud | Free tier |
-| File Storage | Google Drive | Included |
-| Content | Claude | Existing |
-
-**Total fixed cost: ~$28/month**
+| Stage | Tool | Output |
+|-------|------|--------|
+| 1. Intake & Analysis | Claude + SOP Analyzer Skill | Structured training brief |
+| 2. Script Development | Claude + Sean (collaborative) | Module scripts in markdown |
+| 3. Visual Production | Gamma API + Replicate | PPTX slides / image assets |
+| 4. Audio Production | Hume AI (Octave TTS) | MP3 narration per slide |
+| 5. SCORM Assembly | Claude + SCORM Builder Skill | SCORM .zip packages |
+| 6. Testing | SCORM Cloud + Moodle | Validated, bug-free packages |
+| 7. Delivery | Google Drive + Stripe | Final files + invoice |
 
 ## Repository Structure
 
 ```
+├── courses/
+│   └── ai-onboarding/           # First product: AI onboarding course
+│       ├── scripts/               # Module scripts (Modules 1-6)
+│       └── MARKET-POSITIONING.md  # Competitive positioning
 ├── docs/
-│   ├── landing-page-copy.md      # ✅ Website copy for Carrd
-│   ├── intake-form.md            # ✅ Customer intake questions
-│   ├── proposal-template.md      # ✅ Moxie proposal template
-│   ├── pricing.md                # ✅ Pricing logic and discounts
-│   ├── outreach-templates.md     # ✅ Cold email templates
-│   ├── setup-checklist.md        # ✅ Launch checklist
-│   └── social-strategy.md        # ✅ LinkedIn, YouTube, Instagram
+│   ├── landing-page-copy.md     # Website copy
+│   ├── intake-form.md           # Customer intake questions
+│   ├── proposal-template.md     # Proposal template
+│   ├── pricing.md               # Pricing logic
+│   ├── outreach-templates.md    # Email templates (6 hooks)
+│   └── setup-checklist.md       # Launch checklist
 ├── workflows/
-│   ├── claude-prompts.md         # ✅ Prompts for SOP analysis and content generation
-│   └── delivery-process.md       # ✅ Step-by-step fulfillment workflow
-├── examples/
-│   └── (demo modules go here)
-└── assets/
-    └── (logos, images go here)
+│   ├── PRODUCTION-PIPELINE.md   # Full production workflow
+│   ├── delivery-process.md      # Client delivery process
+│   └── claude-prompts.md        # AI prompts for SOP analysis
+├── skills/
+│   ├── sop-analyzer/            # Skill: analyze client SOPs
+│   │   └── SKILL.md
+│   └── scorm-builder/           # Skill: assemble SCORM packages
+│       ├── SKILL.md
+│       ├── references/
+│       │   ├── manifest-reference.md
+│       │   └── scorm-api-reference.md
+│       └── assets/                # Player template (TO BUILD)
+│           ├── player-template/
+│           └── themes/
+└── tools/
+    ├── gamma-mcp/               # MCP server: Gamma API
+    │   ├── server.py
+    │   ├── requirements.txt
+    │   └── README.md
+    └── hume-tts-mcp/            # MCP server: Hume AI TTS
+        ├── server.py
+        ├── requirements.txt
+        └── README.md
 ```
 
-## Launch Status
+## Tool Accounts
 
-### Infrastructure
-- [x] Domain identified: sopsnobodyreads.com
-- [x] Secondary domain identified: soptoscorm.com (future self-service tool)
-- [ ] Domain purchased
-- [ ] Google Workspace setup
-- [ ] DNS configured
-- [ ] Moxie account created
-- [ ] Stripe connected to Moxie
-- [ ] Carrd landing page live
-- [ ] Intake form working
+| Service | Purpose | Status |
+|---------|---------|--------|
+| Gamma | Slide/visual generation | SETUP NEEDED |
+| Hume AI | TTS narration (Octave) | SETUP NEEDED |
+| Replicate | Custom image generation | Active |
+| SCORM Cloud | Package testing | SETUP NEEDED |
+| Stripe | Payments | Active (connected to Mercury) |
+| Google Workspace | Email + Drive | Active |
 
-### Content & Workflow
-- [ ] Demo module created (public SOP)
-- [ ] SCORM packaging tested
-- [ ] Claude workflow tested end-to-end
+## Tech Stack Cost
 
-### Go to Market
-- [ ] LinkedIn company page
-- [ ] First outreach batch sent (10-20 emails)
-- [ ] Chamber of Commerce outreach
-- [ ] First customer signed
+| Item | Cost |
+|------|------|
+| Google Workspace | $6/mo |
+| Domain | ~$12/yr |
+| Gamma Pro (API access) | TBD |
+| Hume AI Growth | ~$0.10/1K chars |
+| Replicate | Pay per generation |
+| **Per-module production cost** | **~$3-7** |
 
-## Outreach Channels
+## Current Status
 
-| Channel | Priority | Notes |
-|---------|----------|-------|
-| LinkedIn DM | High | Direct to HR/Ops managers |
-| Cold email | High | See [outreach-templates.md](docs/outreach-templates.md) |
-| Chamber of Commerce | Medium | Directory listings, member intros |
-| Upwork/Freelance | Low | Lower margins, but volume |
+### Infrastructure ✅
+- [x] Domain: sopsnobodyreads.com
+- [x] Landing page live (custom scoping, no pricing)
+- [x] Google Form intake → Sheet pipeline
+- [x] Stripe → Mercury connected
+- [x] Email templates (6 hooks, personalization rules)
+- [x] Outreach warmup started
 
-## Future Evolution
+### AI Onboarding Course (First Product)
+- [x] All 6 module scripts written
+- [x] 24 quiz questions
+- [x] Market positioning complete
+- [ ] Gamma account + visual generation
+- [ ] Hume AI account + voice design
+- [ ] SCORM player template built
+- [ ] Module 1 test package assembled
+- [ ] Testing on SCORM Cloud + Moodle
 
-| Phase | Focus | Revenue Model |
-|-------|-------|---------------|
-| **1 (Now)** | Concierge service | $1,500+ per module |
-| **2** | Templated workflows | Faster delivery, same pricing |
-| **3** | SOPtoSCORM.com | Self-service $99-299/mo |
+### Production Pipeline
+- [x] Full workflow documented
+- [x] SOP Analyzer Skill created
+- [x] SCORM Builder Skill created (references done, player template pending)
+- [x] Gamma MCP tool built
+- [x] Hume TTS MCP tool built
+- [ ] SCORM player template (HTML/CSS/JS)
+- [ ] End-to-end pipeline test
 
 ---
 
-## Key Links (Update as created)
-
-- Website: https://sopsnobodyreads.com (pending)
-- LinkedIn: https://linkedin.com/company/sopsnobodyreads (pending)
-- Email: hello@sopsnobodyreads.com (pending)
-
----
-
-*"Your SOPs deserve to be more than PDF paperweights."*
+*"Your team will complete this like any other mandatory training. The difference is they'll actually remember it."*
