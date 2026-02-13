@@ -216,7 +216,7 @@ People complete courses but still can't get useful output because the courses ta
 → "Tool features change. Clear thinking, quality recognition, and communication skills don't. This is driver's ed, not a car manual. The rules of the road don't change when a new model comes out."
 
 **"This seems expensive for training."**
-→ "What's the cost of your team wasting 30 minutes a day on ineffective AI use? Or worse, embarrassing errors from unreviewed output?"
+→ "What happens when someone on your team presents AI-generated numbers to leadership and can't source them? Or sends a client a proposal with fabricated statistics? That's not a productivity problem — that's a liability. One bad output that reaches the wrong audience costs more than this training ever will. And it's a one-time purchase — these skills don't expire, so you're not paying again next quarter when the tools update."
 
 **"Why not just use Anthropic's free courses?"**
 → "Great courses! They teach the tools. We teach why your people aren't getting value from the tools. Start with us, then their courses will actually land."
