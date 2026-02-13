@@ -7,30 +7,37 @@
 
 ## COLD OPEN
 
-*[SCENE: Two versions of the same Monday morning. Same person — call her Dana, early 40s, director of client services at a mid-size firm. Two parallel timelines.]*
+*[SCENE: Two versions of the same Monday morning. Same person — call her Dana, early 40s, director of client services at a mid-size firm. Two parallel timelines. Same task: respond to Northbridge, a long-standing client, about a missed Phase 2 deadline.]*
 
 **Timeline A:**
 
-*[Dana opens AI. Stares at the blank input. Types:]*
+*[Dana opens AI. She knows what she's doing — she learned the skills. She writes a solid prompt.]*
 
-**DANA (A):** *(typing)* Help me write a response to a client who's upset about a missed deadline.
+**DANA (A):** *(typing)* I need to respond to a client who's upset about a missed project deadline. The client is Northbridge — they're our longest-standing account. The delay was caused by a vendor issue, not our team. I need to acknowledge the miss without making excuses, explain what happened, and give them a revised timeline. The contact is Sarah Chen, their VP of Operations — she's direct and doesn't like fluff. Keep it concise and honest.
 
-*[The response comes back. Polished. Professional. Completely wrong tone for this client, this relationship, this situation. Dana sighs, starts over. Adds more detail. Gets something closer. Still not right. Adds more. Iterates. Ten minutes in, she's rewriting most of it herself anyway.]*
+*[Good prompt. The response comes back. It's competent. Structured well. Hits the right notes. But the tone is slightly off — a little too cautious, a little too formal for this relationship. It opens with "I want to sincerely apologize" which isn't how Dana talks to clients she's known for years. It doesn't capture the ease of a decade-long partnership. Dana reads it, adjusts the opening, softens two sentences, makes it sound more like her. Sends it. Five minutes total. Good outcome.]*
 
 **Timeline B:**
 
-*[Dana opens AI. But this time, before she types anything, she drops in a document. A single page. Then she types:]*
+*[Dana opens AI. Same task. But before she types, she drops in a one-page document. Then she writes a prompt — not longer, not more detailed. Just the task.]*
 
-**DANA (B):** *(typing)* Northbridge is upset about the Phase 2 delay. They're our longest-standing client — you have the context. I need a response that acknowledges the miss, explains the vendor issue without making excuses, and gives them a revised timeline. Sarah Chen is the contact — she's direct and doesn't like fluff.
+**DANA (B):** *(typing)* Northbridge is upset about the Phase 2 delay — vendor issue, not us. Need to respond to Sarah Chen. Acknowledge the miss, explain without excusing, give revised timeline. You have the context.
 
-*[The response comes back. It gets the tone right. It references the relationship correctly. It handles the vendor issue with the right level of candor. Dana reads it, changes one line, hits send. Three minutes.]*
+*[The response comes back. It's right. Not just structured well — it sounds like Dana. It opens the way she'd open with a client she's known for ten years — direct, not groveling. It handles the vendor issue with candor, not corporate hedging. It ends with a specific next step, not a vague promise. Dana reads it, changes one word, hits send. Two minutes.]*
 
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
-Same person. Same task. Same AI.
+Same person. Same skill level. Same AI.
+
+Timeline A wrote a good prompt and got a good result that needed adjusting. Timeline B wrote a shorter prompt and got a better result on the first try.
 
 The difference is one page.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**  
+And here's what matters most: tomorrow morning, Dana B will do this again. Different task, different client, same document. And the output will be right again — because the machine already knows how she sounds, who she talks to, and what she considers good work. Timeline A has to rebuild that context every time.
 
 *[TITLE CARD: "Build Your Playbook"]*
 
@@ -44,9 +51,9 @@ The document Dana loaded is what we call a Working Context Document. Think of it
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
-Without it, every conversation with AI starts from zero. You have to re-explain your role, your tone, your standards, your audience — every single time. It's like briefing a new temp worker every morning who has no memory of yesterday.
+Without it, every conversation with AI starts from a good-but-incomplete foundation. You can write a strong prompt — Dana A proved that. But the machine still has to guess at your voice, your relationship dynamics, your standards. And those guesses are where the extra editing comes from.
 
-With it, the machine already knows the basics. Your first message can skip the preamble and get straight to the work. The context document does the heavy lifting so your prompts can be short, specific, and focused on the task at hand.
+With it, the machine already knows the basics. Your prompt can focus entirely on the task because the context document handles everything else. Same effort. Better output. Every time.
 
 *[Beat.]*
 
@@ -221,9 +228,10 @@ Your Working Context Document is the proof that you've made that shift. Keep it.
 - A Working Context Document is a reusable reference that gives AI your role, voice, audiences, standards, and boundaries
 - Five sections: Who You Are, Who You Talk To, How You Sound, What Good Looks Like, What to Avoid
 - Build it as a conversation with AI, not by filling in a template
-- It eliminates repetitive setup from every future interaction
+- Same prompt effort, better output — the document elevates quality without adding work
 - It's a living document — update it as your work changes
 - The compound effect: better starting points → less iteration → consistently higher quality output
+- Repeatability: the document works tomorrow, next week, and next month without rebuilding
 - Your voice section is the most impactful — go read your own sent emails to find it
 - This is the capstone of the course: your tacit knowledge, made explicit, made permanent
 
@@ -241,10 +249,10 @@ What is the primary purpose of a Working Context Document?
 **Correct Answer: B**
 
 **Question 2:**  
-Dana's response to her upset client was better in Timeline B because:  
+In the cold open, both Dana A and Dana B wrote strong prompts. Dana B got better output because:  
 - A) She used a more expensive AI model  
 - B) She wrote a longer, more detailed prompt  
-- C) The AI already had her role, voice, and client context from her Working Context Document  
+- C) Her Working Context Document gave the AI her voice, standards, and relationship context — so the output was right on the first try  
 - D) She copied a template from the internet  
 
 **Correct Answer: C**
@@ -272,8 +280,11 @@ You've been using your Working Context Document for two weeks. The AI keeps prod
 ## NOTES FOR PRODUCTION
 
 **Cold open — two timelines:**
-- This is the "before and after" that sells the entire module. The contrast between Dana A (struggling through setup) and Dana B (dropping in context and going straight to work) should feel dramatic but achievable. The audience should think: "I want to be Timeline B."
-- Dana B's prompt is short — that's the point. The context document did the work. Her prompt is just the task. Show how brief it is compared to Dana A's frustrated re-explaining.
+- Critical change from earlier draft: BOTH Danas write good prompts. Dana A is not a beginner — she's someone who learned the Module 4 skills. The point is NOT that Dana B typed more or was more detailed. The point is that the context document made the same level of effort produce better output.
+- Dana A gets a good result that needs adjusting (tone is slightly off, opening doesn't match her style). Five minutes. Good outcome.
+- Dana B gets a right result on the first try. Two minutes. Same effort in the prompt, less effort in the editing.
+- The visual should make this clear: Dana B's prompt is SHORTER than Dana A's. The context document did the heavy lifting.
+- The narrator's line about repeatability ("tomorrow morning, Dana B will do this again") is the real selling point. It's not just one better email — it's every email, every day, from now on.
 
 **Five sections:**
 - Present these conversationally, not as a rigid framework. The framing should be "five things the machine needs to know" not "five sections to fill out." Keep it feeling like advice, not homework.
