@@ -26,7 +26,7 @@
 **NARRATOR (V.O.):**  
 Kevin didn't lie. He didn't cut corners on purpose. He trusted output that sounded authoritative, and he didn't verify it. And now his credibility is damaged in a room that matters.
 
-This is the risk nobody talks about when they talk about AI productivity.
+This is the risk everyone warns you about — and almost nobody prepares you for. Knowing AI can hallucinate is easy. Catching it in the moment, when the output looks polished and you're in a hurry? That's the hard part.
 
 *[TITLE CARD: "Rules of the Road"]*
 
