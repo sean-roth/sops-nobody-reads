@@ -222,7 +222,7 @@ That's the whole course. Not a bag of tricks. Not a list of templates. A fundame
 *[Beat.]*
 
 **NARRATOR (V.O.):**  
-You started this course as someone who probably typed a sentence into AI and hoped for the best. You're leaving it as someone who understands why that doesn't work — and who has the skills and the tools to do it right.
+You started this course as someone who maybe typed a sentence into AI and hoped for the best. You're leaving it as someone who understands why that doesn't work — and who has the skills and the tools to do it right.
 
 The Working Context Document you built in Module 5? Use it tomorrow. Use it every day. Update it. Let it grow. It's the most tangible proof that you've internalized what this course teaches: that the intelligence is yours, and the machine is just waiting for you to share it.
 
