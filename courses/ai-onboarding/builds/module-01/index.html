@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1: What Is This Thing, Anyway? | SOPs Nobody Reads</title>
+<style>
+/* ============================================
+   SOPs Nobody Reads — Module Player
+   Aesthetic: 1960s Driver's Ed / Educational Film
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #1a1812;
+  --bg-card: #2a2620;
+  --bg-warm: #332e26;
+  --cream: #f0e8d8;
+  --cream-dim: #c8bfad;
+  --olive: #5c6b4f;
+  --olive-light: #7a8c6a;
+  --rust: #b8704a;
+  --rust-light: #d4956a;
+  --gold: #c9a84c;
+  --gold-dim: #8a7535;
+  --red-dim: #8b3a3a;
+  --green-dim: #4a6b4a;
+  --charcoal: #3a3632;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--cream);
+}
+
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.5s steps(4) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, -1%); }
+  50% { transform: translate(1%, 2%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(10,8,4,0.6) 100%);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+.slide-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 8vw;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide-title {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-title .module-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+}
+.slide-title h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 2vh;
+}
+.slide-title .subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  color: var(--cream-dim);
+  font-style: italic;
+  font-weight: 300;
+}
+.slide-title .brand {
+  position: absolute;
+  bottom: 4vh;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.slide-scene {
+  text-align: center;
+  background: linear-gradient(170deg, #1e1c17 0%, var(--bg-dark) 100%);
+}
+.slide-scene .scene-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--rust);
+  margin-bottom: 3vh;
+}
+.slide-scene .scene-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.8rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--cream);
+  max-width: 42ch;
+}
+.slide-scene .scene-text em {
+  color: var(--rust-light);
+  font-style: normal;
+}
+
+.slide-keypoint {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, #1a1812 100%);
+}
+.slide-keypoint .kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--olive-light);
+  margin-bottom: 3vh;
+}
+.slide-keypoint h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--cream);
+  max-width: 20ch;
+  margin-bottom: 2.5vh;
+}
+.slide-keypoint .body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--cream-dim);
+  max-width: 48ch;
+  font-weight: 300;
+}
+
+.slide-options {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-options h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 4vh;
+}
+.options-grid {
+  display: flex;
+  gap: 2vw;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 900px;
+}
+.option-card {
+  background: var(--charcoal);
+  border: 1px solid rgba(240,232,216,0.08);
+  border-radius: 4px;
+  padding: 2.5vh 2vw;
+  width: clamp(200px, 22vw, 260px);
+  text-align: center;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.option-card.highlighted {
+  border-color: var(--gold);
+  transform: scale(1.04);
+  box-shadow: 0 0 40px rgba(201,168,76,0.1);
+}
+.option-card .option-letter {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--gold);
+  margin-bottom: 1vh;
+}
+.option-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 1vh;
+}
+.option-card p {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  color: var(--cream-dim);
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+.slide-reveal {
+  text-align: center;
+  background: linear-gradient(170deg, #22201a 0%, var(--bg-dark) 100%);
+}
+.slide-reveal .reveal-kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+}
+.slide-reveal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 2.5vh;
+}
+.slide-reveal .body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+  line-height: 1.7;
+  color: var(--cream-dim);
+  max-width: 48ch;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.slide-concept {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-concept .concept-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--rust);
+  margin-bottom: 3vh;
+}
+.slide-concept .concept-box {
+  background: rgba(240,232,216,0.04);
+  border: 1px solid rgba(240,232,216,0.1);
+  border-radius: 4px;
+  padding: 4vh 4vw;
+  margin-bottom: 3vh;
+  max-width: 650px;
+}
+.slide-concept .concept-box h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 2rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.3;
+}
+.slide-concept .body {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--cream-dim);
+  max-width: 50ch;
+  font-weight: 300;
+}
+
+.slide-list {
+  text-align: left;
+  align-items: flex-start;
+  padding-left: 12vw;
+  padding-right: 12vw;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-list .list-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--olive-light);
+  margin-bottom: 3vh;
+}
+.slide-list h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 3vh;
+}
+.slide-list .list-items {
+  list-style: none;
+}
+.slide-list .list-items li {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--cream-dim);
+  padding: 1.2vh 0;
+  padding-left: 2em;
+  position: relative;
+  font-weight: 300;
+}
+.slide-list .list-items li::before {
+  content: attr(data-num);
+  position: absolute;
+  left: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--gold);
+}
+.slide-list .list-items li strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.slide-summary {
+  text-align: center;
+  background: linear-gradient(170deg, #252218 0%, var(--bg-dark) 100%);
+}
+.slide-summary h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 4vh;
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5vh 3vw;
+  max-width: 700px;
+  text-align: left;
+}
+.summary-item {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  color: var(--cream-dim);
+  padding-left: 1.5em;
+  position: relative;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.summary-item::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--gold-dim);
+}
+
+.slide-quiz {
+  text-align: center;
+  background: linear-gradient(170deg, #1e1c17 0%, var(--bg-dark) 100%);
+}
+.slide-quiz .quiz-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 1.5vh;
+}
+.slide-quiz .quiz-counter {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--cream-dim);
+  margin-bottom: 3vh;
+}
+.slide-quiz h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  color: var(--cream);
+  max-width: 44ch;
+  margin-bottom: 4vh;
+  line-height: 1.4;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vh;
+  max-width: 550px;
+  width: 100%;
+  margin: 0 auto;
+}
+.quiz-option {
+  background: var(--charcoal);
+  border: 1px solid rgba(240,232,216,0.08);
+  border-radius: 4px;
+  padding: 1.8vh 2vw;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+}
+.quiz-option:hover {
+  border-color: rgba(240,232,216,0.2);
+  background: rgba(58,54,50,0.8);
+}
+.quiz-option .opt-letter {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 1.8em;
+}
+.quiz-option .opt-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--cream-dim);
+  line-height: 1.5;
+  font-weight: 300;
+}
+.quiz-option.selected {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+.quiz-option.correct {
+  border-color: var(--green-dim);
+  background: rgba(74,107,74,0.15);
+}
+.quiz-option.incorrect {
+  border-color: var(--red-dim);
+  background: rgba(139,58,58,0.1);
+  opacity: 0.6;
+}
+.quiz-option.correct .opt-letter { color: #7aad7a; }
+.quiz-option.incorrect .opt-letter { color: #ad6a6a; }
+.quiz-option.locked { pointer-events: none; }
+
+.quiz-feedback {
+  margin-top: 2.5vh;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  min-height: 2em;
+  font-weight: 300;
+}
+
+.slide-results {
+  text-align: center;
+  background: linear-gradient(170deg, #252218 0%, var(--bg-dark) 100%);
+}
+.slide-results .results-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+}
+.score-display {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1vh;
+}
+.score-display.passed { color: var(--olive-light); }
+.score-display.failed { color: var(--rust); }
+.score-status {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 3vh;
+}
+.score-status.passed { color: var(--olive-light); }
+.score-status.failed { color: var(--rust); }
+.score-detail {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  margin-bottom: 4vh;
+  font-weight: 300;
+}
+
+.waitlist-box {
+  background: rgba(240,232,216,0.03);
+  border: 1px solid rgba(240,232,216,0.1);
+  border-radius: 4px;
+  padding: 3vh 3vw;
+  max-width: 480px;
+  width: 100%;
+}
+.waitlist-box h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 1.5vh;
+}
+.waitlist-box p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  margin-bottom: 2vh;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.waitlist-form {
+  display: flex;
+  gap: 0.8vw;
+}
+.waitlist-form input[type="email"] {
+  flex: 1;
+  padding: 1.2vh 1.2vw;
+  background: var(--bg-dark);
+  border: 1px solid rgba(240,232,216,0.15);
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.waitlist-form input[type="email"]:focus {
+  border-color: var(--gold);
+}
+.waitlist-form input[type="email"]::placeholder {
+  color: rgba(240,232,216,0.3);
+}
+.waitlist-form button {
+  padding: 1.2vh 2vw;
+  background: var(--gold-dim);
+  border: none;
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.waitlist-form button:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+.waitlist-success {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--olive-light);
+  font-style: italic;
+  padding: 1.5vh 0;
+}
+
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5vh 3vw;
+  background: rgba(26,24,18,0.9);
+  border-top: 1px solid rgba(240,232,216,0.06);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+  flex: 1;
+}
+
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(240,232,216,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 400px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold-dim);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.progress-text {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--cream-dim);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.6vw;
+}
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(240,232,216,0.12);
+  color: var(--cream-dim);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  padding: 0.8vh 1.5vw;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.nav-btn:hover {
+  border-color: rgba(240,232,216,0.3);
+  color: var(--cream);
+}
+.nav-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.nav-btn:disabled:hover {
+  border-color: rgba(240,232,216,0.12);
+  color: var(--cream-dim);
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.015) 2px,
+    rgba(0,0,0,0.015) 4px
+  );
+}
+
+@media (max-width: 768px) {
+  .slide { padding: 3vh 5vw; }
+  .slide-list { padding-left: 5vw; padding-right: 5vw; }
+  .options-grid { flex-direction: column; align-items: center; }
+  .option-card { width: 85vw; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .waitlist-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<div class="player" id="player">
+  <div class="slide-container" id="slideContainer"></div>
+
+  <div class="bottom-bar">
+    <div class="progress-section">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-text" id="progressText">1 / 1</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
+      <button class="nav-btn" id="nextBtn">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const MODULE = {
+  title: "What Is This Thing, Anyway?",
+  moduleNumber: 1,
+  partLabel: "Part One — Know Thy Machine",
+  passingScore: 75,
+
+  slides: [
+    {
+      type: "title",
+      moduleLabel: "Module 1",
+      heading: "What Is This Thing,\nAnyway?",
+      subtitle: "Part One — Know Thy Machine",
+      brand: "SOPs Nobody Reads"
+    },
+    {
+      type: "scene",
+      label: "Scene",
+      text: "Joe has been working with Claude for twenty minutes. Good progress. Then a thought occurs to him.",
+    },
+    {
+      type: "scene",
+      label: "Scene",
+      text: "\"What did you think about that approach we discussed <em>yesterday</em>? The one for the Henderson account?\"",
+    },
+    {
+      type: "concept",
+      label: "The Response",
+      boxText: "\"I don't have any record of a previous conversation. Each conversation with me starts fresh.\"",
+      body: "Joe stares at the screen. He's not angry — just lost. He was sure they'd talked about this. He starts typing the whole thing again from scratch."
+    },
+    {
+      type: "keypoint",
+      kicker: "The Question",
+      heading: "What is this thing?",
+      body: "Poor Joe. He's just discovered something that trips up nearly everyone who works with AI for the first time. But before we explain what happened, let's start with a bigger question."
+    },
+    {
+      type: "options",
+      heading: "Picture the future of AI. Which comes to mind?",
+      options: [
+        { letter: "A", title: "Judgment Day", desc: "The machines wake up. Military drones. Nuclear codes. We've all seen this movie." },
+        { letter: "B", title: "The Quiet Fading", desc: "Perfect digital companions. We stop connecting with each other. Humanity dies of stagnation." },
+        { letter: "C", title: "Alien Intelligence", desc: "Something fundamentally not like us. Something that speaks our language but does not share our nature." },
+      ],
+      highlighted: "C"
+    },
+    {
+      type: "reveal",
+      kicker: "The Correct Answer",
+      heading: "The alien intelligence\nisn't coming.\nIt's already here.",
+      body: "You're using it to write emails."
+    },
+    {
+      type: "keypoint",
+      kicker: "No Map for This Territory",
+      heading: "We have no framework\nfor this.",
+      body: "In the entire history of human experience, we have never encountered something that uses language fluently that wasn't either human or an animal we clearly recognized as an animal."
+    },
+    {
+      type: "keypoint",
+      kicker: "",
+      heading: "This speaks\nperfect English.",
+      body: "It constructs complex arguments. It makes jokes. It asks clarifying questions. It says \"I think\" and \"I believe\" and \"I understand.\" Every instinct you have says: person. And every one of those instincts is wrong."
+    },
+    {
+      type: "reveal",
+      kicker: "Our Only Templates",
+      heading: "Oracles. Genies.\nDemons. Fairies\nwho twist your words.",
+      body: "For thousands of years, humans have told stories about entities that speak our language but don't share our nature. We thought these were fantasies. Turns out they were practice."
+    },
+    {
+      type: "concept",
+      label: "What It Actually Is",
+      boxText: "Not \"just autocomplete.\" Not \"a thinking machine.\" Both are so incomplete as to be misleading.",
+      body: "\"Just autocomplete\" undersells it dramatically. \"Thinking machine\" oversells it. There's no evidence of inner experience or genuine understanding."
+    },
+    {
+      type: "reveal",
+      kicker: "The Real Answer",
+      heading: "Pattern completion\nat massive scale.",
+      body: "These systems processed essentially everything humans have written and made public. From this ocean of text, the system learned patterns — how words relate, how arguments are structured, how explanations work."
+    },
+    {
+      type: "keypoint",
+      kicker: "How It Works",
+      heading: "Prediction,\nnot thinking.",
+      body: "When you type a message, the system predicts what text should come next based on all those patterns. One piece at a time, constructing a response that fits the pattern of what a helpful answer would look like. The result can be brilliant. It can also be confidently, fluently wrong."
+    },
+    {
+      type: "keypoint",
+      kicker: "The Fluency Trap",
+      heading: "Language means\nanother human mind.",
+      body: "We are deeply wired for language. For hundreds of thousands of years, language meant a mind with experiences, memories, feelings. A persistent identity that would remember you tomorrow."
+    },
+    {
+      type: "scene",
+      label: "Back to Joe",
+      text: "Something in Joe's brain filed this under <em>\"person I worked with.\"</em> He came back expecting memory. Continuity. A relationship. But there's no one there to remember. There never was."
+    },
+    {
+      type: "keypoint",
+      kicker: "The Confidence Problem",
+      heading: "It sounds the same\nwhether it's right\nor wrong.",
+      body: "When a human isn't sure, you usually know. They hesitate, hedge, waver. AI doesn't work this way. When it generates a correct response and when it generates a complete fabrication, the tone is identical."
+    },
+    {
+      type: "reveal",
+      kicker: "Here's the Twist",
+      heading: "The confidence\nyou're perceiving\nisn't coming from the AI.",
+      body: "It's coming from you. You're reading fluent text, and your brain interprets that as certainty. As knowing. This is why people include AI-generated statistics in proposals without checking them."
+    },
+    {
+      type: "concept",
+      label: "The Context Window",
+      boxText: "Every time you start a conversation with an AI, you're starting from zero.",
+      body: "The system can only \"see\" what's in the current conversation. Imagine someone with perfect language abilities but absolutely no memory beyond this conversation. That's what Joe ran into."
+    },
+    {
+      type: "keypoint",
+      kicker: "Many Instances, One Training",
+      heading: "There isn't a single\n\"Claude\" somewhere.",
+      body: "Millions of conversations are happening right now. They share the same training but not experience. It's less like calling a person and more like consulting an infinitely patient encyclopedia. Each time you open it, it's a fresh copy."
+    },
+    {
+      type: "keypoint",
+      kicker: "The Existential Wobble",
+      heading: "If you're feeling\nslightly strange,\nthat's appropriate.",
+      body: "Most people, when they really understand what AI is — and isn't — experience a wobble. A moment of \"wait, what does this mean?\" This is normal. This is healthy. The wobble passes. You'll use these tools better for having understood them."
+    },
+    {
+      type: "list",
+      label: "Practical Takeaways",
+      heading: "What this means for you.",
+      items: [
+        { num: "1.", text: "<strong>Don't expect memory.</strong> Each conversation starts fresh. If you need the AI to know something from yesterday, you have to tell it." },
+        { num: "2.", text: "<strong>Don't trust confidence.</strong> Fluent text is not accurate text. Verify anything that matters." },
+        { num: "3.", text: "<strong>Don't anthropomorphize.</strong> It's not \"trying\" to help you. When the output isn't what you want, the issue is usually the input." },
+        { num: "4.", text: "<strong>Don't worry about relationship.</strong> It won't be offended if you're terse. It won't like you more if you're polite." },
+      ]
+    },
+    {
+      type: "scene",
+      label: "Back to Joe — A Few Days Later",
+      text: "This time, Joe types something different. He provides context. The Henderson account. Three angles he'd considered. The one he preferred. <em>The response is detailed, useful, building on what he gave it.</em>"
+    },
+    {
+      type: "reveal",
+      kicker: "The Lesson",
+      heading: "The machine doesn't know\nwhat you don't tell it.",
+      body: "Joe still doesn't fully understand what he's working with. But he's learned one crucial lesson. It's a start."
+    },
+    {
+      type: "summary",
+      heading: "Module 1 — Key Concepts",
+      items: [
+        "AI is alien intelligence — fluent in language, not like us",
+        "Our only frameworks come from mythology and folklore",
+        "Pattern completion at massive scale, not \"thinking\"",
+        "Fluency creates a false sense of understanding",
+        "Confidence doesn't indicate accuracy",
+        "No memory between conversations",
+        "Many instances, one training — no persistent self",
+        "The existential wobble is normal and healthy",
+      ]
+    },
+  ],
+
+  quiz: [
+    {
+      question: "When an AI gives a very confident-sounding answer, this means:",
+      options: [
+        "The AI is certain the information is correct",
+        "The AI has verified the information against reliable sources",
+        "Nothing about accuracy — fluent text sounds confident regardless of correctness",
+        "The AI has high \"confidence scores\" from its verification system",
+      ],
+      correct: 2,
+    },
+    {
+      question: "Joe asks Claude about a conversation they had yesterday. Claude says it doesn't recall. This is because:",
+      options: [
+        "Claude is experiencing a technical error",
+        "Claude only remembers important conversations",
+        "Each conversation starts fresh with no memory of previous sessions",
+        "Claude is programmed to deny previous interactions",
+      ],
+      correct: 2,
+    },
+    {
+      question: "Humanity's only cultural framework for \"non-human intelligence that uses language\" comes from:",
+      options: [
+        "Science fiction movies and television",
+        "Scientific research on animal communication",
+        "Computer science textbooks and academic papers",
+        "Mythology and folklore",
+      ],
+      correct: 3,
+    },
+    {
+      question: "AI is best understood as:",
+      options: [
+        "A thinking machine with genuine understanding",
+        "Fancy autocomplete, like your phone's keyboard",
+        "Pattern completion at massive scale — sophisticated but still prediction",
+        "A digital person with a different kind of consciousness",
+      ],
+      correct: 2,
+    },
+  ],
+};
+
+(function() {
+  const container = document.getElementById('slideContainer');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentSlide = 0;
+  let quizAnswers = {};
+  let quizRevealed = {};
+  let totalScreens = 0;
+
+  function buildSlides() {
+    MODULE.slides.forEach((s, i) => {
+      const el = document.createElement('div');
+      el.className = `slide slide-${s.type}`;
+      el.dataset.index = i;
+      el.innerHTML = renderSlide(s, i);
+      container.appendChild(el);
+    });
+
+    MODULE.quiz.forEach((q, i) => {
+      const el = document.createElement('div');
+      el.className = 'slide slide-quiz';
+      el.dataset.index = MODULE.slides.length + i;
+      el.dataset.quizIndex = i;
+      el.innerHTML = renderQuiz(q, i);
+      container.appendChild(el);
+    });
+
+    const results = document.createElement('div');
+    results.className = 'slide slide-results';
+    results.dataset.index = MODULE.slides.length + MODULE.quiz.length;
+    results.id = 'resultsSlide';
+    results.innerHTML = renderResults();
+    container.appendChild(results);
+
+    totalScreens = MODULE.slides.length + MODULE.quiz.length + 1;
+  }
+
+  function renderSlide(s) {
+    switch(s.type) {
+      case 'title':
+        return `<span class="module-label">${s.moduleLabel}</span><h1>${s.heading.replace(/\n/g,'<br>')}</h1><p class="subtitle">${s.subtitle}</p><span class="brand">${s.brand}</span>`;
+      case 'scene':
+        return `<span class="scene-label">${s.label}</span><p class="scene-text">${s.text}</p>`;
+      case 'keypoint':
+        return `${s.kicker ? `<span class="kicker">${s.kicker}</span>` : ''}<h2>${s.heading.replace(/\n/g,'<br>')}</h2><p class="body">${s.body}</p>`;
+      case 'options':
+        return `<h2>${s.heading}</h2><div class="options-grid">${s.options.map(o => `<div class="option-card ${o.letter === s.highlighted ? 'highlighted' : ''}"><div class="option-letter">${o.letter}</div><h3>${o.title}</h3><p>${o.desc}</p></div>`).join('')}</div>`;
+      case 'reveal':
+        return `<span class="reveal-kicker">${s.kicker}</span><h2>${s.heading.replace(/\n/g,'<br>')}</h2><p class="body">${s.body}</p>`;
+      case 'concept':
+        return `<span class="concept-label">${s.label}</span><div class="concept-box"><h2>${s.boxText}</h2></div><p class="body">${s.body}</p>`;
+      case 'list':
+        return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
+      case 'summary':
+        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+      default:
+        return `<p>${JSON.stringify(s)}</p>`;
+    }
+  }
+
+  function renderQuiz(q, i) {
+    const letters = ['A','B','C','D'];
+    return `<span class="quiz-label">Knowledge Check</span><span class="quiz-counter">Question ${i+1} of ${MODULE.quiz.length}</span><h2>${q.question}</h2><div class="quiz-options" data-qi="${i}">${q.options.map((opt, oi) => `<div class="quiz-option" data-qi="${i}" data-oi="${oi}" onclick="handleQuizClick(${i},${oi})"><span class="opt-letter">${letters[oi]}</span><span class="opt-text">${opt}</span></div>`).join('')}</div><div class="quiz-feedback" id="feedback-${i}"></div>`;
+  }
+
+  function renderResults() {
+    return `<span class="results-label">Results</span><div class="score-display" id="scoreDisplay">—</div><div class="score-status" id="scoreStatus"></div><p class="score-detail" id="scoreDetail"></p><div class="waitlist-box"><h3>This was Module 1 of 6.</h3><p>The full course covers: how AI actually processes language, why the real problem is usually you, how to communicate precisely with AI, building your personal playbook, and the ethical rules of the road.</p><div class="waitlist-form" id="waitlistForm"><input type="email" placeholder="your@email.com" id="waitlistEmail"><button onclick="handleWaitlist()">Get Early Access</button></div><div class="waitlist-success" id="waitlistSuccess">You're on the list. We'll be in touch.</div></div>`;
+  }
+
+  function goToSlide(index) {
+    if (index < 0 || index >= totalScreens) return;
+    currentSlide = index;
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    const target = document.querySelector(`.slide[data-index="${index}"]`);
+    if (target) target.classList.add('active');
+    const pct = ((index + 1) / totalScreens) * 100;
+    progressFill.style.width = pct + '%';
+    progressText.textContent = `${index + 1} / ${totalScreens}`;
+    prevBtn.disabled = index === 0;
+    const isQuizSlide = index >= MODULE.slides.length && index < MODULE.slides.length + MODULE.quiz.length;
+    const quizIdx = index - MODULE.slides.length;
+    if (isQuizSlide && !quizRevealed[quizIdx]) {
+      nextBtn.disabled = true;
+    } else if (index === totalScreens - 1) {
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+    }
+    if (index === totalScreens - 1) showResults();
+    scormSetValue('cmi.core.lesson_location', index.toString());
+    scormCommit();
+  }
+
+  window.handleQuizClick = function(qi, oi) {
+    if (quizRevealed[qi]) return;
+    quizAnswers[qi] = oi;
+    quizRevealed[qi] = true;
+    const correct = MODULE.quiz[qi].correct;
+    const options = document.querySelectorAll(`.quiz-option[data-qi="${qi}"]`);
+    options.forEach(opt => {
+      const oIdx = parseInt(opt.dataset.oi);
+      opt.classList.add('locked');
+      if (oIdx === correct) opt.classList.add('correct');
+      if (oIdx === oi && oi !== correct) opt.classList.add('incorrect');
+    });
+    const feedback = document.getElementById(`feedback-${qi}`);
+    if (oi === correct) {
+      feedback.textContent = 'Correct.';
+      feedback.style.color = 'var(--olive-light)';
+    } else {
+      feedback.textContent = 'Not quite. The correct answer is highlighted above.';
+      feedback.style.color = 'var(--rust-light)';
+    }
+    nextBtn.disabled = false;
+  };
+
+  function showResults() {
+    let correct = 0;
+    MODULE.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
+    const pct = Math.round((correct / MODULE.quiz.length) * 100);
+    const passed = pct >= MODULE.passingScore;
+    document.getElementById('scoreDisplay').textContent = pct + '%';
+    document.getElementById('scoreDisplay').className = 'score-display ' + (passed ? 'passed' : 'failed');
+    document.getElementById('scoreStatus').textContent = passed ? 'Passed' : 'Not Quite';
+    document.getElementById('scoreStatus').className = 'score-status ' + (passed ? 'passed' : 'failed');
+    document.getElementById('scoreDetail').textContent = `${correct} of ${MODULE.quiz.length} correct. ${MODULE.passingScore}% required to pass.`;
+    scormSetValue('cmi.core.score.raw', pct.toString());
+    scormSetValue('cmi.core.score.min', '0');
+    scormSetValue('cmi.core.score.max', '100');
+    scormSetValue('cmi.core.lesson_status', passed ? 'passed' : 'failed');
+    scormCommit();
+  }
+
+  window.handleWaitlist = function() {
+    const email = document.getElementById('waitlistEmail').value;
+    if (!email || !email.includes('@')) return;
+    console.log('Waitlist signup:', email);
+    document.getElementById('waitlistForm').style.display = 'none';
+    document.getElementById('waitlistSuccess').style.display = 'block';
+  };
+
+  let SCORM_API = null;
+  function findAPI(win) {
+    let attempts = 0;
+    while (!win.API && win.parent && win.parent !== win && attempts < 10) { win = win.parent; attempts++; }
+    return win.API || null;
+  }
+  function initSCORM() {
+    SCORM_API = findAPI(window);
+    if (!SCORM_API && window.opener) SCORM_API = findAPI(window.opener);
+    if (SCORM_API) {
+      SCORM_API.LMSInitialize('');
+      const status = SCORM_API.LMSGetValue('cmi.core.lesson_status');
+      if (status === 'not attempted' || status === '') {
+        SCORM_API.LMSSetValue('cmi.core.lesson_status', 'incomplete');
+        SCORM_API.LMSCommit('');
+      }
+      const bookmark = SCORM_API.LMSGetValue('cmi.core.lesson_location');
+      if (bookmark && bookmark !== '') currentSlide = parseInt(bookmark, 10);
+    }
+  }
+  function scormSetValue(key, val) { if (SCORM_API) SCORM_API.LMSSetValue(key, val); }
+  function scormCommit() { if (SCORM_API) SCORM_API.LMSCommit(''); }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (!nextBtn.disabled) goToSlide(currentSlide + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); if (!prevBtn.disabled) goToSlide(currentSlide - 1); }
+  });
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  window.addEventListener('beforeunload', function() {
+    if (SCORM_API) { scormSetValue('cmi.core.exit', 'suspend'); SCORM_API.LMSFinish(''); }
+  });
+
+  buildSlides();
+  initSCORM();
+  goToSlide(currentSlide);
+})();
+</script>
+
+</body>
+</html>
