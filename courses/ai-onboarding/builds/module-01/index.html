@@ -1070,28 +1070,53 @@ const MODULE = {
     document.getElementById('waitlistSuccess').style.display = 'block';
   };
 
+  // SCORM API — safe for cross-origin iframes
   let SCORM_API = null;
+
   function findAPI(win) {
-    let attempts = 0;
-    while (!win.API && win.parent && win.parent !== win && attempts < 10) { win = win.parent; attempts++; }
-    return win.API || null;
-  }
-  function initSCORM() {
-    SCORM_API = findAPI(window);
-    if (!SCORM_API && window.opener) SCORM_API = findAPI(window.opener);
-    if (SCORM_API) {
-      SCORM_API.LMSInitialize('');
-      const status = SCORM_API.LMSGetValue('cmi.core.lesson_status');
-      if (status === 'not attempted' || status === '') {
-        SCORM_API.LMSSetValue('cmi.core.lesson_status', 'incomplete');
-        SCORM_API.LMSCommit('');
+    try {
+      let attempts = 0;
+      while (attempts < 10) {
+        try {
+          if (win.API) return win.API;
+        } catch (e) { return null; }
+        try {
+          if (!win.parent || win.parent === win) break;
+          win = win.parent;
+        } catch (e) { return null; }
+        attempts++;
       }
-      const bookmark = SCORM_API.LMSGetValue('cmi.core.lesson_location');
-      if (bookmark && bookmark !== '') currentSlide = parseInt(bookmark, 10);
+    } catch (e) { /* cross-origin — silent fallback */ }
+    return null;
+  }
+
+  function initSCORM() {
+    try {
+      SCORM_API = findAPI(window);
+      if (!SCORM_API && window.opener) {
+        try { SCORM_API = findAPI(window.opener); } catch (e) { /* no opener access */ }
+      }
+      if (SCORM_API) {
+        SCORM_API.LMSInitialize('');
+        const status = SCORM_API.LMSGetValue('cmi.core.lesson_status');
+        if (status === 'not attempted' || status === '') {
+          SCORM_API.LMSSetValue('cmi.core.lesson_status', 'incomplete');
+          SCORM_API.LMSCommit('');
+        }
+        const bookmark = SCORM_API.LMSGetValue('cmi.core.lesson_location');
+        if (bookmark && bookmark !== '') currentSlide = parseInt(bookmark, 10);
+      }
+    } catch (e) {
+      SCORM_API = null; // standalone mode
     }
   }
-  function scormSetValue(key, val) { if (SCORM_API) SCORM_API.LMSSetValue(key, val); }
-  function scormCommit() { if (SCORM_API) SCORM_API.LMSCommit(''); }
+
+  function scormSetValue(key, val) {
+    try { if (SCORM_API) SCORM_API.LMSSetValue(key, val); } catch (e) { /* silent */ }
+  }
+  function scormCommit() {
+    try { if (SCORM_API) SCORM_API.LMSCommit(''); } catch (e) { /* silent */ }
+  }
 
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (!nextBtn.disabled) goToSlide(currentSlide + 1); }
@@ -1100,7 +1125,9 @@ const MODULE = {
   prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
   nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
   window.addEventListener('beforeunload', function() {
-    if (SCORM_API) { scormSetValue('cmi.core.exit', 'suspend'); SCORM_API.LMSFinish(''); }
+    try {
+      if (SCORM_API) { scormSetValue('cmi.core.exit', 'suspend'); SCORM_API.LMSFinish(''); }
+    } catch (e) { /* silent */ }
   });
 
   buildSlides();
