@@ -8,6 +8,7 @@
 /* ============================================
    SOPs Nobody Reads — Module Player
    Aesthetic: 1960s Driver's Ed / Educational Film
+   v2: Background images + expanded wobble
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap');
@@ -93,11 +94,67 @@ html, body {
   opacity: 0;
   transition: opacity 0.6s ease;
   pointer-events: none;
+  background-color: var(--bg-dark);
 }
 .slide.active {
   opacity: 1;
   pointer-events: auto;
 }
+
+/* --- Background image support --- */
+.slide.has-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for text readability — sits between bg image and content */
+.slide.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* Default overlay: radial gradient, lighter center for text, darker edges */
+  background: radial-gradient(ellipse at center,
+    rgba(26,24,18,0.6) 0%,
+    rgba(26,24,18,0.82) 100%);
+}
+
+/* Scene slides: heavier overlay, more cinematic */
+.slide-scene.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,24,18,0.68) 0%,
+    rgba(26,24,18,0.88) 100%);
+}
+
+/* Concept slides: heavier for box readability */
+.slide-concept.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,24,18,0.65) 0%,
+    rgba(26,24,18,0.85) 100%);
+}
+
+/* Options slides: medium, cards have own bg */
+.slide-options.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,24,18,0.58) 0%,
+    rgba(26,24,18,0.82) 100%);
+}
+
+/* List slides: heavier for readability */
+.slide-list.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,24,18,0.65) 0%,
+    rgba(26,24,18,0.85) 100%);
+}
+
+/* All slide content sits above the overlay */
+.slide.has-image > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Slide type styles --- */
 
 .slide-title {
   text-align: center;
@@ -211,13 +268,14 @@ html, body {
   max-width: 900px;
 }
 .option-card {
-  background: var(--charcoal);
+  background: rgba(58,54,50,0.85);
   border: 1px solid rgba(240,232,216,0.08);
   border-radius: 4px;
   padding: 2.5vh 2vw;
   width: clamp(200px, 22vw, 260px);
   text-align: center;
   transition: border-color 0.3s, transform 0.3s;
+  backdrop-filter: blur(4px);
 }
 .option-card.highlighted {
   border-color: var(--gold);
@@ -295,6 +353,7 @@ html, body {
   padding: 4vh 4vw;
   margin-bottom: 3vh;
   max-width: 650px;
+  backdrop-filter: blur(4px);
 }
 .slide-concept .concept-box h2 {
   font-family: var(--font-display);
@@ -668,11 +727,13 @@ html, body {
   color: var(--cream-dim);
 }
 
+/* Scanline overlay — on top of everything within the slide */
 .slide::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 3;
   background: repeating-linear-gradient(
     0deg,
     transparent,
@@ -722,6 +783,7 @@ const MODULE = {
   passingScore: 75,
 
   slides: [
+    // 0: Title
     {
       type: "title",
       moduleLabel: "Module 1",
@@ -729,28 +791,37 @@ const MODULE = {
       subtitle: "Part One — Know Thy Machine",
       brand: "SOPs Nobody Reads"
     },
+    // 1: Joe productive
     {
       type: "scene",
       label: "Scene",
       text: "Joe has been working with Claude for twenty minutes. Good progress. Then a thought occurs to him.",
+      image: "img/s01-joe-productive.jpg"
     },
+    // 2: Joe types
     {
       type: "scene",
       label: "Scene",
       text: "\"What did you think about that approach we discussed <em>yesterday</em>? The one for the Henderson account?\"",
+      image: "img/s02-joe-types.jpg"
     },
+    // 3: Joe confused
     {
       type: "concept",
       label: "The Response",
       boxText: "\"I don't have any record of a previous conversation. Each conversation with me starts fresh.\"",
-      body: "Joe stares at the screen. He's not angry — just lost. He was sure they'd talked about this. He starts typing the whole thing again from scratch."
+      body: "Joe stares at the screen. He's not angry — just lost. He was sure they'd talked about this. He starts typing the whole thing again from scratch.",
+      image: "img/s03-joe-confused.jpg"
     },
+    // 4: What is this thing?
     {
       type: "keypoint",
       kicker: "The Question",
       heading: "What is this thing?",
-      body: "Poor Joe. He's just discovered something that trips up nearly everyone who works with AI for the first time. But before we explain what happened, let's start with a bigger question."
+      body: "Poor Joe. He's just discovered something that trips up nearly everyone who works with AI for the first time. But before we explain what happened, let's start with a bigger question.",
+      image: "img/s04-what-is-this.jpg"
     },
+    // 5: Three futures
     {
       type: "options",
       heading: "Picture the future of AI. Which comes to mind?",
@@ -759,91 +830,137 @@ const MODULE = {
         { letter: "B", title: "The Quiet Fading", desc: "Perfect digital companions. We stop connecting with each other. Humanity dies of stagnation." },
         { letter: "C", title: "Alien Intelligence", desc: "Something fundamentally not like us. Something that speaks our language but does not share our nature." },
       ],
-      highlighted: "C"
+      highlighted: "C",
+      image: "img/s05-three-futures.jpg"
     },
+    // 6: Alien reveal
     {
       type: "reveal",
       kicker: "The Correct Answer",
       heading: "The alien intelligence\nisn't coming.\nIt's already here.",
-      body: "You're using it to write emails."
+      body: "You're using it to write emails.",
+      image: "img/s06-alien-intelligence.jpg"
     },
+    // 7: No framework
     {
       type: "keypoint",
       kicker: "No Map for This Territory",
       heading: "We have no framework\nfor this.",
-      body: "In the entire history of human experience, we have never encountered something that uses language fluently that wasn't either human or an animal we clearly recognized as an animal."
+      body: "In the entire history of human experience, we have never encountered something that uses language fluently that wasn't either human or an animal we clearly recognized as an animal.",
+      image: "img/s07-no-framework.jpg"
     },
+    // 8: Speaks English
     {
       type: "keypoint",
       kicker: "",
       heading: "This speaks\nperfect English.",
-      body: "It constructs complex arguments. It makes jokes. It asks clarifying questions. It says \"I think\" and \"I believe\" and \"I understand.\" Every instinct you have says: person. And every one of those instincts is wrong."
+      body: "It constructs complex arguments. It makes jokes. It asks clarifying questions. It says \"I think\" and \"I believe\" and \"I understand.\" Every instinct you have says: person. And every one of those instincts is wrong.",
+      image: "img/s08-speaks-english.jpg"
     },
+    // 9: Mythology
     {
       type: "reveal",
       kicker: "Our Only Templates",
       heading: "Oracles. Genies.\nDemons. Fairies\nwho twist your words.",
-      body: "For thousands of years, humans have told stories about entities that speak our language but don't share our nature. We thought these were fantasies. Turns out they were practice."
+      body: "For thousands of years, humans have told stories about entities that speak our language but don't share our nature. We thought these were fantasies. Turns out they were practice.",
+      image: "img/s09-mythology.jpg"
     },
+    // 10: Not autocomplete
     {
       type: "concept",
       label: "What It Actually Is",
       boxText: "Not \"just autocomplete.\" Not \"a thinking machine.\" Both are so incomplete as to be misleading.",
-      body: "\"Just autocomplete\" undersells it dramatically. \"Thinking machine\" oversells it. There's no evidence of inner experience or genuine understanding."
+      body: "\"Just autocomplete\" undersells it dramatically. \"Thinking machine\" oversells it. There's no evidence of inner experience or genuine understanding.",
+      image: "img/s10-not-autocomplete.jpg"
     },
+    // 11: Pattern completion
     {
       type: "reveal",
       kicker: "The Real Answer",
       heading: "Pattern completion\nat massive scale.",
-      body: "These systems processed essentially everything humans have written and made public. From this ocean of text, the system learned patterns — how words relate, how arguments are structured, how explanations work."
+      body: "These systems processed essentially everything humans have written and made public. From this ocean of text, the system learned patterns — how words relate, how arguments are structured, how explanations work.",
+      image: "img/s11-pattern-completion.jpg"
     },
+    // 12: Prediction
     {
       type: "keypoint",
       kicker: "How It Works",
       heading: "Prediction,\nnot thinking.",
-      body: "When you type a message, the system predicts what text should come next based on all those patterns. One piece at a time, constructing a response that fits the pattern of what a helpful answer would look like. The result can be brilliant. It can also be confidently, fluently wrong."
+      body: "When you type a message, the system predicts what text should come next based on all those patterns. One piece at a time, constructing a response that fits the pattern of what a helpful answer would look like. The result can be brilliant. It can also be confidently, fluently wrong.",
+      image: "img/s12-prediction.jpg"
     },
+    // 13: Campfire
     {
       type: "keypoint",
       kicker: "The Fluency Trap",
       heading: "Language means\nanother human mind.",
-      body: "We are deeply wired for language. For hundreds of thousands of years, language meant a mind with experiences, memories, feelings. A persistent identity that would remember you tomorrow."
+      body: "We are deeply wired for language. For hundreds of thousands of years, language meant a mind with experiences, memories, feelings. A persistent identity that would remember you tomorrow.",
+      image: "img/s13-campfire.jpg"
     },
+    // 14: Empty desk
     {
       type: "scene",
       label: "Back to Joe",
-      text: "Something in Joe's brain filed this under <em>\"person I worked with.\"</em> He came back expecting memory. Continuity. A relationship. But there's no one there to remember. There never was."
+      text: "Something in Joe's brain filed this under <em>\"person I worked with.\"</em> He came back expecting memory. Continuity. A relationship. But there's no one there to remember. There never was.",
+      image: "img/s14-empty-desk.png"
     },
+    // 15: Same sound
     {
       type: "keypoint",
       kicker: "The Confidence Problem",
       heading: "It sounds the same\nwhether it's right\nor wrong.",
-      body: "When a human isn't sure, you usually know. They hesitate, hedge, waver. AI doesn't work this way. When it generates a correct response and when it generates a complete fabrication, the tone is identical."
+      body: "When a human isn't sure, you usually know. They hesitate, hedge, waver. AI doesn't work this way. When it generates a correct response and when it generates a complete fabrication, the tone is identical.",
+      image: "img/s15-same-sound.jpg"
     },
+    // 16: Confidence from you
     {
       type: "reveal",
       kicker: "Here's the Twist",
       heading: "The confidence\nyou're perceiving\nisn't coming from the AI.",
-      body: "It's coming from you. You're reading fluent text, and your brain interprets that as certainty. As knowing. This is why people include AI-generated statistics in proposals without checking them."
+      body: "It's coming from you. You're reading fluent text, and your brain interprets that as certainty. As knowing. This is why people include AI-generated statistics in proposals without checking them.",
+      image: "img/s16-confidence-you.jpg"
     },
+    // 17: Context window
     {
       type: "concept",
       label: "The Context Window",
       boxText: "Every time you start a conversation with an AI, you're starting from zero.",
-      body: "The system can only \"see\" what's in the current conversation. Imagine someone with perfect language abilities but absolutely no memory beyond this conversation. That's what Joe ran into."
+      body: "The system can only \"see\" what's in the current conversation. Imagine someone with perfect language abilities but absolutely no memory beyond this conversation. That's what Joe ran into.",
+      image: "img/s17-context-window.jpg"
     },
+    // 18: Many instances
     {
       type: "keypoint",
       kicker: "Many Instances, One Training",
       heading: "There isn't a single\n\"Claude\" somewhere.",
-      body: "Millions of conversations are happening right now. They share the same training but not experience. It's less like calling a person and more like consulting an infinitely patient encyclopedia. Each time you open it, it's a fresh copy."
+      body: "Millions of conversations are happening right now. They share the same training but not experience. It's less like calling a person and more like consulting an infinitely patient encyclopedia. Each time you open it, it's a fresh copy.",
+      image: "img/s18-many-instances.jpg"
     },
+    // 19a: Wobble — the hit
     {
       type: "keypoint",
       kicker: "The Existential Wobble",
       heading: "If you're feeling\nslightly strange,\nthat's appropriate.",
-      body: "Most people, when they really understand what AI is — and isn't — experience a wobble. A moment of \"wait, what does this mean?\" This is normal. This is healthy. The wobble passes. You'll use these tools better for having understood them."
+      body: "Most people, when they really understand what AI is — and isn't — experience a wobble. A moment of \"wait, what does this mean?\" That disorientation you might be feeling right now? It has a name.",
+      image: "img/s19a-wobble-hit.jpg"
     },
+    // 19b: Wobble — not alone
+    {
+      type: "keypoint",
+      kicker: "You're Not Alone",
+      heading: "Everyone goes\nthrough this.",
+      body: "Researchers, engineers, executives — the people who understand AI best all describe this moment. It's not a sign of weakness. It's a sign you're actually paying attention.",
+      image: "img/s19b-wobble-not-alone.jpg"
+    },
+    // 19c: Wobble — resolution
+    {
+      type: "keypoint",
+      kicker: "And Then...",
+      heading: "The wobble passes.\nAnd you're better\nfor it.",
+      body: "On the other side of that disorientation is clarity. You'll use these tools more effectively, more honestly, and with fewer illusions. That's worth the momentary strangeness.",
+      image: "img/s19c-wobble-passes.jpg"
+    },
+    // 22: Takeaways
     {
       type: "list",
       label: "Practical Takeaways",
@@ -853,19 +970,25 @@ const MODULE = {
         { num: "2.", text: "<strong>Don't trust confidence.</strong> Fluent text is not accurate text. Verify anything that matters." },
         { num: "3.", text: "<strong>Don't anthropomorphize.</strong> It's not \"trying\" to help you. When the output isn't what you want, the issue is usually the input." },
         { num: "4.", text: "<strong>Don't worry about relationship.</strong> It won't be offended if you're terse. It won't like you more if you're polite." },
-      ]
+      ],
+      image: "img/s20-takeaways.jpg"
     },
+    // 23: Joe returns
     {
       type: "scene",
       label: "Back to Joe — A Few Days Later",
-      text: "This time, Joe types something different. He provides context. The Henderson account. Three angles he'd considered. The one he preferred. <em>The response is detailed, useful, building on what he gave it.</em>"
+      text: "This time, Joe types something different. He provides context. The Henderson account. Three angles he'd considered. The one he preferred. <em>The response is detailed, useful, building on what he gave it.</em>",
+      image: "img/s21-joe-returns.jpg"
     },
+    // 24: The lesson
     {
       type: "reveal",
       kicker: "The Lesson",
       heading: "The machine doesn't know\nwhat you don't tell it.",
-      body: "Joe still doesn't fully understand what he's working with. But he's learned one crucial lesson. It's a start."
+      body: "Joe still doesn't fully understand what he's working with. But he's learned one crucial lesson. It's a start.",
+      image: "img/s22-joe-resolved.jpg"
     },
+    // 25: Summary
     {
       type: "summary",
       heading: "Module 1 — Key Concepts",
@@ -943,6 +1066,11 @@ const MODULE = {
       const el = document.createElement('div');
       el.className = `slide slide-${s.type}`;
       el.dataset.index = i;
+      // Apply background image if present
+      if (s.image) {
+        el.classList.add('has-image');
+        el.style.backgroundImage = `url('${s.image}')`;
+      }
       el.innerHTML = renderSlide(s, i);
       container.appendChild(el);
     });
@@ -1118,6 +1246,16 @@ const MODULE = {
     try { if (SCORM_API) SCORM_API.LMSCommit(''); } catch (e) { /* silent */ }
   }
 
+  // Preload images for smooth transitions
+  function preloadImages() {
+    MODULE.slides.forEach(s => {
+      if (s.image) {
+        const img = new Image();
+        img.src = s.image;
+      }
+    });
+  }
+
   document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (!nextBtn.disabled) goToSlide(currentSlide + 1); }
     if (e.key === 'ArrowLeft') { e.preventDefault(); if (!prevBtn.disabled) goToSlide(currentSlide - 1); }
@@ -1131,6 +1269,7 @@ const MODULE = {
   });
 
   buildSlides();
+  preloadImages();
   initSCORM();
   goToSlide(currentSlide);
 })();
