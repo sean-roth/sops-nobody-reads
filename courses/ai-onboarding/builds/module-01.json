@@ -1,0 +1,60 @@
+{
+  "title": "What Is This Thing, Anyway?",
+  "moduleNumber": 1,
+  "partLabel": "Part One — Know Thy Machine",
+  "passingScore": 75,
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 1", "heading": "What Is This Thing,\nAnyway?", "subtitle": "Part One — Know Thy Machine", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "Scene", "text": "Joe has been working with Claude for twenty minutes. Good progress. Then a thought occurs to him.", "image": "img/s01-joe-productive.jpg" },
+    { "type": "scene", "label": "Scene", "text": "\"What did you think about that approach we discussed <em>yesterday</em>? The one for the Henderson account?\"", "image": "img/s02-joe-types.jpg" },
+    { "type": "concept", "label": "The Response", "boxText": "\"I don't have any record of a previous conversation. Each conversation with me starts fresh.\"", "body": "Joe stares at the screen. He's not angry — just lost. He was sure they'd talked about this. He starts typing the whole thing again from scratch.", "image": "img/s03-joe-confused.jpg" },
+    { "type": "keypoint", "kicker": "The Question", "heading": "What is this thing?", "body": "Poor Joe. He's just discovered something that trips up nearly everyone who works with AI for the first time. But before we explain what happened, let's start with a bigger question.", "image": "img/s04-what-is-this.jpg" },
+    { "type": "options", "heading": "Picture the future of AI. Which comes to mind?", "options": [
+      { "letter": "A", "title": "Judgment Day", "desc": "The machines wake up. Military drones. Nuclear codes. We've all seen this movie." },
+      { "letter": "B", "title": "The Quiet Fading", "desc": "Perfect digital companions. We stop connecting with each other. Humanity dies of stagnation." },
+      { "letter": "C", "title": "Alien Intelligence", "desc": "Something fundamentally not like us. Something that speaks our language but does not share our nature." }
+    ], "image": "img/s05-three-futures.jpg" },
+    { "type": "reveal", "kicker": "The Correct Answer", "heading": "The alien intelligence\nisn't coming.\nIt's already here.", "body": "You're using it to write emails.", "image": "img/s06-alien-intelligence.jpg" },
+    { "type": "keypoint", "kicker": "No Map for This Territory", "heading": "We have no framework\nfor this.", "body": "In the entire history of human experience, we have never encountered something that uses language fluently that wasn't either human or an animal we clearly recognized as an animal.", "image": "img/s07-no-framework.jpg" },
+    { "type": "keypoint", "kicker": "", "heading": "This speaks\nperfect English.", "body": "It constructs complex arguments. It makes jokes. It asks clarifying questions. It says \"I think\" and \"I believe\" and \"I understand.\" Every instinct you have says: person. And every one of those instincts is wrong.", "image": "img/s08-speaks-english.jpg" },
+    { "type": "reveal", "kicker": "Our Only Templates", "heading": "Oracles. Genies.\nDemons. Fairies\nwho twist your words.", "body": "For thousands of years, humans have told stories about entities that speak our language but don't share our nature. We thought these were fantasies. Turns out they were practice.", "image": "img/s09-mythology.jpg" },
+    { "type": "concept", "label": "What It Actually Is", "boxText": "Not \"just autocomplete.\" Not \"a thinking machine.\" Both are so incomplete as to be misleading.", "body": "\"Just autocomplete\" undersells it dramatically. \"Thinking machine\" oversells it. There's no evidence of inner experience or genuine understanding.", "image": "img/s10-not-autocomplete.jpg" },
+    { "type": "reveal", "kicker": "The Real Answer", "heading": "Pattern completion\nat massive scale.", "body": "These systems processed essentially everything humans have written and made public. From this ocean of text, the system learned patterns — how words relate, how arguments are structured, how explanations work.", "image": "img/s11-pattern-completion.jpg" },
+    { "type": "keypoint", "kicker": "How It Works", "heading": "Prediction,\nnot thinking.", "body": "When you type a message, the system predicts what text should come next based on all those patterns. One piece at a time, constructing a response that fits the pattern of what a helpful answer would look like. The result can be brilliant. It can also be confidently, fluently wrong.", "image": "img/s12-prediction.jpg" },
+    { "type": "keypoint", "kicker": "The Fluency Trap", "heading": "Language means\nanother human mind.", "body": "We are deeply wired for language. For hundreds of thousands of years, language meant a mind with experiences, memories, feelings. A persistent identity that would remember you tomorrow.", "image": "img/s13-campfire.jpg" },
+    { "type": "scene", "label": "Back to Joe", "text": "Something in Joe's brain filed this under <em>\"person I worked with.\"</em> He came back expecting memory. Continuity. A relationship. But there's no one there to remember. There never was.", "image": "img/s14-empty-desk.png" },
+    { "type": "keypoint", "kicker": "The Confidence Problem", "heading": "It sounds the same\nwhether it's right\nor wrong.", "body": "When a human isn't sure, you usually know. They hesitate, hedge, waver. AI doesn't work this way. When it generates a correct response and when it generates a complete fabrication, the tone is identical.", "image": "img/s15-same-sound.jpg" },
+    { "type": "reveal", "kicker": "Here's the Twist", "heading": "The confidence\nyou're perceiving\nisn't coming from the AI.", "body": "It's coming from you. You're reading fluent text, and your brain interprets that as certainty. As knowing. This is why people include AI-generated statistics in proposals without checking them.", "image": "img/s16-confidence-you.jpg" },
+    { "type": "concept", "label": "The Context Window", "boxText": "Every time you start a conversation with an AI, you're starting from zero.", "body": "The system can only \"see\" what's in the current conversation. Imagine someone with perfect language abilities but absolutely no memory beyond this conversation. That's what Joe ran into.", "image": "img/s17-context-window.jpg" },
+    { "type": "keypoint", "kicker": "Many Instances, One Training", "heading": "There isn't a single\n\"Claude\" somewhere.", "body": "Millions of conversations are happening right now. They share the same training but not experience. It's less like calling a person and more like consulting an infinitely patient encyclopedia. Each time you open it, it's a fresh copy.", "image": "img/s18-many-instances.jpg" },
+    { "type": "keypoint", "kicker": "The Existential Wobble", "heading": "If you're feeling\nslightly strange,\nthat's appropriate.", "body": "Most people, when they really understand what AI is — and isn't — experience a wobble. A moment of \"wait, what does this mean?\" That disorientation you might be feeling right now? It has a name.", "image": "img/s19a-wobble-hit.jpg" },
+    { "type": "keypoint", "kicker": "You're Not Alone", "heading": "Everyone goes\nthrough this.", "body": "Researchers, engineers, executives — the people who understand AI best all describe this moment. It's not a sign of weakness. It's a sign you're actually paying attention.", "image": "img/s19b-wobble-not-alone.jpg" },
+    { "type": "keypoint", "kicker": "And Then...", "heading": "The wobble passes.\nAnd you're better\nfor it.", "body": "On the other side of that disorientation is clarity. You'll use these tools more effectively, more honestly, and with fewer illusions. That's worth the momentary strangeness.", "image": "img/s19c-wobble-passes.jpg" },
+    { "type": "list", "label": "Practical Takeaways", "heading": "What this means for you.", "items": [
+      { "num": "1.", "text": "<strong>Don't expect memory.</strong> Each conversation starts fresh. If you need the AI to know something from yesterday, you have to tell it." },
+      { "num": "2.", "text": "<strong>Don't trust confidence.</strong> Fluent text is not accurate text. Verify anything that matters." },
+      { "num": "3.", "text": "<strong>Don't anthropomorphize.</strong> It's not \"trying\" to help you. When the output isn't what you want, the issue is usually the input." },
+      { "num": "4.", "text": "<strong>Don't mistake politeness for relationship.</strong> AI won't be offended if you're blunt, and it won't remember your kindness tomorrow. But your tone shapes the output — bring energy and clarity, and the response reflects it." }
+    ], "image": "img/s20-takeaways.jpg" },
+    { "type": "scene", "label": "Back to Joe — A Few Days Later", "text": "This time, Joe types something different. He provides context. The Henderson account. Three angles he'd considered. The one he preferred. <em>The response is detailed, useful, building on what he gave it.</em>", "image": "img/s21-joe-returns.jpg" },
+    { "type": "reveal", "kicker": "The Lesson", "heading": "The machine doesn't know\nwhat you don't tell it.", "body": "Joe still doesn't fully understand what he's working with. But he's learned one crucial lesson. It's a start.", "image": "img/s22-joe-resolved.jpg" },
+    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": [
+      "AI is alien intelligence — fluent in language, not like us",
+      "Our only frameworks come from mythology and folklore",
+      "Pattern completion at massive scale, not \"thinking\"",
+      "Fluency creates a false sense of understanding",
+      "Confidence doesn't indicate accuracy",
+      "No memory between conversations",
+      "Many instances, one training — no persistent self",
+      "The existential wobble is normal and healthy"
+    ] }
+  ],
+
+  "quiz": [
+    { "question": "When an AI gives a very confident-sounding answer, this means:", "options": ["The AI is certain the information is correct", "The AI has verified the information against reliable sources", "Nothing about accuracy — fluent text sounds confident regardless of correctness", "The AI has high \"confidence scores\" from its verification system"], "correct": 2 },
+    { "question": "Joe asks Claude about a conversation they had yesterday. Claude says it doesn't recall. This is because:", "options": ["Claude is experiencing a technical error", "Claude only remembers important conversations", "Each conversation starts fresh with no memory of previous sessions", "Claude is programmed to deny previous interactions"], "correct": 2 },
+    { "question": "Humanity's only cultural framework for \"non-human intelligence that uses language\" comes from:", "options": ["Science fiction movies and television", "Scientific research on animal communication", "Computer science textbooks and academic papers", "Mythology and folklore"], "correct": 3 },
+    { "question": "AI is best understood as:", "options": ["A thinking machine with genuine understanding", "Fancy autocomplete, like your phone's keyboard", "Pattern completion at massive scale — sophisticated but still prediction", "A digital person with a different kind of consciousness"], "correct": 2 }
+  ]
+}
