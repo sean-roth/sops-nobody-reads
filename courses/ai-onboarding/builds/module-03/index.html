@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3: The Problem Is You | SOPs Nobody Reads</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #1a1812;
+  --bg-card: #2a2620;
+  --bg-warm: #332e26;
+  --cream: #f0e8d8;
+  --cream-dim: #c8bfad;
+  --olive: #5c6b4f;
+  --olive-light: #7a8c6a;
+  --rust: #b8704a;
+  --rust-light: #d4956a;
+  --gold: #c9a84c;
+  --gold-dim: #8a7535;
+  --red-dim: #8b3a3a;
+  --green-dim: #4a6b4a;
+  --charcoal: #3a3632;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--cream);
+}
+
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.5s steps(4) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, -1%); }
+  50% { transform: translate(1%, 2%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(10,8,4,0.6) 100%);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+.slide-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 8vw;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  background-color: var(--bg-dark);
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide.has-image {
+  background-size: cover;
+  background-position: center;
+}
+.slide.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.82) 100%);
+  z-index: 1;
+}
+
+.slide > * {
+  position: relative;
+  z-index: 2;
+}
+
+.module-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-title h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-align: center;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color: var(--cream-dim);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 5vh;
+  font-weight: 400;
+}
+.brand {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold-dim);
+  font-weight: 500;
+}
+
+.scene-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--rust);
+  margin-bottom: 4vh;
+  font-weight: 600;
+}
+.scene-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  line-height: 1.4;
+  font-style: italic;
+  text-align: center;
+  max-width: 70vw;
+  color: var(--cream);
+  font-weight: 400;
+}
+.scene-text em {
+  color: var(--rust-light);
+  font-style: italic;
+}
+
+.kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.slide-keypoint h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 65vw;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+
+.reveal-kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-reveal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.slide-reveal .body {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.concept-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.concept-box {
+  background: rgba(240,232,216,0.04);
+  border: 1px solid rgba(240,232,216,0.12);
+  border-radius: 4px;
+  padding: 3vh 3vw;
+  margin-bottom: 3vh;
+  backdrop-filter: blur(4px);
+}
+.concept-box h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--cream);
+}
+
+.list-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-list {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.slide-list h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.list-items {
+  list-style: none;
+}
+.list-items li {
+  display: flex;
+  margin-bottom: 2.5vh;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+.list-items li::before {
+  content: attr(data-num);
+  font-family: var(--font-ui);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 600;
+  color: var(--gold);
+  margin-right: 2vw;
+  flex-shrink: 0;
+  width: 3em;
+}
+.list-items li strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.slide-summary {
+  text-align: center;
+  background: linear-gradient(170deg, #252218 0%, var(--bg-dark) 100%);
+}
+.slide-summary h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 4vh;
+  color: var(--cream);
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5vh;
+  max-width: 80vw;
+  width: 100%;
+}
+.summary-item {
+  background: rgba(240,232,216,0.04);
+  border: 1px solid rgba(240,232,216,0.08);
+  border-radius: 3px;
+  padding: 2vh 2vw;
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.5;
+  color: var(--cream-dim);
+  text-align: left;
+  font-weight: 300;
+}
+.summary-item::before {
+  content: '—';
+  color: var(--gold-dim);
+  margin-right: 0.5em;
+  font-weight: 600;
+}
+
+.slide-quiz {
+  text-align: center;
+  padding-top: 8vh;
+}
+.quiz-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 1vh;
+  font-weight: 600;
+}
+.quiz-counter {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  color: var(--cream-dim);
+  margin-bottom: 4vh;
+  font-weight: 400;
+}
+.slide-quiz h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 4vh;
+  color: var(--cream);
+  max-width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  max-width: 70vw;
+  width: 100%;
+  margin: 0 auto;
+}
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  padding: 2.5vh 3vw;
+  background: var(--charcoal);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  backdrop-filter: blur(4px);
+}
+.quiz-option:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(58,54,50,0.8);
+}
+.opt-letter {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 1.8em;
+}
+.quiz-option .opt-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--cream-dim);
+  line-height: 1.5;
+  font-weight: 300;
+}
+.quiz-option.selected {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+.quiz-option.correct {
+  border-color: var(--green-dim);
+  background: rgba(74,107,74,0.15);
+}
+.quiz-option.incorrect {
+  border-color: var(--red-dim);
+  background: rgba(139,58,58,0.1);
+  opacity: 0.6;
+}
+.quiz-option.correct .opt-letter { color: #7aad7a; }
+.quiz-option.incorrect .opt-letter { color: #ad6a6a; }
+.quiz-option.locked { pointer-events: none; }
+
+.quiz-feedback {
+  margin-top: 2.5vh;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  min-height: 2em;
+  font-weight: 300;
+}
+
+.slide-results {
+  text-align: center;
+  background: linear-gradient(170deg, #252218 0%, var(--bg-dark) 100%);
+}
+.slide-results .results-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.score-display {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1vh;
+}
+.score-display.passed { color: var(--olive-light); }
+.score-display.failed { color: var(--rust); }
+.score-status {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 3vh;
+}
+.score-status.passed { color: var(--olive-light); }
+.score-status.failed { color: var(--rust); }
+.score-detail {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  margin-bottom: 4vh;
+  font-weight: 300;
+}
+
+.waitlist-box {
+  background: rgba(240,232,216,0.03);
+  border: 1px solid rgba(240,232,216,0.1);
+  border-radius: 4px;
+  padding: 3vh 3vw;
+  max-width: 480px;
+  width: 100%;
+}
+.waitlist-box h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 1.5vh;
+}
+.waitlist-box p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  margin-bottom: 2vh;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.waitlist-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.waitlist-form input[type="email"] {
+  flex: 1;
+  padding: 1.2vh 1.2vw;
+  background: var(--bg-dark);
+  border: 1px solid rgba(240,232,216,0.15);
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.waitlist-form input[type="email"]:focus {
+  border-color: var(--gold);
+}
+.waitlist-form input[type="email"]::placeholder {
+  color: rgba(240,232,216,0.3);
+}
+.waitlist-form button {
+  padding: 1.2vh 2vw;
+  background: var(--gold-dim);
+  border: none;
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.waitlist-form button:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+.waitlist-success {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--olive-light);
+  font-style: italic;
+  padding: 1.5vh 0;
+}
+
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5vh 3vw;
+  background: rgba(26,24,18,0.9);
+  border-top: 1px solid rgba(240,232,216,0.06);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+  flex: 1;
+}
+
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(240,232,216,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 400px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold-dim);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.progress-text {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--cream-dim);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.6vw;
+}
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(240,232,216,0.12);
+  color: var(--cream-dim);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  padding: 0.8vh 1.5vw;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.nav-btn:hover {
+  border-color: rgba(240,232,216,0.3);
+  color: var(--cream);
+}
+.nav-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.nav-btn:disabled:hover {
+  border-color: rgba(240,232,216,0.12);
+  color: var(--cream-dim);
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.015) 2px,
+    rgba(0,0,0,0.015) 4px
+  );
+}
+
+@media (max-width: 768px) {
+  .slide { padding: 3vh 5vw; }
+  .slide-list { padding-left: 5vw; padding-right: 5vw; }
+  .options-grid { flex-direction: column; align-items: center; }
+  .option-card { width: 85vw; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .waitlist-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<div class="player" id="player">
+  <div class="slide-container" id="slideContainer"></div>
+
+  <div class="bottom-bar">
+    <a href="../index.html" class="nav-btn" style="margin-right: 2vw;">MENU</a>
+    <div class="progress-section">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-text" id="progressText">1 / 1</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
+      <button class="nav-btn" id="nextBtn">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const MODULE = {
+  title: "The Problem Is You (And That's Good News)",
+  moduleNumber: 3,
+  partLabel: "Part One — Know Thy Machine",
+  passingScore: 75,
+
+  slides: [
+    { type: "title", moduleLabel: "Module 3", heading: "The Problem Is You\n(And That's Good News)", subtitle: "Part One — Know Thy Machine", brand: "SOPs Nobody Reads" },
+
+    // Cold Open - Joe's Three Failed Attempts
+    { type: "scene", label: "Monday Morning", text: "Joe's desk. Monday morning. Coffee, slightly rumpled shirt, a client email he needs to reply to. He opens Claude.", image: "img/s01-joe-monday-morning.jpg" },
+    { type: "scene", label: "Attempt One", text: "Joe types: <em>\"Write me an email.\"</em> The response appears. \"Dear [Recipient], I hope this email finds you well. I wanted to follow up regarding our recent discussion...\" Joe frowns. Deletes.", image: "img/s02-attempt-one.jpg" },
+    { type: "scene", label: "Attempt Two", text: "Joe tries again: <em>\"Write me a good email.\"</em> Different greeting. Same emptiness. Slightly warmer phrasing, zero substance. Joe sighs.", image: "img/s03-attempt-two.jpg" },
+    { type: "scene", label: "Attempt Three", text: "One more try: <em>\"Write me a really good, professional email that will impress my client.\"</em> Now it's got bigger words. More formal phrasing. It sounds like a press release written by a committee and edited by a lawyer.", image: "img/s04-attempt-three.jpg" },
+    { type: "scene", label: "The Frustration", text: "Joe stares at the screen. He gestures at it, palms up, as if the machine has personally betrayed him. <em>\"Why is this thing so... bad?\"</em>", image: "img/s05-joe-frustrated.jpg" },
+
+    // The Diagnosis
+    { type: "keypoint", kicker: "The Diagnosis", heading: "Let's look at what\nJoe actually typed.", body: "Attempt one: \"Write me an email.\" Attempt two: \"Write me a good email.\" Attempt three: \"Write me a really good, professional email that will impress my client.\"", image: "img/s06-three-prompts.jpg" },
+    { type: "reveal", kicker: "What Changed", heading: "He added adjectives.", body: "Good. Really good. Professional. Impressive. More adjectives, bigger adjectives, stacked on top of each other like a child putting extra candles on a birthday cake, hoping it'll make the cake taste better.", image: "img/s07-adjectives.jpg" },
+    { type: "keypoint", kicker: "What Didn't Change", heading: "He never said who\nthe email was to.", body: "He never said what it was about. He never mentioned the proposal, the client's concerns, the meeting last Tuesday, the relationship they'd built over two years, or what he actually needed to communicate.", image: "img/s08-missing-context.jpg" },
+    { type: "concept", label: "The Problem", boxText: "He gave the machine more decoration and zero additional information.", body: "This is like walking into a restaurant and saying \"bring me food.\" When the waiter brings something you don't like, you say \"bring me *good* food.\" The kitchen isn't psychic. Neither is the machine.", image: "img/s09-restaurant-metaphor.jpg" },
+
+    // The Uncomfortable Truth
+    { type: "reveal", kicker: "The Uncomfortable Truth", heading: "The problem\nisn't the AI.", body: "The AI did exactly what it was designed to do. It took the input it received and completed the pattern. \"Write me an email\" matches millions of generic emails in its training data. So that's what it produced.", image: "img/s10-mirror-reflection.jpg" },
+    { type: "keypoint", kicker: "", heading: "You asked for average.\nYou got average.", body: "The machine didn't fail. It succeeded—at the wrong task. Because you gave it the wrong task.", image: "img/s11-door-opens.jpg" },
+    { type: "reveal", kicker: "But Here's The Good News", heading: "If the problem were\nthe technology,\nyou'd be stuck.", body: "But the problem isn't the technology. The problem is upstream of the technology. The problem is what happens—or doesn't happen—between the moment you decide you need an email and the moment your fingers touch the keyboard.", image: "img/s12-gap.jpg" },
+    { type: "concept", label: "The Missing Step", boxText: "There's a step missing. And that step has a name: Thinking.", body: "The gap between what you feel and what you can articulate is where most AI \"failures\" live. Not in the machine. In the space between your intuition and your words.", image: "img/s13-thinking.jpg" },
+
+    // Joe Without the Machine
+    { type: "scene", label: "Joe Without AI", text: "Same day. Different email—this one he's writing himself. No AI. He's replying to Dave Kowalski at Pacific Ridge Supply about a late shipment. Joe types. Fast. No hesitation.", image: "img/s14-joe-typing-fast.jpg" },
+    { type: "keypoint", kicker: "What Just Happened", heading: "Joe wrote a clear,\neffective email\nin under a minute.", body: "He opened warmly but got to the point. Referenced the specific PO number. Noted the downstream impact. Asked for an updated ETA. Firm, but not hostile.", image: "img/s15-perfect-email.jpg" },
+    { type: "reveal", kicker: "The Invisible Knowledge", heading: "Joe's brain integrated\nsix years of relationship\ninto every sentence.", body: "They've worked together for years. Joe knows Dave takes things personally if you come in too hot. Dave respects directness. All of that tacit knowledge shaped every word—invisibly.", image: "img/s16-tacit-knowledge.jpg" },
+    { type: "concept", label: "The Real Issue", boxText: "AI can't access tacit knowledge.", body: "It can't see the six years with Dave. It doesn't know your director hates surprises. All of that context—the stuff your brain serves up automatically—lives only inside your head.", image: "img/s17-split-screen.jpg" },
+
+    // Clear Thinking Precedes Clear Prompting
+    { type: "reveal", kicker: "The Foundation", heading: "Clear thinking\nprecedes\nclear prompting.", body: "This is the single most important sentence in this entire course. If you remember nothing else from these modules, remember this.", image: "img/s18-foundation.jpg" },
+    { type: "keypoint", kicker: "", heading: "Clear prompting\nis just clear writing.", body: "There's no special language. No code. No secret syntax. Just saying what you mean—completely, specifically, and out loud.", image: "img/s19-clear-writing.jpg" },
+    { type: "concept", label: "What Joe Already Knew", boxText: "The email was going to Margaret Chen, VP of Operations at Consolidated Manufacturing.", body: "About following up on Tuesday's meeting. Margaret liked the concept but had concerns about timeline. He wanted a follow-up meeting. He knows Margaret is warm and direct—they've worked together for two years.", image: "img/s20-context-bubbles.jpg" },
+    { type: "keypoint", kicker: "The Gap", heading: "Joe knew all of this.\nEvery bit of it.", body: "It was sitting right there in his head—completely available, entirely relevant, and utterly unshared. He assumed the AI could access the same tacit knowledge his own brain accesses automatically.", image: "img/s21-assumption-gap.jpg" },
+
+    // Writing Is Thinking Made Visible
+    { type: "keypoint", kicker: "Writing Is Thinking", heading: "The act of putting words\non a page isn't just\nrecording your thoughts.", body: "It's forming them. You don't fully know what you think until you try to write it down. This is why a vague prompt produces vague output—because a vague prompt reveals vague thinking.", image: "img/s22-typewriter.jpg" },
+    { type: "reveal", kicker: "Vibes vs Instructions", heading: "Vibes are not\ninstructions.", body: "If you can't articulate what you want in words, you don't actually know what you want yet. You have a feeling about what you want. An intuition. A vibe.", image: "img/s23-vibes-not-instructions.jpg" },
+    { type: "scene", label: "The Professional Problem", text: "Joe types: <em>\"Make it more professional.\"</em> The AI adjusts. Removes contractions. Adds \"pursuant to our conversation.\" Joe winces. <em>\"No, not like that. More... professional. But not stiff.\"</em>", image: "img/s24-professional-problem.jpg" },
+    { type: "concept", label: "The Word Problem", boxText: "\"Professional\" is one of the most common words people use when directing AI. It's also one of the most meaningless.", body: "To a lawyer, \"professional\" means precise citations. To a startup founder, it means confident and forward-looking. To Joe, it means... something he'd recognize if he saw it but can't define.", image: "img/s25-professional-fractures.jpg" },
+
+    // Know Thyself
+    { type: "keypoint", kicker: "Know Thyself", heading: "Two thousand years ago,\nat the Oracle of Delphi,\nthese words were carved\nabove the temple entrance.", body: "The Greeks considered it the beginning of all wisdom. Turns out, it's also the beginning of effective AI use.", image: "img/s26-oracle-delphi.jpg" },
+    { type: "scene", label: "The Wrong Voice", text: "Joe sends an AI-generated email. It's polished. Crisp sentences. The kind you'd find in a \"professional communication\" textbook. It sounds nothing like Joe.", image: "img/s27-wrong-voice.jpg" },
+    { type: "reveal", kicker: "The Recognition Problem", heading: "Margaret has received\ndozens of emails from Joe.\nShe knows his voice.", body: "Direct. A little warm. Gets to the point without being curt. The person in this email is someone she's never met—because no person wrote it.", image: "img/s28-margaret-confused.jpg" },
+    { type: "keypoint", kicker: "The Measuring Stick", heading: "Without defining\nwhat \"good\" looks like,\nyou're left with one\ndangerous criterion.", body: "\"Does this sound impressive?\" And \"sounds impressive\" and \"serves your actual purpose\" are very different things.", image: "img/s29-measuring-stick.jpg" },
+
+    // The Fix
+    { type: "reveal", kicker: "The Fix", heading: "Three layers.\nOne fix.", body: "Layer one: You're adding adjectives instead of information. Layer two: You haven't thought it through yourself. Layer three: You can't evaluate what \"good\" looks like.", image: "img/s30-three-layers.jpg" },
+    { type: "list", label: "The Sixty-Second Check", heading: "Before you type, think. Before you think, ask yourself questions.", items: [
+      { num: "WHO", text: "<strong>WHO</strong> is going to read this?" },
+      { num: "WHAT", text: "<strong>WHAT</strong> do I need it to say?" },
+      { num: "WHY", text: "<strong>WHY</strong> does it need to exist—what should happen after?" },
+      { num: "HOW", text: "<strong>HOW</strong> should it sound? What's my voice here?" },
+      { num: "WHAT NOT", text: "<strong>WHAT NOT</strong>—what would make this wrong?" }
+    ], image: "img/s31-sixty-second-check.jpg" },
+
+    // Joe's Redemption
+    { type: "scene", label: "Friday Morning", text: "Joe's desk. Friday. Same desk, same coffee, different email to write. But something's different. Joe doesn't start typing immediately. He pulls out an index card.", image: "img/s32-index-card.jpg" },
+    { type: "scene", label: "The Process", text: "He jots down: <em>\"Margaret Chen. Follow-up re: shipping docs proposal. She's worried about timeline + training her staff. I want a meeting next week. Tone: like my normal emails—direct, warm, not stiff.\"</em>", image: "img/s33-jotting-notes.jpg" },
+    { type: "scene", label: "The Better Prompt", text: "Joe types: <em>\"I need to write a follow-up email to Margaret Chen, VP of Operations at Consolidated Manufacturing. We met Tuesday about my proposal for streamlining their shipping documentation...\"</em> He includes context, audience, concerns, and tone.", image: "img/s34-better-prompt.jpg" },
+    { type: "keypoint", kicker: "The Result", heading: "The response is good.\nSpecific. References\nMargaret's actual concerns.", body: "It has a clear ask. It sounds like something a real human would send to someone they actually know. Joe reads it, changes one word, adjusts the sign-off. Four minutes total.", image: "img/s35-good-result.jpg" },
+    { type: "reveal", kicker: "What Changed", heading: "Same Joe.\nSame AI.\nSame task.", body: "The only thing that changed was that Joe spent sixty seconds knowing what he wanted before asking for it. The machine didn't get smarter. Joe got clearer.", image: "img/s36-clarity.jpg" },
+
+    { type: "summary", heading: "Module 3 — Key Concepts", items: [
+      "Clear thinking precedes clear prompting—this is the foundation",
+      "Clear prompting is just clear writing—no special language required",
+      "Tacit knowledge is what you know so well you don't know you know it—AI requires making it explicit",
+      "Adding adjectives to a vague request doesn't make it specific",
+      "Vague prompts reveal vague thinking: writing makes the gap visible",
+      "Words like \"professional,\" \"good,\" and \"better\" are feelings, not instructions",
+      "You can't evaluate AI output without first defining what good looks like",
+      "Know your voice, your standards, your audience—before you ask the machine",
+      "The Sixty-Second Check: WHO, WHAT, WHY, HOW, WHAT NOT"
+    ] },
+  ],
+
+  quiz: [
+    { question: "Joe types \"Write me a good email\" and gets generic output. The most likely reason is:", options: ["The AI isn't capable of writing good emails", "Joe didn't pay for the premium version", "Joe provided no context about who it was for, what it was about, or how it should sound", "The AI was having a bad day"], correct: 2 },
+    { question: "When Joe asks the AI to \"make it more professional,\" the core problem is:", options: ["The AI doesn't understand the word \"professional\"", "\"Professional\" means different things in different contexts and Joe hasn't defined what he means", "The AI is ignoring Joe's instructions", "Joe needs a different AI tool"], correct: 1 },
+    { question: "Joe sends an AI-generated email to a long-time client. The client thinks it sounds unlike Joe. This happened because:", options: ["The AI deliberately changed Joe's voice", "Joe never defined his communication style, so the AI produced statistically average text", "The AI was trained on bad email examples", "Joe's client is being unreasonable"], correct: 1 },
+    { question: "Sarah needs AI help writing a project update. Which approach will produce the best result?", options: ["\"Write me a project update\"", "\"Write me an amazing, detailed, impressive project update\"", "\"I need a 1-page update for my director on the website redesign project. We're on track for the March deadline, but the vendor is 2 weeks behind on the design mockups, which I've escalated. Tone should be factual and solutions-oriented—my director values brevity and hates surprises. Include a risk section and next steps.\"", "\"Please write the best project update you possibly can\""], correct: 2 },
+  ],
+};
+
+(function() {
+  const container = document.getElementById('slideContainer');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentSlide = 0;
+  let quizAnswers = {};
+  let quizRevealed = {};
+  let totalScreens = 0;
+
+  function buildSlides() {
+    MODULE.slides.forEach((s, i) => {
+      const el = document.createElement('div');
+      el.className = `slide slide-${s.type}`;
+      el.dataset.index = i;
+      if (s.image) {
+        el.classList.add('has-image');
+        el.style.backgroundImage = `url('${s.image}')`;
+      }
+      el.innerHTML = renderSlide(s, i);
+      container.appendChild(el);
+    });
+
+    MODULE.quiz.forEach((q, i) => {
+      const el = document.createElement('div');
+      el.className = 'slide slide-quiz';
+      el.dataset.index = MODULE.slides.length + i;
+      el.dataset.quizIndex = i;
+      el.innerHTML = renderQuiz(q, i);
+      container.appendChild(el);
+    });
+
+    const results = document.createElement('div');
+    results.className = 'slide slide-results';
+    results.dataset.index = MODULE.slides.length + MODULE.quiz.length;
+    results.id = 'resultsSlide';
+    results.innerHTML = renderResults();
+    container.appendChild(results);
+
+    totalScreens = MODULE.slides.length + MODULE.quiz.length + 1;
+  }
+
+  function renderSlide(s) {
+    switch(s.type) {
+      case 'title':
+        return `<span class="module-label">${s.moduleLabel}</span><h1>${s.heading.replace(/\n/g,'<br>')}</h1><p class="subtitle">${s.subtitle}</p><span class="brand">${s.brand}</span>`;
+      case 'scene':
+        return `<span class="scene-label">${s.label}</span><p class="scene-text">${s.text}</p>`;
+      case 'keypoint':
+        return `${s.kicker ? `<span class="kicker">${s.kicker}</span>` : ''}<h2>${s.heading.replace(/\n/g,'<br>')}</h2><p class="body">${s.body}</p>`;
+      case 'options':
+        return `<h2>${s.heading}</h2><div class="options-grid">${s.options.map(o => `<div class="option-card"><div class="option-letter">${o.letter}</div><h3>${o.title}</h3><p>${o.desc}</p></div>`).join('')}</div>`;
+      case 'reveal':
+        return `<span class="reveal-kicker">${s.kicker}</span><h2>${s.heading.replace(/\n/g,'<br>')}</h2><p class="body">${s.body}</p>`;
+      case 'concept':
+        return `<span class="concept-label">${s.label}</span><div class="concept-box"><h2>${s.boxText}</h2></div><p class="body">${s.body}</p>`;
+      case 'list':
+        return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
+      case 'summary':
+        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+      default:
+        return `<p>${JSON.stringify(s)}</p>`;
+    }
+  }
+
+  function renderQuiz(q, i) {
+    const letters = ['A','B','C','D'];
+    return `<span class="quiz-label">Knowledge Check</span><span class="quiz-counter">Question ${i+1} of ${MODULE.quiz.length}</span><h2>${q.question}</h2><div class="quiz-options" data-qi="${i}">${q.options.map((opt, oi) => `<div class="quiz-option" data-qi="${i}" data-oi="${oi}" onclick="handleQuizClick(${i},${oi})"><span class="opt-letter">${letters[oi]}</span><span class="opt-text">${opt}</span></div>`).join('')}</div><div class="quiz-feedback" id="feedback-${i}"></div>`;
+  }
+
+  function renderResults() {
+    return `<span class="results-label">Results</span><div class="score-display" id="scoreDisplay">—</div><div class="score-status" id="scoreStatus"></div><p class="score-detail" id="scoreDetail"></p><div class="waitlist-box"><h3>This was Module 3 of 6.</h3><p>The full course covers: how AI actually processes language, why the real problem is usually you, how to communicate precisely with AI, building your personal playbook, and the ethical rules of the road.</p><div class="waitlist-form" id="waitlistForm"><input type="email" placeholder="your@email.com" id="waitlistEmail"><button onclick="handleWaitlist()">Get Early Access</button></div><div class="waitlist-success" id="waitlistSuccess">You're on the list. We'll be in touch.</div></div>`;
+  }
+
+  function goToSlide(index) {
+    if (index < 0 || index >= totalScreens) return;
+    currentSlide = index;
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    const target = document.querySelector(`.slide[data-index="${index}"]`);
+    if (target) target.classList.add('active');
+    const pct = ((index + 1) / totalScreens) * 100;
+    progressFill.style.width = pct + '%';
+    progressText.textContent = `${index + 1} / ${totalScreens}`;
+    prevBtn.disabled = index === 0;
+    const isQuizSlide = index >= MODULE.slides.length && index < MODULE.slides.length + MODULE.quiz.length;
+    const quizIdx = index - MODULE.slides.length;
+    if (isQuizSlide && !quizRevealed[quizIdx]) {
+      nextBtn.disabled = true;
+    } else if (index === totalScreens - 1) {
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+    }
+    if (index === totalScreens - 1) showResults();
+    scormSetValue('cmi.core.lesson_location', index.toString());
+    scormCommit();
+  }
+
+  window.handleQuizClick = function(qi, oi) {
+    if (quizRevealed[qi]) return;
+    quizAnswers[qi] = oi;
+    quizRevealed[qi] = true;
+    const correct = MODULE.quiz[qi].correct;
+    const options = document.querySelectorAll(`.quiz-option[data-qi="${qi}"]`);
+    options.forEach(opt => {
+      const oIdx = parseInt(opt.dataset.oi);
+      opt.classList.add('locked');
+      if (oIdx === correct) opt.classList.add('correct');
+      if (oIdx === oi && oi !== correct) opt.classList.add('incorrect');
+    });
+    const feedback = document.getElementById(`feedback-${qi}`);
+    if (oi === correct) {
+      feedback.textContent = 'Correct.';
+      feedback.style.color = 'var(--olive-light)';
+    } else {
+      feedback.textContent = 'Not quite. The correct answer is highlighted above.';
+      feedback.style.color = 'var(--rust-light)';
+    }
+    nextBtn.disabled = false;
+  };
+
+  function showResults() {
+    let correct = 0;
+    MODULE.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
+    const pct = Math.round((correct / MODULE.quiz.length) * 100);
+    const passed = pct >= MODULE.passingScore;
+    document.getElementById('scoreDisplay').textContent = pct + '%';
+    document.getElementById('scoreDisplay').className = 'score-display ' + (passed ? 'passed' : 'failed');
+    document.getElementById('scoreStatus').textContent = passed ? 'Passed' : 'Not Quite';
+    document.getElementById('scoreStatus').className = 'score-status ' + (passed ? 'passed' : 'failed');
+    document.getElementById('scoreDetail').textContent = `${correct} of ${MODULE.quiz.length} correct. ${MODULE.passingScore}% required to pass.`;
+    scormSetValue('cmi.core.score.raw', pct.toString());
+    scormSetValue('cmi.core.score.min', '0');
+    scormSetValue('cmi.core.score.max', '100');
+    scormSetValue('cmi.core.lesson_status', passed ? 'passed' : 'failed');
+    scormCommit();
+  }
+
+  window.handleWaitlist = function() {
+    const email = document.getElementById('waitlistEmail').value;
+    if (!email || !email.includes('@')) return;
+    const btn = document.querySelector('.waitlist-form button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('https://formspree.io/f/xnjbowwy', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'module-03-results' })
+    }).then(function(res) {
+      if (res.ok) {
+        document.getElementById('waitlistForm').style.display = 'none';
+        document.getElementById('waitlistSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    }).catch(function() {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+    });
+  };
+
+  let SCORM_API = null;
+
+  function findAPI(win) {
+    try {
+      let attempts = 0;
+      while (attempts < 10) {
+        try { if (win.API) return win.API; } catch (e) { return null; }
+        try { if (!win.parent || win.parent === win) break; win = win.parent; } catch (e) { return null; }
+        attempts++;
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function initSCORM() {
+    try {
+      SCORM_API = findAPI(window);
+      if (!SCORM_API && window.opener) {
+        try { SCORM_API = findAPI(window.opener); } catch (e) {}
+      }
+      if (SCORM_API) {
+        SCORM_API.LMSInitialize('');
+        const status = SCORM_API.LMSGetValue('cmi.core.lesson_status');
+        if (status === 'not attempted' || status === '') {
+          SCORM_API.LMSSetValue('cmi.core.lesson_status', 'incomplete');
+          SCORM_API.LMSCommit('');
+        }
+        const bookmark = SCORM_API.LMSGetValue('cmi.core.lesson_location');
+        if (bookmark && bookmark !== '') currentSlide = parseInt(bookmark, 10);
+      }
+    } catch (e) {
+      SCORM_API = null;
+    }
+  }
+
+  function scormSetValue(key, val) {
+    try { if (SCORM_API) SCORM_API.LMSSetValue(key, val); } catch (e) {}
+  }
+  function scormCommit() {
+    try { if (SCORM_API) SCORM_API.LMSCommit(''); } catch (e) {}
+  }
+
+  function preloadImages() {
+    MODULE.slides.forEach(s => {
+      if (s.image) {
+        const img = new Image();
+        img.src = s.image;
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (!nextBtn.disabled) goToSlide(currentSlide + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); if (!prevBtn.disabled) goToSlide(currentSlide - 1); }
+  });
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  window.addEventListener('beforeunload', function() {
+    try {
+      if (SCORM_API) { scormSetValue('cmi.core.exit', 'suspend'); SCORM_API.LMSFinish(''); }
+    } catch (e) {}
+  });
+
+  buildSlides();
+  preloadImages();
+  initSCORM();
+  goToSlide(currentSlide);
+})();
+</script>
+
+</body>
+</html>
