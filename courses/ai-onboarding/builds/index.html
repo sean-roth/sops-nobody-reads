@@ -149,9 +149,6 @@ html, body {
   box-shadow: 0 8px 32px rgba(201,168,76,0.15);
 }
 
-.module-card.unavailable {
-  opacity: 0.6;
-}
 
 .module-number {
   font-family: var(--font-display);
@@ -179,67 +176,96 @@ html, body {
   margin-bottom: 2vh;
 }
 
-.module-status {
-  position: absolute;
-  top: 2vh;
-  right: 3vw;
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  padding: 0.5vh 1vw;
-  border-radius: 3px;
-  font-weight: 600;
-}
-
-.module-status.complete {
-  background: rgba(74,107,74,0.2);
-  color: var(--olive-light);
-  border: 1px solid var(--olive-light);
-}
-
-.module-status.available {
-  background: rgba(201,168,76,0.2);
-  color: var(--gold);
-  border: 1px solid var(--gold);
-}
-
-.module-status.coming-soon {
-  background: rgba(200,191,173,0.1);
-  color: var(--cream-dim);
-  border: 1px solid rgba(200,191,173,0.3);
-}
-
-.progress-section {
+.contact-section {
   text-align: center;
   margin-bottom: 6vh;
-  padding: 4vh 0;
+  padding: 6vh 0;
   border-top: 1px solid rgba(240,232,216,0.08);
-  border-bottom: 1px solid rgba(240,232,216,0.08);
 }
 
-.progress-label {
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--gold);
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: var(--cream);
   margin-bottom: 2vh;
 }
 
-.progress-stats {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3vw, 2.4rem);
-  font-weight: 700;
-  color: var(--cream);
-  margin-bottom: 1vh;
-}
-
-.progress-detail {
+.contact-subtext {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: var(--cream-dim);
   font-weight: 300;
+  max-width: 50ch;
+  margin: 0 auto 4vh;
+  line-height: 1.6;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.form-row {
+  display: flex;
+  gap: 2vh;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.5vh 1.8vw;
+  background: var(--bg-card);
+  border: 1px solid rgba(240,232,216,0.12);
+  border-radius: 4px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--gold);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--cream-dim);
+  opacity: 0.7;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 8vh;
+}
+
+.contact-form button {
+  padding: 1.8vh 3vw;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contact-form button:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+  transform: translateY(-1px);
 }
 
 .brand-footer {
@@ -286,12 +312,8 @@ html, body {
     padding: 3vh 4vw;
   }
   
-  .module-status {
-    position: relative;
-    top: auto;
-    right: auto;
-    display: inline-block;
-    margin-bottom: 1vh;
+  .form-row {
+    flex-direction: column;
   }
 }
 </style>
@@ -304,7 +326,7 @@ html, body {
 <div class="container">
   <header class="header">
     <div class="course-label">Professional Development</div>
-    <h1 class="course-title">AI Onboarding:<br>A Course for Humans</h1>
+    <h1 class="course-title">AI Onboarding: <span style="font-weight: 400; font-style: italic;">A Course for Humans</span></h1>
     <p class="course-description">
       A 6-module course teaching employees how to work effectively with AI tools. 
       Learn what AI actually is, why the usual approaches fail, and how to build productive workflows that leverage these powerful but alien systems.
@@ -312,55 +334,60 @@ html, body {
     <div class="course-meta">6 modules • Self-paced • Evergreen</div>
   </header>
 
-  <div class="progress-section">
-    <div class="progress-label">Course Progress</div>
-    <div class="progress-stats">2 of 6 modules available</div>
-    <div class="progress-detail">Additional modules released as development completes</div>
-  </div>
 
   <main class="modules-grid">
     <article class="module-card available" onclick="window.location.href='module-01/index.html'">
-      <div class="module-status complete">Complete</div>
       <div class="module-number">Module 1</div>
       <h2 class="module-title">You've Used AI Before (You Just Didn't Know It)</h2>
       <div class="module-part">Part One — Know Thy Machine</div>
     </article>
 
     <article class="module-card available" onclick="window.location.href='module-02/index.html'">
-      <div class="module-status available">Available</div>
       <div class="module-number">Module 2</div>
       <h2 class="module-title">The Ghost in the Machine (There Isn't One)</h2>
       <div class="module-part">Part One — Know Thy Machine</div>
     </article>
 
-    <article class="module-card unavailable">
-      <div class="module-status coming-soon">Coming Soon</div>
+    <article class="module-card available" onclick="window.location.href='module-03/index.html'">
       <div class="module-number">Module 3</div>
       <h2 class="module-title">How It Actually Works (The 2-Minute Version)</h2>
       <div class="module-part">Part Two — The Prerequisites Nobody Mentions</div>
     </article>
 
-    <article class="module-card unavailable">
-      <div class="module-status coming-soon">Coming Soon</div>
+    <article class="module-card available" onclick="window.location.href='module-04/index.html'">
       <div class="module-number">Module 4</div>
       <h2 class="module-title">The Real Problem Is You (And That's Good News)</h2>
       <div class="module-part">Part Two — The Prerequisites Nobody Mentions</div>
     </article>
 
-    <article class="module-card unavailable">
-      <div class="module-status coming-soon">Coming Soon</div>
+    <article class="module-card available" onclick="window.location.href='module-05/index.html'">
       <div class="module-number">Module 5</div>
       <h2 class="module-title">The Prompt Is the Product</h2>
       <div class="module-part">Part Three — The Technical Layer</div>
     </article>
 
-    <article class="module-card unavailable">
-      <div class="module-status coming-soon">Coming Soon</div>
+    <article class="module-card available" onclick="window.location.href='module-06/index.html'">
       <div class="module-number">Module 6</div>
       <h2 class="module-title">The Rules of the Road</h2>
       <div class="module-part">Part Three — The Technical Layer</div>
     </article>
   </main>
+
+  <section class="contact-section">
+    <h2 class="contact-heading">Bring This Course to Your Team</h2>
+    <p class="contact-subtext">
+      Interested in rolling out AI training across your organization? Get in touch to discuss custom implementations, bulk licensing, and enterprise features.
+    </p>
+    <form class="contact-form" action="https://formspree.io/f/PLACEHOLDER" method="POST">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <input type="text" name="company" placeholder="Company">
+      <textarea name="message" placeholder="Tell us about your training needs (optional)"></textarea>
+      <button type="submit">Request Information</button>
+    </form>
+  </section>
 
   <footer class="brand-footer">
     <div class="brand-line">SOPs Nobody Reads</div>
