@@ -447,6 +447,26 @@ html, body {
   left: 0;
   color: var(--gold-dim);
 }
+.next-module-btn {
+  display: inline-block;
+  margin-top: 3vh;
+  padding: 1rem 2.5rem;
+  background: var(--gold);
+  color: var(--bg-dark);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.next-module-btn:hover {
+  background: var(--cream);
+  color: var(--charcoal);
+  transform: translateY(-1px);
+}
 
 .slide-quiz {
   text-align: center;
@@ -1039,6 +1059,11 @@ const MODULE = {
       correct: 2,
     },
   ],
+
+  nextModule: {
+    url: "../module-02/index.html",
+    label: "Continue to Module 2"
+  }
 };
 
 (function() {
@@ -1103,7 +1128,9 @@ const MODULE = {
       case 'list':
         return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
       case 'summary':
-        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+        const summaryContent = `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+        const nextButton = MODULE.nextModule ? `<a href="${MODULE.nextModule.url}" class="next-module-btn">${MODULE.nextModule.label} →</a>` : '';
+        return summaryContent + nextButton;
       default:
         return `<p>${JSON.stringify(s)}</p>`;
     }

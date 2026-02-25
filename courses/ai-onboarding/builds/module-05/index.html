@@ -334,6 +334,26 @@ html, body {
   margin-right: 0.5em;
   font-weight: 600;
 }
+.next-module-btn {
+  display: inline-block;
+  margin-top: 3vh;
+  padding: 1rem 2.5rem;
+  background: var(--gold);
+  color: var(--bg-dark);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.next-module-btn:hover {
+  background: var(--cream);
+  color: var(--charcoal);
+  transform: translateY(-1px);
+}
 
 .slide-quiz {
   text-align: center;
@@ -757,6 +777,11 @@ const MODULE = {
     { question: "Which section of the Working Context Document typically makes the biggest difference in output quality?", options: ["Who You Are (your role and responsibilities)", "How You Sound (your voice and communication style)", "Who You Talk To (your key audiences)", "What to Avoid (your boundaries and pet peeves)"], correct: 1 },
     { question: "You've been using your Working Context Document for two weeks. The AI keeps producing responses that are too formal for your internal team updates, even though it gets client emails right. What should you do?", options: ["Delete the document and start over", "Add a note to your voice section that specifies how internal communication differs from client communication", "Stop using the document for internal tasks", "Add \"be more casual\" to every prompt"], correct: 1 },
   ],
+
+  nextModule: {
+    url: "../module-06/index.html",
+    label: "Continue to Module 6"
+  }
 };
 
 (function() {
@@ -820,7 +845,9 @@ const MODULE = {
       case 'list':
         return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
       case 'summary':
-        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+        const summaryContent = `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+        const nextButton = MODULE.nextModule ? `<a href="${MODULE.nextModule.url}" class="next-module-btn">${MODULE.nextModule.label} →</a>` : '';
+        return summaryContent + nextButton;
       default:
         return `<p>${JSON.stringify(s)}</p>`;
     }

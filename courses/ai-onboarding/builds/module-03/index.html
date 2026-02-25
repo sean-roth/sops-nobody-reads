@@ -334,6 +334,26 @@ html, body {
   margin-right: 0.5em;
   font-weight: 600;
 }
+.next-module-btn {
+  display: inline-block;
+  margin-top: 3vh;
+  padding: 1rem 2.5rem;
+  background: var(--gold);
+  color: var(--bg-dark);
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+.next-module-btn:hover {
+  background: var(--cream);
+  color: var(--charcoal);
+  transform: translateY(-1px);
+}
 
 .slide-quiz {
   text-align: center;
@@ -753,6 +773,11 @@ const MODULE = {
     { question: "Joe sends an AI-generated email to a long-time client. The client thinks it sounds unlike Joe. This happened because:", options: ["The AI deliberately changed Joe's voice", "Joe never defined his communication style, so the AI produced statistically average text", "The AI was trained on bad email examples", "Joe's client is being unreasonable"], correct: 1 },
     { question: "Sarah needs AI help writing a project update. Which approach will produce the best result?", options: ["\"Write me a project update\"", "\"Write me an amazing, detailed, impressive project update\"", "\"I need a 1-page update for my director on the website redesign project. We're on track for the March deadline, but the vendor is 2 weeks behind on the design mockups, which I've escalated. Tone should be factual and solutions-oriented—my director values brevity and hates surprises. Include a risk section and next steps.\"", "\"Please write the best project update you possibly can\""], correct: 2 },
   ],
+
+  nextModule: {
+    url: "../module-04/index.html",
+    label: "Continue to Module 4"
+  }
 };
 
 (function() {
@@ -816,7 +841,9 @@ const MODULE = {
       case 'list':
         return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
       case 'summary':
-        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+        const summaryContent = `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+        const nextButton = MODULE.nextModule ? `<a href="${MODULE.nextModule.url}" class="next-module-btn">${MODULE.nextModule.label} →</a>` : '';
+        return summaryContent + nextButton;
       default:
         return `<p>${JSON.stringify(s)}</p>`;
     }
