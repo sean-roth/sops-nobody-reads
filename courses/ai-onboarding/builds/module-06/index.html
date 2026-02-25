@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6: Rules of the Road | SOPs Nobody Reads</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #1a1812;
+  --bg-card: #2a2620;
+  --bg-warm: #332e26;
+  --cream: #f0e8d8;
+  --cream-dim: #c8bfad;
+  --olive: #5c6b4f;
+  --olive-light: #7a8c6a;
+  --rust: #b8704a;
+  --rust-light: #d4956a;
+  --gold: #c9a84c;
+  --gold-dim: #8a7535;
+  --red-dim: #8b3a3a;
+  --green-dim: #4a6b4a;
+  --charcoal: #3a3632;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--cream);
+}
+
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.5s steps(4) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, -1%); }
+  50% { transform: translate(1%, 2%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(10,8,4,0.6) 100%);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+.slide-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 8vw;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  background-color: var(--bg-dark);
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.slide.has-image {
+  background-size: cover;
+  background-position: center;
+}
+.slide.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.82) 100%);
+  z-index: 1;
+}
+
+.slide > * {
+  position: relative;
+  z-index: 2;
+}
+
+.module-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-title h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 0.95;
+  text-align: center;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.4rem);
+  color: var(--cream-dim);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 5vh;
+  font-weight: 400;
+}
+.brand {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold-dim);
+  font-weight: 500;
+}
+
+.scene-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--rust);
+  margin-bottom: 4vh;
+  font-weight: 600;
+}
+.scene-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  line-height: 1.4;
+  font-style: italic;
+  text-align: center;
+  max-width: 70vw;
+  color: var(--cream);
+  font-weight: 400;
+}
+.scene-text em {
+  color: var(--rust-light);
+  font-style: italic;
+}
+
+.kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.slide-keypoint h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  text-align: center;
+  max-width: 65vw;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+
+.reveal-kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-reveal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.slide-reveal .body {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.concept-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.concept-box {
+  background: rgba(240,232,216,0.04);
+  border: 1px solid rgba(240,232,216,0.12);
+  border-radius: 4px;
+  padding: 3vh 3vw;
+  margin-bottom: 3vh;
+  backdrop-filter: blur(4px);
+}
+.concept-box h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--cream);
+}
+
+.list-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-list {
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+.slide-list h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  margin-bottom: 3vh;
+  color: var(--cream);
+}
+.list-items {
+  list-style: none;
+}
+.list-items li {
+  display: flex;
+  margin-bottom: 2.5vh;
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+.list-items li::before {
+  content: attr(data-num);
+  font-family: var(--font-ui);
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-weight: 600;
+  color: var(--gold);
+  margin-right: 2vw;
+  flex-shrink: 0;
+  width: 3em;
+}
+.list-items li strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.slide-summary {
+  text-align: center;
+  background: linear-gradient(170deg, #252218 0%, var(--bg-dark) 100%);
+}
+.slide-summary h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 4vh;
+  color: var(--cream);
+}
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5vh;
+  max-width: 80vw;
+  width: 100%;
+}
+.summary-item {
+  background: rgba(240,232,216,0.04);
+  border: 1px solid rgba(240,232,216,0.08);
+  border-radius: 3px;
+  padding: 2vh 2vw;
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.5;
+  color: var(--cream-dim);
+  text-align: left;
+  font-weight: 300;
+}
+.summary-item::before {
+  content: '—';
+  color: var(--gold-dim);
+  margin-right: 0.5em;
+  font-weight: 600;
+}
+
+.slide-quiz {
+  text-align: center;
+  padding-top: 8vh;
+}
+.quiz-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.1vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 1vh;
+  font-weight: 600;
+}
+.quiz-counter {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1vw, 0.85rem);
+  color: var(--cream-dim);
+  margin-bottom: 4vh;
+  font-weight: 400;
+}
+.slide-quiz h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 4vh;
+  color: var(--cream);
+  max-width: 70vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  max-width: 70vw;
+  width: 100%;
+  margin: 0 auto;
+}
+.quiz-option {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  padding: 2.5vh 3vw;
+  background: var(--charcoal);
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  backdrop-filter: blur(4px);
+}
+.quiz-option:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(58,54,50,0.8);
+}
+.opt-letter {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 1.8em;
+}
+.quiz-option .opt-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.2vw, 1rem);
+  color: var(--cream-dim);
+  line-height: 1.5;
+  font-weight: 300;
+}
+.quiz-option.selected {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+.quiz-option.correct {
+  border-color: var(--green-dim);
+  background: rgba(74,107,74,0.15);
+}
+.quiz-option.incorrect {
+  border-color: var(--red-dim);
+  background: rgba(139,58,58,0.1);
+  opacity: 0.6;
+}
+.quiz-option.correct .opt-letter { color: #7aad7a; }
+.quiz-option.incorrect .opt-letter { color: #ad6a6a; }
+.quiz-option.locked { pointer-events: none; }
+
+.quiz-feedback {
+  margin-top: 2.5vh;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  font-style: italic;
+  min-height: 2em;
+  font-weight: 300;
+}
+
+.slide-results {
+  text-align: center;
+  background: linear-gradient(170deg, #252218 0%, var(--bg-dark) 100%);
+}
+.slide-results .results-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.8rem, 1.4vw, 1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.score-display {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 1vh;
+}
+.score-display.passed { color: var(--olive-light); }
+.score-display.failed { color: var(--rust); }
+.score-status {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 700;
+  margin-bottom: 3vh;
+}
+.score-status.passed { color: var(--olive-light); }
+.score-status.failed { color: var(--rust); }
+.score-detail {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--cream-dim);
+  margin-bottom: 4vh;
+  font-weight: 300;
+}
+
+.waitlist-box {
+  background: rgba(240,232,216,0.03);
+  border: 1px solid rgba(240,232,216,0.1);
+  border-radius: 4px;
+  padding: 3vh 3vw;
+  max-width: 480px;
+  width: 100%;
+}
+.waitlist-box h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 1.5vh;
+}
+.waitlist-box p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--cream-dim);
+  margin-bottom: 2vh;
+  line-height: 1.6;
+  font-weight: 300;
+}
+.waitlist-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.waitlist-form input[type="email"] {
+  flex: 1;
+  padding: 1.2vh 1.2vw;
+  background: var(--bg-dark);
+  border: 1px solid rgba(240,232,216,0.15);
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.waitlist-form input[type="email"]:focus {
+  border-color: var(--gold);
+}
+.waitlist-form input[type="email"]::placeholder {
+  color: rgba(240,232,216,0.3);
+}
+.waitlist-form button {
+  padding: 1.2vh 2vw;
+  background: var(--gold-dim);
+  border: none;
+  border-radius: 3px;
+  color: var(--cream);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.waitlist-form button:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+.waitlist-success {
+  display: none;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--olive-light);
+  font-style: italic;
+  padding: 1.5vh 0;
+}
+
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5vh 3vw;
+  background: rgba(26,24,18,0.9);
+  border-top: 1px solid rgba(240,232,216,0.06);
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 1.2vw;
+  flex: 1;
+}
+
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(240,232,216,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 400px;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--gold-dim);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+
+.progress-text {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--cream-dim);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 0.6vw;
+}
+.nav-btn {
+  background: transparent;
+  border: 1px solid rgba(240,232,216,0.12);
+  color: var(--cream-dim);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  padding: 0.8vh 1.5vw;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.nav-btn:hover {
+  border-color: rgba(240,232,216,0.3);
+  color: var(--cream);
+}
+.nav-btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.nav-btn:disabled:hover {
+  border-color: rgba(240,232,216,0.12);
+  color: var(--cream-dim);
+}
+
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.015) 2px,
+    rgba(0,0,0,0.015) 4px
+  );
+}
+
+@media (max-width: 768px) {
+  .slide { padding: 3vh 5vw; }
+  .slide-list { padding-left: 5vw; padding-right: 5vw; }
+  .options-grid { flex-direction: column; align-items: center; }
+  .option-card { width: 85vw; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .waitlist-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<div class="player" id="player">
+  <div class="slide-container" id="slideContainer"></div>
+
+  <div class="bottom-bar">
+    <a href="../index.html" class="nav-btn" style="margin-right: 2vw;">MENU</a>
+    <div class="progress-section">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-text" id="progressText">1 / 1</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
+      <button class="nav-btn" id="nextBtn">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const MODULE = {
+  title: "Rules of the Road",
+  moduleNumber: 6,
+  partLabel: "Part Two — Work With the Machine",
+  passingScore: 75,
+
+  slides: [
+    { type: "title", moduleLabel: "Module 6", heading: "Rules of the Road", subtitle: "Part Two — Work With the Machine", brand: "SOPs Nobody Reads" },
+
+    // Cold Open - Kevin's Story
+    { type: "scene", label: "Conference Room", text: "A conference room. A mid-level manager — call him Kevin — is presenting quarterly projections to his leadership team. Slides look sharp. Numbers are clean. He's confident.", image: "img/s01-kevin-presenting.jpg" },
+    { type: "scene", label: "The Question", text: "His director interrupts: <em>\"Kevin, where'd you get the 34% market growth figure?\"</em> Kevin: <em>\"I... pulled it from an industry report.\"</em> Director: <em>\"Which one?\"</em>", image: "img/s02-the-question.jpg" },
+    { type: "scene", label: "The Silence", text: "Kevin hesitates. He doesn't remember. Because there was no report. The AI generated that number, and it looked right, and he didn't check. The room goes quiet.", image: "img/s03-the-silence.jpg" },
+    { type: "keypoint", kicker: "The Risk", heading: "Kevin didn't lie.\nHe didn't cut corners\non purpose.", body: "He trusted output that sounded authoritative, and he didn't verify it. And now his credibility is damaged in a room that matters.", image: "img/s04-credibility-damaged.jpg" },
+
+    // Why This Module Exists
+    { type: "keypoint", kicker: "Why This Module", heading: "We've spent five modules\nteaching you how to get\ngreat output from AI.", body: "This module is about what can go wrong — and how to make sure it doesn't. Not because AI is dangerous. But because every powerful tool has failure modes, and a professional knows what they are before they matter.", image: "img/s05-failure-modes.jpg" },
+
+    // Rule One: Verify Everything That Matters
+    { type: "reveal", kicker: "Rule One", heading: "Verify Everything\nThat Matters", body: "AI generates text that sounds confident. Always. It doesn't hedge when it's unsure. It doesn't flag when it's making something up. It presents everything — facts, figures, names, dates, citations — with the same smooth authority, whether it's right or wrong.", image: "img/s06-rule-one.jpg" },
+    { type: "concept", label: "The Core Truth", boxText: "Fluency is not accuracy.", body: "The technical term is \"hallucination.\" The machine generates something that sounds plausible but is factually wrong. It's not lying. It doesn't know what's true. It's generating the most statistically likely next sequence of words.", image: "img/s07-fluency-accuracy.jpg" },
+    { type: "keypoint", kicker: "The Stakes Spectrum", heading: "Not everything needs\nthe same level\nof verification.", body: "If the machine helps you draft an email and the tone is slightly off, you'll catch that in a read-through. Low stakes. But if the output contains a number, a date, a name, a claim, a legal reference, or anything someone might act on as fact — you verify. Every time.", image: "img/s08-stakes-spectrum.jpg" },
+    { type: "concept", label: "The Rule", boxText: "The higher the stakes, the harder you check.", body: "AI is your drafting partner, not your fact-checker. Treat its output the way you'd treat a first draft from a smart intern who sometimes makes things up with complete confidence.", image: "img/s09-check-harder.jpg" },
+
+    // Rule Two: Know What It Can't Do
+    { type: "reveal", kicker: "Rule Two", heading: "Know What It Can't Do", body: "AI is extraordinarily capable within its lane. It can draft, summarize, structure, brainstorm, analyze text, and organize information faster than any human. It cannot do the following things, and you need to know that before you rely on it.", image: "img/s10-rule-two.jpg" },
+    { type: "list", label: "AI Limitations", heading: "What AI cannot do reliably:", items: [
+      { num: "1.", text: "<strong>Access real-time information.</strong> Unless the specific tool has web search enabled, the machine doesn't know what happened today. It knows what it was trained on — and that training has a cutoff date." },
+      { num: "2.", text: "<strong>Do math reliably.</strong> It can set up equations and explain concepts, but if you ask it to calculate something directly, it may get it wrong — especially with large numbers or multi-step arithmetic." },
+      { num: "3.", text: "<strong>Read your mind.</strong> The machine works with what you give it. If you leave out critical context, it will fill the gap with its best guess. Sometimes that guess is Kevin's 34% figure." },
+      { num: "4.", text: "<strong>Know your company's specifics.</strong> Unless you've given it your documentation, the machine doesn't know your company's policies, pricing, client history, or internal processes." }
+    ], image: "img/s11-limitations.jpg" },
+    { type: "keypoint", kicker: "Not Reasons to Avoid", heading: "None of these are reasons\nnot to use AI.", body: "They're reasons to use it with eyes open. Every tool has limits. A calculator can't write a narrative. A spreadsheet can't hold a meeting. AI can't verify its own claims. Know the limits, work within them, and the tool stays powerful.", image: "img/s12-eyes-open.jpg" },
+
+    // Rule Three: Protect What's Private
+    { type: "reveal", kicker: "Rule Three", heading: "Protect What's Private", body: "When you type something into an AI, where does it go? The honest answer is: it depends on which tool you're using, how your company has configured it, and what the provider's data policy says. And most people never check.", image: "img/s13-rule-three.jpg" },
+    { type: "concept", label: "The Practical Rule", boxText: "Don't put anything into AI that you wouldn't put in an email to someone outside your company.", body: "Assume anything you type could be seen. Not necessarily by a person — but by a system. Some AI providers use conversations to train future models. Some store conversations for a period of time. Some don't. The policies vary and they change.", image: "img/s14-email-test.jpg" },
+    { type: "keypoint", kicker: "What This Means", heading: "Client names and\nconfidential details?\nThink twice.", body: "Can you anonymize it? \"My client in the healthcare space\" works just as well as the client's actual name for most tasks. Internal financials? Strategy documents? Personal information? Never. Full stop.", image: "img/s15-anonymize.jpg" },
+    { type: "keypoint", kicker: "Professional Judgment", heading: "This isn't about fear.\nIt's about professionalism.", body: "You wouldn't leave confidential documents on a table in a coffee shop. Treat AI inputs with the same basic judgment. If your company has an AI usage policy, follow it. If they don't have one yet — use the email test.", image: "img/s16-professional-judgment.jpg" },
+
+    // Rule Four: You Are Responsible for the Output
+    { type: "reveal", kicker: "Rule Four", heading: "You Are Responsible\nfor the Output", body: "This is the rule that changes how you think about everything else. When you send an email that AI helped you write, your name is on it. When you present numbers that AI generated, you're the one standing in front of the room. When you submit a report, a proposal, a recommendation — it doesn't matter who drafted it. You signed off on it. You're accountable.", image: "img/s17-rule-four.jpg" },
+    { type: "keypoint", kicker: "Your Reputation", heading: "AI doesn't have\na reputation.\nYou do.", body: "AI doesn't get fired for a bad recommendation. You might. AI doesn't lose a client's trust. You will. This isn't a warning — it's a clarification. AI is a tool that works for you. The output is your responsibility the same way a document your assistant drafted is your responsibility.", image: "img/s18-your-reputation.jpg" },
+    { type: "reveal", kicker: "What Makes You Valuable", heading: "This responsibility\nis what makes you valuable.", body: "The machine can produce a draft in seconds. What it can't do is decide whether that draft is right for this audience, this moment, this relationship. That judgment — the human judgment we've been building throughout this entire course — is your contribution.", image: "img/s19-valuable-judgment.jpg" },
+    { type: "concept", label: "Don't Be Kevin", boxText: "The person who reviews AI output carefully and catches the error that would have embarrassed the team? That person is indispensable.", body: "The person who hits send without reading because the AI \"probably got it right\"? That's Kevin.", image: "img/s20-dont-be-kevin.jpg" },
+
+    // Rule Five: Stay Current
+    { type: "reveal", kicker: "Rule Five", heading: "Stay Current", body: "One last rule, and it's the one that extends beyond this course. AI is changing. Fast. The tool you use today will have new capabilities next month. The things that don't work well now may work perfectly in six months. The limits we just discussed may shift.", image: "img/s21-rule-five.jpg" },
+    { type: "keypoint", kicker: "Stay Curious", heading: "This doesn't mean\nyou need to chase\nevery update.", body: "It means you need to stay curious. Pay attention to what your tools can do. Try new features when they appear. Talk to colleagues about what's working. Update your Working Context Document as your tools evolve.", image: "img/s22-stay-curious.jpg" },
+    { type: "keypoint", kicker: "The Foundation", heading: "You've already started\nthat habit.", body: "You're here. You've built the foundational skills. You know how to communicate, iterate, and evaluate. That foundation doesn't expire. What you've learned in this course will serve you regardless of which AI tool you're using a year from now — because the principles are human principles.", image: "img/s23-foundation.jpg" },
+
+    // Course Closing
+    { type: "reveal", kicker: "Course Closing", heading: "Let's take a step back\nand look at where\nyou've been.", body: "Module 1 — you learned what AI actually is. Module 2 — you learned what it isn't. Module 3 — you learned that the gap between what you know and what you type is where most failures happen. Module 4 — you learned to communicate. Module 5 — you built your playbook. Module 6 — you learned the guardrails.", image: "img/s24-journey-recap.jpg" },
+    { type: "list", label: "The Journey", heading: "That's the whole course.", items: [
+      { num: "1.", text: "Module 1 — What AI actually is: A pattern-matching machine. Powerful, but not magic." },
+      { num: "2.", text: "Module 2 — What it isn't: Not a search engine, not a mind reader, not a replacement for your judgment." },
+      { num: "3.", text: "Module 3 — The gap between what you know and what you type is where most failures happen." },
+      { num: "4.", text: "Module 4 — You learned to communicate. Not to \"prompt\" — to have a conversation." },
+      { num: "5.", text: "Module 5 — You built your playbook. A Working Context Document that makes every future interaction start from a foundation." },
+      { num: "6.", text: "Module 6 — You learned the guardrails. Verify what matters, know the limits, protect what's private, own the output." }
+    ], image: "img/s25-complete-journey.jpg" },
+    { type: "keypoint", kicker: "Not Tricks", heading: "Not a bag of tricks.\nNot a list of templates.", body: "A fundamental shift in how you work with a tool that's going to be part of your professional life for the foreseeable future.", image: "img/s26-fundamental-shift.jpg" },
+    { type: "reveal", kicker: "Your Transformation", heading: "You started this course\nas someone who maybe\ntyped a sentence into AI\nand hoped for the best.", body: "You're leaving it as someone who understands why that doesn't work — and who has the skills and the tools to do it right.", image: "img/s27-transformation.jpg" },
+    { type: "keypoint", kicker: "Your Tool", heading: "The Working Context\nDocument you built\nin Module 5?\nUse it tomorrow.", body: "Use it every day. Update it. Let it grow. It's the most tangible proof that you've internalized what this course teaches: that the intelligence is yours, and the machine is just waiting for you to share it.", image: "img/s28-use-it-tomorrow.jpg" },
+    { type: "reveal", kicker: "Go Do the Work", heading: "Thanks for being here.\nNow go do the work.", body: "", image: "img/s29-go-do-work.jpg" },
+
+    { type: "summary", heading: "Module 6 — Key Concepts", items: [
+      "Rule 1: Verify everything that matters — fluency is not accuracy",
+      "Rule 2: Know what AI can't do — real-time info, reliable math, mind-reading, company specifics",
+      "Rule 3: Protect what's private — use the email test, anonymize when possible",
+      "Rule 4: You are responsible for the output — your name, your reputation, your accountability",
+      "Rule 5: Stay current — AI is changing, but the principles are permanent",
+      "The journey from \"write me an email\" to skilled AI collaboration is complete",
+      "Your Working Context Document is the lasting tool that makes it all permanent",
+      "Human skills (communication, judgment, tacit knowledge) remain the foundation",
+      "The intelligence is yours — the machine is waiting for you to share it"
+    ] },
+  ],
+
+  quiz: [
+    { question: "Kevin's mistake with the 34% market growth figure was:", options: ["Using AI to generate slides", "Presenting AI-generated data without verifying its accuracy", "Not using a premium AI model", "Sharing confidential information with AI"], correct: 1 },
+    { question: "\"Fluency is not accuracy\" means:", options: ["AI can't write in a professional tone", "AI output always contains errors", "AI presents everything with equal confidence regardless of whether it's factually correct", "You need to rewrite everything AI produces"], correct: 2 },
+    { question: "Your company doesn't have an AI usage policy yet. You need to draft a competitive analysis and want to use AI to help structure it. Which approach is best?", options: ["Paste in all your internal strategy documents and competitor data for the most accurate output", "Use anonymized information and general industry context, keeping specific client names and confidential financials out", "Don't use AI at all until your company creates a formal policy", "Only use AI for personal tasks, never for work"], correct: 1 },
+    { question: "AI helps you draft a client proposal that includes a claim about your company's on-time delivery rate. You don't remember the exact number. You should:", options: ["Send it — the AI probably used accurate training data", "Delete the claim entirely to avoid any risk", "Verify the number against your company's actual data before including it", "Add a disclaimer that the number was generated by AI"], correct: 2 },
+  ],
+};
+
+(function() {
+  const container = document.getElementById('slideContainer');
+  const progressFill = document.getElementById('progressFill');
+  const progressText = document.getElementById('progressText');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let currentSlide = 0;
+  let quizAnswers = {};
+  let quizRevealed = {};
+  let totalScreens = 0;
+
+  function buildSlides() {
+    MODULE.slides.forEach((s, i) => {
+      const el = document.createElement('div');
+      el.className = `slide slide-${s.type}`;
+      el.dataset.index = i;
+      if (s.image) {
+        el.classList.add('has-image');
+        el.style.backgroundImage = `url('${s.image}')`;
+      }
+      el.innerHTML = renderSlide(s, i);
+      container.appendChild(el);
+    });
+
+    MODULE.quiz.forEach((q, i) => {
+      const el = document.createElement('div');
+      el.className = 'slide slide-quiz';
+      el.dataset.index = MODULE.slides.length + i;
+      el.dataset.quizIndex = i;
+      el.innerHTML = renderQuiz(q, i);
+      container.appendChild(el);
+    });
+
+    const results = document.createElement('div');
+    results.className = 'slide slide-results';
+    results.dataset.index = MODULE.slides.length + MODULE.quiz.length;
+    results.id = 'resultsSlide';
+    results.innerHTML = renderResults();
+    container.appendChild(results);
+
+    totalScreens = MODULE.slides.length + MODULE.quiz.length + 1;
+  }
+
+  function renderSlide(s) {
+    switch(s.type) {
+      case 'title':
+        return `<span class="module-label">${s.moduleLabel}</span><h1>${s.heading.replace(/\n/g,'<br>')}</h1><p class="subtitle">${s.subtitle}</p><span class="brand">${s.brand}</span>`;
+      case 'scene':
+        return `<span class="scene-label">${s.label}</span><p class="scene-text">${s.text}</p>`;
+      case 'keypoint':
+        return `${s.kicker ? `<span class="kicker">${s.kicker}</span>` : ''}<h2>${s.heading.replace(/\n/g,'<br>')}</h2><p class="body">${s.body}</p>`;
+      case 'options':
+        return `<h2>${s.heading}</h2><div class="options-grid">${s.options.map(o => `<div class="option-card"><div class="option-letter">${o.letter}</div><h3>${o.title}</h3><p>${o.desc}</p></div>`).join('')}</div>`;
+      case 'reveal':
+        return `<span class="reveal-kicker">${s.kicker}</span><h2>${s.heading.replace(/\n/g,'<br>')}</h2><p class="body">${s.body}</p>`;
+      case 'concept':
+        return `<span class="concept-label">${s.label}</span><div class="concept-box"><h2>${s.boxText}</h2></div><p class="body">${s.body}</p>`;
+      case 'list':
+        return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
+      case 'summary':
+        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
+      default:
+        return `<p>${JSON.stringify(s)}</p>`;
+    }
+  }
+
+  function renderQuiz(q, i) {
+    const letters = ['A','B','C','D'];
+    return `<span class="quiz-label">Knowledge Check</span><span class="quiz-counter">Question ${i+1} of ${MODULE.quiz.length}</span><h2>${q.question}</h2><div class="quiz-options" data-qi="${i}">${q.options.map((opt, oi) => `<div class="quiz-option" data-qi="${i}" data-oi="${oi}" onclick="handleQuizClick(${i},${oi})"><span class="opt-letter">${letters[oi]}</span><span class="opt-text">${opt}</span></div>`).join('')}</div><div class="quiz-feedback" id="feedback-${i}"></div>`;
+  }
+
+  function renderResults() {
+    return `<span class="results-label">Results</span><div class="score-display" id="scoreDisplay">—</div><div class="score-status" id="scoreStatus"></div><p class="score-detail" id="scoreDetail"></p><div class="waitlist-box"><h3>Congratulations! You've completed the full AI Onboarding Course.</h3><p>You've learned how AI actually works, why communication is the key skill, how to have productive conversations with AI systems, and how to build a lasting playbook for professional AI use.</p><div class="waitlist-form" id="waitlistForm"><input type="email" placeholder="your@email.com" id="waitlistEmail"><button onclick="handleWaitlist()">Join Our Community</button></div><div class="waitlist-success" id="waitlistSuccess">Welcome to the community. We'll be in touch.</div></div>`;
+  }
+
+  function goToSlide(index) {
+    if (index < 0 || index >= totalScreens) return;
+    currentSlide = index;
+    document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+    const target = document.querySelector(`.slide[data-index="${index}"]`);
+    if (target) target.classList.add('active');
+    const pct = ((index + 1) / totalScreens) * 100;
+    progressFill.style.width = pct + '%';
+    progressText.textContent = `${index + 1} / ${totalScreens}`;
+    prevBtn.disabled = index === 0;
+    const isQuizSlide = index >= MODULE.slides.length && index < MODULE.slides.length + MODULE.quiz.length;
+    const quizIdx = index - MODULE.slides.length;
+    if (isQuizSlide && !quizRevealed[quizIdx]) {
+      nextBtn.disabled = true;
+    } else if (index === totalScreens - 1) {
+      nextBtn.disabled = true;
+    } else {
+      nextBtn.disabled = false;
+    }
+    if (index === totalScreens - 1) showResults();
+    scormSetValue('cmi.core.lesson_location', index.toString());
+    scormCommit();
+  }
+
+  window.handleQuizClick = function(qi, oi) {
+    if (quizRevealed[qi]) return;
+    quizAnswers[qi] = oi;
+    quizRevealed[qi] = true;
+    const correct = MODULE.quiz[qi].correct;
+    const options = document.querySelectorAll(`.quiz-option[data-qi="${qi}"]`);
+    options.forEach(opt => {
+      const oIdx = parseInt(opt.dataset.oi);
+      opt.classList.add('locked');
+      if (oIdx === correct) opt.classList.add('correct');
+      if (oIdx === oi && oi !== correct) opt.classList.add('incorrect');
+    });
+    const feedback = document.getElementById(`feedback-${qi}`);
+    if (oi === correct) {
+      feedback.textContent = 'Correct.';
+      feedback.style.color = 'var(--olive-light)';
+    } else {
+      feedback.textContent = 'Not quite. The correct answer is highlighted above.';
+      feedback.style.color = 'var(--rust-light)';
+    }
+    nextBtn.disabled = false;
+  };
+
+  function showResults() {
+    let correct = 0;
+    MODULE.quiz.forEach((q, i) => { if (quizAnswers[i] === q.correct) correct++; });
+    const pct = Math.round((correct / MODULE.quiz.length) * 100);
+    const passed = pct >= MODULE.passingScore;
+    document.getElementById('scoreDisplay').textContent = pct + '%';
+    document.getElementById('scoreDisplay').className = 'score-display ' + (passed ? 'passed' : 'failed');
+    document.getElementById('scoreStatus').textContent = passed ? 'Course Complete!' : 'Almost There';
+    document.getElementById('scoreStatus').className = 'score-status ' + (passed ? 'passed' : 'failed');
+    document.getElementById('scoreDetail').textContent = `${correct} of ${MODULE.quiz.length} correct. ${MODULE.passingScore}% required to pass.`;
+    scormSetValue('cmi.core.score.raw', pct.toString());
+    scormSetValue('cmi.core.score.min', '0');
+    scormSetValue('cmi.core.score.max', '100');
+    scormSetValue('cmi.core.lesson_status', passed ? 'passed' : 'failed');
+    scormCommit();
+  }
+
+  window.handleWaitlist = function() {
+    const email = document.getElementById('waitlistEmail').value;
+    if (!email || !email.includes('@')) return;
+    const btn = document.querySelector('.waitlist-form button');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch('https://formspree.io/f/xnjbowwy', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'module-06-results-completion' })
+    }).then(function(res) {
+      if (res.ok) {
+        document.getElementById('waitlistForm').style.display = 'none';
+        document.getElementById('waitlistSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Try Again';
+        btn.disabled = false;
+      }
+    }).catch(function() {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+    });
+  };
+
+  let SCORM_API = null;
+
+  function findAPI(win) {
+    try {
+      let attempts = 0;
+      while (attempts < 10) {
+        try { if (win.API) return win.API; } catch (e) { return null; }
+        try { if (!win.parent || win.parent === win) break; win = win.parent; } catch (e) { return null; }
+        attempts++;
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  function initSCORM() {
+    try {
+      SCORM_API = findAPI(window);
+      if (!SCORM_API && window.opener) {
+        try { SCORM_API = findAPI(window.opener); } catch (e) {}
+      }
+      if (SCORM_API) {
+        SCORM_API.LMSInitialize('');
+        const status = SCORM_API.LMSGetValue('cmi.core.lesson_status');
+        if (status === 'not attempted' || status === '') {
+          SCORM_API.LMSSetValue('cmi.core.lesson_status', 'incomplete');
+          SCORM_API.LMSCommit('');
+        }
+        const bookmark = SCORM_API.LMSGetValue('cmi.core.lesson_location');
+        if (bookmark && bookmark !== '') currentSlide = parseInt(bookmark, 10);
+      }
+    } catch (e) {
+      SCORM_API = null;
+    }
+  }
+
+  function scormSetValue(key, val) {
+    try { if (SCORM_API) SCORM_API.LMSSetValue(key, val); } catch (e) {}
+  }
+  function scormCommit() {
+    try { if (SCORM_API) SCORM_API.LMSCommit(''); } catch (e) {}
+  }
+
+  function preloadImages() {
+    MODULE.slides.forEach(s => {
+      if (s.image) {
+        const img = new Image();
+        img.src = s.image;
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (!nextBtn.disabled) goToSlide(currentSlide + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); if (!prevBtn.disabled) goToSlide(currentSlide - 1); }
+  });
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  window.addEventListener('beforeunload', function() {
+    try {
+      if (SCORM_API) { scormSetValue('cmi.core.exit', 'suspend'); SCORM_API.LMSFinish(''); }
+    } catch (e) {}
+  });
+
+  buildSlides();
+  preloadImages();
+  initSCORM();
+  goToSlide(currentSlide);
+})();
+</script>
+
+</body>
+</html>
