@@ -594,78 +594,6 @@ html, body {
   font-weight: 300;
 }
 
-.waitlist-box {
-  background: rgba(240,232,216,0.03);
-  border: 1px solid rgba(240,232,216,0.1);
-  border-radius: 4px;
-  padding: 3vh 3vw;
-  max-width: 480px;
-  width: 100%;
-}
-.waitlist-box h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-  font-weight: 700;
-  color: var(--cream);
-  margin-bottom: 1.5vh;
-}
-.waitlist-box p {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--cream-dim);
-  margin-bottom: 2vh;
-  line-height: 1.6;
-  font-weight: 300;
-}
-.waitlist-form {
-  display: flex;
-  gap: 0.8vw;
-}
-.waitlist-form input[type="email"] {
-  flex: 1;
-  padding: 1.2vh 1.2vw;
-  background: var(--bg-dark);
-  border: 1px solid rgba(240,232,216,0.15);
-  border-radius: 3px;
-  color: var(--cream);
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.waitlist-form input[type="email"]:focus {
-  border-color: var(--gold);
-}
-.waitlist-form input[type="email"]::placeholder {
-  color: rgba(240,232,216,0.3);
-}
-.waitlist-form button {
-  padding: 1.2vh 2vw;
-  background: var(--gold-dim);
-  border: none;
-  border-radius: 3px;
-  color: var(--cream);
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: background 0.2s;
-  white-space: nowrap;
-}
-.waitlist-form button:hover {
-  background: var(--gold);
-  color: var(--bg-dark);
-}
-.waitlist-success {
-  display: none;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--olive-light);
-  font-style: italic;
-  padding: 1.5vh 0;
-}
 
 .bottom-bar {
   display: flex;
@@ -760,7 +688,6 @@ html, body {
   .options-grid { flex-direction: column; align-items: center; }
   .option-card { width: 85vw; }
   .summary-grid { grid-template-columns: 1fr; }
-  .waitlist-form { flex-direction: column; }
 }
 </style>
 </head>
@@ -1128,9 +1055,7 @@ const MODULE = {
       case 'list':
         return `<span class="list-label">${s.label}</span><h2>${s.heading}</h2><ul class="list-items">${s.items.map(item => `<li data-num="${item.num}">${item.text}</li>`).join('')}</ul>`;
       case 'summary':
-        const summaryContent = `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
-        const nextButton = MODULE.nextModule ? `<a href="${MODULE.nextModule.url}" class="next-module-btn">${MODULE.nextModule.label} →</a>` : '';
-        return summaryContent + nextButton;
+        return `<h2>${s.heading}</h2><div class="summary-grid">${s.items.map(item => `<div class="summary-item">${item}</div>`).join('')}</div>`;
       default:
         return `<p>${JSON.stringify(s)}</p>`;
     }
@@ -1142,7 +1067,14 @@ const MODULE = {
   }
 
   function renderResults() {
-    return `<span class="results-label">Results</span><div class="score-display" id="scoreDisplay">—</div><div class="score-status" id="scoreStatus"></div><p class="score-detail" id="scoreDetail"></p><div class="waitlist-box"><h3>This was Module 1 of 6.</h3><p>The full course covers: how AI actually processes language, why the real problem is usually you, how to communicate precisely with AI, building your personal playbook, and the ethical rules of the road.</p><div class="waitlist-form" id="waitlistForm"><input type="email" placeholder="your@email.com" id="waitlistEmail"><button onclick="handleWaitlist()">Get Early Access</button></div><div class="waitlist-success" id="waitlistSuccess">You're on the list. We'll be in touch.</div></div>`;
+    const nextButton = MODULE.nextModule 
+        ? '<a href="' + MODULE.nextModule.url + '" class="next-module-btn">' + MODULE.nextModule.label + ' →</a>' 
+        : '';
+    return `<span class="results-label">Results</span>
+        <div class="score-display" id="scoreDisplay">—</div>
+        <div class="score-status" id="scoreStatus"></div>
+        <p class="score-detail" id="scoreDetail"></p>` 
+        + nextButton;
   }
 
   function goToSlide(index) {
@@ -1209,10 +1141,6 @@ const MODULE = {
     scormCommit();
   }
 
-  window.handleWaitlist = function() {
-    const email = document.getElementById('waitlistEmail').value;
-    if (!email || !email.includes('@')) return;
-    console.log('Waitlist signup:', email);
     document.getElementById('waitlistForm').style.display = 'none';
     document.getElementById('waitlistSuccess').style.display = 'block';
   };
