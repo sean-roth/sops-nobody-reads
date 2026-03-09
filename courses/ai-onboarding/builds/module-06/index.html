@@ -239,6 +239,7 @@ html, body {
   padding: 3vh 3vw;
   margin-bottom: 3vh;
   backdrop-filter: blur(4px);
+  max-width: 70vw;
 }
 .concept-box h2 {
   font-family: var(--font-display);
@@ -296,6 +297,7 @@ html, body {
 .list-items li strong {
   color: var(--cream);
   font-weight: 600;
+  margin-right: 0.3em;
 }
 
 .slide-summary {
@@ -663,15 +665,14 @@ const MODULE = {
     { type: "keypoint", kicker: "The Foundation", heading: "You've already started\nthat habit.", body: "You're here. You've built the foundational skills. You know how to communicate, iterate, and evaluate. That foundation doesn't expire. What you've learned in this course will serve you regardless of which AI tool you're using a year from now — because the principles are human principles.", image: "img/s23-foundation.jpg" },
 
     // Course Closing
-    { type: "reveal", kicker: "Course Closing", heading: "Let's take a step back\nand look at where\nyou've been.", body: "Module 1 — you learned what AI actually is. Module 2 — you learned what it isn't. Module 3 — you learned that the gap between what you know and what you type is where most failures happen. Module 4 — you learned to communicate. Module 5 — you built your playbook. Module 6 — you learned the guardrails.", image: "img/s24-journey-recap.jpg" },
-    { type: "list", label: "The Journey", heading: "That's the whole course.", items: [
+    { type: "list", label: "Course Closing", heading: "That's the whole course.", items: [
       { num: "1.", text: "Module 1 — What AI actually is: A pattern-matching machine. Powerful, but not magic." },
       { num: "2.", text: "Module 2 — What it isn't: Not a search engine, not a mind reader, not a replacement for your judgment." },
       { num: "3.", text: "Module 3 — The gap between what you know and what you type is where most failures happen." },
       { num: "4.", text: "Module 4 — You learned to communicate. Not to \"prompt\" — to have a conversation." },
       { num: "5.", text: "Module 5 — You built your playbook. A Working Context Document that makes every future interaction start from a foundation." },
       { num: "6.", text: "Module 6 — You learned the guardrails. Verify what matters, know the limits, protect what's private, own the output." }
-    ], image: "img/s25-complete-journey.jpg" },
+    ], image: "img/s24-journey-recap.jpg" },
     { type: "keypoint", kicker: "Not Tricks", heading: "Not a bag of tricks.\nNot a list of templates.", body: "A fundamental shift in how you work with a tool that's going to be part of your professional life for the foreseeable future.", image: "img/s26-fundamental-shift.jpg" },
     { type: "reveal", kicker: "Your Transformation", heading: "You started this course\nas someone who maybe\ntyped a sentence into AI\nand hoped for the best.", body: "You're leaving it as someone who understands why that doesn't work — and who has the skills and the tools to do it right.", image: "img/s27-transformation.jpg" },
     { type: "keypoint", kicker: "Your Tool", heading: "The Working Context\nDocument you built\nin Module 5?\nUse it tomorrow.", body: "Use it every day. Update it. Let it grow. It's the most tangible proof that you've internalized what this course teaches: that the intelligence is yours, and the machine is just waiting for you to share it.", image: "img/s28-use-it-tomorrow.jpg" },
