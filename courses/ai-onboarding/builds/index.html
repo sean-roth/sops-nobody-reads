@@ -5,12 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Onboarding: A Course for Humans | SOPs Nobody Reads</title>
 <style>
-/* ============================================
-   SOPs Nobody Reads — Course Landing Page
-   Aesthetic: 1960s Driver's Ed / Educational Film
-   Using same design system as module players
-   ============================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
@@ -177,7 +171,6 @@ html, body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-
 .module-number {
   font-family: var(--font-display);
   font-size: 0.9rem;
@@ -229,53 +222,8 @@ html, body {
   line-height: 1.6;
 }
 
-.contact-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
-}
-
-.form-row {
-  display: flex;
-  gap: 2vh;
-}
-
-.form-row input {
-  flex: 1;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 1.5vh 1.8vw;
-  background: var(--bg-card);
-  border: 1px solid rgba(240,232,216,0.12);
-  border-radius: 4px;
-  color: var(--cream);
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: var(--gold);
-}
-
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: var(--cream-dim);
-  opacity: 0.7;
-}
-
-.contact-form textarea {
-  resize: vertical;
-  min-height: 8vh;
-}
-
-.contact-form button {
+.contact-btn {
+  display: inline-block;
   padding: 1.8vh 3vw;
   background: var(--gold-dim);
   border: 1px solid var(--gold);
@@ -288,12 +236,31 @@ html, body {
   letter-spacing: 0.1em;
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: none;
 }
 
-.contact-form button:hover {
+.contact-btn:hover {
   background: var(--gold);
   color: var(--bg-dark);
   transform: translateY(-1px);
+}
+
+.contact-email {
+  display: block;
+  margin-top: 2vh;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--cream-dim);
+  opacity: 0.6;
+}
+
+.contact-email a {
+  color: var(--cream-dim);
+  text-decoration: none;
+}
+
+.contact-email a:hover {
+  color: var(--gold);
 }
 
 .brand-footer {
@@ -310,7 +277,6 @@ html, body {
   color: var(--gold-dim);
 }
 
-/* Scanline overlay */
 .container::after {
   content: '';
   position: fixed;
@@ -339,10 +305,6 @@ html, body {
   .module-card {
     padding: 3vh 4vw;
   }
-  
-  .form-row {
-    flex-direction: column;
-  }
 }
 </style>
 </head>
@@ -360,7 +322,7 @@ html, body {
       A 6-module course teaching employees how to work effectively with AI tools. 
       Learn what AI actually is, why the usual approaches fail, and how to build productive workflows that leverage these powerful but alien systems.
     </p>
-    <div class="course-meta">6 modules • Self-paced • Evergreen</div>
+    <div class="course-meta">6 modules &bull; Self-paced &bull; Beta &mdash; content may evolve based on feedback</div>
   </header>
 
 
@@ -368,53 +330,47 @@ html, body {
     <article class="module-card available" onclick="window.location.href='module-01/index.html'">
       <div class="module-number">Module 1</div>
       <h2 class="module-title">You've Used AI Before (You Just Didn't Know It)</h2>
-      <div class="module-part">Part One — Know Thy Machine</div>
+      <div class="module-part">Part One &mdash; Know Thy Machine</div>
     </article>
 
     <article class="module-card available" onclick="window.location.href='module-02/index.html'">
       <div class="module-number">Module 2</div>
       <h2 class="module-title">The Ghost in the Machine (There Isn't One)</h2>
-      <div class="module-part">Part One — Know Thy Machine</div>
+      <div class="module-part">Part One &mdash; Know Thy Machine</div>
     </article>
 
     <article class="module-card available" onclick="window.location.href='module-03/index.html'">
       <div class="module-number">Module 3</div>
       <h2 class="module-title">How It Actually Works (The 2-Minute Version)</h2>
-      <div class="module-part">Part One — Know Thy Machine</div>
+      <div class="module-part">Part One &mdash; Know Thy Machine</div>
     </article>
 
     <article class="module-card available" onclick="window.location.href='module-04/index.html'">
       <div class="module-number">Module 4</div>
       <h2 class="module-title">The Real Problem Is You (And That's Good News)</h2>
-      <div class="module-part">Part Two — Work With the Machine</div>
+      <div class="module-part">Part Two &mdash; Work With the Machine</div>
     </article>
 
     <article class="module-card available" onclick="window.location.href='module-05/index.html'">
       <div class="module-number">Module 5</div>
       <h2 class="module-title">The Prompt Is the Product</h2>
-      <div class="module-part">Part Two — Work With the Machine</div>
+      <div class="module-part">Part Two &mdash; Work With the Machine</div>
     </article>
 
     <article class="module-card available" onclick="window.location.href='module-06/index.html'">
       <div class="module-number">Module 6</div>
       <h2 class="module-title">The Rules of the Road</h2>
-      <div class="module-part">Part Two — Work With the Machine</div>
+      <div class="module-part">Part Two &mdash; Work With the Machine</div>
     </article>
   </main>
 
   <section class="contact-section">
-    <h2 class="contact-heading">Want This For Your Team?</h2>
+    <h2 class="contact-heading">Want This for Your Team?</h2>
     <p class="contact-subtext">
-      This is a sample of what we build. Your version would use your SOPs, your procedures, your compliance requirements — same format, customized to your operation. If you want to see what that looks like, let's talk.
+      This course is a starting point. The real transformation happens when your team learns AI on their actual work &mdash; with live workshops, hands-on guidance, and support that sticks.
     </p>
-    <form class="contact-form" action="https://formspree.io/f/xnjbowwy" method="POST">
-      <div class="form-row">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-      </div>
-      <input type="text" name="company" placeholder="Company">
-      <button type="submit">Let's Talk</button>
-    </form>
+    <a href="https://www.seanroth.ai/#contact" class="contact-btn">Book a Conversation</a>
+    <span class="contact-email">or email directly: <a href="mailto:sean@seanroth.ai">sean@seanroth.ai</a></span>
   </section>
 
   <footer class="brand-footer">
