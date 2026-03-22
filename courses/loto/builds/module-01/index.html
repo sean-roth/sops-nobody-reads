@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1: The Energy You Don't See | SOPs Nobody Reads</title>
+<style>
+/* ============================================
+   SOPs Nobody Reads — Module Player
+   Aesthetic: Industrial LOTO / Safety Training
+   Theme: Steel, concrete, industrial environments
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-card: #1a1a1a;
+  --bg-warm: #212121;
+  --cream: #e8e8e8;
+  --cream-dim: #b5b5b5;
+  --olive: #4a5c4a;
+  --olive-light: #5a6b5a;
+  --rust: #8b4513;
+  --rust-light: #a0522d;
+  --gold: #cc9900;
+  --gold-dim: #996600;
+  --red-dim: #8b2635;
+  --green-dim: #2d5c2d;
+  --charcoal: #2a2a2a;
+  --steel: #4a5568;
+  --steel-light: #6a7a88;
+  --orange-warn: #ff6b35;
+  --blue-steel: #2d3748;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Serif 4', Georgia, serif;
+  --font-ui: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--cream);
+}
+
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.5s steps(4) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, -1%); }
+  50% { transform: translate(1%, 2%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(5,5,5,0.7) 100%);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+.slide-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 8vw;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  background-color: var(--bg-dark);
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Background image support --- */
+.slide.has-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Dark overlay for text readability — sits between bg image and content */
+.slide.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* Default overlay: radial gradient, lighter center for text, darker edges */
+  background: radial-gradient(ellipse at center,
+    rgba(15,15,15,0.6) 0%,
+    rgba(15,15,15,0.82) 100%);
+}
+
+/* Scene slides: heavier overlay, more cinematic */
+.slide-scene.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(15,15,15,0.68) 0%,
+    rgba(15,15,15,0.88) 100%);
+}
+
+/* Concept slides: heavier for box readability */
+.slide-concept.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(15,15,15,0.65) 0%,
+    rgba(15,15,15,0.85) 100%);
+}
+
+/* Options slides: medium, cards have own bg */
+.slide-options.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(15,15,15,0.58) 0%,
+    rgba(15,15,15,0.82) 100%);
+}
+
+/* List slides: heavier for readability */
+.slide-list.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(15,15,15,0.65) 0%,
+    rgba(15,15,15,0.85) 100%);
+}
+
+/* All slide content sits above the overlay */
+.slide.has-image > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Scanlines effect --- */
+.slide::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.008) 2px,
+    rgba(255,255,255,0.008) 4px
+  );
+}
+
+/* --- Slide type styles --- */
+
+.slide-title {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-title .module-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--orange-warn);
+  margin-bottom: 2vh;
+}
+.slide-title h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 2vh;
+}
+.slide-title .subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  color: var(--cream-dim);
+  font-style: italic;
+  font-weight: 300;
+}
+.slide-title .brand {
+  position: absolute;
+  bottom: 4vh;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.slide-scene {
+  text-align: center;
+  background: linear-gradient(170deg, #1a1a1a 0%, var(--bg-dark) 100%);
+}
+.slide-scene .label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--orange-warn);
+  margin-bottom: 2vh;
+}
+.slide-scene .text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 2.2vw, 1.8rem);
+  font-style: italic;
+  line-height: 1.4;
+  max-width: 70ch;
+  color: var(--cream);
+}
+.slide-scene em {
+  color: var(--rust-light);
+  font-style: italic;
+}
+
+.slide-keypoint {
+  text-align: center;
+  background: linear-gradient(170deg, #1c1c1c 0%, var(--bg-dark) 100%);
+}
+.slide-keypoint .kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--steel-light);
+  margin-bottom: 2vh;
+}
+.slide-keypoint h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--cream);
+  margin-bottom: 3vh;
+}
+.slide-keypoint .body {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.6vw, 1.2rem);
+  line-height: 1.6;
+  max-width: 65ch;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+
+.slide-options {
+  text-align: center;
+  background: linear-gradient(170deg, var(--blue-steel) 0%, var(--bg-dark) 100%);
+}
+.slide-options h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 4vh;
+  max-width: 60ch;
+}
+.options-grid {
+  display: grid;
+  gap: 2vh 3vw;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 900px;
+  width: 100%;
+}
+.option {
+  background: rgba(42,42,42,0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(116,116,116,0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+.option.highlighted {
+  border-color: var(--orange-warn);
+  background: rgba(255,107,53,0.1);
+}
+.option .letter {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--steel-light);
+  margin-bottom: 0.5rem;
+}
+.option .title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.option .desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+
+.slide-reveal {
+  text-align: center;
+  background: linear-gradient(170deg, #2a1a1a 0%, var(--bg-dark) 100%);
+}
+.slide-reveal .kicker {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--orange-warn);
+  margin-bottom: 2vh;
+}
+.slide-reveal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.2vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 3vh;
+}
+.slide-reveal .body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--cream-dim);
+  max-width: 60ch;
+}
+
+.slide-concept {
+  text-align: center;
+  background: linear-gradient(170deg, #1e1e1e 0%, var(--bg-dark) 100%);
+}
+.slide-concept .label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--steel-light);
+  margin-bottom: 3vh;
+}
+.concept-box {
+  background: rgba(42,42,42,0.8);
+  backdrop-filter: blur(4px);
+  border: 2px solid var(--steel);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 3vh;
+  max-width: 70ch;
+}
+.concept-box .text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--cream);
+}
+.slide-concept .body {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  line-height: 1.6;
+  color: var(--cream-dim);
+  max-width: 65ch;
+  font-weight: 300;
+}
+
+.slide-list {
+  text-align: left;
+  background: linear-gradient(170deg, #1a1a1a 0%, var(--bg-dark) 100%);
+}
+.slide-list .label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.6rem, 1vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--orange-warn);
+  margin-bottom: 2vh;
+  text-align: center;
+}
+.slide-list h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 3vh;
+  text-align: center;
+}
+.list-items {
+  max-width: 70ch;
+  margin: 0 auto;
+}
+.list-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-body);
+}
+.list-item .num {
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  color: var(--steel-light);
+  margin-right: 1rem;
+  margin-top: 0.1em;
+  font-weight: 600;
+  min-width: 1.5em;
+}
+.list-item .text {
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  line-height: 1.5;
+  color: var(--cream-dim);
+  font-weight: 300;
+}
+.list-item strong {
+  color: var(--cream);
+  font-weight: 600;
+}
+
+.slide-summary {
+  text-align: center;
+  background: linear-gradient(170deg, var(--blue-steel) 0%, var(--bg-dark) 100%);
+}
+.slide-summary h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 4vh;
+}
+.summary-grid {
+  display: grid;
+  gap: 1rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  max-width: 800px;
+  width: 100%;
+  font-family: var(--font-body);
+}
+.summary-item {
+  background: rgba(42,42,42,0.6);
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  line-height: 1.4;
+  color: var(--cream-dim);
+  position: relative;
+  text-align: left;
+  font-weight: 300;
+}
+.summary-item::before {
+  content: '—';
+  color: var(--orange-warn);
+  position: absolute;
+  left: 0.5rem;
+  font-weight: 600;
+}
+.summary-item {
+  padding-left: 2rem;
+}
+
+/* --- Quiz styles --- */
+.quiz-container {
+  text-align: center;
+  background: linear-gradient(170deg, #2a2a2a 0%, var(--bg-dark) 100%);
+  padding: 4vh 8vw;
+}
+.quiz-question {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 4vh;
+  line-height: 1.3;
+  max-width: 70ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.quiz-options {
+  display: grid;
+  gap: 1.5vh;
+  max-width: 600px;
+  margin: 0 auto 4vh;
+}
+.quiz-option {
+  background: rgba(42,42,42,0.8);
+  border: 2px solid rgba(116,116,116,0.3);
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  line-height: 1.4;
+  color: var(--cream-dim);
+}
+.quiz-option:hover {
+  border-color: var(--steel-light);
+  background: rgba(74,85,104,0.2);
+}
+.quiz-option.selected {
+  border-color: var(--orange-warn);
+  background: rgba(255,107,53,0.15);
+  color: var(--cream);
+}
+.quiz-option.correct {
+  border-color: var(--green-dim);
+  background: rgba(45,92,45,0.3);
+  color: var(--cream);
+}
+.quiz-option.incorrect {
+  border-color: var(--red-dim);
+  background: rgba(139,38,53,0.2);
+  color: var(--cream-dim);
+}
+.quiz-option.disabled {
+  cursor: not-allowed;
+}
+.quiz-feedback {
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  margin-top: 2vh;
+  line-height: 1.4;
+  color: var(--cream-dim);
+  font-style: italic;
+}
+
+/* --- Results styles --- */
+.results-container {
+  text-align: center;
+  background: linear-gradient(170deg, var(--blue-steel) 0%, var(--bg-dark) 100%);
+  padding: 4vh 8vw;
+}
+.results-score {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  margin-bottom: 2vh;
+}
+.results-score.pass {
+  color: var(--green-dim);
+}
+.results-score.fail {
+  color: var(--red-dim);
+}
+.results-status {
+  font-family: var(--font-ui);
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 3vh;
+  color: var(--cream-dim);
+}
+.results-details {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  color: var(--cream-dim);
+  margin-bottom: 4vh;
+}
+.results-cta {
+  background: rgba(42,42,42,0.8);
+  border: 1px solid var(--steel);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: var(--font-body);
+}
+.results-cta h3 {
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin-bottom: 1rem;
+}
+.results-cta p {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  margin-bottom: 1.5rem;
+  line-height: 1.4;
+}
+.results-cta input {
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--charcoal);
+  border: 1px solid var(--steel);
+  border-radius: 4px;
+  color: var(--cream);
+  font-family: var(--font-body);
+  margin-bottom: 1rem;
+}
+.results-cta button {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--orange-warn);
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.results-cta button:hover {
+  background: #e55a2b;
+}
+.results-module-info {
+  margin-top: 3vh;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--steel-light);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.next-module-link {
+  display: inline-block;
+  margin-top: 2vh;
+  padding: 0.8rem 1.5rem;
+  background: var(--steel);
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.next-module-link:hover {
+  background: var(--steel-light);
+}
+
+/* --- Bottom navigation --- */
+.nav-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(8px);
+  padding: 1rem 2rem;
+  border-top: 1px solid rgba(116,116,116,0.2);
+  font-family: var(--font-ui);
+}
+.progress-track {
+  flex: 1;
+  height: 2px;
+  background: rgba(116,116,116,0.3);
+  border-radius: 1px;
+  margin: 0 1.5rem;
+  position: relative;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--orange-warn);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+.progress-text {
+  font-size: 0.75rem;
+  color: var(--cream-dim);
+  margin-right: 1rem;
+  min-width: 3.5rem;
+  text-align: right;
+}
+.nav-button {
+  background: var(--charcoal);
+  border: 1px solid var(--steel);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 4rem;
+}
+.nav-button:hover:not(:disabled) {
+  background: var(--steel);
+  border-color: var(--steel-light);
+}
+.nav-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.nav-button.prev {
+  margin-right: 1rem;
+}
+.nav-button.next {
+  margin-left: 1rem;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .slide { padding: 3vh 5vw; }
+  .options-grid { grid-template-columns: 1fr; }
+  .nav-bottom { padding: 0.8rem 1rem; }
+  .progress-text { display: none; }
+}
+@media (max-width: 480px) {
+  .slide { padding: 2vh 4vw; }
+  .nav-bottom { 
+    flex-direction: column; 
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+  .progress-track { margin: 0; order: 3; }
+  .nav-button { min-width: 3rem; font-size: 0.7rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Film grain overlay -->
+<div class="grain"></div>
+<!-- Vignette overlay -->
+<div class="vignette"></div>
+
+<div class="player">
+  <div class="slide-container" id="slide-container"></div>
+  
+  <nav class="nav-bottom">
+    <button class="nav-button prev" id="prev-btn" disabled>← Prev</button>
+    <div class="progress-text" id="progress-text">1 / 25</div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+    <button class="nav-button next" id="next-btn">Next →</button>
+  </nav>
+</div>
+
+<script>
+(function() {
+const MODULE = {
+  title: "The Energy You Don't See",
+  moduleNumber: 1,
+  partLabel: "Part One — Respect the Simple Thing",
+  passingScore: 75,
+  slides: [
+    { "type": "title", "moduleLabel": "Module 1", "heading": "The Energy\nYou Don't See", "subtitle": "Part One — Respect the Simple Thing", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "Tuesday Morning", "text": "A maintenance shop. Early morning. Nothing about it is unusual. A worker picks up a work order — bearing replacement, twenty-minute job. <em>He's done it a hundred times.</em>", "image": "img/s01-tuesday-morning.jpg" },
+    { "type": "scene", "label": "The Work", "text": "He presses the stop button. The belt slows, stops. Opens the access panel, pulls out a wrench. <em>The work order says bearing replacement.</em>", "image": "img/s02-the-work.jpg" },
+    { "type": "scene", "label": "Ten Feet Away", "text": "The electrical disconnect is in the OFF position. But there's no lock on it. No tag. <em>Just an unprotected switch that anyone could flip.</em>", "image": "img/s03-unprotected.jpg" },
+    { "type": "keypoint", "kicker": "The Difference", "heading": "He stopped the machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything.", "image": "img/s04-the-difference.jpg" },
+    { "type": "concept", "label": "What Most People Think", "boxText": "Lockout/tagout is putting a padlock on a breaker before you work on a machine.", "body": "Simple procedure. Common sense. The kind of thing you learn on day one and never really think about again. And that's not wrong, exactly. But it's so incomplete that it might as well be.", "image": "img/s05-simple-lock.jpg" },
+    { "type": "keypoint", "kicker": "The Reality", "heading": "Lockout/tagout\nisn't a procedure.\nIt's a barrier.", "body": "The only barrier between you and the energy stored in the machine you're about to put your hands inside. And the first step to respecting that barrier is understanding what's on the other side of it.", "image": "img/s06-barrier.jpg" },
+    { "type": "keypoint", "kicker": "Five Types", "heading": "When someone says\n\"hazardous energy,\"\nmost people think electricity.", "body": "That's fair. Electricity is the obvious one — the one that gets all the safety posters. But OSHA's Control of Hazardous Energy standard recognizes five types.", "image": "img/s07-electrical.jpg" },
+    { "type": "list", "label": "Energy Type 1", "heading": "Electrical Energy", "items": [
+      { "num": "•", "text": "<strong>Current flowing through conductors.</strong> The breaker panel, the junction box, the motor leads." },
+      { "num": "•", "text": "<strong>Stored charge in capacitors.</strong> Even after you cut power, some components hold electrical energy like a battery." },
+      { "num": "•", "text": "<strong>Flipping the breaker isn't enough.</strong> You have to deal with what's still inside." }
+    ], "image": "img/s08-electrical-detail.jpg" },
+    { "type": "list", "label": "Energy Types 2 & 3", "heading": "Hydraulic and Pneumatic Energy", "items": [
+      { "num": "•", "text": "<strong>Pressurized fluid.</strong> Oil in hydraulic systems, air in pneumatic ones. They do the heavy lifting." },
+      { "num": "•", "text": "<strong>2000 PSI in a hydraulic line.</strong> Over a hundred times the pressure in your car tires." },
+      { "num": "•", "text": "<strong>Close the valve, pressure remains.</strong> That pressurized fluid is still waiting for an exit." }
+    ], "image": "img/s09-hydraulic.jpg" },
+    { "type": "list", "label": "Energy Type 4", "heading": "Mechanical Energy", "items": [
+      { "num": "•", "text": "<strong>Springs, flywheels, tension.</strong> Anything that stores energy in compression or rotation." },
+      { "num": "•", "text": "<strong>A compressed spring doesn't care if the machine is off.</strong> It's loaded and wants to release." },
+      { "num": "•", "text": "<strong>If you're between the spring and where it wants to go</strong> when it lets go, \"off\" doesn't help." }
+    ], "image": "img/s10-mechanical.jpg" },
+    { "type": "list", "label": "Energy Type 5", "heading": "Gravitational Energy", "items": [
+      { "num": "•", "text": "<strong>Anything suspended, anything raised.</strong> A press platen, a crane load, a platform on a lift." },
+      { "num": "•", "text": "<strong>Gravity is constant and patient.</strong> When the thing holding that weight fails, everything falls." },
+      { "num": "•", "text": "<strong>Gravity doesn't give warnings.</strong>" }
+    ], "image": "img/s11-gravitational.jpg" },
+    { "type": "list", "label": "Energy Type 6", "heading": "Chemical Energy", "items": [
+      { "num": "•", "text": "<strong>Reactive substances in supply lines.</strong> Corrosives, solvents, gases, steam." },
+      { "num": "•", "text": "<strong>Supply lines may still be live</strong> even when you open a machine to work on it." },
+      { "num": "•", "text": "<strong>A reaction that starts when two substances meet</strong> inside the machine you just opened." }
+    ], "image": "img/s12-chemical.jpg" },
+    { "type": "reveal", "kicker": "The Invisible Ones", "heading": "Five types.\nOne gets the poster\non the wall.", "body": "The other four are quieter about it.", "image": "img/s13-five-converge.jpg" },
+    { "type": "keypoint", "kicker": "Off Isn't Safe", "heading": "What does a machine\nlook like when it's off?", "body": "Quiet. Still. Nothing moving. The controls are in the off position. To every sense you have, this machine is safe.", "image": "img/s14-looks-off.jpg" },
+    { "type": "reveal", "kicker": "The Problem", "heading": "\"Off\" and \"safe\"\nare not\nthe same word.", "body": "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated, every stored energy hazard has been addressed, and the isolation has been verified.", "image": "img/s15-off-not-safe.jpg" },
+    { "type": "concept", "label": "The Critical Distinction", "boxText": "\"Off\" is a button you push. \"Safe\" is a process you complete.", "body": "The machine in the cold open was \"off.\" The stop button worked. The belt wasn't moving. But it wasn't safe.", "image": "img/s16-button-vs-process.jpg" },
+    { "type": "keypoint", "kicker": "Stored Energy", "heading": "The energy that remains\nafter you've isolated\nthe source.", "body": "You closed the valve. Good. New energy can't enter the line. But the energy that was already in the line? It's still there. The fluid is still pressurized. The spring is still compressed.", "image": "img/s17-stored-energy.jpg" },
+    { "type": "reveal", "kicker": "Why Six Steps", "heading": "Isolation stops\nnew energy\nfrom entering.", "body": "It doesn't remove the energy that's already present. That's why lockout/tagout has six steps, not three.", "image": "img/s18-six-steps.jpg" },
+    { "type": "list", "label": "The Six Steps", "heading": "Why the sequence exists.", "items": [
+      { "num": "1.", "text": "<strong>Prepare:</strong> Know all energy sources before you start" },
+      { "num": "2.", "text": "<strong>Shut down:</strong> Stop the machine properly" },
+      { "num": "3.", "text": "<strong>Isolate:</strong> Disconnect from every energy source" },
+      { "num": "4.", "text": "<strong>Lock:</strong> Physical barrier that prevents re-energizing" },
+      { "num": "5.", "text": "<strong>Stored Energy:</strong> Address what's already in the system" },
+      { "num": "6.", "text": "<strong>Verify:</strong> Confirm that all of it worked" }
+    ], "image": "img/s19-six-steps-detail.jpg" },
+    { "type": "keypoint", "kicker": "The Danger", "heading": "Simple feels like\nsomething you\ncan shortcut.", "body": "The procedure is simple. Six steps. A padlock. A tag. And that simplicity is exactly what makes it dangerous. Because simple feels like something you already know. Something you don't need to be careful about this time.", "image": "img/s20-dangerous-simple.jpg" },
+    { "type": "scene", "label": "Same Tuesday — Done Right", "text": "Same worker. Same bearing job. Same twenty minutes. But before walking to the conveyor, <em>he reaches for the lockout station.</em>", "image": "img/s21-lockout-station.jpg" },
+    { "type": "scene", "label": "The Difference", "text": "The electrical disconnect, locked. A tag filled out and hanging. He presses the start button — <em>nothing happens. Verification.</em>", "image": "img/s22-verified-safe.jpg" },
+    { "type": "reveal", "kicker": "The Barrier", "heading": "Two minutes.\nFour ounces.\nEveryone goes home safe.", "body": "The difference is two minutes of preparation and a padlock that weighs four ounces. That's the barrier. Between the five types of energy inside that machine and the person who reaches inside it.", "image": "img/s23-everyone-safe.jpg" },
+    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": [
+      "Lockout/tagout is a barrier between you and hazardous energy",
+      "Five types: electrical, hydraulic/pneumatic, mechanical, gravitational, chemical",
+      "\"Off\" and \"safe\" are not the same thing",
+      "Stored energy remains after isolation",
+      "Six steps exist because each addresses a different failure mode",
+      "Simplicity makes the procedure feel skippable — and dangerous"
+    ] }
+  ],
+  quiz: [
+    { "question": "A maintenance worker turns off a machine using the stop button and the machine is no longer moving. This means:", "options": ["The machine is safe to work on", "The machine is off, but \"off\" and \"safe\" are not the same thing", "The machine only needs a lock on the main breaker before work begins", "Stored energy has been released"], "correct": 1 },
+    { "question": "After closing the supply valve on a hydraulic line, the pressure gauge still shows 2000 PSI. This is because:", "options": ["The valve is faulty and needs to be replaced", "The gauge is broken and showing an incorrect reading", "Closing the valve stops new energy from entering, but the energy already in the line remains", "Hydraulic systems always show residual pressure that isn't dangerous"], "correct": 2 },
+    { "question": "Sarah needs to replace a roller bearing on a conveyor system. The conveyor has an electrical motor, a hydraulic tensioning system, and a spring-loaded guard. How many types of hazardous energy does she need to consider?", "options": ["One — electrical, since that's what powers the motor", "Two — electrical and hydraulic", "Three — electrical, hydraulic, and mechanical", "She should check all five types; even if only three are obvious, gravitational and chemical sources may also be present"], "correct": 3 },
+    { "question": "The six-step lockout sequence exists because:", "options": ["OSHA requires documentation of each step for compliance", "Each step addresses a different aspect of making equipment safe — skipping any one leaves a gap in protection", "The steps are a simplified version of a more complex engineering process", "Multiple steps make it harder for employees to skip the procedure entirely"], "correct": 1 }
+  ]
+};
+
+  const slideContainer = document.getElementById('slide-container');
+  const prevBtn = document.getElementById('prev-btn');
+  const nextBtn = document.getElementById('next-btn');
+  const progressText = document.getElementById('progress-text');
+  const progressFill = document.getElementById('progress-fill');
+
+  let currentSlide = 0;
+  let isQuizMode = false;
+  let quizStartSlide = -1;
+  let quizAnswers = [];
+  let SCORM_API = null;
+
+  function buildSlides() {
+    // Content slides
+    MODULE.slides.forEach((slide, index) => {
+      const slideEl = document.createElement('div');
+      slideEl.className = `slide slide-${slide.type}`;
+      slideEl.id = `slide-${index}`;
+      
+      if (slide.image) {
+        slideEl.classList.add('has-image');
+        slideEl.style.backgroundImage = `url(${slide.image})`;
+      }
+
+      let content = '';
+      
+      if (slide.type === 'title') {
+        content = `
+          <div class="module-label">${slide.moduleLabel}</div>
+          <h1>${slide.heading.replace(/\n/g, '<br>')}</h1>
+          <div class="subtitle">${slide.subtitle}</div>
+          <div class="brand">${slide.brand}</div>
+        `;
+      } else if (slide.type === 'scene') {
+        content = `
+          <div class="label">${slide.label}</div>
+          <div class="text">${slide.text}</div>
+        `;
+      } else if (slide.type === 'keypoint') {
+        content = `
+          ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+          <h2>${slide.heading.replace(/\n/g, '<br>')}</h2>
+          <div class="body">${slide.body}</div>
+        `;
+      } else if (slide.type === 'options') {
+        const optionsHTML = slide.options.map(opt => `
+          <div class="option ${slide.highlighted === opt.letter ? 'highlighted' : ''}">
+            <div class="letter">${opt.letter}</div>
+            <div class="title">${opt.title}</div>
+            <div class="desc">${opt.desc}</div>
+          </div>
+        `).join('');
+        content = `
+          <h2>${slide.heading}</h2>
+          <div class="options-grid">${optionsHTML}</div>
+        `;
+      } else if (slide.type === 'reveal') {
+        content = `
+          ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+          <h2>${slide.heading.replace(/\n/g, '<br>')}</h2>
+          <div class="body">${slide.body}</div>
+        `;
+      } else if (slide.type === 'concept') {
+        content = `
+          <div class="label">${slide.label}</div>
+          <div class="concept-box">
+            <div class="text">${slide.boxText}</div>
+          </div>
+          <div class="body">${slide.body}</div>
+        `;
+      } else if (slide.type === 'list') {
+        const itemsHTML = slide.items.map(item => `
+          <div class="list-item">
+            <div class="num">${item.num}</div>
+            <div class="text">${item.text}</div>
+          </div>
+        `).join('');
+        content = `
+          <div class="label">${slide.label}</div>
+          <h2>${slide.heading}</h2>
+          <div class="list-items">${itemsHTML}</div>
+        `;
+      } else if (slide.type === 'summary') {
+        const itemsHTML = slide.items.map(item => `<div class="summary-item">${item}</div>`).join('');
+        content = `
+          <h2>${slide.heading}</h2>
+          <div class="summary-grid">${itemsHTML}</div>
+        `;
+      }
+      
+      slideEl.innerHTML = content;
+      slideContainer.appendChild(slideEl);
+    });
+
+    // Quiz slides
+    if (MODULE.quiz && MODULE.quiz.length > 0) {
+      quizStartSlide = MODULE.slides.length;
+      
+      MODULE.quiz.forEach((q, qIndex) => {
+        const slideEl = document.createElement('div');
+        slideEl.className = 'slide';
+        slideEl.id = `quiz-${qIndex}`;
+        
+        const optionsHTML = q.options.map((opt, optIndex) => `
+          <div class="quiz-option" data-option="${optIndex}">${opt}</div>
+        `).join('');
+        
+        slideEl.innerHTML = `
+          <div class="quiz-container">
+            <div class="quiz-question">Question ${qIndex + 1} of ${MODULE.quiz.length}<br><br>${q.question}</div>
+            <div class="quiz-options">${optionsHTML}</div>
+            <div class="quiz-feedback" style="display: none;"></div>
+          </div>
+        `;
+        
+        slideContainer.appendChild(slideEl);
+        
+        // Add click handlers for quiz options
+        slideEl.querySelectorAll('.quiz-option').forEach(opt => {
+          opt.addEventListener('click', () => answerQuestion(qIndex, parseInt(opt.dataset.option), opt));
+        });
+      });
+
+      // Results slide
+      const resultsSlide = document.createElement('div');
+      resultsSlide.className = 'slide';
+      resultsSlide.id = 'results';
+      resultsSlide.innerHTML = `
+        <div class="results-container">
+          <div class="results-score" id="results-score">—</div>
+          <div class="results-status" id="results-status">—</div>
+          <div class="results-details" id="results-details">—</div>
+          <div class="results-cta">
+            <h3>Get Early Access</h3>
+            <p>Join the waitlist for our complete safety training library.</p>
+            <input type="email" placeholder="Enter your email" id="waitlist-email">
+            <button onclick="joinWaitlist()">Join Waitlist</button>
+          </div>
+          <div class="results-module-info">Module 1 of 3</div>
+          <a href="../module-02/index.html" class="next-module-link">Continue to Module 2</a>
+        </div>
+      `;
+      slideContainer.appendChild(resultsSlide);
+    }
+  }
+
+  function goToSlide(index) {
+    const slides = slideContainer.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    
+    if (index < 0 || index >= totalSlides) return;
+    
+    slides.forEach(s => s.classList.remove('active'));
+    slides[index].classList.add('active');
+    
+    currentSlide = index;
+    
+    // Update progress
+    const progress = ((index + 1) / totalSlides) * 100;
+    progressFill.style.width = `${progress}%`;
+    progressText.textContent = `${index + 1} / ${totalSlides}`;
+    
+    // Update button states
+    prevBtn.disabled = (index === 0);
+    
+    // Handle quiz logic for next button
+    if (isQuizMode && index >= quizStartSlide && index < quizStartSlide + MODULE.quiz.length) {
+      const qIndex = index - quizStartSlide;
+      nextBtn.disabled = (quizAnswers[qIndex] === undefined);
+    } else {
+      nextBtn.disabled = (index === totalSlides - 1);
+    }
+    
+    // SCORM bookmark
+    scormSetValue('cmi.core.lesson_location', index.toString());
+    scormCommit();
+    
+    // Enter quiz mode
+    if (index === quizStartSlide && MODULE.quiz.length > 0) {
+      isQuizMode = true;
+      quizAnswers = new Array(MODULE.quiz.length);
+    }
+  }
+
+  function answerQuestion(qIndex, answerIndex, clickedEl) {
+    const question = MODULE.quiz[qIndex];
+    const isCorrect = answerIndex === question.correct;
+    
+    quizAnswers[qIndex] = answerIndex;
+    
+    // Update option states
+    const slide = document.getElementById(`quiz-${qIndex}`);
+    const options = slide.querySelectorAll('.quiz-option');
+    const feedback = slide.querySelector('.quiz-feedback');
+    
+    options.forEach((opt, i) => {
+      opt.classList.add('disabled');
+      if (i === question.correct) {
+        opt.classList.add('correct');
+      } else if (i === answerIndex && !isCorrect) {
+        opt.classList.add('incorrect');
+      }
+    });
+    
+    // Show feedback
+    feedback.style.display = 'block';
+    feedback.textContent = isCorrect 
+      ? 'Correct.' 
+      : 'Not quite. The correct answer is highlighted above.';
+    
+    // Enable next button
+    nextBtn.disabled = false;
+    
+    // If this was the last question, show results after a delay
+    if (qIndex === MODULE.quiz.length - 1) {
+      setTimeout(() => {
+        showResults();
+        goToSlide(currentSlide + 1);
+      }, 2000);
+    }
+  }
+
+  function showResults() {
+    const correctCount = quizAnswers.filter((answer, i) => answer === MODULE.quiz[i].correct).length;
+    const percentage = Math.round((correctCount / MODULE.quiz.length) * 100);
+    const passed = percentage >= MODULE.passingScore;
+    
+    document.getElementById('results-score').textContent = `${percentage}%`;
+    document.getElementById('results-score').className = `results-score ${passed ? 'pass' : 'fail'}`;
+    document.getElementById('results-status').textContent = passed ? 'PASSED' : 'FAILED';
+    document.getElementById('results-details').textContent = 
+      `You answered ${correctCount} out of ${MODULE.quiz.length} questions correctly. ` +
+      `You need ${MODULE.passingScore}% to pass.`;
+    
+    // SCORM reporting
+    scormSetValue('cmi.core.score.raw', percentage.toString());
+    scormSetValue('cmi.core.score.min', '0');
+    scormSetValue('cmi.core.score.max', '100');
+    scormSetValue('cmi.core.lesson_status', passed ? 'passed' : 'failed');
+    scormCommit();
+  }
+
+  function joinWaitlist() {
+    const email = document.getElementById('waitlist-email').value;
+    console.log('Waitlist signup:', email);
+    // In real implementation, this would send to a server
+    alert('Thank you! We\'ll be in touch.');
+  }
+
+  // SCORM integration
+  function initSCORM() {
+    function findAPI(win) {
+      if (win.API) return win.API;
+      if (win.parent && win.parent !== win) return findAPI(win.parent);
+      return null;
+    }
+    
+    try {
+      SCORM_API = findAPI(window);
+      if (SCORM_API) {
+        SCORM_API.LMSInitialize('');
+        const status = SCORM_API.LMSGetValue('cmi.core.lesson_status');
+        if (status === 'not attempted' || status === '') {
+          SCORM_API.LMSSetValue('cmi.core.lesson_status', 'incomplete');
+          SCORM_API.LMSCommit('');
+        }
+        const bookmark = SCORM_API.LMSGetValue('cmi.core.lesson_location');
+        if (bookmark && bookmark !== '') currentSlide = parseInt(bookmark, 10);
+      }
+    } catch (e) {
+      SCORM_API = null; // standalone mode
+    }
+  }
+
+  function scormSetValue(key, val) {
+    try { if (SCORM_API) SCORM_API.LMSSetValue(key, val); } catch (e) { /* silent */ }
+  }
+  function scormCommit() {
+    try { if (SCORM_API) SCORM_API.LMSCommit(''); } catch (e) { /* silent */ }
+  }
+
+  // Preload images for smooth transitions
+  function preloadImages() {
+    MODULE.slides.forEach(s => {
+      if (s.image) {
+        const img = new Image();
+        img.src = s.image;
+      }
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); if (!nextBtn.disabled) goToSlide(currentSlide + 1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); if (!prevBtn.disabled) goToSlide(currentSlide - 1); }
+  });
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  window.addEventListener('beforeunload', function() {
+    try {
+      if (SCORM_API) { scormSetValue('cmi.core.exit', 'suspend'); SCORM_API.LMSFinish(''); }
+    } catch (e) { /* silent */ }
+  });
+
+  buildSlides();
+  preloadImages();
+  initSCORM();
+  goToSlide(currentSlide);
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "title": "The Six Steps",
+  "moduleNumber": 2,
+  "partLabel": "Part Two — The Procedure That Keeps You Alive",
+  "passingScore": 75,
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 2", "heading": "The Six Steps", "subtitle": "Part Two — The Procedure That Keeps You Alive", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "A Sign Is Not A Lock", "text": "A breaker panel in a hallway. Someone has taped a handwritten sign next to one of the breakers: <em>\"DO NOT TURN ON — Mike working on Line 3.\"</em> The tape is peeling at one corner.", "image": "img/s01-handwritten-sign.jpg" },
+    { "type": "scene", "label": "Past The Sign", "text": "A hand reaches past the sign and flips the breaker to ON. The sign flutters. <em>The hand belongs to someone who didn't read it, or didn't think it applied to them.</em>", "image": "img/s02-past-sign.jpg" },
+    { "type": "reveal", "kicker": "The Truth", "heading": "A sign is not a lock.", "body": "A sign is a request. A lock is a fact. And the difference between a request and a fact is the distance between going home tonight and not.", "image": "img/s03-sign-not-lock.jpg" },
+    { "type": "keypoint", "kicker": "Why Order Matters", "heading": "Understanding why\neach step exists is\nthe difference between\nfollowing a checklist\nand being safe.", "body": "Think of these as layers. Each step handles something the previous step couldn't. Skip a layer and there's a gap. A gap in this process is a gap in your protection.", "image": "img/s04-layers.jpg" },
+    { "type": "keypoint", "kicker": "Step One", "heading": "Prepare for Shutdown", "body": "Before you touch anything, you need to know what you're dealing with. Find the machine-specific lockout procedure. Every machine with hazardous energy should have one.", "image": "img/s05-procedure-form.jpg" },
+    { "type": "concept", "label": "The Form", "boxText": "Lists every energy source, where it enters the system, and what device you need to isolate it.", "body": "This is the step most people skip. It feels like paperwork. But this form is the map. Without it, you're guessing which energy sources are present, guessing where to isolate them, guessing what stored energy might remain.", "image": "img/s06-the-map.jpg" },
+    { "type": "keypoint", "kicker": "Also Part of Step One", "heading": "Notify affected employees.", "body": "Every person whose work is affected by the lockout needs to know. What is being locked out. Why. How long. Who's responsible. This isn't courtesy. This is protection.", "image": "img/s07-notify.jpg" },
+    { "type": "keypoint", "kicker": "Step Two", "heading": "Equipment Shutdown", "body": "Shut the machine down using normal stopping procedures. Verify that all moving parts have actually stopped. Not \"almost stopped.\" Not \"slowing down.\" Stopped.", "image": "img/s08-shutdown.jpg" },
+    { "type": "concept", "label": "The Coast-Down", "boxText": "Flywheels coast. Gears have momentum. Spindles decelerate. Wait for zero.", "body": "Use the normal stopping procedure — the one the manufacturer documented. Some machines have specific shutdown sequences. Pulling the plug on a machine that needs a controlled shutdown can create new hazards.", "image": "img/s09-coast-down.jpg" },
+    { "type": "keypoint", "kicker": "Step Three", "heading": "Energy Isolation", "body": "Disconnect the machine from every energy source. Every source. Not just the electrical.", "image": "img/s10-isolation.jpg" },
+    { "type": "list", "label": "Isolation Means Different Things", "heading": "For different energy types.", "items": [
+      { "num": "•", "text": "<strong>Electrical:</strong> Disconnect switch to OFF, visually verify connections are open" },
+      { "num": "•", "text": "<strong>Hydraulic/Pneumatic:</strong> Valves to CLOSED position" },
+      { "num": "•", "text": "<strong>Chemical supply:</strong> Valves close, lines bled or capped where possible" }
+    ], "image": "img/s11-isolation-types.jpg" },
+    { "type": "concept", "label": "The Key Word", "boxText": "Isolate. Not \"reduce.\" Not \"minimize.\" Isolate.", "body": "The energy source and the machine are no longer connected. Period. Your machine-specific procedure tells you exactly which isolation points exist and where they are.", "image": "img/s12-isolate.jpg" },
+    { "type": "keypoint", "kicker": "Step Four", "heading": "Apply Lockout/Tagout Devices", "body": "Step four is the one everyone recognizes. The padlock. The tag. This is the physical barrier.", "image": "img/s13-lock-and-tag.jpg" },
+    { "type": "reveal", "kicker": "The Principle", "heading": "One person, one lock.", "body": "Each worker applies their own lock. Each lock has one key. No master keys. No shared locks. No skeleton keys that maintenance supervisors carry \"just in case.\"", "image": "img/s14-one-person-one-lock.jpg" },
+    { "type": "keypoint", "kicker": "What This Means", "heading": "Your lock is your\npersonal guarantee.", "body": "That the machine will not start while your hands are inside it. Not your supervisor's guarantee. Not the company's guarantee. Yours. You put it on. You take it off. Only when you are done and clear.", "image": "img/s15-personal-guarantee.jpg" },
+    { "type": "concept", "label": "Three Workers, Three Locks", "boxText": "If three people are working on the same machine, three locks go on the isolation point.", "body": "The machine cannot be re-energized until all three people have removed their own lock. No one removes someone else's lock. Ever.", "image": "img/s16-three-locks.jpg" },
+    { "type": "keypoint", "kicker": "Tags Are Not Locks", "heading": "A tag is a\ncommunication device.", "body": "It tells people that a lockout is in progress. It identifies who applied it and why. A tag is not a barrier. You cannot physically prevent a machine from starting with a tag.", "image": "img/s17-tags-not-locks.jpg" },
+    { "type": "reveal", "kicker": "OSHA's Standard", "heading": "Lockout is the default.", "body": "Tagout alone is only acceptable when the machine physically cannot accommodate a lock — and even then, the employer must prove equivalent protection. Tags supplement locks. They don't replace them.", "image": "img/s18-lockout-default.jpg" },
+    { "type": "keypoint", "kicker": "Step Five", "heading": "Check for Stored Energy", "body": "This is the step that separates people who understand lockout from people who just follow a checklist.", "image": "img/s19-stored-energy.jpg" },
+    { "type": "list", "label": "Address What's Left", "heading": "The energy already inside.", "items": [
+      { "num": "•", "text": "<strong>Hydraulic lines:</strong> Bleed through relief valves until gauges read zero" },
+      { "num": "•", "text": "<strong>Suspended loads:</strong> Lower them if possible, or block so they cannot fall" },
+      { "num": "•", "text": "<strong>Compressed springs:</strong> Release carefully, or block the parts they could move" },
+      { "num": "•", "text": "<strong>Capacitors:</strong> Discharge per manufacturer's procedure" }
+    ], "image": "img/s20-address-stored.jpg" },
+    { "type": "concept", "label": "Machine-Specific", "boxText": "Each type is specific to the machine and the energy type.", "body": "Generic procedures can't tell you where the bleed valve is on your hydraulic press. Only the procedure for your specific machine can do that.", "image": "img/s21-machine-specific.jpg" },
+    { "type": "keypoint", "kicker": "Step Six", "heading": "Verify Isolation", "body": "The step that proves everything else worked. Try to start the machine. Press the operating controls. Attempt to energize it.", "image": "img/s22-verify.jpg" },
+    { "type": "reveal", "kicker": "The Test", "heading": "If nothing happens,\nthe lockout is complete.", "body": "If something DOES happen — if the machine responds, if a light comes on, if something moves — you missed something. Stop. Go back. Re-isolate.", "image": "img/s23-the-test.jpg" },
+    { "type": "concept", "label": "Verification Isn't Trust", "boxText": "You don't trust that you got all the energy sources. You test it.", "body": "You push the button and you wait for the silence. After verification, return all controls to OFF or NEUTRAL position. Then inform people in the area that you're about to begin work.", "image": "img/s24-verification.jpg" },
+    { "type": "keypoint", "kicker": "The Psychology of Skipping", "heading": "Why do people\nskip the steps?", "body": "Because the job is quick. Five-minute fix. Because they've done it before. Because the machine is already off. Because no one's watching. Because the last guy didn't lock out either, and he's fine.", "image": "img/s25-psychology.jpg" },
+    { "type": "reveal", "kicker": "The Gap", "heading": "\"Most of the time\"\nis not \"always.\"", "body": "Most of the time, nothing bad happens when you skip the steps. But the one time it isn't fine, there's no partial outcome. No minor version of getting electrocuted or having a hydraulic press close on your arm.", "image": "img/s26-no-partial.jpg" },
+    { "type": "concept", "label": "The Point", "boxText": "The procedure is simple enough that there is no good reason not to do it.", "body": "Every time. Even the five-minute jobs. Especially the five-minute jobs.", "image": "img/s27-no-excuse.jpg" },
+    { "type": "scene", "label": "Back to the Breaker Panel", "text": "The same panel from the cold open. Same hallway. But the handwritten sign is gone. <em>In its place: a padlock on the disconnect.</em>", "image": "img/s28-lock-replaces-sign.jpg" },
+    { "type": "scene", "label": "Inside the Machine", "text": "Gloved hands working on components. Steady. Unhurried. The worker isn't glancing over their shoulder. <em>They know the machine is safe because they made it safe.</em>", "image": "img/s29-safe-work.jpg" },
+    { "type": "reveal", "kicker": "A Sign Is a Request", "heading": "A lock is a fact.", "body": "The worker behind that lock isn't hoping someone reads a note. Their protection is a piece of hardened steel that cannot be removed without the key in their pocket.", "image": "img/s30-hardened-steel.jpg" },
+    { "type": "summary", "heading": "Module 2 — Key Concepts", "items": [
+      "The six steps build on each other — each handles what the previous couldn't",
+      "Step 1: Identify all energy sources using machine-specific procedure",
+      "Step 2: Use normal stopping procedures, verify all movement stopped",
+      "Step 3: Disconnect from every energy source — not just electrical",
+      "Step 4: One person, one lock, no master keys",
+      "Step 5: Address stored energy — bleed, block, discharge, release",
+      "Step 6: Try to start the machine — silence is proof",
+      "Tags supplement locks but never replace them"
+    ] }
+  ],
+
+  "quiz": [
+    { "question": "Before beginning any lockout/tagout procedure, the first thing an authorized employee should do is:", "options": ["Place a padlock on the main electrical disconnect", "Review the machine-specific lockout procedure to identify all energy sources and isolation points", "Notify their supervisor that they're beginning maintenance", "Turn off the machine using the stop button"], "correct": 1 },
+    { "question": "Three workers are performing maintenance on the same piece of equipment. How many locks should be on the energy isolation point?", "options": ["One lock — the lead worker applies it for the team", "Two locks — one from the team and one from the supervisor", "Three locks — each worker applies their own lock with their own key", "One lock with three keys, so any worker can remove it when they're done"], "correct": 2 },
+    { "question": "After completing steps 1 through 5 of the lockout procedure, the authorized employee should:", "options": ["Begin maintenance work immediately since the machine is isolated and locked", "Attempt to energize the equipment using operating controls to verify the lockout is complete", "Have a supervisor inspect the lockout before proceeding", "Wait 15 minutes to ensure all stored energy has dissipated"], "correct": 1 },
+    { "question": "A maintenance worker needs to replace a sensor on a machine. It's a two-minute job, and the machine is already stopped. The worker decides to skip the lockout procedure because it would take longer than the repair. This decision is:", "options": ["Reasonable — the procedure is designed for major maintenance, not quick fixes", "Acceptable if the worker stays alert and watches for hazards", "Dangerous — the procedure applies regardless of job duration, and short jobs are where complacency is highest", "Fine as long as another worker stands nearby as a spotter"], "correct": 2 }
+  ]
+}

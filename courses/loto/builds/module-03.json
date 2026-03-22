@@ -1,0 +1,85 @@
+{
+  "title": "When Simple Gets Complicated",
+  "moduleNumber": 3,
+  "partLabel": "Part Three — The Edge Cases",
+  "passingScore": 75,
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 3", "heading": "When Simple\nGets Complicated", "subtitle": "Part Three — The Edge Cases", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "Shift Change", "text": "A factory floor at shift change. Late afternoon bleeding into evening. Two groups of workers — one outgoing, one incoming. <em>The controlled handoff of responsibility.</em>", "image": "img/s01-shift-change.jpg" },
+    { "type": "scene", "label": "The Gap", "text": "The outgoing crew walks toward the exit. One of them pulls a lock off a disconnect on their way out. <em>Casual. Done for the day.</em>", "image": "img/s02-lock-pulled.jpg" },
+    { "type": "scene", "label": "Four Minutes", "text": "The disconnect. No lock on it now. The incoming crew is still in the break room getting briefed. <em>There's a gap — minutes where the machine is unlocked and no one owns the lockout.</em>", "image": "img/s03-empty-disconnect.jpg" },
+    { "type": "reveal", "kicker": "The Window", "heading": "Four minutes.\nThat's the gap\nbetween one crew's safety\nand the next crew's safety.", "body": "And in that gap, anyone could start this machine.", "image": "img/s04-the-window.jpg" },
+    { "type": "keypoint", "kicker": "Restoring Equipment", "heading": "Before we get to\nthe edge cases,\nlet's close the loop\non the basic procedure.", "body": "You've locked the machine out. You've done the work. Now it's time to bring it back. This has its own sequence, and it matters as much as the lockout itself.", "image": "img/s05-restore-sequence.jpg" },
+    { "type": "list", "label": "Seven Steps to Restore", "heading": "Each step protects against a specific failure.", "items": [
+      { "num": "1.", "text": "<strong>Inspect:</strong> Make sure work is finished, all tools accounted for" },
+      { "num": "2.", "text": "<strong>Clean up:</strong> Parts, rags, work aids back where they belong" },
+      { "num": "3.", "text": "<strong>Replace guards:</strong> Every guard goes back before the machine starts" },
+      { "num": "4.", "text": "<strong>Check controls:</strong> Everything in neutral or safest position" },
+      { "num": "5.", "text": "<strong>Check for personnel:</strong> Everyone clear and accounted for" },
+      { "num": "6.", "text": "<strong>Remove your lock:</strong> Only yours, only you" },
+      { "num": "7.", "text": "<strong>Re-energize:</strong> Follow manufacturer's startup procedures" }
+    ], "image": "img/s06-seven-steps.jpg" },
+    { "type": "concept", "label": "Check for Personnel", "boxText": "This is not a glance. This is a headcount.", "body": "If three people were working on this machine, three people must be verified clear before any lock comes off. You don't remove locks before checking for personnel. You don't re-energize before replacing guards.", "image": "img/s07-headcount.jpg" },
+    { "type": "keypoint", "kicker": "Group Lockout", "heading": "When multiple workers\nneed to service\nthe same equipment.", "body": "Each one applies their own lock. The principle doesn't change — one person, one lock. It scales.", "image": "img/s08-group-lockout.jpg" },
+    { "type": "concept", "label": "Coordination", "boxText": "Someone needs to be in charge. A group coordinator — one authorized employee who manages the overall lockout.", "body": "They don't replace the individual locks. They organize the process. The coordinator reviews the procedure with everyone before work begins. The machine cannot restart until the last lock is off.", "image": "img/s09-coordinator.jpg" },
+    { "type": "keypoint", "kicker": "Single Lock Point", "heading": "What happens when\nthe machine only has\nroom for one lock?", "body": "The lockbox method. One lock on the machine. The key to that lock goes in a lockbox. Every worker puts their lock on the lockbox.", "image": "img/s10-lockbox-method.jpg" },
+    { "type": "list", "label": "Lockbox Steps", "heading": "Scaling the principle.", "items": [
+      { "num": "1.", "text": "<strong>Coordinator places one lock</strong> on the energy isolation point" },
+      { "num": "2.", "text": "<strong>Key goes in the lockbox</strong> — secure container with multiple lock points" },
+      { "num": "3.", "text": "<strong>Each worker locks the box</strong> with their own personal padlock" },
+      { "num": "•", "text": "Machine can't restart until box is opened. Box can't open until every lock is removed." }
+    ], "image": "img/s11-lockbox-steps.jpg" },
+    { "type": "concept", "label": "Same Protection", "boxText": "The machine can't be re-energized until the lockbox is opened. The lockbox can't be opened until every worker removes their lock.", "body": "Same protection. Different geometry. The principle — one person, one lock, every person has personal control over their own safety — doesn't bend. The physical setup adapts.", "image": "img/s12-same-protection.jpg" },
+    { "type": "keypoint", "kicker": "Shift Changes", "heading": "Back to the cold open.\nThe problem is simple.", "body": "If the outgoing crew removes their locks before the incoming crew applies theirs, there's a window where the machine is unprotected.", "image": "img/s13-shift-problem.jpg" },
+    { "type": "reveal", "kicker": "The Solution", "heading": "Overlap.", "body": "New lock on before old lock off. The incoming worker places their lock while the outgoing worker's lock is still in place. Then — and only then — the outgoing worker removes theirs.", "image": "img/s14-overlap.jpg" },
+    { "type": "concept", "label": "Seamless Transition", "boxText": "At no point is the hasp empty. At no point is the machine unprotected.", "body": "The transition is seamless because the locks overlap. Four minutes. That's what the cold open's gap was. And this is how you close it. Not with trust. Not with communication. With a padlock that's already there when the other one leaves.", "image": "img/s15-seamless.jpg" },
+    { "type": "keypoint", "kicker": "Emergency Lock Removal", "heading": "The scenario nobody\nwants to think about.", "body": "A worker left for the day. Maybe they forgot their lock was still on. Maybe they had an emergency. Their lock is on the disconnect, and they're not here to remove it.", "image": "img/s16-emergency-scenario.jpg" },
+    { "type": "concept", "label": "The Temptation", "boxText": "Cut the lock. Start the machine. Deal with the paperwork later.", "body": "The procedure is specific and exists to prevent exactly the disaster you're imagining.", "image": "img/s17-temptation.jpg" },
+    { "type": "list", "label": "Emergency Removal Steps", "heading": "The procedure that prevents disaster.", "items": [
+      { "num": "1.", "text": "<strong>Verify absence:</strong> Confirm the authorized employee is not in the facility" },
+      { "num": "2.", "text": "<strong>Attempt contact:</strong> Call them. Document the attempts if you can't reach them" },
+      { "num": "3.", "text": "<strong>Notify before return:</strong> Employee must be informed their lock was removed before they return to work" }
+    ], "image": "img/s18-emergency-steps.jpg" },
+    { "type": "reveal", "kicker": "Why Notification Matters", "heading": "Imagine the alternative.", "body": "A worker comes in for their next shift. They approach the machine they were working on yesterday. They reach in, confident their lock is protecting them. But the lock was cut eight hours ago. The machine is live.", "image": "img/s19-why-notify.jpg" },
+    { "type": "keypoint", "kicker": "Who Does What", "heading": "The roles matter because\neach carries different\nresponsibilities.", "body": "The OSHA standard defines four types of employees in a lockout/tagout program. Each role has different training requirements and different obligations.", "image": "img/s20-roles.jpg" },
+    { "type": "list", "label": "Four Roles", "heading": "Different responsibilities, different training.", "items": [
+      { "num": "•", "text": "<strong>Authorized:</strong> Perform lockout. Apply locks. Do the work. Verify isolation." },
+      { "num": "•", "text": "<strong>Affected:</strong> Work is affected by lockout. Never restart locked-out equipment." },
+      { "num": "•", "text": "<strong>Qualified:</strong> Work on exposed energized parts. Specialized electrical training." },
+      { "num": "•", "text": "<strong>Other:</strong> Work where lockout might occur. Basic awareness training." }
+    ], "image": "img/s21-four-roles.jpg" },
+    { "type": "concept", "label": "Roles Can Change", "boxText": "An affected employee can become authorized when their duties change to include servicing equipment.", "body": "The roles aren't castes. They're responsibilities tied to the work you're currently doing. The question is always: what are you doing right now, and what do you need to know to do it safely?", "image": "img/s22-roles-change.jpg" },
+    { "type": "keypoint", "kicker": "The Paperwork", "heading": "Most people look at\nthe forms and see\nbureaucracy.", "body": "Another form. Another signature. Another piece of paper between them and the work.", "image": "img/s23-forms.jpg" },
+    { "type": "list", "label": "What Forms Actually Are", "heading": "Each piece of paper fills a gap.", "items": [
+      { "num": "•", "text": "<strong>Machine-specific procedure:</strong> Map of energy sources so you don't guess" },
+      { "num": "•", "text": "<strong>Training certification:</strong> Proof you were taught before being expected to do it" },
+      { "num": "•", "text": "<strong>Inspection certification:</strong> Evidence someone watched correct performance" },
+      { "num": "•", "text": "<strong>Annual review:</strong> The system checking itself" }
+    ], "image": "img/s24-forms-purpose.jpg" },
+    { "type": "reveal", "kicker": "The Reality", "heading": "Every piece of paper\nexists because someone,\nsomewhere, was hurt\nby the gap it fills.", "body": "The paperwork isn't bureaucracy. It's evidence that the system worked and everyone goes home safe.", "image": "img/s25-evidence.jpg" },
+    { "type": "scene", "label": "Back to Shift Change", "text": "The same factory floor from the cold open. Same two groups of workers. <em>But now the handoff is different.</em>", "image": "img/s26-handoff-different.jpg" },
+    { "type": "scene", "label": "Done Right", "text": "The incoming worker walks to the disconnect. Places their lock alongside the outgoing worker's lock. <em>Two locks on the hasp.</em>", "image": "img/s27-two-locks.jpg" },
+    { "type": "scene", "label": "Seamless", "text": "The outgoing worker removes their lock. One lock remains — the incoming worker's. <em>No gap.</em>", "image": "img/s28-no-gap.jpg" },
+    { "type": "reveal", "kicker": "The Difference", "heading": "Thirty seconds\nand a padlock.", "body": "Same shift change. Same two crews. Same machine. The difference is thirty seconds and a padlock.", "image": "img/s29-thirty-seconds.jpg" },
+    { "type": "concept", "label": "The Principle Never Changes", "boxText": "One person, one lock, every person controls their own safety.", "body": "The procedure is simple. The edge cases are manageable. The paperwork has a purpose. And the principle never changes. It just adapts to the situation.", "image": "img/s30-principle-adapts.jpg" },
+    { "type": "reveal", "kicker": "Course Complete", "heading": "Six steps.\nA padlock.\nA few minutes of care.\nEveryone goes home safe.", "body": "Lockout/Tagout — Control of Hazardous Energy", "image": "img/s31-course-complete.jpg" },
+    { "type": "summary", "heading": "Module 3 — Key Concepts", "items": [
+      "Restoring equipment has its own seven-step sequence",
+      "Group lockout: one person, one lock still applies",
+      "Lockbox method scales the principle when space is limited",
+      "Shift changes: new lock ON before old lock OFF",
+      "Emergency lock removal: verify, contact, notify before return",
+      "Four roles: Authorized, Affected, Qualified, Other",
+      "Paperwork is evidence the system worked",
+      "The principle adapts to every situation"
+    ] }
+  ],
+
+  "quiz": [
+    { "question": "During a shift change on a machine that's under lockout, the correct procedure is:", "options": ["The outgoing crew removes their locks, then the incoming crew applies theirs", "The incoming crew applies their locks while the outgoing crew's locks are still in place, then the outgoing crew removes theirs", "The outgoing crew leaves their locks for the incoming crew to use", "A supervisor holds a master lock during the transition"], "correct": 1 },
+    { "question": "A worker's lock is on a machine, but they've left the facility without removing it. The correct response is:", "options": ["Cut the lock immediately — production is delayed", "Leave the lock in place indefinitely until the worker returns", "Verify the worker is absent, attempt to contact them, remove the lock following emergency procedures, and ensure the worker is notified before returning to work", "Have another authorized employee remove the lock since they have the same training"], "correct": 2 },
+    { "question": "A machine has room for only one lock on its energy isolation point, but four workers need to service it. The correct approach is:", "options": ["The team lead places the single lock and holds the key for the group", "Workers take turns — one works while the others wait, each applying their lock for their turn", "The coordinator locks the machine, places the key in a lockbox, and each worker places their own lock on the lockbox", "One lock is sufficient as long as everyone agrees not to remove it"], "correct": 2 },
+    { "question": "An operator's production line is shut down because maintenance is performing lockout/tagout on a connected machine. The operator is classified as:", "options": ["An authorized employee, because they operate the equipment", "An affected employee, whose primary responsibility is to never attempt to restart locked-out equipment", "A qualified employee, because they understand how the machine works", "An other employee, because they aren't involved in the maintenance"], "correct": 1 }
+  ]
+}
