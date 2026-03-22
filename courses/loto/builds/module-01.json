@@ -1,0 +1,31 @@
+{
+  "title": "The Energy You Don't See",
+  "moduleNumber": 1,
+  "partLabel": "Part One — Respect the Simple Thing",
+  "passingScore": 75,
+  "slides": [
+    {
+      "type": "title",
+      "moduleLabel": "Module 1",
+      "heading": "The Energy You Don't See",
+      "subtitle": "Part One — Respect the Simple Thing",
+      "brand": "SOPs Nobody Reads"
+    }
+  ],
+  "quiz": [
+    {
+      "question": "Placeholder question - will be replaced when Issue #44 is complete",
+      "options": [
+        "Option A",
+        "Option B", 
+        "Option C",
+        "Option D"
+      ],
+      "correct": 0
+    }
+  ],
+  "nextModule": {
+    "url": "../module-02/index.html",
+    "label": "Continue to Module 2"
+  }
+}
