@@ -1,0 +1,54 @@
+{
+  "title": "When Simple Gets Complicated",
+  "moduleNumber": 3,
+  "partLabel": "Part Three — The Edge Cases",
+  "passingScore": 75,
+  "brand": "SOPs Nobody Reads",
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 3", "heading": "When Simple\nGets Complicated", "subtitle": "Part Three — The Edge Cases", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "Scene", "text": "A factory floor at shift change. Late afternoon bleeding into evening through bay doors. Two groups of workers — one outgoing, one incoming. The controlled handoff of responsibility.", "image": "img/s01-shift-change.jpg" },
+    { "type": "scene", "label": "Scene", "text": "The outgoing crew walks toward the exit. One of them pulls a lock off a disconnect on their way out. Casual. Done for the day. The incoming crew is still in the break room getting briefed.", "image": "img/s02-lock-removed.jpg" },
+    { "type": "keypoint", "kicker": "The Gap", "heading": "Four minutes", "body": "For the next four minutes, this machine is unprotected. The outgoing crew pulled their locks. The incoming crew hasn't applied theirs yet. Anyone could start this machine.", "image": "img/s03-unprotected-gap.jpg" },
+    { "type": "concept", "label": "Restoring Equipment", "boxText": "You've locked the machine out. You've done the work. Now it's time to bring it back. This has its own sequence.", "body": "Seven steps: Inspect, Clean Up, Replace Guards, Check Controls, Check for Personnel, Remove Locks, Re-energize.", "image": "img/s04-restoration-sequence.jpg" },
+    { "type": "keypoint", "kicker": "Critical Steps", "heading": "Check for personnel", "body": "Every person who was working on or near this equipment must be clear. Accounted for. This is not a glance. This is a headcount. If three people were working, three people must be verified clear.", "image": "img/s05-personnel-check.jpg" },
+    { "type": "keypoint", "kicker": "Your Lock Only", "heading": "Remove your lock", "body": "Your lock. Not someone else's. The person who put the lock on takes the lock off. If your coworker went home and left their lock on, that's not your problem to solve.", "image": "img/s06-your-lock-only.jpg" },
+    { "type": "concept", "label": "Group Lockout", "boxText": "When multiple workers need to service the same equipment, each one applies their own lock. The principle doesn't change — one person, one lock. It scales.", "body": "Someone needs to be in charge. A group coordinator manages the overall lockout but doesn't replace individual locks.", "image": "img/s07-multiple-locks.jpg" },
+    { "type": "keypoint", "kicker": "The Lockbox Method", "heading": "When there's only\nroom for one lock", "body": "One lock on the machine. The key to that lock goes in a lockbox. Every worker puts their lock on the lockbox. Same protection. Different geometry.", "image": "img/s08-lockbox-method.jpg" },
+    { "type": "reveal", "kicker": "The Principle", "heading": "One person, one lock,\nevery person has\npersonal control", "body": "The physical setup adapts. The principle doesn't bend.", "image": "img/s09-principle-adapts.jpg" },
+    { "type": "concept", "label": "Shift Changes", "boxText": "The problem: if the outgoing crew removes their locks before the incoming crew applies theirs, there's a window where the machine is unprotected.", "body": "The solution is equally simple: overlap.", "image": "img/s10-overlap-solution.jpg" },
+    { "type": "keypoint", "kicker": "The Correct Order", "heading": "New lock ON\nbefore old lock OFF", "body": "The incoming worker places their lock while the outgoing worker's lock is still in place. Then — and only then — the outgoing worker removes theirs.", "image": "img/s11-correct-order.jpg" },
+    { "type": "keypoint", "kicker": "No Gap", "heading": "Seamless protection", "body": "At no point is the hasp empty. At no point is the machine unprotected. The transition is seamless because the locks overlap.", "image": "img/s12-seamless-protection.jpg" },
+    { "type": "scene", "label": "Emergency Scenario", "text": "A disconnect with a single lock on it. The shift is over. The plant is quiet. And the person whose lock this is? They're gone. Not answering their phone.", "image": "img/s13-abandoned-lock.jpg" },
+    { "type": "list", "label": "Emergency Lock Removal", "heading": "The procedure is specific", "items": [
+      { "num": "1.", "text": "Verify that the authorized employee who applied the lock is not in the facility" },
+      { "num": "2.", "text": "Make reasonable efforts to contact them — call them, document the attempts" },
+      { "num": "3.", "text": "The employee must be informed that their lock was removed <strong>before</strong> they return to work" }
+    ], "image": "img/s14-emergency-procedure.jpg" },
+    { "type": "keypoint", "kicker": "Why This Matters", "heading": "Protection extends\nbeyond the lock", "body": "A worker comes in for their next shift. They approach the machine they were working on yesterday. They reach in, confident their lock is protecting them. But the lock was cut eight hours ago.", "image": "img/s15-false-security.jpg" },
+    { "type": "concept", "label": "Four Roles", "boxText": "The OSHA standard defines four types of employees in a lockout/tagout program. Each role carries different responsibilities.", "body": "Authorized, Affected, Qualified, Other — each with specific training requirements and obligations.", "image": "img/s16-four-roles.jpg" },
+    { "type": "keypoint", "kicker": "Authorized Employees", "heading": "They perform\nthe lockout", "body": "Trained on every energy source, every isolation point, every procedure for the machines they service. They apply the locks. They do the work. They verify the isolation.", "image": "img/s17-authorized.jpg" },
+    { "type": "keypoint", "kicker": "Affected Employees", "heading": "Their work is affected", "body": "An operator whose production line is shut down for maintenance. Their responsibility is clear: never attempt to restart or re-energize a machine that's locked out. Ever. For any reason.", "image": "img/s18-affected.jpg" },
+    { "type": "reveal", "kicker": "The Paperwork", "heading": "Forms aren't\nbureaucracy.\nThey're evidence.", "body": "Every piece of paper in the lockout/tagout program exists because someone, somewhere, was hurt or killed by the gap that piece of paper fills.", "image": "img/s19-documentation.jpg" },
+    { "type": "keypoint", "kicker": "What Forms Actually Are", "heading": "Protection made visible", "body": "The machine-specific procedure is the map. Training certification is proof you were taught. Inspection certification is evidence someone verified the procedure was performed correctly.", "image": "img/s20-forms-protection.jpg" },
+    { "type": "scene", "label": "Back to Shift Change", "text": "The same factory floor from the cold open. Shift change. The same two groups of workers. But now the handoff is different.", "image": "img/s21-corrected-handoff.jpg" },
+    { "type": "scene", "label": "The Correct Way", "text": "The incoming worker places their lock alongside the outgoing worker's lock. Two locks on the hasp. Then the outgoing worker removes their lock. One lock remains. Seamless. No gap.", "image": "img/s22-overlap-executed.jpg" },
+    { "type": "reveal", "kicker": "The Solution", "heading": "Thirty seconds\nand a padlock", "body": "The procedure is simple. The edge cases are manageable. The principle never changes. It just adapts to the situation.", "image": "img/s23-simple-solution.jpg" },
+    { "type": "summary", "heading": "Module 3 — Key Concepts", "items": [
+      "Restoring equipment has its own seven-step sequence — check for personnel before removing any locks",
+      "Group lockout: one person, one lock still applies — the lockbox method scales the principle",
+      "Shift changes: new lock ON before old lock OFF — the overlap eliminates the gap",
+      "Emergency lock removal: verify absence, attempt contact, notify before return",
+      "Four roles: Authorized, Affected, Qualified, Other — each with specific responsibilities",
+      "The paperwork is evidence that the system worked and everyone goes home safe",
+      "Annual inspections: the system checking itself"
+    ] }
+  ],
+
+  "quiz": [
+    { "question": "During a shift change on a machine that's under lockout, the correct procedure is:", "options": ["The outgoing crew removes their locks, then the incoming crew applies theirs", "The incoming crew applies their locks while the outgoing crew's locks are still in place, then the outgoing crew removes theirs", "The outgoing crew leaves their locks for the incoming crew to use", "A supervisor holds a master lock during the transition"], "correct": 1 },
+    { "question": "A worker's lock is on a machine, but they've left the facility without removing it. The correct response is:", "options": ["Cut the lock immediately — production is delayed", "Leave the lock in place indefinitely until the worker returns", "Verify the worker is absent, attempt to contact them, remove the lock following emergency procedures, and ensure the worker is notified before returning to work", "Have another authorized employee remove the lock since they have the same training"], "correct": 2 },
+    { "question": "A machine has room for only one lock on its energy isolation point, but four workers need to service it. The correct approach is:", "options": ["The team lead places the single lock and holds the key for the group", "Workers take turns — one works while the others wait, each applying their lock for their turn", "The coordinator locks the machine, places the key in a lockbox, and each worker places their own lock on the lockbox", "One lock is sufficient as long as everyone agrees not to remove it"], "correct": 2 },
+    { "question": "An operator's production line is shut down because maintenance is performing lockout/tagout on a connected machine. The operator is classified as:", "options": ["An authorized employee, because they operate the equipment", "An affected employee, whose primary responsibility is to never attempt to restart locked-out equipment", "A qualified employee, because they understand how the machine works", "An other employee, because they aren't involved in the maintenance"], "correct": 1 }
+  ]
+}

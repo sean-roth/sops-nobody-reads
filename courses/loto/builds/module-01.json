@@ -1,0 +1,54 @@
+{
+  "title": "The Energy You Don't See",
+  "moduleNumber": 1,
+  "partLabel": "Part One — Respect the Simple Thing",
+  "passingScore": 75,
+  "brand": "SOPs Nobody Reads",
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 1", "heading": "The Energy\nYou Don't See", "subtitle": "Part One — Respect the Simple Thing", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "Scene", "text": "A maintenance shop. Early morning. Fluorescent lights buzzing to life, casting flat blue-white light across a concrete floor marked with yellow safety lines.", "image": "img/s01-maintenance-shop.jpg" },
+    { "type": "scene", "label": "Scene", "text": "A worker picks up the work order. Nothing about this Tuesday morning is unusual. The work order says bearing replacement. Twenty-minute job. He's done it a hundred times.", "image": "img/s02-work-order.jpg" },
+    { "type": "scene", "label": "Scene", "text": "He presses the stop button. The belt slows. Stops. Opens an access panel and starts loosening a bolt. He pressed the stop button. The belt isn't moving. So he's working.", "image": "img/s03-worker-machine.jpg" },
+    { "type": "keypoint", "kicker": "The Disconnect", "heading": "Ten feet away", "body": "The electrical disconnect is in the OFF position. But there's no lock on it. No tag. Just an unprotected switch that anyone could flip.", "image": "img/s04-unlocked-disconnect.jpg" },
+    { "type": "reveal", "kicker": "The Problem", "heading": "He stopped\nthe machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything.", "image": "img/s05-difference.jpg" },
+    { "type": "keypoint", "kicker": "What People Think", "heading": "A padlock on a breaker", "body": "Here's what most people think lockout/tagout is: you put a padlock on a breaker before you work on a machine. Simple procedure. Common sense.", "image": "img/s06-simple-padlock.jpg" },
+    { "type": "reveal", "kicker": "The Truth", "heading": "Lockout/tagout isn't\na procedure.\nIt's a barrier.", "body": "The only barrier between you and the energy stored in the machine you're about to put your hands inside.", "image": "img/s07-barrier.jpg" },
+    { "type": "concept", "label": "Five Types of Hazardous Energy", "boxText": "When someone says 'hazardous energy,' most people think electricity. But OSHA recognizes five types.", "body": "If you only think about one of them, the other four can kill you while you're busy being careful about electricity.", "image": "img/s08-five-types.jpg" },
+    { "type": "keypoint", "kicker": "Electrical Energy", "heading": "The one you know", "body": "Current flowing through conductors. But even after you cut the power, capacitors in motors and control boards can discharge through you in a fraction of a second.", "image": "img/s09-electrical-panel.jpg" },
+    { "type": "keypoint", "kicker": "Hydraulic and Pneumatic", "heading": "Pressurized systems", "body": "Two thousand PSI in a hydraulic line. Over a hundred times the pressure in your car tires. Close the valve and that pressure doesn't vanish. It's still waiting.", "image": "img/s10-hydraulic-cylinder.jpg" },
+    { "type": "keypoint", "kicker": "Mechanical Energy", "heading": "Springs. Flywheels.\nCompression.", "body": "A compressed spring doesn't care whether the machine is on or off. It's loaded. It wants to release. If you're between the spring and where it wants to go, the machine being 'off' doesn't help you.", "image": "img/s11-spring-mechanism.jpg" },
+    { "type": "keypoint", "kicker": "Gravitational Energy", "heading": "Anything suspended", "body": "A press platen held up by hydraulic pressure. Gravity is constant and patient. The moment the thing holding that weight fails, everything falls. And gravity doesn't give warnings.", "image": "img/s12-suspended-weight.jpg" },
+    { "type": "keypoint", "kicker": "Chemical Energy", "heading": "Reactive substances", "body": "Supply lines with corrosives, solvents, gases. Even steam. A residual chemical in a line you assumed was empty. A valve that didn't fully close.", "image": "img/s13-chemical-lines.jpg" },
+    { "type": "reveal", "kicker": "Convergence", "heading": "Five energy sources.\nOne workspace.", "body": "This is what's inside the machine you're about to service. Not one energy source. Potentially all five. Each one requires its own specific method of isolation and verification.", "image": "img/s14-energy-convergence.jpg" },
+    { "type": "concept", "label": "Off vs. Safe", "boxText": "What does a machine look like when it's off? Quiet. Still. Nothing moving. To every sense you have, this machine is safe.", "body": "But 'off' and 'safe' are not the same word. 'Off' is a button you push. 'Safe' is a process you complete.", "image": "img/s15-off-vs-safe.jpg" },
+    { "type": "concept", "label": "Stored Energy", "boxText": "The energy that remains in a system after you've isolated it from its source.", "body": "You closed the valve. Good. New energy can't enter. But the energy already in the line is still there. Isolation stops new energy. It doesn't remove what's present.", "image": "img/s16-stored-energy.jpg" },
+    { "type": "list", "label": "The Six Steps — Preview", "heading": "Why the sequence exists", "items": [
+      { "num": "1.", "text": "<strong>Prepare:</strong> Identify all energy sources using machine-specific procedures" },
+      { "num": "2.", "text": "<strong>Shutdown:</strong> Use normal stopping procedures, verify all movement stopped" },
+      { "num": "3.", "text": "<strong>Isolate:</strong> Disconnect from every energy source — not just electrical" },
+      { "num": "4.", "text": "<strong>Lock:</strong> Apply physical barriers that prevent re-energization" },
+      { "num": "5.", "text": "<strong>Stored Energy:</strong> Address what's left — bleed, block, discharge, release" },
+      { "num": "6.", "text": "<strong>Verify:</strong> Try to start the machine — silence is proof" }
+    ], "image": "img/s17-six-steps.jpg" },
+    { "type": "reveal", "kicker": "The Danger", "heading": "Simple feels\nskippable", "body": "The procedure is simple. Six steps. A padlock. A tag. And that simplicity is exactly what makes it dangerous. Simple feels like something you can shortcut.", "image": "img/s18-simple-dangerous.jpg" },
+    { "type": "scene", "label": "Back to Tuesday", "text": "Same worker. Same work order. But now, before walking to the conveyor, he reaches for the lockout station. Pulls a yellow padlock from its hook.", "image": "img/s19-lockout-station.jpg" },
+    { "type": "scene", "label": "The Difference", "text": "The electrical disconnect, locked. A tag filled out and hanging. The worker presses the start button. Nothing happens. Verification. The machine is safe — not just off.", "image": "img/s20-locked-verified.jpg" },
+    { "type": "reveal", "kicker": "The Barrier", "heading": "Two minutes.\nFour ounces.", "body": "That's the difference between the five types of energy inside that machine and the person who reaches inside it. Everyone goes home safe.", "image": "img/s21-barrier-complete.jpg" },
+    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": [
+      "Lockout/tagout is a barrier between you and hazardous energy — not just a procedure",
+      "Five types of hazardous energy: electrical, hydraulic/pneumatic, mechanical, gravitational, chemical",
+      "'Off' and 'safe' are not the same thing — off is a button, safe is a process",
+      "Stored energy remains after isolation — the energy already in the system doesn't disappear",
+      "The six-step sequence exists because each step addresses a different failure mode",
+      "The simplicity of the procedure is what makes it dangerous — simple feels skippable"
+    ] }
+  ],
+
+  "quiz": [
+    { "question": "A maintenance worker turns off a machine using the stop button and the machine is no longer moving. This means:", "options": ["The machine is safe to work on", "The machine is off, but 'off' and 'safe' are not the same thing", "The machine only needs a lock on the main breaker before work begins", "Stored energy has been released"], "correct": 1 },
+    { "question": "After closing the supply valve on a hydraulic line, the pressure gauge still shows 2000 PSI. This is because:", "options": ["The valve is faulty and needs to be replaced", "The gauge is broken and showing an incorrect reading", "Closing the valve stops new energy from entering, but the energy already in the line remains", "Hydraulic systems always show residual pressure that isn't dangerous"], "correct": 2 },
+    { "question": "Sarah needs to replace a roller bearing on a conveyor system. The conveyor has an electrical motor, a hydraulic tensioning system, and a spring-loaded guard. How many types of hazardous energy does she need to consider?", "options": ["One — electrical, since that's what powers the motor", "Two — electrical and hydraulic", "Three — electrical, hydraulic, and mechanical", "She should check all five types; even if only three are obvious, gravitational and chemical sources may also be present"], "correct": 3 },
+    { "question": "The six-step lockout sequence exists because:", "options": ["OSHA requires documentation of each step for compliance", "Each step addresses a different aspect of making equipment safe — skipping any one leaves a gap in protection", "The steps are a simplified version of a more complex engineering process", "Multiple steps make it harder for employees to skip the procedure entirely"], "correct": 1 }
+  ]
+}
