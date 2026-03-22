@@ -1,0 +1,101 @@
+{
+  "title": "When Simple Gets Complicated",
+  "moduleNumber": 3, 
+  "partLabel": "Part Three — The Edge Cases",
+  "passingScore": 75,
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 3", "heading": "When Simple\nGets Complicated", "subtitle": "Part Three — The Edge Cases", "brand": "SOPs Nobody Reads" },
+    
+    { "type": "scene", "label": "Cold Open", "text": "Shift change. The outgoing crew walks toward the exit. One of them pulls a lock off a disconnect on their way out. Casual. Done for the day.", "image": "img/s01-shift-change.jpg" },
+    
+    { "type": "scene", "label": "Scene", "text": "The disconnect has no lock now. The incoming crew is still in the break room getting briefed. For the next four minutes, this machine is unprotected.", "image": "img/s02-gap-in-protection.jpg" },
+    
+    { "type": "reveal", "kicker": "The Gap", "heading": "Four minutes.\nThat's the gap between\none crew's safety and the next.", "body": "And in that gap, anyone could start this machine. Shift change creates vulnerability unless managed properly.", "image": "img/s03-four-minutes.jpg" },
+    
+    { "type": "keypoint", "kicker": "Restoring Equipment", "heading": "Seven steps to\nbring it back safely", "body": "You've locked the machine out. You've done the work. Now it's time to restore the equipment. This has its own sequence, and it matters as much as the lockout itself.", "image": "img/s04-seven-steps.jpg" },
+    
+    { "type": "list", "label": "Restoration Steps", "heading": "In this order. Every time.", "items": [
+      { "num": "1.", "text": "<strong>Inspect:</strong> Work is finished, all tools accounted for" },
+      { "num": "2.", "text": "<strong>Clean up:</strong> Parts, rags, work aids back where they belong" },
+      { "num": "3.", "text": "<strong>Replace guards:</strong> Every guard back before machine starts" },
+      { "num": "4.", "text": "<strong>Check controls:</strong> Everything in neutral or safest position" },
+      { "num": "5.", "text": "<strong>Check for personnel:</strong> All workers verified clear and notified" },
+      { "num": "6.", "text": "<strong>Remove your lock:</strong> Only your lock. Not someone else's." },
+      { "num": "7.", "text": "<strong>Re-energize:</strong> Follow manufacturer's startup procedures" }
+    ], "image": "img/s05-restoration-checklist.jpg" },
+    
+    { "type": "concept", "label": "Check for Personnel", "boxText": "This is not a glance. This is a headcount.", "body": "If three people were working on this machine, three people must be verified clear before any lock comes off. Every person who was working must be accounted for and notified.", "image": "img/s06-headcount.jpg" },
+    
+    { "type": "keypoint", "kicker": "Group Lockout", "heading": "Multiple workers,\nmultiple locks", "body": "When multiple workers need to service the same equipment, each one applies their own lock. The principle scales: one person, one lock. The machine cannot restart until the last lock is off.", "image": "img/s07-multiple-locks.jpg" },
+    
+    { "type": "concept", "label": "Group Coordinator", "boxText": "Someone needs to be in charge. One authorized employee manages the overall lockout.", "body": "They don't replace individual locks. They organize the process, review procedures with everyone, and coordinate the work.", "image": "img/s08-coordinator.jpg" },
+    
+    { "type": "keypoint", "kicker": "Lockbox Method", "heading": "What if there's only\nroom for one lock?", "body": "One lock goes on the disconnect. The key to that lock goes inside a lockbox. Each worker puts their own lock on the lockbox. The machine can't start until every worker removes their lock from the box.", "image": "img/s09-lockbox-method.jpg" },
+    
+    { "type": "keypoint", "kicker": "Shift Change Protocol", "heading": "Continuous protection\nacross shift changes", "body": "The incoming crew applies their locks before the outgoing crew removes theirs. Overlap protection. The machine is never unprotected, not even for minutes.", "image": "img/s10-shift-overlap.jpg" },
+    
+    { "type": "keypoint", "kicker": "Emergency Lock Removal", "heading": "When someone leaves\ntheir lock behind", "body": "This requires special authorization. The absent employee must be contacted and verified. Management approval required. All affected personnel notified. This is not a casual decision.", "image": "img/s11-emergency-removal.jpg" },
+    
+    { "type": "concept", "label": "Roles and Responsibility", "boxText": "Authorized employee: Can apply and remove locks, coordinate group lockout. Affected employee: Notified of lockout, must stay clear.", "body": "Each role has specific responsibilities. Know which role you're in for each lockout situation. Authority matters. Clear communication matters.", "image": "img/s12-roles.jpg" },
+    
+    { "type": "keypoint", "kicker": "The Paperwork Reframe", "heading": "Documentation isn't\nbureaucracy", "body": "It's memory. Who's working where. What energy sources are controlled. When the work started. When it ended. When someone gets hurt, this documentation explains what went right and what went wrong.", "image": "img/s13-documentation.jpg" },
+    
+    { "type": "reveal", "kicker": "The Complete Picture", "heading": "LOTO isn't just\na six-step procedure", "body": "It's a comprehensive system. Individual lockout. Group lockout. Shift change protocols. Emergency procedures. Documentation. Each element protects against specific failure modes.", "image": "img/s14-complete-system.jpg" },
+    
+    { "type": "keypoint", "kicker": "Course Complete", "heading": "You now understand\nthe energy you don't see", "body": "Five types of hazardous energy. Six steps to control them. Protocols for complex situations. The tools to protect yourself and your coworkers. Two minutes and a padlock. That's all it takes.", "image": "img/s15-course-complete.jpg" },
+    
+    { "type": "summary", "heading": "LOTO Course — Key Concepts", "items": [
+      "LOTO is a comprehensive system, not just a procedure",
+      "Group lockout scales the one-person-one-lock principle",
+      "Lockbox method handles single-lock situations", 
+      "Shift change requires overlap protection",
+      "Emergency lock removal needs special authorization",
+      "Documentation provides memory and accountability",
+      "Everyone goes home safe — every shift, every day"
+    ] }
+  ],
+
+  "quiz": [
+    {
+      "question": "In group lockout situations with multiple workers, how many locks should be applied?",
+      "options": [
+        "One lock controlled by the supervisor",
+        "Two locks — one for electrical, one for mechanical",
+        "One lock per person working on the equipment",
+        "The minimum number required to secure all energy sources"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "What is the lockbox method used for?",
+      "options": [
+        "Storing extra padlocks for future use",
+        "When multiple workers need lockout but only one lock fits the disconnect",
+        "Emergency storage of critical equipment keys",
+        "Group lockout situations with more than 5 workers"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "During shift change, when should the incoming crew apply their locks?",
+      "options": [
+        "After the outgoing crew removes all their locks",
+        "Before the outgoing crew removes their locks (overlap protection)",
+        "Only if work will continue into the next shift",
+        "At the supervisor's discretion"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "What step comes immediately before removing locks during equipment restoration?",
+      "options": [
+        "Clean up the work area",
+        "Replace all machine guards",
+        "Check for personnel — verify all workers are clear",
+        "Re-energize the equipment"
+      ],
+      "correct": 2
+    }
+  ]
+}
