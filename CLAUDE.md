@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**SOPs Nobody Reads** is a training consultancy that converts company documentation into engaging SCORM e-learning modules. This repo houses the AI Onboarding Course — a 6-module course teaching employees how to work effectively with AI tools.
+**SOPs Nobody Reads** is a training consultancy that converts company documentation into engaging SCORM e-learning modules. This repo houses courses including the AI Onboarding Course (6 modules) and the LOTO Course (3 modules).
 
 **Owner:** Sean Roth (sean@seanroth.ai)
 
@@ -22,6 +22,16 @@ When working on issues, you MUST follow this workflow:
 5. **Comment on the issue** with a link to the PR
 
 Do NOT just commit and stop. The PR is the deliverable. If you cannot open a PR, comment on the issue explaining what happened and what branch contains the work.
+
+### Issue Dependencies — RUN SEQUENTIALLY
+
+**When issues have dependency chains (e.g., "Depends on #44"), they MUST be run one at a time.** Merge each prerequisite issue's PR into main before starting the next issue in the chain.
+
+**DO NOT run dependent issues in parallel.** If issue B depends on issue A's output (files, data, templates), issue B will not find those files on main and will either fail or duplicate all of issue A's work — wasting API calls and creating conflicting branches.
+
+**Example of what goes wrong:** Issues #44→#45→#46 were created with explicit dependency chains but run in parallel. Issue #46 couldn't find the JSON files from #44 or the player template from #45, so it rebuilt everything from scratch. Result: $5 in API calls for work that three issues could have done for ~$2 if run sequentially.
+
+**Rule:** If an issue body says "Depends on #XX", wait until #XX is merged to main before starting work.
 
 ---
 
@@ -49,6 +59,11 @@ sops-nobody-reads/
 │   ├── CONTENT-NOTES.md
 │   ├── PRODUCTION-NOTES.md
 │   └── ROADMAP.md
+├── courses/loto/
+│   ├── scripts/                       ← 3 module scripts with panel-logic annotations
+│   ├── builds/                        ← Module players, JSON data, image prompts
+│   ├── BRIEF.md                       ← Creative brief
+│   └── README.md                      ← Course overview
 ├── docs/
 ├── skills/
 ├── tools/
@@ -59,18 +74,11 @@ sops-nobody-reads/
 
 ## Current State
 
-Module 1 and Module 2 are **COMPLETE** with players and images deployed on GitHub Pages. The course landing page is live at `courses/ai-onboarding/builds/index.html`.
+### AI Onboarding Course
+All 6 modules **COMPLETE** with players and images deployed on GitHub Pages.
 
-### What's Done
-- ✅ Module 1 — complete player with images
-- ✅ Module 2 — complete player with 22 slides, 4 quiz questions, 21 images
-- ✅ Course landing page — 6 module cards, responsive design
-- ✅ GitHub Pages enabled
-
-### What's Needed
-- Home/menu button in module player bottom bars (Issue #2)
-- Module 3-6 player shells built from scripts (Issue #4)
-- Images for Modules 3-6 (future)
+### LOTO Course (Lockout/Tagout)
+Scripts complete. Players built with Industrial theme (dark blue). Images pending.
 
 ---
 
@@ -79,9 +87,10 @@ Module 1 and Module 2 are **COMPLETE** with players and images deployed on GitHu
 ### Model & Settings
 - **Model:** `bytedance/seedream-4.5` on Replicate
 - **Aspect ratio:** 16:9
-- **Style suffix** (append to ALL prompts): "Warm digital illustration in animated film concept art style. Soft painterly brushstrokes, rounded stylized forms, warm golden brown amber color palette, rich saturated warm tones, cinematic composition."
+- **AI Onboarding style suffix:** "Warm digital illustration in animated film concept art style. Soft painterly brushstrokes, rounded stylized forms, warm golden brown amber color palette, rich saturated warm tones, cinematic composition."
+- **LOTO style suffix:** "Sequential art panel, industrial safety illustration, high contrast, limited color palette with dark blue shadows and safety orange/yellow accents, graphic novel quality, dramatic lighting, slightly stylized but grounded, no text in image, no faces visible"
 
-### Full prompts are in `courses/ai-onboarding/builds/IMAGE-PROMPTS.md`
+### Full prompts are in each course's `builds/IMAGE-PROMPTS.md`
 
 ### If images come out too photorealistic
 Add "stylized, illustration, not photographic" to reinforce the art style.
@@ -93,34 +102,21 @@ Add "stylized, illustration, not photographic" to reinforce the art style.
 Read `.claude/BUILD-SPEC.md` for the full spec. Key points:
 
 1. Each module is a **single self-contained HTML file** — inline CSS, inline JS, no build tools
-2. The CSS and JS are **identical** across all modules. **Do NOT refactor them.** Only the `MODULE` const changes.
+2. The CSS and JS are **identical** across all modules within a course. **Do NOT refactor them.** Only the `MODULE` const changes.
 3. Content lives in a `const MODULE = { ... }` JavaScript object at the top of the file
-4. Module 1 (`module-01/index.html`) is the production reference — copy it as template for new modules
+4. Module 1 of each course is the production reference — copy it as template for new modules
 5. The `module-XX.json` files in `builds/` are the structured data that gets embedded into the MODULE const
 6. 8 slide types: `title`, `scene`, `keypoint`, `options`, `reveal`, `concept`, `list`, `summary`
 7. Quiz: 4 options per question, 0-indexed `correct` field, 75% passing threshold
 
 ### Build Process for New Modules
-1. Read the script from `courses/ai-onboarding/scripts/module-XX-*.md`
+1. Read the script from the course's `scripts/` directory
 2. Decompose into slides using slide types (see BUILD-SPEC.md and DESIGNER-BRIEF.md)
-3. Copy Module 1's index.html as template
+3. Copy the course's Module 1 index.html as template
 4. Replace the MODULE object with new content
-5. Update: moduleNumber, title, partLabel, results slide text ("Module X of 6")
+5. Update: moduleNumber, title, partLabel, results slide text
 6. Generate images per IMAGE-PROMPTS.md conventions
 7. Test in browser — all slides, quiz scoring, SCORM graceful degradation
-
----
-
-## Course Modules (6 total)
-
-| # | Title | Script | Player | Status |
-|---|-------|--------|--------|--------|
-| 1 | You've Used AI Before (You Just Didn't Know It) | ✅ | ✅ Built + images | **COMPLETE** |
-| 2 | The Ghost in the Machine (There Isn't One) | ✅ | ✅ Built + images | **COMPLETE** |
-| 3 | How It Actually Works (The 2-Minute Version) | ✅ Written | Not started | Queued |
-| 4 | The Real Problem Is You (And That's Good News) | ✅ Written | Not started | Queued |
-| 5 | The Prompt Is the Product | ✅ Written | Not started | Queued |
-| 6 | The Rules of the Road | ✅ Written | Not started | Queued |
 
 ---
 
@@ -133,6 +129,7 @@ Read `.claude/BUILD-SPEC.md` for the full spec. Key points:
 5. **Commit messages** should be descriptive: "Add Module 2 images s03-s10" not "update files"
 6. **Test before declaring done** — verify slide count matches MODULE object, quiz scoring works, images load
 7. If you hit a problem you can't resolve, document it in ENGINEER-LOG.md and stop. Don't improvise workarounds on the player code.
+8. **Run dependent issues sequentially.** If an issue says "Depends on #XX", do NOT start until #XX is merged to main. See "Issue Dependencies" section above.
 
 ---
 
