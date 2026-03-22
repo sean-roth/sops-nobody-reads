@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2: The Six Steps | SOPs Nobody Reads</title>
+<style>
+/* ============================================
+   SOPs Nobody Reads — Module Player
+   Aesthetic: Industrial Safety / OSHA Training
+   Industrial theme: Steel, safety yellow, warning red
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-dark: #1a1a1a;
+  --bg-card: #2a2a2a;
+  --bg-warm: #333333;
+  --steel: #e5e7eb;
+  --steel-dim: #9ca3af;
+  --safety-yellow: #fbbf24;
+  --warning-red: #ef4444;
+  --caution-orange: #f59e0b;
+  --steel-blue: #64748b;
+  --steel-blue-light: #94a3b8;
+  --success-green: #10b981;
+  --dark-red: #7f1d1d;
+  --dark-green: #14532d;
+  --charcoal: #374151;
+  --font-display: 'Roboto Slab', Georgia, serif;
+  --font-body: 'Source Sans Pro', 'Segoe UI', sans-serif;
+  --font-ui: 'Inter', 'Segoe UI', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg-dark);
+  color: var(--steel);
+}
+
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation: grainShift 0.8s steps(4) infinite;
+}
+@keyframes grainShift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-2%, -1%); }
+  50% { transform: translate(1%, 2%); }
+  75% { transform: translate(-1%, -2%); }
+  100% { transform: translate(2%, 1%); }
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+}
+
+.player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+}
+
+.slide-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vh 8vw;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  background-color: var(--bg-dark);
+}
+.slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Background image support --- */
+.slide.has-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide.has-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(ellipse at center,
+    rgba(26,26,26,0.6) 0%,
+    rgba(26,26,26,0.82) 100%);
+}
+
+.slide-scene.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,26,26,0.68) 0%,
+    rgba(26,26,26,0.88) 100%);
+}
+
+.slide-concept.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,26,26,0.65) 0%,
+    rgba(26,26,26,0.85) 100%);
+}
+
+.slide-options.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,26,26,0.58) 0%,
+    rgba(26,26,26,0.82) 100%);
+}
+
+.slide-list.has-image::before {
+  background: radial-gradient(ellipse at center,
+    rgba(26,26,26,0.65) 0%,
+    rgba(26,26,26,0.85) 100%);
+}
+
+.slide.has-image > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Slide type styles --- */
+
+.slide-title {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-title .module-label {
+  font-family: var(--font-ui);
+  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--safety-yellow);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.slide-title h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--steel);
+  margin-bottom: 2vh;
+}
+.slide-title .subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+  color: var(--steel-dim);
+  font-style: italic;
+  font-weight: 400;
+}
+.slide-title .brand {
+  position: absolute;
+  bottom: 4vh;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--steel-blue);
+}
+
+.slide-scene {
+  text-align: center;
+  background: linear-gradient(170deg, #2a2a2a 0%, var(--bg-dark) 100%);
+}
+.slide-scene .scene-label {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--caution-orange);
+  margin-bottom: 1vh;
+}
+.slide-scene p {
+  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
+  line-height: 1.4;
+  color: var(--steel);
+  max-width: 65vw;
+  font-style: italic;
+}
+.slide-scene em {
+  color: var(--warning-red);
+  font-weight: 600;
+  font-style: normal;
+}
+
+.slide-keypoint {
+  text-align: center;
+  background: linear-gradient(170deg, #222 0%, var(--bg-dark) 100%);
+}
+.slide-keypoint .kicker {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--safety-yellow);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.slide-keypoint h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--steel);
+  margin-bottom: 3vh;
+  max-width: 80vw;
+}
+.slide-keypoint .body {
+  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--steel-dim);
+  max-width: 70vw;
+}
+
+.slide-reveal {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-reveal .kicker {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--safety-yellow);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.slide-reveal h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--steel);
+  margin-bottom: 3vh;
+  max-width: 80vw;
+}
+.slide-reveal .body {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.4;
+  color: var(--steel-blue);
+  max-width: 65vw;
+  font-style: italic;
+}
+
+.slide-concept {
+  text-align: center;
+  background: linear-gradient(170deg, #1e1e1e 0%, var(--bg-dark) 100%);
+}
+.slide-concept .concept-label {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--safety-yellow);
+  margin-bottom: 3vh;
+  font-weight: 600;
+}
+.slide-concept .concept-box {
+  background: var(--charcoal);
+  border: 2px solid var(--safety-yellow);
+  border-radius: 8px;
+  padding: 2.5vh 3vw;
+  margin: 0 auto 3vh;
+  max-width: 75vw;
+}
+.slide-concept .box-text {
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  line-height: 1.4;
+  color: var(--steel);
+  font-weight: 600;
+}
+.slide-concept .body {
+  font-size: clamp(0.9rem, 1.7vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--steel-dim);
+  max-width: 70vw;
+}
+
+.slide-list {
+  padding-left: 10vw;
+  background: linear-gradient(170deg, #1e1e1e 0%, var(--bg-dark) 100%);
+}
+.slide-list .list-label {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--safety-yellow);
+  margin-bottom: 2vh;
+  font-weight: 600;
+}
+.slide-list h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--steel);
+  margin-bottom: 4vh;
+  line-height: 1.2;
+}
+.slide-list .list-items {
+  list-style: none;
+}
+.slide-list .list-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5vh;
+  max-width: 70vw;
+}
+.slide-list .item-num {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--safety-yellow);
+  margin-right: 1.5vw;
+  min-width: 2rem;
+}
+.slide-list .item-text {
+  font-size: clamp(0.9rem, 1.7vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--steel-dim);
+}
+.slide-list strong {
+  color: var(--steel);
+  font-weight: 600;
+}
+
+.slide-summary {
+  text-align: center;
+  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+}
+.slide-summary h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  color: var(--steel);
+  margin-bottom: 4vh;
+  line-height: 1.2;
+}
+.slide-summary .summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5vh;
+  max-width: 80vw;
+}
+.slide-summary .summary-item {
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  line-height: 1.4;
+  color: var(--steel-dim);
+  text-align: left;
+  padding: 0.5vh 0;
+}
+.slide-summary .summary-item::before {
+  content: "—";
+  color: var(--safety-yellow);
+  margin-right: 0.5em;
+  font-weight: 600;
+}
+
+.slide-options {
+  text-align: center;
+  background: linear-gradient(170deg, #222 0%, var(--bg-dark) 100%);
+}
+.slide-options h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: var(--steel);
+  margin-bottom: 4vh;
+  line-height: 1.3;
+  max-width: 80vw;
+}
+.slide-options .options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  max-width: 75vw;
+}
+.slide-options .option {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 2vh 2.5vw;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+.slide-options .option.highlighted {
+  border-color: var(--safety-yellow);
+  background: rgba(251, 191, 36, 0.1);
+}
+.slide-options .option-letter {
+  font-family: var(--font-ui);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--safety-yellow);
+  background: var(--charcoal);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2vw;
+  flex-shrink: 0;
+}
+.slide-options .option-content h3 {
+  font-size: clamp(0.95rem, 1.8vw, 1.3rem);
+  font-weight: 600;
+  color: var(--steel);
+  margin-bottom: 0.5vh;
+}
+.slide-options .option-content p {
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  line-height: 1.4;
+  color: var(--steel-dim);
+}
+
+/* --- Bottom Bar --- */
+
+.bottom-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5vh 3vw;
+  background: var(--charcoal);
+  border-top: 1px solid var(--steel-blue);
+  font-family: var(--font-ui);
+}
+
+.nav-btn {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--steel);
+  background: transparent;
+  border: 1px solid var(--steel-blue);
+  border-radius: 4px;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+.nav-btn:hover:not(:disabled) {
+  background: var(--safety-yellow);
+  color: var(--bg-dark);
+  border-color: var(--safety-yellow);
+}
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.progress-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.progress-track {
+  width: 200px;
+  height: 6px;
+  background: var(--bg-dark);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: var(--safety-yellow);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  width: 0%;
+}
+.progress-text {
+  font-size: 0.8rem;
+  color: var(--steel-dim);
+  min-width: 4rem;
+  text-align: center;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* --- Quiz Styles --- */
+
+.quiz-container {
+  text-align: center;
+  max-width: 80vw;
+}
+.quiz-container h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2.3rem);
+  font-weight: 700;
+  color: var(--steel);
+  margin-bottom: 4vh;
+  line-height: 1.3;
+}
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  margin-bottom: 3vh;
+}
+.quiz-option {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 2vh 2.5vw;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.quiz-option:hover {
+  border-color: var(--steel-blue);
+}
+.quiz-option.selected {
+  border-color: var(--safety-yellow);
+  background: rgba(251, 191, 36, 0.1);
+}
+.quiz-option.correct {
+  border-color: var(--success-green);
+  background: rgba(16, 185, 129, 0.1);
+}
+.quiz-option.incorrect {
+  border-color: var(--warning-red);
+  background: rgba(239, 68, 68, 0.1);
+  opacity: 0.6;
+}
+.quiz-option .option-letter {
+  font-family: var(--font-ui);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--safety-yellow);
+  background: var(--charcoal);
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2vw;
+  flex-shrink: 0;
+}
+.quiz-option.correct .option-letter {
+  background: var(--success-green);
+  color: white;
+}
+.quiz-option.incorrect .option-letter {
+  background: var(--warning-red);
+  color: white;
+}
+.quiz-option .option-text {
+  font-size: clamp(0.9rem, 1.7vw, 1.2rem);
+  line-height: 1.4;
+  color: var(--steel);
+}
+
+.quiz-feedback {
+  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  line-height: 1.4;
+  color: var(--steel-dim);
+  margin-top: 2vh;
+  padding: 2vh;
+  background: var(--bg-card);
+  border-radius: 6px;
+  border-left: 4px solid var(--safety-yellow);
+}
+
+/* Results slide */
+.results-container {
+  text-align: center;
+  max-width: 70vw;
+}
+.results-container h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--steel);
+  margin-bottom: 3vh;
+}
+.score-display {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  margin: 3vh 0;
+}
+.score-display.pass {
+  color: var(--success-green);
+}
+.score-display.fail {
+  color: var(--warning-red);
+}
+.results-message {
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  line-height: 1.4;
+  color: var(--steel-dim);
+  margin-bottom: 4vh;
+}
+.results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.results-actions .nav-btn {
+  min-width: 8rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slide {
+    padding: 3vh 5vw;
+  }
+  .progress-track {
+    width: 120px;
+  }
+  .nav-buttons {
+    gap: 0.5rem;
+  }
+  .nav-btn {
+    font-size: 0.75rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .slide-options .options-container,
+  .quiz-options {
+    max-width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide {
+    padding: 2vh 4vw;
+  }
+  .bottom-bar {
+    padding: 1vh 2vw;
+  }
+  .progress-section {
+    gap: 0.5rem;
+  }
+  .progress-track {
+    width: 80px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<div class="player" id="player">
+  <div class="slide-container" id="slideContainer"></div>
+
+  <div class="bottom-bar">
+    <a href="../index.html" class="nav-btn" style="margin-right: 2vw;">MENU</a>
+    <div class="progress-section">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-text" id="progressText">1 / 1</span>
+    </div>
+    <div class="nav-buttons">
+      <button class="nav-btn" id="prevBtn" disabled>&#8592; Prev</button>
+      <button class="nav-btn" id="nextBtn">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const MODULE = {
+  "title": "The Six Steps", 
+  "moduleNumber": 2,
+  "partLabel": "Part Two — The Procedure That Keeps You Alive",
+  "passingScore": 75,
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 2", "heading": "The Six Steps", "subtitle": "Part Two — The Procedure That Keeps You Alive", "brand": "SOPs Nobody Reads" },
+    { "type": "scene", "label": "Cold Open", "text": "A breaker panel in a hallway. Someone has taped a handwritten sign next to one of the breakers: <em>\"DO NOT TURN ON — Mike working on Line 3.\"</em> The tape is peeling at one corner.", "image": "img/s01-handwritten-sign.jpg" },
+    { "type": "scene", "label": "Scene", "text": "A hand reaches past the sign and flips the breaker to ON. The sign flutters. The hand belongs to someone who didn't read it, or didn't think it applied to them.", "image": "img/s02-flips-breaker.jpg" },
+    { "type": "reveal", "kicker": "The Difference", "heading": "A sign is not a lock.\nA sign is a request.\nA lock is a fact.", "body": "And the difference between a request and a fact is the distance between going home tonight and not.", "image": "img/s03-sign-vs-lock.jpg" },
+    { "type": "keypoint", "kicker": "Why Order Matters", "heading": "Six steps.\nSix layers of protection.", "body": "Each step handles something the previous step couldn't. Skip a layer and there's a gap. A gap in this process is a gap in your protection.", "image": "img/s04-six-steps.jpg" },
+    { "type": "keypoint", "kicker": "Step 1", "heading": "Prepare for Shutdown", "body": "Find the machine-specific lockout procedure. Know what you're dealing with. Notify affected employees. This isn't paperwork — it's your map. Without it, you're guessing.", "image": "img/s05-prepare.jpg" },
+    { "type": "keypoint", "kicker": "Step 2", "heading": "Equipment Shutdown", "body": "Use normal stopping procedures. Verify all moving parts have actually stopped — not almost stopped, not slowing down. Stopped. Flywheels coast. Wait for zero.", "image": "img/s06-shutdown.jpg" },
+    { "type": "keypoint", "kicker": "Step 3", "heading": "Energy Isolation", "body": "Disconnect from every energy source. Electric, pneumatic, hydraulic, mechanical. Turn breakers to OFF. Close valves. Disconnect supply lines. Isolation means no energy can reach the equipment.", "image": "img/s07-isolate.jpg" },
+    { "type": "keypoint", "kicker": "Step 4", "heading": "Apply Lockout Devices", "body": "Lock every isolation point. One lock per person working on the equipment. Your lock, your key, your life. Remove only your own locks when your work is complete.", "image": "img/s08-lockout.jpg" },
+    { "type": "keypoint", "kicker": "Step 5", "heading": "Stored Energy Control", "body": "Relieve, disconnect, or restrain stored energy. Bleed air pressure. Discharge capacitors. Support suspended components. Release spring tension safely. Stored energy is patient — it waits.", "image": "img/s09-stored-energy.jpg" },
+    { "type": "keypoint", "kicker": "Step 6", "heading": "Verify Isolation", "body": "Test that the equipment cannot be operated. Try to start it using normal procedures. Check for movement, lights, sounds. Verify zero energy state before beginning work.", "image": "img/s10-verify.jpg" },
+    { "type": "concept", "label": "One Person, One Lock", "boxText": "Each worker applies their own lock and removes only their own lock.", "body": "Your lock protects you. Someone else's lock protects them. You never remove another person's lock. They never remove yours. This isn't bureaucracy — it's survival.", "image": "img/s11-one-person-one-lock.jpg" },
+    { "type": "concept", "label": "Tags vs. Locks", "boxText": "Tags inform. Locks prevent. Tags supplement locks — they never replace them.", "body": "A tag tells you who's working and why. But a tag won't stop someone from flipping a switch. Use both: lock to prevent, tag to inform.", "image": "img/s12-tags-vs-locks.jpg" },
+    { "type": "keypoint", "kicker": "Why People Skip Steps", "heading": "\"I've done this job\na hundred times.\"", "body": "Experience creates shortcuts. Familiarity breeds assumption. The worker who skips LOTO is usually the experienced one — the one who knows the machine, knows the work, knows it'll only take five minutes.", "image": "img/s13-experienced-worker.jpg" },
+    { "type": "reveal", "kicker": "The Psychology", "heading": "Every accident starts\nwith \"just this once.\"", "body": "Just this once I'll skip the lockout. Just this once I'll reach inside while it's running. Just this once I won't wait for the moving parts to stop. Experience makes you confident. Confidence makes you careless.", "image": "img/s14-just-this-once.jpg" },
+    { "type": "list", "label": "The Six Steps", "heading": "Every time. In order.", "items": [
+      { "num": "1.", "text": "<strong>Prepare:</strong> Review procedure, notify affected employees" },
+      { "num": "2.", "text": "<strong>Shutdown:</strong> Use normal stopping procedures, verify zero motion" },
+      { "num": "3.", "text": "<strong>Isolate:</strong> Disconnect from all energy sources" },
+      { "num": "4.", "text": "<strong>Lock:</strong> Apply lockout devices, one per person" },
+      { "num": "5.", "text": "<strong>Stored Energy:</strong> Relieve, disconnect, or restrain" },
+      { "num": "6.", "text": "<strong>Verify:</strong> Test that equipment cannot operate" }
+    ], "image": "img/s15-six-steps-complete.jpg" },
+    { "type": "summary", "heading": "Module 2 — Key Concepts", "items": [
+      "A lock is a fact, a sign is a request",
+      "Six steps create six layers of protection",
+      "One person, one lock — your lock protects your life", 
+      "Tags inform, locks prevent — use both",
+      "Experience creates dangerous shortcuts",
+      "Every accident starts with 'just this once'",
+      "Everyone goes home safe"
+    ] }
+  ],
+  "quiz": [
+    {
+      "question": "What's the difference between a sign and a lock in LOTO procedures?",
+      "options": [
+        "Signs are permanent, locks are temporary",
+        "Signs inform about hazards, locks prevent operation",
+        "Signs are for electrical, locks are for mechanical",
+        "There is no difference — they serve the same purpose"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Why is the 'Prepare for Shutdown' step important?",
+      "options": [
+        "It's required paperwork for legal compliance",
+        "It identifies all energy sources and lockout points before work begins",
+        "It delays the job to ensure workers are paid more",
+        "It's only necessary for new employees"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "In the 'One Person, One Lock' principle, when can you remove someone else's lock?",
+      "options": [
+        "When they give you permission",
+        "When you're the supervisor",
+        "When their shift ends",
+        "Never — each person removes only their own lock"
+      ],
+      "correct": 3
+    },
+    {
+      "question": "According to the module, who is most likely to skip LOTO procedures?",
+      "options": [
+        "New employees who don't know better",
+        "Experienced workers who think they know the equipment",
+        "Workers who don't have proper training",
+        "Employees working on simple tasks"
+      ],
+      "correct": 1
+    }
+  ]
+};
+
+// Player JavaScript (same as Module 1, no modifications needed)
+let currentSlide = 0;
+let quizAnswers = [];
+let quizMode = false;
+let currentQuizQuestion = 0;
+let isAnswered = false;
+
+function initPlayer() {
+  renderSlide();
+  updateProgress();
+  updateNavButtons();
+}
+
+function renderSlide() {
+  const container = document.getElementById('slideContainer');
+  
+  if (quizMode) {
+    renderQuiz();
+    return;
+  }
+  
+  const slide = MODULE.slides[currentSlide];
+  if (!slide) return;
+  
+  let html = '';
+  let slideClasses = `slide slide-${slide.type}`;
+  
+  if (slide.image) {
+    slideClasses += ' has-image';
+  }
+  
+  switch (slide.type) {
+    case 'title':
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          <div class="module-label">${slide.moduleLabel}</div>
+          <h1>${slide.heading.replace(/\\n/g, '<br>')}</h1>
+          <div class="subtitle">${slide.subtitle}</div>
+          <div class="brand">${slide.brand}</div>
+        </div>
+      `;
+      break;
+      
+    case 'scene':
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          <div class="scene-label">${slide.label}</div>
+          <p>${slide.text}</p>
+        </div>
+      `;
+      break;
+      
+    case 'keypoint':
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+          <h2>${slide.heading.replace(/\\n/g, '<br>')}</h2>
+          <div class="body">${slide.body}</div>
+        </div>
+      `;
+      break;
+      
+    case 'reveal':
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          <div class="kicker">${slide.kicker}</div>
+          <h2>${slide.heading.replace(/\\n/g, '<br>')}</h2>
+          <div class="body">${slide.body}</div>
+        </div>
+      `;
+      break;
+      
+    case 'concept':
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          <div class="concept-label">${slide.label}</div>
+          <div class="concept-box">
+            <div class="box-text">${slide.boxText}</div>
+          </div>
+          <div class="body">${slide.body}</div>
+        </div>
+      `;
+      break;
+      
+    case 'list':
+      const listItems = slide.items.map(item => `
+        <div class="list-item">
+          <div class="item-num">${item.num}</div>
+          <div class="item-text">${item.text}</div>
+        </div>
+      `).join('');
+      
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          <div class="list-label">${slide.label}</div>
+          <h2>${slide.heading}</h2>
+          <div class="list-items">
+            ${listItems}
+          </div>
+        </div>
+      `;
+      break;
+      
+    case 'summary':
+      const summaryItems = slide.items.map(item => `
+        <div class="summary-item">${item}</div>
+      `).join('');
+      
+      html = `
+        <div class="${slideClasses}">
+          <h2>${slide.heading}</h2>
+          <div class="summary-grid">
+            ${summaryItems}
+          </div>
+        </div>
+      `;
+      break;
+      
+    case 'options':
+      const options = slide.options.map(option => `
+        <div class="option ${slide.highlighted === option.letter ? 'highlighted' : ''}">
+          <div class="option-letter">${option.letter}</div>
+          <div class="option-content">
+            <h3>${option.title}</h3>
+            <p>${option.desc}</p>
+          </div>
+        </div>
+      `).join('');
+      
+      html = `
+        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
+          <h2>${slide.heading}</h2>
+          <div class="options-container">
+            ${options}
+          </div>
+        </div>
+      `;
+      break;
+  }
+  
+  container.innerHTML = html;
+  
+  // Activate the slide
+  setTimeout(() => {
+    const slideEl = container.querySelector('.slide');
+    if (slideEl) slideEl.classList.add('active');
+  }, 50);
+}
+
+function renderQuiz() {
+  const container = document.getElementById('slideContainer');
+  
+  if (currentQuizQuestion >= MODULE.quiz.length) {
+    renderResults();
+    return;
+  }
+  
+  const question = MODULE.quiz[currentQuizQuestion];
+  const options = question.options.map((option, index) => {
+    const letter = String.fromCharCode(65 + index);
+    let classes = 'quiz-option';
+    
+    if (isAnswered) {
+      if (index === question.correct) {
+        classes += ' correct';
+      } else if (quizAnswers[currentQuizQuestion] === index) {
+        classes += ' incorrect';
+      }
+    } else if (quizAnswers[currentQuizQuestion] === index) {
+      classes += ' selected';
+    }
+    
+    return `
+      <div class="${classes}" onclick="${!isAnswered ? `selectAnswer(${index})` : ''}">
+        <div class="option-letter">${letter}</div>
+        <div class="option-text">${option}</div>
+      </div>
+    `;
+  }).join('');
+  
+  let feedback = '';
+  if (isAnswered) {
+    const isCorrect = quizAnswers[currentQuizQuestion] === question.correct;
+    feedback = `
+      <div class="quiz-feedback">
+        ${isCorrect ? 'Correct!' : 'Incorrect.'} ${getQuizFeedback(currentQuizQuestion)}
+      </div>
+    `;
+  }
+  
+  const html = `
+    <div class="slide slide-quiz active">
+      <div class="quiz-container">
+        <h2>Question ${currentQuizQuestion + 1}</h2>
+        <p style="margin-bottom: 3vh; color: var(--steel-dim); font-size: clamp(1rem, 2vw, 1.3rem);">
+          ${question.question}
+        </p>
+        <div class="quiz-options">
+          ${options}
+        </div>
+        ${feedback}
+      </div>
+    </div>
+  `;
+  
+  container.innerHTML = html;
+}
+
+function selectAnswer(answerIndex) {
+  if (isAnswered) return;
+  
+  quizAnswers[currentQuizQuestion] = answerIndex;
+  isAnswered = true;
+  renderQuiz();
+  updateNavButtons();
+}
+
+function getQuizFeedback(questionIndex) {
+  const feedbacks = [
+    "Signs inform about hazards, while locks physically prevent operation of equipment.",
+    "The Prepare step identifies all energy sources and lockout points before work begins, providing a safety map.",
+    "In the 'One Person, One Lock' principle, each person removes only their own lock to maintain individual protection.",
+    "Experienced workers are most likely to skip procedures due to overconfidence and familiarity with equipment."
+  ];
+  return feedbacks[questionIndex] || '';
+}
+
+function renderResults() {
+  const container = document.getElementById('slideContainer');
+  const correctAnswers = quizAnswers.filter((answer, index) => answer === MODULE.quiz[index].correct).length;
+  const totalQuestions = MODULE.quiz.length;
+  const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+  const passed = percentage >= MODULE.passingScore;
+  
+  const html = `
+    <div class="slide slide-results active">
+      <div class="results-container">
+        <h2>Module ${MODULE.moduleNumber} Complete</h2>
+        <div class="score-display ${passed ? 'pass' : 'fail'}">
+          ${percentage}%
+        </div>
+        <div class="results-message">
+          ${correctAnswers} of ${totalQuestions} questions correct<br>
+          ${passed ? 'You passed! Well done.' : `You need ${MODULE.passingScore}% to pass. Please review the material and try again.`}
+        </div>
+        <div class="results-actions">
+          ${!passed ? `<button class="nav-btn" onclick="restartQuiz()">Try Again</button>` : ''}
+          <a href="../module-03/index.html" class="nav-btn">Next Module &#8594;</a>
+        </div>
+        <p style="margin-top: 3vh; font-size: 0.9rem; color: var(--steel-dim);">
+          Module 2 of 3 &mdash; Continue to the final module on complex LOTO situations.
+        </p>
+      </div>
+    </div>
+  `;
+  
+  container.innerHTML = html;
+}
+
+function restartQuiz() {
+  quizAnswers = [];
+  currentQuizQuestion = 0;
+  isAnswered = false;
+  renderQuiz();
+  updateNavButtons();
+}
+
+function nextSlide() {
+  if (quizMode) {
+    if (isAnswered) {
+      if (currentQuizQuestion < MODULE.quiz.length - 1) {
+        currentQuizQuestion++;
+        isAnswered = false;
+        renderQuiz();
+      } else {
+        renderResults();
+      }
+    }
+  } else {
+    if (currentSlide < MODULE.slides.length - 1) {
+      currentSlide++;
+      renderSlide();
+    } else {
+      // Start quiz
+      quizMode = true;
+      currentQuizQuestion = 0;
+      isAnswered = false;
+      renderQuiz();
+    }
+  }
+  
+  updateProgress();
+  updateNavButtons();
+}
+
+function prevSlide() {
+  if (quizMode && currentQuizQuestion === 0) {
+    quizMode = false;
+    currentSlide = MODULE.slides.length - 1;
+    renderSlide();
+  } else if (quizMode) {
+    currentQuizQuestion--;
+    isAnswered = quizAnswers[currentQuizQuestion] !== undefined;
+    renderQuiz();
+  } else if (currentSlide > 0) {
+    currentSlide--;
+    renderSlide();
+  }
+  
+  updateProgress();
+  updateNavButtons();
+}
+
+function updateProgress() {
+  const totalSlides = MODULE.slides.length + MODULE.quiz.length;
+  const currentPos = quizMode ? MODULE.slides.length + currentQuizQuestion + 1 : currentSlide + 1;
+  const percentage = (currentPos / totalSlides) * 100;
+  
+  document.getElementById('progressFill').style.width = `${percentage}%`;
+  document.getElementById('progressText').textContent = `${currentPos} / ${totalSlides}`;
+}
+
+function updateNavButtons() {
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  
+  prevBtn.disabled = (!quizMode && currentSlide === 0) || (quizMode && currentQuizQuestion === 0 && currentSlide === 0);
+  
+  if (quizMode) {
+    nextBtn.disabled = !isAnswered;
+    if (currentQuizQuestion >= MODULE.quiz.length - 1 && isAnswered) {
+      nextBtn.textContent = 'Results ►';
+    } else {
+      nextBtn.textContent = 'Next ►';
+    }
+  } else {
+    nextBtn.disabled = false;
+    if (currentSlide === MODULE.slides.length - 1) {
+      nextBtn.textContent = 'Quiz ►';
+    } else {
+      nextBtn.textContent = 'Next ►';
+    }
+  }
+}
+
+// Event listeners
+document.getElementById('prevBtn').addEventListener('click', prevSlide);
+document.getElementById('nextBtn').addEventListener('click', nextSlide);
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) {
+    nextSlide();
+  } else if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) {
+    prevSlide();
+  }
+});
+
+// Initialize player
+initPlayer();
+
+// SCORM API stubs (graceful degradation)
+window.API = window.API || {
+  LMSInitialize: () => 'true',
+  LMSCommit: () => 'true', 
+  LMSFinish: () => 'true',
+  LMSGetValue: () => '',
+  LMSSetValue: () => 'true',
+  LMSGetLastError: () => '0',
+  LMSGetErrorString: () => '',
+  LMSGetDiagnostic: () => ''
+};
+</script>
+</body>
+</html>

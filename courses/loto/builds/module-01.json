@@ -1,0 +1,100 @@
+{
+  "title": "The Energy You Don't See",
+  "moduleNumber": 1,
+  "partLabel": "Part One — Respect the Simple Thing",
+  "passingScore": 75,
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 1", "heading": "The Energy\nYou Don't See", "subtitle": "Part One — Respect the Simple Thing", "brand": "SOPs Nobody Reads" },
+    
+    { "type": "scene", "label": "Cold Open", "text": "This is a Tuesday morning. Nothing about it is unusual. A worker picks up a work order — bearing replacement. Twenty-minute job. He's done it a hundred times.", "image": "img/s01-tuesday-morning.jpg" },
+    
+    { "type": "scene", "label": "Scene", "text": "He presses the stop button on the conveyor. The belt slows. Stops. He opens the access panel, pulls out a wrench, and starts loosening a bolt on the roller bearing.", "image": "img/s02-working-inside.jpg" },
+    
+    { "type": "concept", "label": "The Problem", "boxText": "He pressed the stop button. The belt isn't moving. So he's working.", "body": "But the electrical disconnect ten feet away has no lock. No tag. Just an unprotected switch that anyone could flip.", "image": "img/s03-unlocked-disconnect.jpg" },
+    
+    { "type": "keypoint", "kicker": "The Difference", "heading": "He stopped the machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything.", "image": "img/s04-the-difference.jpg" },
+    
+    { "type": "keypoint", "kicker": "What Most People Think", "heading": "LOTO is just putting\na padlock on a breaker", "body": "And that's not wrong, exactly. But it's so incomplete that it might as well be. Lockout/tagout isn't a procedure. It's a barrier. The only barrier between you and the energy stored in the machine.", "image": "img/s05-simple-padlock.jpg" },
+    
+    { "type": "keypoint", "kicker": "Five Types of Energy", "heading": "Most people think\nelectricity.", "body": "But OSHA's Control of Hazardous Energy standard recognizes five types. And if you only think about one of them, the other four can kill you while you're busy being careful about electricity.", "image": "img/s06-electrical-symbol.jpg" },
+    
+    { "type": "concept", "label": "Electrical Energy", "boxText": "Current flowing through conductors. Touch the wrong thing and current flows through you instead of the wire.", "body": "But even after you cut the power, capacitors in motors and control boards can store charge and discharge it through you in a fraction of a second.", "image": "img/s07-electrical-panel.jpg" },
+    
+    { "type": "concept", "label": "Mechanical Energy", "boxText": "Moving parts under load. Springs, counterweights, rotating equipment.", "body": "A spring compressed to 100 pounds of force stays compressed until something releases it. If that something is your hand in the wrong place, the spring doesn't care.", "image": "img/s08-mechanical-parts.jpg" },
+    
+    { "type": "concept", "label": "Pneumatic Energy", "boxText": "Compressed air systems. Air tools, cylinders, automated equipment.", "body": "Compressed air at 90 PSI has enough force to drive a nail through your hand. A cylinder retracting can crush bone. Air doesn't make noise until it moves.", "image": "img/s09-pneumatic-system.jpg" },
+    
+    { "type": "concept", "label": "Hydraulic Energy", "boxText": "Fluid under pressure. Lifts, presses, heavy machinery controls.", "body": "Hydraulic fluid under 3000 PSI can inject through your skin and into your bloodstream. The wound looks minor. The internal damage can be fatal.", "image": "img/s10-hydraulic-system.jpg" },
+    
+    { "type": "concept", "label": "Stored Energy", "boxText": "Gravity, elevated components, pressurized systems, chemical reactions.", "body": "A suspended load doesn't announce itself. A pressurized vessel looks the same full or empty. Stored energy is patient. It waits.", "image": "img/s11-stored-energy.jpg" },
+    
+    { "type": "keypoint", "kicker": "The Real Danger", "heading": "Energy doesn't care\nabout your assumptions", "body": "You can't see most of these energies. You can't hear them. You can't feel them until it's too late. The machine looks safe, sounds safe, seems safe. Right up until it isn't.", "image": "img/s12-invisible-danger.jpg" },
+    
+    { "type": "reveal", "kicker": "The Point", "heading": "Two minutes\nand a padlock", "body": "That's all that stands between you and forces that can kill you instantly. Two minutes to identify the energy sources. Two minutes to isolate them. Two minutes to verify they're controlled.", "image": "img/s13-two-minutes-padlock.jpg" },
+    
+    { "type": "scene", "label": "Back to the Worker", "text": "The worker from our cold open finishes the bearing replacement. He closes the access panel, collects his tools, and walks away. <em>The disconnect is still unlocked.</em>", "image": "img/s14-worker-leaves.jpg" },
+    
+    { "type": "keypoint", "kicker": "The Next Day", "heading": "Someone else\nflips the switch", "body": "Maybe they don't see the worker inside. Maybe they assume someone else checked. Maybe they think it's fine because the machine is stopped. It doesn't matter why. What matters is what happens next.", "image": "img/s15-someone-flips-switch.jpg" },
+    
+    { "type": "list", "label": "What You Just Learned", "heading": "Module 1 — Key Points", "items": [
+      { "num": "1.", "text": "<strong>Five types of hazardous energy:</strong> electrical, mechanical, pneumatic, hydraulic, and stored energy" },
+      { "num": "2.", "text": "<strong>Energy is invisible:</strong> you can't see, hear, or feel most energy sources until they hurt you" },
+      { "num": "3.", "text": "<strong>Stopping ≠ securing:</strong> hitting the stop button doesn't control the energy in the system" },
+      { "num": "4.", "text": "<strong>Two minutes and a padlock:</strong> that's all that stands between you and potentially fatal energy" },
+      { "num": "5.", "text": "<strong>Energy doesn't care:</strong> about your experience, your assumptions, or your good intentions" }
+    ], "image": "img/s16-key-points.jpg" },
+    
+    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": [
+      "LOTO is a barrier, not just a procedure",
+      "Five types of hazardous energy exist in most workplaces",
+      "Energy sources are often invisible and silent",
+      "Stopping equipment doesn't secure it",
+      "Two minutes of proper procedure can save your life",
+      "Everyone goes home safe"
+    ] }
+  ],
+
+  "quiz": [
+    {
+      "question": "How many types of hazardous energy does OSHA recognize in the Control of Hazardous Energy standard?",
+      "options": [
+        "Three: electrical, mechanical, and chemical",
+        "Four: electrical, mechanical, hydraulic, and pneumatic", 
+        "Five: electrical, mechanical, pneumatic, hydraulic, and stored energy",
+        "Six: electrical, mechanical, pneumatic, hydraulic, stored, and thermal"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "Why is stored energy particularly dangerous?",
+      "options": [
+        "It makes loud noises that can damage hearing",
+        "It's patient — energy waits until released, often unexpectedly",
+        "It only affects electrical systems",
+        "It dissipates quickly and becomes harmless"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "What's the difference between stopping a machine and securing it?",
+      "options": [
+        "There is no difference — they mean the same thing",
+        "Stopping turns off power; securing involves maintenance",
+        "Stopping halts operation; securing controls all energy sources with locks/tags", 
+        "Stopping is temporary; securing is permanent"
+      ],
+      "correct": 2
+    },
+    {
+      "question": "According to the module, what stands between you and potentially fatal energy?",
+      "options": [
+        "Your experience and training",
+        "Safety equipment and protective gear",
+        "Two minutes and a padlock",
+        "Company policies and procedures"
+      ],
+      "correct": 2
+    }
+  ]
+}
