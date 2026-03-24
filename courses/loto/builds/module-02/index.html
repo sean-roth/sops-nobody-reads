@@ -684,28 +684,32 @@ html, body {
   text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
 }
 
-/* Dark scrim behind text content for readability over images */
+/* Dark scrim behind text content for readability over images - unified approach */
+/* Ensure all text content has proper z-index positioning */
 .slide.has-image .scene-label,
-.slide.has-image .scene-label + p {
-  background: linear-gradient(
-    to bottom,
-    rgba(10, 22, 40, 0.6) 0%,
-    rgba(10, 22, 40, 0.8) 100%
-  );
-  padding: 1.5rem 2.5rem;
-  border-radius: 8px;
-  backdrop-filter: blur(2px);
-  margin-bottom: 2vh;
+.slide.has-image .scene-label + p,
+.slide-keypoint.has-image .kicker,
+.slide-keypoint.has-image h2,
+.slide-keypoint.has-image .body,
+.slide-reveal.has-image .kicker,
+.slide-reveal.has-image h2,
+.slide-reveal.has-image .body,
+.slide-concept.has-image .concept-label,
+.slide-concept.has-image .concept-box,
+.slide-concept.has-image .body {
+  position: relative;
+  z-index: 3;
 }
 
-.slide.has-image .scene-label + p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* Keypoint and reveal slides - create unified content area */
-.slide-keypoint.has-image > *:not(.slide),
-.slide-reveal.has-image > *:not(.slide) {
+/* Scene slides - unified scrim */
+.slide-scene.has-image::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 500px);
+  height: 40%;
   background: linear-gradient(
     to bottom,
     rgba(10, 22, 40, 0.6) 0%,
@@ -714,40 +718,53 @@ html, body {
   padding: 2rem 3rem;
   border-radius: 8px;
   backdrop-filter: blur(2px);
-  margin: 1vh auto;
-  display: block;
-  text-align: center;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.slide-keypoint.has-image .kicker,
-.slide-reveal.has-image .kicker {
-  margin-bottom: 2vh;
-  background: transparent;
-  padding: 0;
+/* Keypoint slides - unified scrim */
+.slide-keypoint.has-image::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(85vw, 700px);
+  height: 75%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.6) 0%,
+    rgba(10, 22, 40, 0.8) 100%
+  );
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  pointer-events: none;
 }
 
-.slide-keypoint.has-image h2,
-.slide-reveal.has-image h2 {
-  margin-bottom: 3vh;
-  background: transparent;
-  padding: 0;
+/* Reveal slides - unified scrim */
+.slide-reveal.has-image::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 600px);
+  height: 70%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.6) 0%,
+    rgba(10, 22, 40, 0.8) 100%
+  );
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+  z-index: 2;
+  pointer-events: none;
 }
 
-.slide-keypoint.has-image .body,
-.slide-reveal.has-image .body {
-  margin-bottom: 0;
-  background: transparent;
-  padding: 0;
-}
-
-/* Concept slides - wrap content but preserve concept-box styling */
-.slide-concept.has-image .concept-label,
-.slide-concept.has-image .concept-box,
-.slide-concept.has-image .body {
-  position: relative;
-  z-index: 3;
-}
-
+/* Concept slides - unified scrim */
 .slide-concept.has-image::after {
   content: '';
   position: absolute;
