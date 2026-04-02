@@ -256,7 +256,16 @@ html, body {
   font-size: 0.7rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
+}
+
+.brand-line a {
   color: var(--accent-orange-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.brand-line a:hover {
+  color: var(--accent-orange);
 }
 
 .regulatory-line {
@@ -348,7 +357,7 @@ Control of Hazardous Energy</h1>
   </section>
 
   <footer class="brand-footer">
-    <div class="brand-line">SOPs Nobody Reads</div>
+    <div class="brand-line"><a href="https://sopsnobodyreads.com">SOPs Nobody Reads</a></div>
     <div class="regulatory-line">Based on OSHA 29 CFR 1910.147</div>
   </footer>
 </div>
