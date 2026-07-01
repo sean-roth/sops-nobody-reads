@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maple Court — Module 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Maple Court theme — Editorial register (dark, warm, documentary) */
+  --bg:#0b0908;
+  --bg-2:#141019;
+  --ink:#ece5d8;
+  --ink-dim:rgba(236,229,216,0.60);
+  --ink-faint:rgba(236,229,216,0.34);
+  --gold:#c9a35b;      /* chrome / nav / progress */
+  --gold-dim:#7d6636;
+  --cold:#8fb0c4;      /* threat accent (the clock, the water) */
+  --warm:#d69a5f;      /* resolution accent */
+  --green-dim:#6f8a5a;
+  --red-dim:#a35c4e;
+  --charcoal:#1b1713;
+  --font-display:'Instrument Serif',Georgia,serif;
+  --font-body:'IBM Plex Sans',system-ui,sans-serif;
+  --font-ui:'IBM Plex Sans',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--font-body);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+#stage{position:fixed;inset:0;overflow:hidden}
+
+/* ---------- slides ---------- */
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .6s ease;
+  padding:6vh 8vw 12vh;
+  text-align:center;
+}
+.slide.active{opacity:1;pointer-events:auto}
+
+/* full-bleed image layer */
+.imgwrap{position:absolute;inset:0;background:#000;overflow:hidden}
+.imgwrap img{width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.92) contrast(1.02);}
+/* missing-image placeholder */
+.imgwrap.noimg{display:flex;align-items:center;justify-content:center;
+  background:
+    repeating-linear-gradient(45deg,#0f0d0b 0 22px,#131110 22px 44px);}
+.imgwrap.noimg img{display:none}
+.imgwrap.noimg::after{
+  content:attr(data-label);
+  white-space:pre-line;
+  font-family:var(--font-ui);font-size:clamp(11px,1.5vw,14px);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);
+  border:1px solid rgba(236,229,216,.14);border-radius:3px;
+  padding:20px 26px;max-width:60ch;line-height:1.9;
+}
+/* cinematic scrim so text reads */
+.scrim{position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(to top,rgba(6,5,4,.92) 0%,rgba(6,5,4,.55) 26%,rgba(6,5,4,0) 52%),
+    linear-gradient(to bottom,rgba(6,5,4,.60) 0%,rgba(6,5,4,0) 24%);}
+
+/* content sits above image */
+.content{position:relative;z-index:3;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-end;height:100%;width:100%;
+  max-width:60ch;margin:0 auto;padding-bottom:2vh;}
+.slide.center .content{justify-content:center;padding-bottom:0}
+
+.kicker{font-family:var(--font-ui);font-size:clamp(10px,1.3vw,13px);
+  letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.1em;opacity:.9}
+.anchor{font-family:var(--font-display);
+  font-size:clamp(30px,5.4vw,64px);line-height:1.06;font-weight:400;
+  white-space:pre-line;letter-spacing:.005em;
+  text-shadow:0 2px 30px rgba(0,0,0,.6);}
+.anchor em{font-style:italic;color:var(--ink)}
+
+/* type cards (no image) */
+.slide.card{background:radial-gradient(120% 90% at 50% 40%,#141018 0%,var(--bg) 70%)}
+.slide.card .big{font-family:var(--font-display);
+  font-size:clamp(44px,9vw,120px);line-height:1;white-space:pre-line;letter-spacing:.01em}
+.slide.card.cold .big{color:var(--cold)}
+.slide.card.warm .big{color:var(--warm)}
+.slide.card .sub{font-family:var(--font-body);font-weight:300;
+  font-size:clamp(15px,2vw,21px);color:var(--ink-dim);margin-top:1.4em;max-width:34ch}
+.slide.card .ckick{font-family:var(--font-ui);font-size:clamp(10px,1.3vw,13px);
+  letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:1.6em}
+
+/* title */
+.slide.title .tlabel{font-family:var(--font-ui);font-size:clamp(11px,1.4vw,14px);
+  letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4em}
+.slide.title .theading{font-family:var(--font-display);
+  font-size:clamp(46px,9vw,108px);line-height:1.02;white-space:pre-line}
+.slide.title .tsub{font-family:var(--font-body);font-weight:300;
+  font-size:clamp(15px,2.1vw,22px);color:var(--ink-dim);margin-top:1.6em}
+.slide.title .tbrand{position:absolute;bottom:0;font-family:var(--font-ui);
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint)}
+
+/* summary */
+.slide.summary{background:var(--bg)}
+.slide.summary h2{font-family:var(--font-display);font-size:clamp(28px,4.6vw,48px);
+  margin-bottom:1.2em;color:var(--ink)}
+.slide.summary .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 34px;
+  max-width:80ch;text-align:left}
+.slide.summary .grid div{font-family:var(--font-body);font-weight:300;
+  font-size:clamp(14px,1.7vw,18px);color:var(--ink-dim);padding-left:20px;position:relative;line-height:1.5}
+.slide.summary .grid div::before{content:"—";position:absolute;left:0;color:var(--gold-dim)}
+
+/* quiz */
+.slide.quiz{background:var(--bg)}
+.slide.quiz .qkick{font-family:var(--font-ui);font-size:12px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--ink-faint);margin-bottom:1.4em}
+.slide.quiz .q{font-family:var(--font-display);font-size:clamp(24px,4vw,40px);
+  line-height:1.14;margin-bottom:1.4em;max-width:26ch}
+.slide.quiz .opts{display:flex;flex-direction:column;gap:12px;width:100%;max-width:60ch}
+.opt{font-family:var(--font-body);font-size:clamp(14px,1.7vw,17px);text-align:left;
+  background:var(--charcoal);border:1px solid rgba(236,229,216,.12);color:var(--ink);
+  padding:16px 20px;border-radius:5px;cursor:pointer;transition:.2s;line-height:1.4}
+.opt:hover{border-color:var(--gold);background:#221c16}
+.opt.correct{border-color:var(--green-dim);background:rgba(111,138,90,.16)}
+.opt.wrong{border-color:var(--red-dim);background:rgba(163,92,78,.14);opacity:.85}
+.opt.locked{pointer-events:none}
+.qfb{font-family:var(--font-body);font-weight:300;color:var(--ink-dim);margin-top:1.4em;
+  min-height:1.4em;font-size:clamp(13px,1.6vw,16px)}
+
+/* results */
+.slide.results{background:radial-gradient(120% 90% at 50% 40%,#141018 0%,var(--bg) 70%)}
+.slide.results .score{font-family:var(--font-display);font-size:clamp(60px,12vw,150px);line-height:1;color:var(--gold)}
+.slide.results .rmsg{font-family:var(--font-display);font-size:clamp(26px,4.4vw,44px);margin-top:.3em}
+.slide.results .rsub{font-family:var(--font-body);font-weight:300;color:var(--ink-dim);margin-top:1.4em;max-width:44ch;line-height:1.6}
+.slide.results .again{margin-top:2em;font-family:var(--font-ui);font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid rgba(236,229,216,.28);
+  padding:12px 22px;border-radius:4px;cursor:pointer}
+.slide.results .again:hover{border-color:var(--gold)}
+
+/* ---------- narration caption ---------- */
+#narr{position:fixed;left:0;right:0;bottom:9vh;z-index:20;display:flex;justify-content:center;
+  padding:0 8vw;pointer-events:none;transition:opacity .4s}
+#narr .box{max-width:74ch;background:rgba(8,7,6,.72);border-left:2px solid var(--gold-dim);
+  backdrop-filter:blur(3px);padding:12px 20px;border-radius:2px;
+  font-family:var(--font-body);font-weight:300;font-style:italic;
+  font-size:clamp(13px,1.7vw,18px);line-height:1.5;color:var(--ink);text-align:center}
+#narr.off{opacity:0}
+#narr .tag{font-style:normal;font-family:var(--font-ui);font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);display:block;margin-bottom:.5em;opacity:.8}
+
+/* ---------- chrome ---------- */
+#grain{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+#vignette{position:fixed;inset:0;z-index:41;pointer-events:none;
+  background:radial-gradient(130% 130% at 50% 50%,transparent 58%,rgba(8,6,4,.6) 100%)}
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:50;height:8vh;min-height:52px;
+  display:flex;align-items:center;gap:18px;padding:0 4vw;
+  background:rgba(9,8,7,.66);border-top:1px solid rgba(236,229,216,.08);backdrop-filter:blur(6px)}
+#track{flex:1;height:2px;background:rgba(236,229,216,.14);border-radius:2px;overflow:hidden}
+#fill{height:100%;width:0;background:var(--gold-dim);transition:width .4s}
+#count{font-family:var(--font-ui);font-size:12px;letter-spacing:.12em;color:var(--ink-dim);min-width:52px;text-align:center}
+.nav{font-family:var(--font-ui);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink);background:transparent;border:1px solid rgba(236,229,216,.22);
+  padding:9px 16px;border-radius:4px;cursor:pointer;transition:.2s}
+.nav:hover{border-color:var(--gold)}
+.nav:disabled{opacity:.28;cursor:default}
+#ntoggle{position:fixed;top:2.4vh;right:3vw;z-index:50;font-family:var(--font-ui);
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);
+  background:rgba(9,8,7,.5);border:1px solid rgba(236,229,216,.16);padding:7px 12px;
+  border-radius:4px;cursor:pointer;backdrop-filter:blur(4px)}
+#ntoggle:hover{color:var(--ink);border-color:var(--gold)}
+
+@media (max-width:768px){
+  .slide{padding:5vh 6vw 14vh}
+  .slide.summary .grid{grid-template-columns:1fr}
+  #narr{bottom:11vh;padding:0 5vw}
+}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+
+<div id="narr"><div class="box"><span class="tag">Narration</span><span id="narrtext"></span></div></div>
+
+<button id="ntoggle">Narration: On &nbsp;(N)</button>
+
+<div id="grain"></div>
+<div id="vignette"></div>
+
+<div id="bar">
+  <button class="nav" id="prev">◂ Prev</button>
+  <div id="track"><div id="fill"></div></div>
+  <div id="count">1 / 1</div>
+  <button class="nav" id="next">Next ▸</button>
+</div>
+
+<script>
+/* ============================================================
+   MODULE DATA  —  Maple Court, Module 1
+   Image-forward variant of the SOPs MODULE schema.
+   Slide types: title | cinematic | card | summary  (+ quiz array, results auto)
+   Each slide may carry: image (img/sNN-*.jpg), anchor (on-screen line),
+   narration (spoken V.O., shown as toggleable caption).
+   ============================================================ */
+const MODULE = {
+  "title":"The Thing That Follows Water",
+  "moduleNumber":1,
+  "partLabel":"Part One — What the Water Wants",
+  "passingScore":75,
+  "slides":[
+    { "type":"title","moduleLabel":"Module 1",
+      "heading":"The Thing That\nFollows Water",
+      "subtitle":"Part One — What the Water Wants",
+      "brand":"SOPs Nobody Reads",
+      "image":"img/s01-establishing.jpg",
+      "narration":"It's always been there. Ancient, and necessary — the reason the rest of life exists." },
+
+    { "type":"cinematic","image":"img/s02-window-grid.jpg","anchor":"",
+      "narration":"A hundred windows. A hundred small, warm lives. Behind one of them, an ordinary evening — and no reason to look at the corner." },
+
+    { "type":"cinematic","image":"img/s03-the-margin.jpg",
+      "anchor":"Three feet away,\nsomething is already growing.",
+      "narration":"Right now, three feet from this table, in the cold corner no one watches, it has already begun. Without malice. Without judgment." },
+
+    { "type":"cinematic","image":"img/s04-dead-plants.jpg","kicker":"It follows moisture",
+      "anchor":"Dead plants. Of course.",
+      "narration":"Where it finds moisture, it grows — and eats whatever is there. Dead plants. Of course." },
+
+    { "type":"cinematic","image":"img/s05-dead-animals.jpg",
+      "anchor":"Dead animals. Absolutely.",
+      "narration":"Dead animals. Absolutely. It doesn't choose. It doesn't care what it eats." },
+
+    { "type":"cinematic","image":"img/s06-drywall.jpg",
+      "anchor":"Drywall. Also yes.",
+      "narration":"Drywall. Also yes. Except in our home, we give it another name. We call it mold. Rot." },
+
+    { "type":"cinematic","image":"img/s07-the-drop.jpg","kicker":"The one thing you control",
+      "anchor":"It only follows moisture.",
+      "narration":"But it only follows moisture. Small and slow — not a problem, until it is. Take away the water, and the rest can't happen." },
+
+    { "type":"card","accent":"cold","ckicker":"The clock",
+      "heading":"48 HOURS",
+      "sub":"From the moment water arrives to the moment a damp spot becomes a colony.",
+      "narration":"From the moment water arrives, you have roughly forty-eight hours before a damp spot becomes something alive." },
+
+    { "type":"card","ckicker":"The oldest cleanup crew",
+      "heading":"It was never\nthe enemy.",
+      "sub":"It's the reason the forest floor isn't ten feet deep in everything that ever died.",
+      "narration":"It cleared the remains of the past to make room for what comes next. The cycle of life depends on it. Your building is just a patch of forest floor no one told it was off-limits." },
+
+    { "type":"cinematic","image":"img/s10-the-pan.jpg",
+      "anchor":"Most days, nothing.\nThat's the bet paying off.",
+      "narration":"So you check the places water hides. A dry pan. A dry corner. Most days, nothing — and that is not wasted time. That is the bet paying off." },
+
+    { "type":"card","accent":"warm",
+      "heading":"Control the moisture,\ncontrol the mold.",
+      "sub":"You can't out-clean it. You can own the one thing it needs.",
+      "narration":"You can't out-clean it. But you can own the one thing it needs. Control the moisture. Prevent the rot." },
+
+    { "type":"cinematic","image":"img/s12-the-hallway.jpg",
+      "anchor":"Next: where the water hides.",
+      "narration":"One building. A hundred doors. Behind them, the four small habits that catch the water before it ever reaches a wall like the one you just saw." },
+
+    { "type":"summary","heading":"Module 1 — What the Water Wants","items":[
+      "Mold isn't a cleaning problem — it's a decomposer that follows moisture",
+      "It eats dead plants, dead animals, and drywall the same way",
+      "In a home, we call that same process rot",
+      "Water is the one variable you actually control",
+      "Roughly 48 hours from wet to grown",
+      "Check the places water hides, on a schedule",
+      "A dry check isn't wasted — it's the bet paying off",
+      "Control the moisture, control the mold"
+    ]}
+  ],
+  "quiz":[
+    { "question":"Fundamentally, the course reframes mold as:",
+      "options":[
+        "A cleaning problem you've fallen behind on",
+        "A decomposer that follows moisture and eats whatever is wet",
+        "A ventilation issue and nothing more",
+        "A cosmetic stain on the surface of a wall"],
+      "correct":1 },
+    { "question":"Roughly how long from when water arrives until a damp spot can become established mold?",
+      "options":[
+        "About 48 hours",
+        "About two weeks",
+        "About 24 hours",
+        "About a month"],
+      "correct":0 },
+    { "question":"On your walk you check a drip pan under a furnace and it's bone dry. This is:",
+      "options":[
+        "Wasted effort — there was nothing to find",
+        "The system working — the check paying off",
+        "A reason to stop checking that spot",
+        "A sign the furnace has failed"],
+      "correct":1 }
+  ]
+};
+
+/* ============================================================
+   PLAYER
+   ============================================================ */
+const stage=document.getElementById('stage');
+const fill=document.getElementById('fill');
+const count=document.getElementById('count');
+const prevBtn=document.getElementById('prev');
+const nextBtn=document.getElementById('next');
+const narrEl=document.getElementById('narr');
+const narrText=document.getElementById('narrtext');
+const nToggle=document.getElementById('ntoggle');
+
+let narrOn=true;
+let idx=0;
+
+// Build the flat screen list: content slides -> quiz slides -> results
+const screens=[];
+MODULE.slides.forEach(s=>screens.push({kind:'slide',data:s}));
+MODULE.quiz.forEach((q,i)=>screens.push({kind:'quiz',data:q,qi:i}));
+screens.push({kind:'results'});
+
+let answers=new Array(MODULE.quiz.length).fill(null);
+
+function esc(t){return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function br(t){return esc(t).replace(/\n/g,'<br>');}
+
+function imgLayer(s){
+  const label=(s.image? s.image.replace('img/','').replace('.jpg','') : 'card');
+  const desc=(s.anchor||s.heading||'').replace(/\n/g,' ');
+  return `<div class="imgwrap" data-label="IMAGE SLOT\n${esc(s.image||'')}\n${esc(desc)}">
+    <img src="${esc(s.image)}" alt="" onerror="this.parentElement.classList.add('noimg')">
+  </div><div class="scrim"></div>`;
+}
+
+function renderSlide(s){
+  if(s.type==='title'){
+    return `<div class="slide title center">
+      ${s.image?imgLayer(s):''}
+      <div class="content" style="justify-content:center">
+        <div class="tlabel">${esc(s.moduleLabel)}</div>
+        <div class="theading">${br(s.heading)}</div>
+        <div class="tsub">${esc(s.subtitle)}</div>
+      </div>
+      <div class="tbrand">${esc(s.brand)}</div>
+    </div>`;
+  }
+  if(s.type==='cinematic'){
+    return `<div class="slide">
+      ${imgLayer(s)}
+      <div class="content">
+        ${s.kicker?`<div class="kicker">${esc(s.kicker)}</div>`:''}
+        ${s.anchor?`<div class="anchor">${br(s.anchor)}</div>`:''}
+      </div>
+    </div>`;
+  }
+  if(s.type==='card'){
+    const cls=s.accent?(' '+s.accent):'';
+    return `<div class="slide card center${cls}">
+      <div class="content" style="justify-content:center">
+        ${s.ckicker?`<div class="ckick">${esc(s.ckicker)}</div>`:''}
+        <div class="big">${br(s.heading)}</div>
+        ${s.sub?`<div class="sub">${esc(s.sub)}</div>`:''}
+      </div>
+    </div>`;
+  }
+  if(s.type==='summary'){
+    return `<div class="slide summary center">
+      <div class="content" style="justify-content:center">
+        <h2>${esc(s.heading)}</h2>
+        <div class="grid">${s.items.map(i=>`<div>${esc(i)}</div>`).join('')}</div>
+      </div>
+    </div>`;
+  }
+  return '';
+}
+
+function renderQuiz(scr){
+  const q=scr.data;
+  const chosen=answers[scr.qi];
+  const opts=q.options.map((o,i)=>{
+    let c='opt';
+    if(chosen!==null){
+      c+=' locked';
+      if(i===q.correct)c+=' correct';
+      else if(i===chosen)c+=' wrong';
+    }
+    return `<button class="${c}" data-i="${i}">${esc(o)}</button>`;
+  }).join('');
+  let fb='';
+  if(chosen!==null){
+    fb = chosen===q.correct ? 'Correct.' : 'Not quite — the highlighted answer is the one the course argues for.';
+  }
+  return `<div class="slide quiz center">
+    <div class="content" style="justify-content:center">
+      <div class="qkick">Self-check &nbsp;·&nbsp; ${scr.qi+1} of ${MODULE.quiz.length}</div>
+      <div class="q">${esc(q.question)}</div>
+      <div class="opts">${opts}</div>
+      <div class="qfb">${fb}</div>
+    </div>
+  </div>`;
+}
+
+function renderResults(){
+  const answered=answers.filter(a=>a!==null).length;
+  const correct=answers.filter((a,i)=>a===MODULE.quiz[i].correct).length;
+  const pct=Math.round((correct/MODULE.quiz.length)*100);
+  const pass=pct>=MODULE.passingScore;
+  const msg = pass? 'You’ve got the frame.' : 'Worth another pass.';
+  const sub = pass
+    ? 'Mold follows moisture; you control the moisture. Next module: the four loops that put you at the wall in time.'
+    : 'The core idea: mold is a decomposer that follows water, and water is the variable you control. Give it another look.';
+  return `<div class="slide results center">
+    <div class="content" style="justify-content:center">
+      <div class="score">${pct}%</div>
+      <div class="rmsg">${msg}</div>
+      <div class="rsub">${answered? sub : 'This is an optional self-check — answer the three questions to see how the frame landed.'}</div>
+      <button class="again" onclick="restart()">Watch again</button>
+    </div>
+  </div>`;
+}
+
+function show(){
+  const scr=screens[idx];
+  let html='';
+  if(scr.kind==='slide')html=renderSlide(scr.data);
+  else if(scr.kind==='quiz')html=renderQuiz(scr);
+  else html=renderResults();
+
+  // fade
+  const old=stage.querySelector('.slide');
+  stage.innerHTML=html;
+  const cur=stage.querySelector('.slide');
+  requestAnimationFrame(()=>cur.classList.add('active'));
+
+  // narration
+  const narr = scr.kind==='slide' ? (scr.data.narration||'') : '';
+  if(narr){narrText.textContent=narr; narrEl.style.display='flex';}
+  else {narrEl.style.display='none';}
+  applyNarr();
+
+  // quiz wiring
+  if(scr.kind==='quiz' && answers[scr.qi]===null){
+    stage.querySelectorAll('.opt').forEach(b=>{
+      b.addEventListener('click',()=>{
+        answers[scr.qi]=parseInt(b.dataset.i);
+        show();
+      });
+    });
+  }
+
+  // chrome
+  fill.style.width=((idx)/(screens.length-1)*100)+'%';
+  count.textContent=(idx+1)+' / '+screens.length;
+  prevBtn.disabled=idx===0;
+  nextBtn.disabled=idx===screens.length-1;
+}
+
+function applyNarr(){
+  narrEl.classList.toggle('off',!narrOn);
+  nToggle.innerHTML='Narration: '+(narrOn?'On':'Off')+' &nbsp;(N)';
+}
+function next(){if(idx<screens.length-1){idx++;show();}}
+function prev(){if(idx>0){idx--;show();}}
+function restart(){idx=0;answers=new Array(MODULE.quiz.length).fill(null);show();}
+window.restart=restart;
+
+nextBtn.addEventListener('click',next);
+prevBtn.addEventListener('click',prev);
+nToggle.addEventListener('click',()=>{narrOn=!narrOn;applyNarr();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')next();
+  else if(e.key==='ArrowLeft')prev();
+  else if(e.key==='n'||e.key==='N'){narrOn=!narrOn;applyNarr();}
+});
+
+show();
+</script>
+</body>
+</html>
