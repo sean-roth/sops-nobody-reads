@@ -46,6 +46,8 @@ body{
   text-align:center;
 }
 .slide.active{opacity:1;pointer-events:auto}
+/* when narration caption is shown, lift the cinematic anchor clear of it */
+body.narr-on .slide:not(.center){padding-bottom:22vh}
 
 /* full-bleed image layer */
 .imgwrap{position:absolute;inset:0;background:#000;overflow:hidden}
@@ -103,7 +105,7 @@ body{
   font-size:clamp(46px,9vw,108px);line-height:1.02;white-space:pre-line}
 .slide.title .tsub{font-family:var(--font-body);font-weight:300;
   font-size:clamp(15px,2.1vw,22px);color:var(--ink-dim);margin-top:1.6em}
-.slide.title .tbrand{position:absolute;bottom:0;font-family:var(--font-ui);
+.slide.title .tbrand{position:absolute;bottom:11vh;font-family:var(--font-ui);
   font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint)}
 
 /* summary */
@@ -144,7 +146,7 @@ body{
 .slide.results .again:hover{border-color:var(--gold)}
 
 /* ---------- narration caption ---------- */
-#narr{position:fixed;left:0;right:0;bottom:9vh;z-index:20;display:flex;justify-content:center;
+#narr{position:fixed;left:0;right:0;bottom:8.5vh;z-index:20;display:flex;justify-content:center;
   padding:0 8vw;pointer-events:none;transition:opacity .4s}
 #narr .box{max-width:74ch;background:rgba(8,7,6,.72);border-left:2px solid var(--gold-dim);
   backdrop-filter:blur(3px);padding:12px 20px;border-radius:2px;
@@ -180,6 +182,7 @@ body{
   .slide{padding:5vh 6vw 14vh}
   .slide.summary .grid{grid-template-columns:1fr}
   #narr{bottom:11vh;padding:0 5vw}
+  body.narr-on .slide:not(.center){padding-bottom:26vh}
 }
 </style>
 </head>
@@ -188,7 +191,7 @@ body{
 
 <div id="narr"><div class="box"><span class="tag">Narration</span><span id="narrtext"></span></div></div>
 
-<button id="ntoggle">Narration: On &nbsp;(N)</button>
+<button id="ntoggle">Narration: Off &nbsp;(N)</button>
 
 <div id="grain"></div>
 <div id="vignette"></div>
@@ -315,7 +318,7 @@ const narrEl=document.getElementById('narr');
 const narrText=document.getElementById('narrtext');
 const nToggle=document.getElementById('ntoggle');
 
-let narrOn=true;
+let narrOn=false;
 let idx=0;
 
 // Build the flat screen list: content slides -> quiz slides -> results
@@ -462,6 +465,7 @@ function show(){
 
 function applyNarr(){
   narrEl.classList.toggle('off',!narrOn);
+  document.body.classList.toggle('narr-on',narrOn);
   nToggle.innerHTML='Narration: '+(narrOn?'On':'Off')+' &nbsp;(N)';
 }
 function next(){if(idx<screens.length-1){idx++;show();}}
