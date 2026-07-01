@@ -1,0 +1,62 @@
+{
+  "title": "The Thing That Follows Water",
+  "moduleNumber": 1,
+  "partLabel": "Part One — What the Water Wants",
+  "passingScore": 75,
+  "_schemaNote": "Image-forward variant of the SOPs MODULE schema. Slide types used: title | cinematic | card | summary. 'cinematic' = full-bleed image with a minimal on-screen anchor line (the photo is the slide). 'card' = text-only type card (no image), optional accent 'cold'|'warm'. Every slide may carry 'narration' (spoken V.O.), rendered by the player as a toggleable caption. This variant is documented in the course PRODUCTION-LOG.",
+
+  "slides": [
+    { "type": "title", "moduleLabel": "Module 1", "heading": "The Thing That\nFollows Water", "subtitle": "Part One — What the Water Wants", "brand": "SOPs Nobody Reads", "image": "img/s01-establishing.jpg", "narration": "It's always been there. Ancient, and necessary — the reason the rest of life exists." },
+
+    { "type": "cinematic", "image": "img/s02-window-grid.jpg", "anchor": "", "narration": "A hundred windows. A hundred small, warm lives. Behind one of them, an ordinary evening — and no reason to look at the corner." },
+
+    { "type": "cinematic", "image": "img/s03-the-margin.jpg", "anchor": "Three feet away,\nsomething is already growing.", "narration": "Right now, three feet from this table, in the cold corner no one watches, it has already begun. Without malice. Without judgment." },
+
+    { "type": "cinematic", "image": "img/s04-dead-plants.jpg", "kicker": "It follows moisture", "anchor": "Dead plants. Of course.", "narration": "Where it finds moisture, it grows — and eats whatever is there. Dead plants. Of course." },
+
+    { "type": "cinematic", "image": "img/s05-dead-animals.jpg", "anchor": "Dead animals. Absolutely.", "narration": "Dead animals. Absolutely. It doesn't choose. It doesn't care what it eats." },
+
+    { "type": "cinematic", "image": "img/s06-drywall.jpg", "anchor": "Drywall. Also yes.", "narration": "Drywall. Also yes. Except in our home, we give it another name. We call it mold. Rot." },
+
+    { "type": "cinematic", "image": "img/s07-the-drop.jpg", "kicker": "The one thing you control", "anchor": "It only follows moisture.", "narration": "But it only follows moisture. Small and slow — not a problem, until it is. Take away the water, and the rest can't happen." },
+
+    { "type": "card", "accent": "cold", "ckicker": "The clock", "heading": "48 HOURS", "sub": "From the moment water arrives to the moment a damp spot becomes a colony.", "narration": "From the moment water arrives, you have roughly forty-eight hours before a damp spot becomes something alive." },
+
+    { "type": "card", "ckicker": "The oldest cleanup crew", "heading": "It was never\nthe enemy.", "sub": "It's the reason the forest floor isn't ten feet deep in everything that ever died.", "narration": "It cleared the remains of the past to make room for what comes next. The cycle of life depends on it. Your building is just a patch of forest floor no one told it was off-limits." },
+
+    { "type": "cinematic", "image": "img/s10-the-pan.jpg", "anchor": "Most days, nothing.\nThat's the bet paying off.", "narration": "So you check the places water hides. A dry pan. A dry corner. Most days, nothing — and that is not wasted time. That is the bet paying off." },
+
+    { "type": "card", "accent": "warm", "heading": "Control the moisture,\ncontrol the mold.", "sub": "You can't out-clean it. You can own the one thing it needs.", "narration": "You can't out-clean it. But you can own the one thing it needs. Control the moisture. Prevent the rot." },
+
+    { "type": "cinematic", "image": "img/s12-the-hallway.jpg", "anchor": "Next: where the water hides.", "narration": "One building. A hundred doors. Behind them, the four small habits that catch the water before it ever reaches a wall like the one you just saw." },
+
+    { "type": "summary", "heading": "Module 1 — What the Water Wants", "items": [
+      "Mold isn't a cleaning problem — it's a decomposer that follows moisture",
+      "It eats dead plants, dead animals, and drywall the same way",
+      "In a home, we call that same process rot",
+      "Water is the one variable you actually control",
+      "Roughly 48 hours from wet to grown",
+      "Check the places water hides, on a schedule",
+      "A dry check isn't wasted — it's the bet paying off",
+      "Control the moisture, control the mold"
+    ]}
+  ],
+
+  "quiz": [
+    { "question": "Fundamentally, the course reframes mold as:", "options": [
+      "A cleaning problem you've fallen behind on",
+      "A decomposer that follows moisture and eats whatever is wet",
+      "A ventilation issue and nothing more",
+      "A cosmetic stain on the surface of a wall"], "correct": 1 },
+    { "question": "Roughly how long from when water arrives until a damp spot can become established mold?", "options": [
+      "About 48 hours",
+      "About two weeks",
+      "About 24 hours",
+      "About a month"], "correct": 0 },
+    { "question": "On your walk you check a drip pan under a furnace and it's bone dry. This is:", "options": [
+      "Wasted effort — there was nothing to find",
+      "The system working — the check paying off",
+      "A reason to stop checking that spot",
+      "A sign the furnace has failed"], "correct": 1 }
+  ]
+}
