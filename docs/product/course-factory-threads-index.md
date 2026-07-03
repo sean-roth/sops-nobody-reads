@@ -2,7 +2,7 @@
 
 *A launchpad, not a plan. Each block below is a **separate conversation** you can open cold — it names the aspect, why it matters, what I can bring from having lived the mold build, and the open questions to start on. We are **not building the app now.** The mold course stays the main track; this just keeps the thinking sorted so no thread has to restart from zero.*
 
-*Companion docs: `course-factory-ideation-v0.md` (the overview), `course-factory-roadmap.md` (the phasing that governs **when** and **what each phase optimizes for** — read this before any thread), and `course-factory-assembly-review.md` (the first aspect, written up in full as the model for a developed thread-doc).*
+*Companion docs: `course-factory-ideation-v0.md` (the overview), `course-factory-roadmap.md` (the phasing that governs **when** and **what each phase optimizes for** — read this before any thread), `course-factory-assembly-review.md` (the first aspect, in full), and `course-factory-local-model-ladder.md` (the describe-then-reason cost architecture — proven on hardware, feeds threads 1, 3, and 5).*
 
 ---
 
@@ -28,6 +28,7 @@
 ## 5. The Data Contract & Repo-as-Store
 **Core:** the `module-0N.json` schema is the spine; the `courses/<slug>/…` repo layout is already the output format. Everything produces it; the player consumes it.
 **What I bring:** we just designed and shipped this schema (including the image-forward `cinematic`/`card`/`narration` extensions). I know where it's solid and where it's ad-hoc.
+**Decision recorded:** each image slide carries a `shadow_text` field — a natural-language description written once at generation time by a local model, immutable (regenerate image → regenerate shadow). It also rolls up into a human-readable markdown file for review. See `course-factory-local-model-ladder.md`; field design deferred to post-demo.
 **Open questions:** git-as-database vs. a real DB with repo export? How does the schema version as courses diverge? Where does backlot/asset reuse live?
 
 ## 6. Architecture

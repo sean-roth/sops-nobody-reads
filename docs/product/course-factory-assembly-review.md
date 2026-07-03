@@ -69,7 +69,7 @@ Cheap→expensive escalation, with the human at the end looking at the same rend
 - **What is the review AI actually optimizing for** — per-image fidelity, sequence-level coherence, or both? (Determines contact-sheet vs. per-slide weighting.)
 - **How much stays human?** *(Answered — it's phased.)* In the local prototype the AI review is a **pre-filter that saves you looks**; you're still the gate. In self-service it flips to **gate-like**, because users can't judge a course the way you can — bounded by cost. See `course-factory-roadmap.md`. This is why the tiering below matters more the further you go: in self-service the review's cost *is* your margin.
 - **Screenshot granularity** — per-slide images, one long strip, or a grid? (Grid is cheapest for gestalt; per-slide needed for detail. Likely both, at different stages.)
-- **Where does the pre-screen model live** — bundled with generation (Replicate side) or a separate cheap multimodal call?
+- **Where does the pre-screen model live** *(Answered)* — Tier 1 of the local-model ladder: a free local small model writes a **shadow text** description at generation time, and everything downstream reasons over that text. See `course-factory-local-model-ladder.md`. Proven on Sean's hardware (a 4B correctly read the Maple Court reference image).
 - **Token budget per course** — worth measuring on mold: how many vision tokens would a full review actually cost with the contact-sheet approach vs. the naive one? That number decides how aggressive the tiering needs to be.
 
 ---
