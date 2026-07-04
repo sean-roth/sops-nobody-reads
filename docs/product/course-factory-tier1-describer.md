@@ -65,6 +65,12 @@ Load-bearing fields verified on the hardest cases:
 
 **Verdict:** production-grade on the fidelity the pipeline actually consumes (people, text, condition, grade). Locked as the Tier-1 describer.
 
+## Worked example — a false positive that proves the design (s06)
+
+On the drywall-corner frame (s06), the describer's **LIGHT** field reported "warm light on one side, cool shadow on the other." In a sequence graded uniformly cool, that reads as a grade-drift anomaly — a flag. A human glance resolved it: the warm/cool split isn't drift, it's the *composition* (a warm blade of light cutting across the corner, mold blooming in the cold on either side — the thesis in one still). The flag was a **false positive**, and correctly so.
+
+The lesson, recorded: **Tier 1 flags, the higher rung adjudicates, and the cheap tier never gets to decide.** If the describer's flag had auto-rejected, it would have killed the course's best frame. False positives are expected and *desirable* — the flag's job is to summon judgment, not replace it. This is the escalation ladder working exactly as intended.
+
 ## Operational notes & caveats (recorded)
 
 - **Model floor: ~12B multimodal.** A 4B could not do this task at all — it broke format and wrote MOOD in Chinese characters. The extra parameters are a necessity, not a nice-to-have. Do not under-provision the describer lane or the shadow text will be garbage.

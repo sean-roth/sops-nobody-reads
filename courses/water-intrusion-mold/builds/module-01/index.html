@@ -86,6 +86,16 @@ body.narr-on .slide:not(.center){padding-bottom:22vh}
   white-space:pre-line;letter-spacing:.005em;
   text-shadow:0 2px 30px rgba(0,0,0,.6);}
 .anchor em{font-style:italic;color:var(--ink)}
+.subanchor{font-family:var(--font-body);font-weight:300;
+  font-size:clamp(15px,2.2vw,24px);color:var(--ink-dim);
+  white-space:pre-line;margin-top:.9em;line-height:1.3;
+  text-shadow:0 2px 20px rgba(0,0,0,.7);}
+/* soft feathered plate behind anchor text — subtle, no hard edge */
+.anchorwrap{position:relative;padding:1.4em 2em 1em;}
+.anchorwrap::before{content:"";position:absolute;inset:-8% -6%;z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(ellipse 78% 108% at 50% 62%,
+    rgba(5,4,3,.62) 0%,rgba(5,4,3,.40) 46%,rgba(5,4,3,0) 78%);}
 
 /* type cards (no image) */
 .slide.card{background:radial-gradient(120% 90% at 50% 40%,#141018 0%,var(--bg) 70%)}
@@ -224,8 +234,10 @@ const MODULE = {
       "image":"img/s01-establishing.jpg",
       "narration":"It's always been there. Ancient, and necessary — the reason the rest of life exists." },
 
-    { "type":"cinematic","image":"img/s02-window-grid.jpg","anchor":"",
-      "narration":"A hundred windows. A hundred small, warm lives. Behind one of them, an ordinary evening — and no reason to look at the corner." },
+    { "type":"cinematic","image":"img/s02-window-grid.jpg",
+      "anchor":"A hundred windows.\nA hundred lives.",
+      "subanchor":"Behind one of them, it's already begun.",
+      "narration":"A hundred windows. A hundred lives. Behind one of them, an ordinary evening — and no reason to look at the corner." },
 
     { "type":"cinematic","image":"img/s03-the-margin.jpg",
       "anchor":"Three feet away,\nsomething is already growing.",
@@ -252,10 +264,10 @@ const MODULE = {
       "sub":"From the moment water arrives to the moment a damp spot becomes a colony.",
       "narration":"From the moment water arrives, you have roughly forty-eight hours before a damp spot becomes something alive." },
 
-    { "type":"card","ckicker":"The oldest cleanup crew",
-      "heading":"It was never\nthe enemy.",
-      "sub":"It's the reason the forest floor isn't ten feet deep in everything that ever died.",
-      "narration":"It cleared the remains of the past to make room for what comes next. The cycle of life depends on it. Your building is just a patch of forest floor no one told it was off-limits." },
+    { "type":"cinematic","image":"img/s09-old-growth-forest.jpg",
+      "kicker":"The oldest cleanup crew",
+      "anchor":"It was never the enemy.",
+      "narration":"This is where all of it goes. The leaf, the bone, the fallen tree — cleared to make room for what comes next. The cycle of life depends on it. Your building is just a patch of forest floor no one told it was off-limits." },
 
     { "type":"cinematic","image":"img/s10-the-pan.jpg",
       "anchor":"Most days, nothing.\nThat's the bet paying off.",
@@ -353,11 +365,15 @@ function renderSlide(s){
     </div>`;
   }
   if(s.type==='cinematic'){
+    const hasText=s.kicker||s.anchor||s.subanchor;
     return `<div class="slide">
       ${imgLayer(s)}
       <div class="content">
-        ${s.kicker?`<div class="kicker">${esc(s.kicker)}</div>`:''}
-        ${s.anchor?`<div class="anchor">${br(s.anchor)}</div>`:''}
+        ${hasText?`<div class="anchorwrap">
+          ${s.kicker?`<div class="kicker">${esc(s.kicker)}</div>`:''}
+          ${s.anchor?`<div class="anchor">${br(s.anchor)}</div>`:''}
+          ${s.subanchor?`<div class="subanchor">${br(s.subanchor)}</div>`:''}
+        </div>`:''}
       </div>
     </div>`;
   }
