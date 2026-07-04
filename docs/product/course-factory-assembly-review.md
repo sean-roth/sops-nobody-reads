@@ -18,6 +18,20 @@ Two things we learned the hard way on the mold course:
 
 So review has to be **joint** (image+text together) and **sequential** (the set seen as a set). That's the requirement. The cost is the problem.
 
+## When the frontier layer still needs to see the image (proven on the mold set)
+
+Passing a full module's shadow text to the frontier reviewer works — on a real 9-frame set, text cleared ~8 of 9; only one needed the eye. But the shadow text is **faithful yet lossy in exactly one dimension: feeling.** It reports *what is there*, never *whether it lands* — because the describer is intent-blind by design. So the frontier layer requests the actual image on three triggers, and clears everything else from text:
+
+1. **The describer flags an anomaly** (e.g. s06's warm/cool grade split) — the escalation path.
+2. **The slide is load-bearing for feeling, not just fact** — signature shots, reveals, the ending (NS-2, s06, s09, the NS-3 payoff). Looked at regardless of what the text says, because the text can't grade tone.
+3. **The text is thin or the stakes are high** — hero frames, client-approval slides, anywhere a miss is expensive.
+
+Everything else — type cards, establishing wides, clean inserts — clears from shadow text alone. That's most of a course, which is where the vision-token collapse comes from.
+
+**Worked example (s06):** shadow text said "dark growth, green-tinted, warm one side / cool the other" — correct, complete, and useless for the actual judgment. The thing that made s06 the best frame (the blade of light, dread of growth-in-the-dark) is not in the text and *cannot* be. Text told us *what*; only the eye could tell us *whether it lands*.
+
+**The non-negotiable caution:** the describer's silence is not safety. If a frame quietly rendered a readable face and the describer missed it, the text would look clean and a broken slide would pass. So text-only is safe for *catching flagged problems*; for load-bearing slides the eye stays mandatory, precisely because that's where a silent miss is most costly. The ladder saves looks — it does not remove the looks that matter.
+
 ## The reframe: "render earlier" and "review jointly" are the same solution
 
 These feel like two asks. They're one. **The rendered slide — image composited with its on-screen text — is the correct unit of review.** It's what the learner sees, it carries both halves by construction, and it's exactly what "render earlier" produces.
