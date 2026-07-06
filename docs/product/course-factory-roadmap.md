@@ -1,5 +1,9 @@
 # Course Factory — Roadmap & Phasing
 
+> **Reconciliation note — 2026-07-06.** Phasing and sequencing are now governed by [`course-factory-architecture-direction.md`](course-factory-architecture-direction.md) (v0.2), and all production work is governed by the [Durability Standard](../standards/DURABILITY-STANDARD.md). Phase mapping: this document's Phase 1 (finish mold by hand) ≈ the direction's **Phase 0**; this document's Phase 2 (local prototype) ≈ **Phase 1**, now redefined as a founder-facing operator console; this document's Phase 3 (alpha self-service) ≈ **Phase 2**. Where numbering or sequencing conflicts, the architecture direction wins.
+>
+> **Decision record (founder, 2026-07-06):** the first app slice is the **operator console**, not the image-prompt loop recommended below. Rationale, in the founder's words: the image loop was chosen when it was where the most money would leak; the console — and how source material is processed — is the real focus. **Images are an enrichment layer, not the foundation.** The economics sections below (the objective-function flip, text-cheaper-than-generation, cost instrumentation in the prototype phase) remain fully in force and apply to the enrichment layer wherever it runs.
+
 *Sequencing that governs every thread. The aspects (see `course-factory-threads-index.md`) are **what** to build; this is **when**, and — more importantly — **what each phase is optimizing for.** The objective function changes across phases, and that changes the right answer to almost every design question.*
 
 ---
