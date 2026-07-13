@@ -676,7 +676,7 @@ html, body {
 
 /* Text shadow for body text over dark backgrounds - enhanced */
 .slide-keypoint .body,
-.slide-reveal .body, 
+.slide-reveal .body,
 .slide-concept .body,
 .slide-scene p,
 .slide-list .item-text,
@@ -684,6 +684,46 @@ html, body {
   text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
 }
 
+/* --- Citation chip (Reviewer mode) --- */
+.citation-chip {
+  position: absolute;
+  right: 2vw;
+  bottom: 1.5vh;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--steel-dim);
+  background: rgba(42,42,42,0.72);
+  border: 1px solid var(--steel-blue);
+  border-radius: 4px;
+  padding: 0.4em 0.7em;
+  text-decoration: none;
+  backdrop-filter: blur(3px);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.citation-chip:hover {
+  color: var(--safety-yellow);
+  border-color: var(--safety-yellow);
+}
+.citation-chip-icon {
+  opacity: 0.8;
+}
+
+/* --- Learner/Reviewer toggle --- */
+.bottom-bar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.mode-toggle-btn[aria-pressed="true"] {
+  background: var(--safety-yellow);
+  color: var(--bg-dark);
+  border-color: var(--safety-yellow);
+}
 
 
 
@@ -699,7 +739,10 @@ html, body {
   <div class="slide-container" id="slideContainer"></div>
 
   <div class="bottom-bar">
-    <a href="../index.html" class="nav-btn" style="margin-right: 2vw;">MENU</a>
+    <div class="bottom-bar-left">
+      <a href="../index.html" class="nav-btn">MENU</a>
+      <button class="nav-btn mode-toggle-btn" id="modeToggleBtn" onclick="toggleReviewerMode()" aria-pressed="false" title="Toggle citation view for review/compliance">Learner Mode</button>
+    </div>
     <div class="progress-section">
       <div class="progress-track">
         <div class="progress-fill" id="progressFill"></div>
@@ -767,6 +810,32 @@ let quizAnswers = [];
 let quizMode = false;
 let currentQuizQuestion = 0;
 let isAnswered = false;
+
+// Reviewer mode: view state only, in-memory for this session. NOT persisted
+// (no localStorage) — this player gets packaged for SCORM/LMS delivery, and
+// LMS iframe storage-partitioning makes localStorage unreliable inside an SCO.
+// Never touches SCORM/LMS calls or completion/score tracking.
+let reviewerMode = false;
+
+function toggleReviewerMode() {
+  reviewerMode = !reviewerMode;
+  const btn = document.getElementById('modeToggleBtn');
+  btn.textContent = reviewerMode ? 'Reviewer Mode' : 'Learner Mode';
+  btn.setAttribute('aria-pressed', String(reviewerMode));
+  renderSlide();
+}
+
+// Returns citation chip HTML, or '' if reviewer mode is off or the source
+// is missing/incomplete. Fail-safe: never renders a partial or fabricated
+// citation — citation and url are both required.
+function renderCitation(source) {
+  if (!reviewerMode || !source || !source.citation || !source.url) return '';
+  return `
+    <a class="citation-chip" href="${source.url}" target="_blank" rel="noopener">
+      <span class="citation-chip-icon">&sect;</span>${source.citation}
+    </a>
+  `;
+}
 
 function initPlayer() {
   renderSlide();
@@ -900,9 +969,11 @@ function renderSlide() {
       `;
       break;
   }
-  
+
+  html += renderCitation(slide.source);
+
   container.innerHTML = html;
-  
+
   // Activate the slide
   setTimeout(() => {
     const slideEl = container.querySelector('.slide');
@@ -951,7 +1022,7 @@ function renderQuiz() {
     `;
   }
   
-  const html = `
+  let html = `
     <div class="slide slide-quiz active">
       <div class="quiz-container">
         <h2>Question ${currentQuizQuestion + 1}</h2>
@@ -965,7 +1036,9 @@ function renderQuiz() {
       </div>
     </div>
   `;
-  
+
+  html += renderCitation(question.source);
+
   container.innerHTML = html;
 }
 
