@@ -720,79 +720,44 @@ const MODULE = {
   "partLabel": "Part One — Respect the Simple Thing",
   "passingScore": 75,
   "slides": [
-    { "type": "title", "moduleLabel": "Module 1", "heading": "The Energy\nYou Don't See", "subtitle": "Part One — Respect the Simple Thing", "brand": "SOPs Nobody Reads" },
-    { "type": "scene", "label": "Cold Open", "text": "This is a Tuesday morning. Nothing about it is unusual. A worker picks up a work order — bearing replacement. Twenty-minute job. He's done it a hundred times.", "image": "img/s01-tuesday-morning.jpg" },
-    { "type": "scene", "label": "Scene", "text": "He presses the stop button on the conveyor. The belt slows. Stops. He opens the access panel, pulls out a wrench, and starts loosening a bolt on the roller bearing.", "image": "img/s02-working-inside.jpg" },
-    { "type": "concept", "label": "The Problem", "boxText": "He pressed the stop button. The belt isn't moving. So he's working.", "body": "But the electrical disconnect ten feet away has no lock. No tag. Just an unprotected switch that anyone could flip.", "image": "img/s03-unlocked-disconnect.jpg" },
-    { "type": "keypoint", "kicker": "The Difference", "heading": "He stopped the machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything.", "image": "img/s04-the-difference.jpg" },
-    { "type": "keypoint", "kicker": "What Most People Think", "heading": "LOTO is just putting\na padlock on a breaker", "body": "And that's not wrong, exactly. But it's so incomplete that it might as well be. Lockout/tagout isn't a procedure. It's a barrier. The only barrier between you and the energy stored in the machine.", "image": "img/s05-simple-padlock.jpg" },
-    { "type": "keypoint", "kicker": "Five Types of Energy", "heading": "Most people think\nelectricity.", "body": "But OSHA's Control of Hazardous Energy standard recognizes five types. And if you only think about one of them, the other four can kill you while you're busy being careful about electricity.", "image": "img/s06-electrical-symbol.jpg" },
-    { "type": "concept", "label": "Electrical Energy", "boxText": "Current flowing through conductors. Touch the wrong thing and current flows through you instead of the wire.", "body": "But even after you cut the power, capacitors in motors and control boards can store charge and discharge it through you in a fraction of a second.", "image": "img/s07-electrical-panel.jpg" },
-    { "type": "concept", "label": "Mechanical Energy", "boxText": "Moving parts under load. Springs, counterweights, rotating equipment.", "body": "A spring compressed to 100 pounds of force stays compressed until something releases it. If that something is your hand in the wrong place, the spring doesn't care.", "image": "img/s08-mechanical-parts.jpg" },
-    { "type": "concept", "label": "Pneumatic Energy", "boxText": "Compressed air systems. Air tools, cylinders, automated equipment.", "body": "Compressed air at 90 PSI has enough force to drive a nail through your hand. A cylinder retracting can crush bone. Air doesn't make noise until it moves.", "image": "img/s09-pneumatic-system.jpg" },
-    { "type": "concept", "label": "Hydraulic Energy", "boxText": "Fluid under pressure. Lifts, presses, heavy machinery controls.", "body": "Hydraulic fluid under 3000 PSI can inject through your skin and into your bloodstream. The wound looks minor. The internal damage can be fatal.", "image": "img/s10-hydraulic-system.jpg" },
-    { "type": "concept", "label": "Stored Energy", "boxText": "Gravity, elevated components, pressurized systems, chemical reactions.", "body": "A suspended load doesn't announce itself. A pressurized vessel looks the same full or empty. Stored energy is patient. It waits.", "image": "img/s11-stored-energy.jpg" },
-    { "type": "keypoint", "kicker": "The Real Danger", "heading": "Energy doesn't care\nabout your assumptions", "body": "You can't see most of these energies. You can't hear them. You can't feel them until it's too late. The machine looks safe, sounds safe, seems safe. Right up until it isn't.", "image": "img/s12-invisible-danger.jpg" },
-    { "type": "reveal", "kicker": "The Point", "heading": "Two minutes\nand a padlock", "body": "That's all that stands between you and forces that can kill you instantly. Two minutes to identify the energy sources. Two minutes to isolate them. Two minutes to verify they're controlled.", "image": "img/s13-two-minutes-padlock.jpg" },
-    { "type": "scene", "label": "Back to the Worker", "text": "The worker from our cold open finishes the bearing replacement. He closes the access panel, collects his tools, and walks away. <em>The disconnect is still unlocked.</em>", "image": "img/s14-worker-leaves.jpg" },
-    { "type": "keypoint", "kicker": "The Next Day", "heading": "Someone else\nflips the switch", "body": "Maybe they don't see the worker inside. Maybe they assume someone else checked. Maybe they think it's fine because the machine is stopped. It doesn't matter why. What matters is what happens next.", "image": "img/s15-someone-flips-switch.jpg" },
-    { "type": "list", "label": "What You Just Learned", "heading": "Module 1 — Key Points", "items": [
-      { "num": "1.", "text": "<strong>Five types of hazardous energy:</strong> electrical, mechanical, pneumatic, hydraulic, and stored energy" },
-      { "num": "2.", "text": "<strong>Energy is invisible:</strong> you can't see, hear, or feel most energy sources until they hurt you" },
-      { "num": "3.", "text": "<strong>Stopping ≠ securing:</strong> hitting the stop button doesn't control the energy in the system" },
-      { "num": "4.", "text": "<strong>Two minutes and a padlock:</strong> that's all that stands between you and potentially fatal energy" },
-      { "num": "5.", "text": "<strong>Energy doesn't care:</strong> about your experience, your assumptions, or your good intentions" }
-    ], "image": "img/s16-key-points.jpg" },
-    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": [
-      "LOTO is a barrier, not just a procedure",
-      "Five types of hazardous energy exist in most workplaces",
-      "Energy sources are often invisible and silent",
-      "Stopping equipment doesn't secure it",
-      "Two minutes of proper procedure can save your life",
-      "Everyone goes home safe"
-    ] }
+    {"type": "title", "moduleLabel": "Module 1", "heading": "The Energy\nYou Don't See", "subtitle": "Part One — Respect the Simple Thing", "brand": "SOPs Nobody Reads"},
+    {"type": "scene", "label": "Cold Open", "text": "This is a Tuesday morning. Nothing about it is unusual. The work order says bearing replacement. Twenty-minute job. He's done it a hundred times.", "image": "img/s01-tuesday-morning.jpg"},
+    {"type": "scene", "label": "Scene", "text": "He presses the stop button. The belt slows. Stops. He opens the access panel, pulls out a wrench, and starts loosening a bolt on the roller bearing.", "image": "img/s02-working-inside.jpg"},
+    {"type": "concept", "label": "The Problem", "boxText": "He pressed the stop button. The belt isn't moving. So he's working.", "body": "But the electrical disconnect ten feet away has no lock. No tag. Just an unprotected switch that anyone could flip.", "image": "img/s03-unlocked-disconnect.jpg"},
+    {"type": "reveal", "kicker": "The Difference", "heading": "He stopped the machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything."},
+    {"type": "keypoint", "kicker": "What Most People Think", "heading": "LOTO is just putting\na padlock on a breaker", "body": "And that's not wrong, exactly. But it's so incomplete that it might as well be. Lockout/tagout isn't a procedure. It's a barrier.", "image": "img/s05-simple-padlock.jpg"},
+    {"type": "keypoint", "kicker": "", "heading": "Most people think\nelectricity.", "body": "That's fair. It's the one that gets all the safety posters.", "image": "img/s06-electrical-symbol.jpg"},
+    {"type": "concept", "label": "Energy Source — 29 CFR 1910.147(b)", "boxText": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.", "body": "Six named sources, not five. If you only think about one, the other five can kill you while you're being careful about electricity.", "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy."}},
+    {"type": "concept", "label": "Electrical Energy", "boxText": "Current flowing through conductors. Touch the wrong thing and current flows through you instead of the wire.", "body": "The breaker panel, the junction box, the motor leads. This is the danger everyone respects.", "image": "img/s07-electrical-panel.jpg"},
+    {"type": "keypoint", "kicker": "Two Separate Sources", "heading": "Hydraulic energy.\nPneumatic energy.", "body": "Pressurized fluid — oil in a hydraulic system, air in a pneumatic one. They press, they clamp, they lift, they cut.", "image": "img/s09-pneumatic-system.jpg", "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "hydraulic, pneumatic"}},
+    {"type": "concept", "label": "Mechanical Energy", "boxText": "Moving and rotating parts. Springs, flywheels — anything that stores energy in tension, compression, or rotation.", "body": "Part of how the machine works, every time it runs.", "image": "img/s08-mechanical-parts.jpg"},
+    {"type": "keypoint", "kicker": "Reactive Substances", "heading": "Chemical energy\nin supply lines.", "body": "Corrosives. Solvents. Gases. A residual chemical in a line you assumed was empty. A valve that didn't fully close."},
+    {"type": "concept", "label": "Thermal Energy", "boxText": "Heat — and cold — that can burn, scald, or otherwise injure. Steam lines, ovens, hot surfaces.", "body": "If your work touches food processing, thermal is not a footnote. It's as real as electrical.", "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "thermal"}},
+    {"type": "reveal", "kicker": "Movement B — What's Still Live", "heading": "This is the heart\nof this module.", "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.", "source": {"citation": "29 CFR 1910.147(d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe."}},
+    {"type": "concept", "label": "Electrical — Still Live", "boxText": "Capacitors hold electrical energy the way a battery does, and can discharge it through you in a fraction of a second.", "body": "They're in motors, control boards, switch gears. Flipping the breaker isn't enough."},
+    {"type": "keypoint", "kicker": "Still Live", "heading": "2000 PSI doesn't vanish\nbecause you closed the valve.", "body": "It's still in the line, still in the cylinder, still waiting. At that pressure, a pinhole leak can pierce skin."},
+    {"type": "concept", "label": "Mechanical — Still Live", "boxText": "A compressed spring doesn't care whether the machine is on or off. It's loaded. It wants to release.", "body": "If you're between the spring and where it wants to go, the machine being off doesn't help you."},
+    {"type": "reveal", "kicker": "Not a Seventh Source", "heading": "The most common way\nstored energy kills.", "body": "A press platen held up by hydraulic pressure. A crane load held by a brake. Gravity is constant and patient — and it doesn't give warnings.", "image": "img/s11-stored-energy.jpg", "source": {"citation": "Appendix A to 29 CFR 1910.147, step (6)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147", "anchor": "Stored or residual energy (such as that in capacitors, springs, elevated machine members, rotating flywheels, hydraulic systems, and air, gas, steam, or water pressure, etc.) must be dissipated or restrained by methods such as grounding, repositioning, blocking, bleeding down, etc."}},
+    {"type": "keypoint", "kicker": "OSHA's Own Words", "heading": "Capacitors. Springs.\nSuspended loads. Trapped pressure.", "body": "This is what OSHA's own model procedure calls out by name as stored or residual energy — dissipated or restrained before anyone reaches into the machine."},
+    {"type": "reveal", "kicker": "The Convergence", "heading": "Not one energy source.\nPotentially all six.", "body": "Each one requires its own method of isolation, its own method of verification. Flipping a breaker addresses one. Maybe."},
+    {"type": "scene", "label": "What Does Off Look Like?", "text": "A conveyor belt. Still. Not moving. The controls are in the off position. To every sense you have, this machine is safe."},
+    {"type": "reveal", "kicker": "The Thesis", "heading": "\"Off\" and \"safe\"\nare not the same word.", "body": "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated, every stored energy hazard addressed, and the isolation verified."},
+    {"type": "keypoint", "kicker": "", "heading": "\"Off\" is a button\nyou push.\n\"Safe\" is a process\nyou complete.", "body": ""},
+    {"type": "scene", "label": "Back to the Cold Open", "text": "The machine in the cold open was \"off.\" The stop button worked. But the electrical disconnect wasn't locked. <em>It was off. It wasn't safe.</em>", "image": "img/s03-unlocked-disconnect.jpg"},
+    {"type": "concept", "label": "Stored Energy — Defined", "boxText": "The energy that remains in a system after you've isolated it from its source.", "body": "You closed the valve. New energy can't enter. But the energy already in the line? It's still there. The fluid is still pressurized."},
+    {"type": "keypoint", "kicker": "The Principle", "heading": "Isolation stops new energy\nfrom entering.", "body": "It doesn't remove what's already present. That's why lockout/tagout has six steps, not three — the first three isolate. The next three deal with what's left."},
+    {"type": "list", "label": "Coming in Module 2", "heading": "The Six Steps", "items": [{"num": "1.", "text": "<strong>Prepare.</strong> Identify every energy source."}, {"num": "2.", "text": "<strong>Shut down.</strong> Stop the machine properly."}, {"num": "3.", "text": "<strong>Isolate.</strong> Disconnect from every source."}, {"num": "4.", "text": "<strong>Lock.</strong> Secure the isolation."}, {"num": "5.", "text": "<strong>Address stored energy.</strong> Deal with what's left."}, {"num": "6.", "text": "<strong>Verify.</strong> Prove it worked."}]},
+    {"type": "keypoint", "kicker": "Why It Matters", "heading": "Simple is exactly\nwhat makes it dangerous.", "body": "Simple feels like something you can shortcut. The moment you treat a six-step procedure like it's beneath your attention is the moment it fails to protect you."},
+    {"type": "scene", "label": "Back to Tuesday Morning", "text": "Same Tuesday. Same bearing job. But now, before walking to the conveyor, the gloved hands reach for the lockout station. Pull a yellow padlock from its hook."},
+    {"type": "scene", "label": "Scene", "text": "The disconnect, locked. A tag filled out and hanging. A hand on the start button — pressing it. <em>Nothing happens.</em> Verification."},
+    {"type": "reveal", "kicker": "The Only Barrier", "heading": "Two minutes.\nFour ounces.", "body": "That's the barrier — between everything that machine could still do and the person who reaches inside it. Everyone goes home safe.", "image": "img/s13-two-minutes-padlock.jpg"},
+    {"type": "summary", "heading": "Module 1 — Key Concepts", "items": ["Lockout/tagout is a barrier, not just a procedure", "OSHA names six sources: electrical, mechanical, hydraulic, pneumatic, chemical, thermal", "Stored/residual energy can stay live after every source is shut off", "\"Off\" and \"safe\" are not the same thing", "Isolation stops new energy — it doesn't remove what's already there", "The six-step sequence exists because each step closes a different gap", "Simple is what makes it dangerous — simple feels skippable"], "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy."}}
   ],
   "quiz": [
-    {
-      "question": "How many types of hazardous energy does OSHA recognize in the Control of Hazardous Energy standard?",
-      "options": [
-        "Three: electrical, mechanical, and chemical",
-        "Four: electrical, mechanical, hydraulic, and pneumatic", 
-        "Five: electrical, mechanical, pneumatic, hydraulic, and stored energy",
-        "Six: electrical, mechanical, pneumatic, hydraulic, stored, and thermal"
-      ],
-      "correct": 2
-    },
-    {
-      "question": "Why is stored energy particularly dangerous?",
-      "options": [
-        "It makes loud noises that can damage hearing",
-        "It's patient — energy waits until released, often unexpectedly",
-        "It only affects electrical systems",
-        "It dissipates quickly and becomes harmless"
-      ],
-      "correct": 1
-    },
-    {
-      "question": "What's the difference between stopping a machine and securing it?",
-      "options": [
-        "There is no difference — they mean the same thing",
-        "Stopping turns off power; securing involves maintenance",
-        "Stopping halts operation; securing controls all energy sources with locks/tags", 
-        "Stopping is temporary; securing is permanent"
-      ],
-      "correct": 2
-    },
-    {
-      "question": "According to the module, what stands between you and potentially fatal energy?",
-      "options": [
-        "Your experience and training",
-        "Safety equipment and protective gear",
-        "Two minutes and a padlock",
-        "Company policies and procedures"
-      ],
-      "correct": 2
-    }
+    {"question": "A maintenance worker turns off a machine using the stop button and the machine is no longer moving. This means:", "options": ["The machine is safe to work on", "The machine is off, but \"off\" and \"safe\" are not the same thing", "The machine only needs a lock on the main breaker before work begins", "Stored energy has been released"], "correct": 1},
+    {"question": "After closing the supply valve on a hydraulic line, the pressure gauge still shows 2000 PSI. This is because:", "options": ["The valve is faulty and needs to be replaced", "The gauge is broken and showing an incorrect reading", "Closing the valve stops new energy from entering, but the energy already in the line remains", "Hydraulic systems always show residual pressure that isn't dangerous"], "correct": 2},
+    {"question": "Sarah needs to replace a roller bearing on a conveyor system. The conveyor has an electrical motor, a hydraulic tensioning system, and a spring-loaded guard. How many types of hazardous energy does she need to consider?", "options": ["One — electrical, since that's what powers the motor", "Two — electrical and hydraulic", "Three — electrical, hydraulic, and mechanical, since those are the only sources this machine has", "All of the machine's named sources, plus whatever stored or residual energy each one could still be holding after shutdown — even if only three sources are obvious, checking is what step one is for"], "correct": 3, "source": {"citation": "29 CFR 1910.147(b); (d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / (d)(5)(i) stored-or-residual-energy requirement"}},
+    {"question": "The six-step lockout sequence exists because:", "options": ["OSHA requires documentation of each step for compliance", "Each step addresses a different aspect of making equipment safe — skipping any one leaves a gap in protection", "The steps are a simplified version of a more complex engineering process", "Multiple steps make it harder for employees to skip the procedure entirely"], "correct": 1}
   ]
 };
 
@@ -1015,10 +980,10 @@ function selectAnswer(answerIndex) {
 
 function getQuizFeedback(questionIndex) {
   const feedbacks = [
-    "OSHA recognizes five types of hazardous energy in the Control of Hazardous Energy standard.",
-    "Stored energy is particularly dangerous because it's patient and waits to be released, often when least expected.",
-    "Stopping a machine halts its operation, but securing it means controlling all energy sources with proper lockout/tagout procedures.",
-    "The module emphasizes that just two minutes and a padlock are all that stand between you and potentially fatal energy."
+    "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated and the isolation verified — two different things.",
+    "Closing the valve stops new energy from entering. It doesn't remove the energy that was already in the line — that's stored energy.",
+    "Every named source deserves a check, and stored or residual energy can outlast all of them. Checking is what step one is for.",
+    "Each of the six steps closes a different gap. Skip one, and that gap stays open."
   ];
   return feedbacks[questionIndex] || '';
 }
