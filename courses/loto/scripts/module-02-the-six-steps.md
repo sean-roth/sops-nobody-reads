@@ -145,14 +145,14 @@ Each worker applies their own lock. Each lock has one key. No master keys. No sh
 
 *[Beat.]*
 
-If three people are working on the same machine, three locks go on the isolation point. The machine cannot be re-energized until all three people have removed their own lock. No one removes someone else's lock. Ever.
+If three people are working on the same machine, three locks go on the isolation point. The machine cannot be re-energized until all three people have removed their own lock. No one removes someone else's lock. Ever — except through one narrow, employer-directed emergency procedure we'll cover in Module 3. That's not a coworker deciding to take your lock off. It's a documented process with its own steps, and it's the only exception to this rule.
 
 **NARRATOR (V.O.):**
 Think about what this means. Your lock is your personal guarantee that the machine will not start while your hands are inside it. Not your supervisor's guarantee. Not the company's guarantee. Yours. You put it on. You take it off. Only when you are done and clear.
 
 *[Beat.]*
 
-This is why master keys are prohibited. A master key means someone else can override your decision that this machine isn't safe to start yet. A master key means your protection depends on someone else's judgment about whether you're done.
+This is why a well-run lockout program doesn't use master keys. Not because a regulation uses that phrase — it doesn't. It's a design principle that follows directly from exclusive control: your lock, your key, your guarantee. A master key breaks that chain. It means someone else can override your decision that this machine isn't safe to start yet, and your protection ends up depending on someone else's judgment about whether you're done.
 
 Your life, someone else's judgment. That's not a system. That's a gamble.
 
@@ -174,7 +174,11 @@ A tag is not a barrier. You cannot physically prevent a machine from starting wi
 
 *[Beat.]*
 
-OSHA's standard is clear: lockout is the default. Tagout alone is only acceptable when the machine physically cannot accommodate a lock — and even then, the employer must prove that the tagout program provides equivalent protection. Tags supplement locks. They don't replace them.
+Here's how the standard actually structures it, and it's two different cases, not one. If an energy isolating device physically cannot accommodate a lock, tagout is required — that's the whole requirement for that case. But if a device *can* be locked out and the employer chooses tagout instead, that's a different situation with a different bar: the employer has to demonstrate that the tagout program provides a level of protection equivalent to lockout.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(c)(2)(i), (c)(2)(ii)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(2)(i)", anchor: "(c)(2)(i): \"If an energy isolating device is not capable of being locked out, the employer's energy control program under paragraph (c)(1) of this section shall utilize a tagout system.\" / (c)(2)(ii): \"If an energy isolating device is capable of being locked out, the employer's energy control program under paragraph (c)(1) of this section shall utilize lockout, unless the employer can demonstrate that the utilization of a tagout system will provide full employee protection as set forth in paragraph (c)(3) of this section.\" -- two separate numbered paragraphs in the frozen file, quoted separately here, not a continuous span." } -->
+
+Two different cases, two different rules. Either way: tags supplement locks. They don't replace them by default.
 
 The cold open showed you what a request looks like: a sign on a breaker panel. Someone walked right past it. A tag without a lock is the same vulnerability with a fancier label.
 
@@ -208,6 +212,15 @@ Capacitors are still charged. Discharge them per the manufacturer's procedure.
 
 **NARRATOR (V.O.):**
 Each of these is specific to the machine and the energy type. This is why your machine-specific procedure lists stored energy hazards and how to address each one. Generic procedures can't tell you where the bleed valve is on your hydraulic press. Only the procedure for your specific machine can do that.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+One more thing about this step, and it's easy to miss: relieving stored energy once isn't always the end of it. Some systems build energy back. A pneumatic line can re-pressurize. A capacitor bank can recharge. Hydraulic pressure can creep back up over time, even after you've bled it down.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(d)(5)(ii)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(ii)", anchor: "If there is a possibility of reaccumulation of stored energy to a hazardous level, verification of isolation shall be continued until the servicing or maintenance is completed, or until the possibility of such accumulation no longer exists." } -->
+
+If your machine can do that — if there's a real possibility that stored energy reaccumulates to a hazardous level — checking once at the start isn't enough. Verification continues for as long as the job takes, or until there's no way for that energy to come back. Step five isn't always a one-time box to check. Sometimes it's a box you keep checking.
 
 ---
 
@@ -327,7 +340,7 @@ Everyone goes home safe.
 - Step 2 (Shutdown): Use normal stopping procedures, verify all movement has stopped
 - Step 3 (Isolate): Disconnect from every energy source — not just electrical
 - Step 4 (Lock): One person, one lock, no master keys — your lock is your personal guarantee
-- Step 5 (Stored energy): Address what's left — bleed, block, discharge, release
+- Step 5 (Stored energy): Address what's left — bleed, block, discharge, release. Where energy can build back, verification continues until the job is done
 - Step 6 (Verify): Try to start the machine — silence is proof
 - Tags supplement locks but never replace them
 - The simplicity of the procedure is what makes skipping it so tempting — and so dangerous
