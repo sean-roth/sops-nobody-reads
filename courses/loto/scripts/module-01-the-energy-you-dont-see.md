@@ -78,7 +78,7 @@ And the first step to respecting that barrier is understanding what's on the oth
 
 ---
 
-## FIVE TYPES
+## ENERGY: TWO MOVEMENTS
 
 **NARRATOR (V.O.):**
 When someone says "hazardous energy," most people think electricity. That's fair. Electricity is the obvious one — the one that gets all the safety posters.
@@ -86,62 +86,114 @@ When someone says "hazardous energy," most people think electricity. That's fair
 *[VISUAL: A simple electrical hazard symbol.]*
 
 **NARRATOR (V.O.):**
-But OSHA's Control of Hazardous Energy standard — that's the regulation behind lockout/tagout — recognizes five types. And if you only think about one of them, the other four can kill you while you're busy being careful about electricity.
+But OSHA's Control of Hazardous Energy standard — that's the regulation behind lockout/tagout — names electrical, mechanical, hydraulic, pneumatic, chemical, and thermal energy, plus a catch-all for anything else that fits the pattern. Six named sources. And if you only think about one of them, the other five can kill you while you're busy being careful about electricity.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(b)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "Energy source. Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } -->
+
+That's the regulation's own list — not this course's invention, and not a ranking. We're going to walk through it in two passes. First: what kind of energy is in the machine. Second, and more important: what's still live in it after you've shut it off.
+
+---
+
+### MOVEMENT A — WHAT KIND OF ENERGY
 
 *[TRANSITION: subject-to-subject]*
 
-<!-- Panel-logic reasoning: Subject-to-subject transition as we move between the five energy types. Each one is a different "subject" in the same thematic space (hazardous energy). The learner connects them as a family of dangers, not a list. -->
+<!-- Panel-logic reasoning: Subject-to-subject transition as we move between named energy sources. Each one is a different "subject" in the same thematic space (hazardous energy). The learner connects them as a family, not a list. Movement A panels stay focused on identification — what the source is, what it does. The "what's still live" material for each of these moves to Movement B below. -->
 
 *[PANEL: Close-up on an open electrical panel. Breakers visible. Color-coded wires. The hum is almost visible in the image — sharp, precise, technical.]*
 
 **NARRATOR (V.O.):**
 **Electrical energy.** The one you know. Current flowing through conductors. The breaker panel, the junction box, the motor leads. Touch the wrong thing and current flows through you instead of the wire. This is the danger everyone respects.
 
-But here's the thing about electricity that people forget: even after you cut the power, some components store charge. Capacitors. They're in motors, control boards, switch gears. They hold electrical energy the way a battery does, and they can discharge it through you in a fraction of a second.
-
-Flipping the breaker isn't enough. You have to deal with what's still inside.
-
 *[PANEL: Close-up on a hydraulic cylinder. A pressure gauge reads 2000 PSI. The line connects to a massive actuator — the kind that moves heavy things with terrifying precision.]*
 
 **NARRATOR (V.O.):**
-**Hydraulic and pneumatic energy.** Pressurized fluid — oil in a hydraulic system, air in a pneumatic one. These systems do the heavy lifting in manufacturing. They press, they clamp, they lift, they cut.
+**Hydraulic energy** and **pneumatic energy.** OSHA names these as two separate sources, and it's worth keeping them separate: pressurized fluid — oil in a hydraulic system, air in a pneumatic one. These systems do the heavy lifting in manufacturing. They press, they clamp, they lift, they cut.
 
-Two thousand PSI in a hydraulic line. That's over a hundred times the pressure in your car tires. Close the valve and that pressure doesn't vanish. It's still in the line, still in the cylinder, still waiting. A fitting fails, a connection slips, and that pressurized fluid finds a new exit. At that pressure, a pinhole leak can pierce skin.
+<!-- source_ref: { citation: "29 CFR 1910.147(b)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "hydraulic, pneumatic" } -->
 
 *[PANEL: A coiled spring mechanism visible inside an open machine guard. The spring is compressed. Tight. The metal strains against its restraint.]*
 
 **NARRATOR (V.O.):**
-**Mechanical energy.** Springs. Flywheels. Anything that stores energy in tension, compression, or rotation. A compressed spring doesn't care whether the machine is on or off. It's loaded. It wants to release. And if you're between the spring and where it wants to go when it lets go, the machine being "off" doesn't help you.
-
-*[Beat.]*
+**Mechanical energy.** Moving and rotating parts. Springs. Flywheels. Anything that stores energy in tension, compression, or rotation as part of how the machine works.
 
 *[PANEL: A heavy steel press platen suspended above a work surface. The hydraulic cylinder holding it up is visible. Between the platen and the table — a gap where a person works. Where a person reaches.]*
 
-<!-- Panel-logic reasoning: Single panel, high detail on the gap. McCloud's panel density: one large panel here forces the viewer to sit with this image. The suspended weight. The gap. The human-sized space where someone would be. The visual does the work — the narration adds the physics. -->
+<!-- Panel-logic reasoning: Single panel, high detail on the gap. McCloud's panel density: one large panel here forces the viewer to sit with this image. The suspended weight. The gap. The human-sized space where someone would be. This panel now sets up Movement B rather than illustrating a sixth "type" — the narration below reframes it as a preview, not a source. -->
 
 **NARRATOR (V.O.):**
-**Gravitational energy.** Anything suspended. Anything raised. A press platen held up by hydraulic pressure. A crane load held by a brake. A platform raised on a scissor lift. Gravity is constant and patient. The moment the thing holding that weight fails, everything falls. And gravity doesn't give warnings.
+Hold that image. A press platen, held up, with a gap underneath where a person works. Gravity isn't on OSHA's list of energy sources — it's not something you plug in or pipe through a valve. But it's about to matter more than almost anything else in this module. Keep watching.
 
 *[PANEL: Chemical supply lines — color-coded pipes entering a machine. Valves. Warning labels. The quiet infrastructure of reactive substances flowing through a system.]*
 
 **NARRATOR (V.O.):**
-**Chemical energy.** Reactive substances in supply lines. Corrosives. Solvents. Gases. Even something as ordinary as steam. These systems feed the process, and when you open a machine to work on it, those supply lines may still be live. A residual chemical in a line you assumed was empty. A valve that didn't fully close. A reaction that starts when two substances meet inside the machine you just opened.
+**Chemical energy.** Reactive substances in supply lines. Corrosives. Solvents. Gases. These systems feed the process, and when you open a machine to work on it, those supply lines may still be live. A residual chemical in a line you assumed was empty. A valve that didn't fully close. A reaction that starts when two substances meet inside the machine you just opened.
+
+*[PANEL: A close-up on a control panel readout or a warning label reading "HOT SURFACE," steam curling from a pipe joint nearby. An oven door, slightly ajar, heat visible as shimmer in the air.]*
+
+<!-- Panel-logic reasoning: New panel for the newly-added source. Same "identification" treatment as the others in Movement A — high detail, recognizable equipment. -->
+
+**NARRATOR (V.O.):**
+**Thermal energy.** Heat — and cold — that can burn, scald, or otherwise injure. Steam lines. Ovens. A surface that's still dangerously hot from the shift that just ended. If your work touches food processing, thermal is not a footnote. It's as real as electrical.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(b)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "thermal" } -->
 
 *[Beat.]*
+
+**NARRATOR (V.O.):**
+Six named sources. That's Movement A — what kind of energy you're dealing with. Now the harder question.
+
+---
+
+### MOVEMENT B — WHAT'S STILL LIVE AFTER SHUTDOWN
+
+**NARRATOR (V.O.):**
+This is the heart of this module, and it's the reason lockout/tagout is more than an off switch.
+
+You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(d)(5)(i)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", anchor: "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." } -->
+
+*[PANEL: subject-to-subject — Return to the electrical panel from Movement A. Now the frame includes a capacitor bank visible inside, a small charge-warning symbol on its housing.]*
+
+**NARRATOR (V.O.):**
+Go back to that electrical panel. Even after you cut the power, some components store charge. Capacitors. They're in motors, control boards, switch gears. They hold electrical energy the way a battery does, and they can discharge it through you in a fraction of a second. Flipping the breaker isn't enough. You have to deal with what's still inside.
+
+*[PANEL: subject-to-subject — Return to the hydraulic cylinder. The gauge still reads 2000 PSI, but now the valve is visibly closed.]*
+
+**NARRATOR (V.O.):**
+Go back to that hydraulic line. Two thousand PSI doesn't vanish because you closed the valve. It's still in the line, still in the cylinder, still waiting. A fitting fails, a connection slips, and that pressurized fluid finds a new exit. At that pressure, a pinhole leak can pierce skin.
+
+*[PANEL: subject-to-subject — Return to the compressed spring. Still tight. Still loaded.]*
+
+**NARRATOR (V.O.):**
+Go back to that spring. A compressed spring doesn't care whether the machine is on or off. It's loaded. It wants to release. And if you're between the spring and where it wants to go when it lets go, the machine being "off" doesn't help you.
+
+*[PANEL: subject-to-subject — Return to the suspended press platen. Same gap. Same person-sized space underneath.]*
+
+**NARRATOR (V.O.):**
+And go back to that press platen. This is where gravity earns its place in this module — not as a seventh energy source, but as the most common way stored energy actually kills someone. Anything suspended. Anything raised. A press platen held up by hydraulic pressure. A crane load held by a brake. A platform raised on a scissor lift. Gravity is constant and patient. The moment the thing holding that weight fails, everything falls. And gravity doesn't give warnings.
+
+<!-- source_ref: { citation: "Appendix A to 29 CFR 1910.147, step (6)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147", anchor: "Stored or residual energy (such as that in capacitors, springs, elevated machine members, rotating flywheels, hydraulic systems, and air, gas, steam, or water pressure, etc.) must be dissipated or restrained by methods such as grounding, repositioning, blocking, bleeding down, etc. -- NOTE: Appendix A has no per-step id anchors on eCFR; url points to the section page, not a deep link. Locate via the quoted anchor text in the frozen file." } -->
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+Capacitors. Springs. Suspended loads. Trapped pressure. Rotating flywheels that haven't fully spun down. This is what OSHA's own model procedure calls out by name as stored or residual energy — the exact things that have to be dissipated or restrained before anyone reaches into the machine.
 
 ---
 
 ## THE INVISIBLE ONES
 
 **NARRATOR (V.O.):**
-Five types. One gets the poster on the wall. The other four are quieter about it.
+Six named sources. An unnamed number of ways each one can still be live after you've shut it off. One gets the poster on the wall. The rest are quieter about it.
 
-*[VISUAL: A simple diagram — five energy types arranged around a piece of equipment. Electrical comes from the panel. Hydraulic from the lines. Mechanical from the springs. Gravitational from the suspended components. Chemical from the supply feeds. All of them converging on the same space — the space where someone works.]*
+*[VISUAL: A diagram — six named energy sources (electrical, mechanical, hydraulic, pneumatic, chemical, thermal) arranged around a piece of equipment, each with a small secondary icon showing its "stored" form (capacitor, spring, suspended load, trapped pressure). All of them converging on the same space — the space where someone works.]*
 
-<!-- Panel-logic reasoning: Single VISUAL — a technical diagram, not a narrative panel. This is the Tufte moment. The diagram makes the argument visually: multiple energy sources converge on the single point where a human body goes. The learner should look at this and think "that's where I put my hands." -->
+<!-- Panel-logic reasoning: Single VISUAL — a technical diagram, not a narrative panel. This is the Tufte moment. The diagram now carries two layers: the six named sources (Movement A) and their stored-energy shadow (Movement B), both converging on the point where a human body goes. Image regeneration for this diagram is a later, separate pass — this is the intent, not a production-ready spec. -->
 
 **NARRATOR (V.O.):**
-This is what's inside the machine you're about to service. Not one energy source. Potentially all five. And each one requires its own specific method of isolation, its own method of verification, its own method of releasing stored energy.
+This is what's inside the machine you're about to service. Not one energy source. Potentially all six — and whatever each one left behind. Each one requires its own specific method of isolation, its own method of verification, its own method of releasing stored energy.
 
 *[Beat.]*
 
@@ -262,7 +314,7 @@ The difference is two minutes of preparation and a padlock that weighs four ounc
 
 *[Beat.]*
 
-That's the barrier. That's the only barrier. Between the five types of energy inside that machine and the person who reaches inside it.
+That's the barrier. That's the only barrier. Between everything that machine could still do — every source, everything it left behind — and the person who reaches inside it.
 
 *[Beat.]*
 
@@ -278,11 +330,14 @@ Two minutes. Four ounces. Everyone goes home safe.
 
 **Key Concepts:**
 - Lockout/tagout is a barrier between you and hazardous energy — not just a procedure
-- Five types of hazardous energy: electrical, hydraulic/pneumatic, mechanical, gravitational, chemical
+- OSHA names six sources of hazardous energy: electrical, mechanical, hydraulic, pneumatic, chemical, and thermal
+- Stored/residual energy — capacitors, springs, suspended loads, trapped pressure, flywheels still spinning — can stay live in the machine after every source is shut off
 - "Off" and "safe" are not the same thing — off is a button, safe is a process
 - Stored energy remains after isolation — the energy already in the system doesn't disappear
 - The six-step sequence exists because each step addresses a different failure mode
 - The simplicity of the procedure is what makes it dangerous — simple feels skippable
+
+<!-- source_ref: { citation: "29 CFR 1910.147(b)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "Energy source. Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } -->
 
 **Coming Up Next:**
 *Module 2: The Six Steps — why the order matters and what happens when you skip one*
@@ -313,10 +368,12 @@ After closing the supply valve on a hydraulic line, the pressure gauge still sho
 Sarah needs to replace a roller bearing on a conveyor system. The conveyor has an electrical motor, a hydraulic tensioning system, and a spring-loaded guard. How many types of hazardous energy does she need to consider?
 - A) One — electrical, since that's what powers the motor
 - B) Two — electrical and hydraulic
-- C) Three — electrical, hydraulic, and mechanical
-- D) She should check all five types; even if only three are obvious, gravitational and chemical sources may also be present
+- C) Three — electrical, hydraulic, and mechanical, since those are the only sources this machine has
+- D) All of the machine's named sources, plus whatever stored or residual energy each one could still be holding after shutdown — even if only three sources are obvious, checking is what step one is for
 
 **Correct Answer: D**
+
+<!-- source_ref: { citation: "29 CFR 1910.147(b); (d)(5)(i)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "Energy source. Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / (d)(5)(i) stored-or-residual-energy requirement" } -->
 
 **Question 4:**
 The six-step lockout sequence exists because:
@@ -337,11 +394,14 @@ The six-step lockout sequence exists because:
 - 3 aspect-to-aspect establishing panels → 3 action-to-action narrative panels → 1 subject-to-subject reveal → implication gutter
 - Reasoning: Classic cold open pattern from the sequential art methodology. Atmosphere first (the learner enters the space), then action (the worker does the reasonable thing), then the subject-to-subject cut reveals what the worker doesn't see. The implication gutter carries the weight of the consequence without depicting it.
 
-**Five energy types (5 panels):**
-- Each energy type gets one high-detail panel. McCloud: these are picture-specific combinations — the image IS the subject, the narration adds context. High detail because the learner needs to recognize these specific things in their workplace.
+**Movement A — named sources (5 panels):**
+- Electrical, hydraulic/pneumatic (shared panel), mechanical, chemical, thermal (new). Each gets one high-detail identification panel. McCloud: these are picture-specific combinations — the image IS the subject, the narration adds context. High detail because the learner needs to recognize these specific things in their workplace. Thermal panel is new; source imagery TBD in the later image pass.
+
+**Movement B — stored/residual energy (4 panels, subject-to-subject callbacks to Movement A):**
+- Electrical (capacitor), hydraulic (trapped pressure), mechanical (loaded spring), and the suspended press platen (gravity as stored energy, not a named source). Each panel is a subject-to-subject return to its Movement A counterpart — same equipment, now showing what's still live. This pairing is the structural device that replaces the old flat five-panel list.
 
 **Convergence diagram:**
-- Single VISUAL, not a panel. Tufte-style technical illustration. Five energy sources converging on the human work space. This is the module's visual thesis.
+- Single VISUAL, not a panel. Tufte-style technical illustration. Six named energy sources plus their stored-energy shadow, converging on the human work space. This is the module's visual thesis — now two-layered (source + stored) rather than a flat five-way split. Regeneration is a later, separate image pass.
 
 **"Off isn't safe" sequence (2 panels):**
 - Subject-to-subject. Same machine, different information visible. The transition itself is the argument.
@@ -356,7 +416,7 @@ The six-step lockout sequence exists because:
 ```
 aspect-to-aspect → action-to-action → subject-to-subject (cold open)
 scene-to-scene (to teaching)
-subject-to-subject (five energy types, within section)
+subject-to-subject (Movement A → Movement B callbacks, within section)
 subject-to-subject ("off isn't safe")
 moment-to-moment (stored energy)
 scene-to-scene (callback)
@@ -379,7 +439,7 @@ action-to-action → subject-to-subject (resolution)
 
 ### Tone Calibration
 - Cold open: Quiet tension. Not dramatic. Just... wrong. The wrongness should feel ordinary, because it is.
-- Five energy types: Authoritative but not lecturing. The narrator knows these systems. Specific details (2000 PSI, pinhole leaks) build credibility with the audience.
+- Energy sources and stored energy: Authoritative but not lecturing. The narrator knows these systems. Specific details (2000 PSI, pinhole leaks) build credibility with the audience.
 - "Off isn't safe": This is the thesis. Direct. No hedging. The two short definitions ("Off is a button. Safe is a process.") should land with weight.
 - Stored energy: Slightly urgent. This is where people die — not from the obvious danger but from the leftover.
 - Callback: Warm. Resolution. The same scene, done right. The weight of a padlock as protection. The closing line ("everyone goes home safe") earns its simplicity.
