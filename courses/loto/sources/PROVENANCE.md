@@ -46,3 +46,32 @@ OSHA's two standalone pages disagree with each other and both lag the eCFR citat
 ## §3 fidelity note
 
 Prose section throughout; Appendix A is a fill-in-the-blank procedural template (the standard's own "Typical Minimal Lockout Procedure" form) and was transcribed verbatim with no fields altered, added, or omitted.
+
+---
+
+# Source Provenance — 29 CFR 1910.399 (Qualified Person)
+
+Secondary source. Frozen to gate Module 3's NEW-1 reframe (LOTO teaches three employee roles, not four — "qualified person" is a real OSHA term but belongs to Subpart S electrical safety, not to 1910.147).
+
+- **Citation:** 29 CFR 1910.399 — Definitions applicable to this subpart (Subpart S, Electrical), "Qualified person" entry only, with its two Notes. Supporting excerpts: 29 CFR 1910.331(a) (Scope — qualified/unqualified persons) and 29 CFR 1910.332(b) (Training — content of training for qualified persons).
+- **Primary source URL (eCFR):** https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFR314553c63ae81f4/section-1910.399
+  - Supporting: https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFRbd7903c591a5eff/section-1910.331
+  - Supporting: https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFRbd7903c591a5eff/section-1910.332
+- **eCFR currency:** up-to-date as of 7/14/2026 (per eCFR site metadata at fetch time).
+- **Fetched:** 2026-07-14
+- **Frozen file:** `courses/loto/sources/29-CFR-1910.399-qualified-person.md`
+- **SHA-256:** `20a5856023139fed9ee788a5151387504d50719e3024de7b7c020de919540f86`
+
+## Extraction method
+
+Same discipline as the 1910.147 freeze: fetched via `curl` directly to disk, extracted programmatically (Python `html.parser`, tag-stripping only). Deliberately narrow scope — extracted only the `<div id="p-1910.399(Qualified%20person)">` block (the "Qualified person" definition plus its Note 1 and Note 2), not the whole of 1910.399's much larger definitions list. The 1910.331 and 1910.332 excerpts are similarly narrow: 1910.331's scope paragraph (a) intro sentence only (not its full list of covered installations, which is irrelevant to the LOTO reframe), and 1910.332(b) "Content of training" including subitems (1)–(3)(iii) (the paragraph explicitly cross-referenced by 1910.399's Note 1).
+
+## Cross-check
+
+Independently fetched OSHA's rendering: https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.399
+
+The "Qualified person" definition and both of its Notes were verified verbatim between the frozen eCFR file and the OSHA page — identical text (only a cosmetic period-placement difference relative to an italics tag, not a content difference). 1910.331 and 1910.332 were not independently cross-checked against OSHA (out of scope for this narrow freeze — those two excerpts are supporting context for the reframe, not the load-bearing citation; the load-bearing "qualified person" definition itself is the one that was cross-checked).
+
+## §3 fidelity note
+
+All three excerpts are prose definitions/scope statements, no tables or figures. Transcribed verbatim, including the source's own internal cross-references (e.g., "(See 1910.332(b)(3)...)") which are preserved as-is rather than resolved or annotated.
