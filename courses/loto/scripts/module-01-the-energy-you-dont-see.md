@@ -241,7 +241,7 @@ It was off. It wasn't safe.
 ## STORED ENERGY
 
 **NARRATOR (V.O.):**
-This is the concept that matters most in this entire course, and it's the one most people skip past.
+Here's the definition underneath everything you just saw.
 
 **Stored energy** is the energy that remains in a system after you've isolated it from its source.
 
@@ -256,7 +256,7 @@ This is the concept that matters most in this entire course, and it's the one mo
 **NARRATOR (V.O.):**
 You closed the valve. Good. New energy can't enter the line.
 
-But the energy that was already in the line? It's still there. The fluid is still pressurized. The spring is still compressed. The capacitor is still charged. The load is still suspended.
+But the energy that was already in the line? It's still there. The fluid is still pressurized.
 
 Isolation stops new energy from entering. It doesn't remove the energy that's already present.
 
@@ -278,7 +278,7 @@ Prepare. Shut down. Isolate. Lock. Address stored energy. Verify.
 
 Most people, if they do anything at all, jump straight to step four. Slap a lock on the breaker. Feel safe.
 
-But without step one, they don't know all the energy sources. Without step two, they may not have stopped the machine properly. Without step three, they've only locked one source out of five. Without step five, the energy already in the system is still there. Without step six, they have no confirmation that any of it worked.
+But without step one, they don't know all the energy sources. Without step two, they may not have stopped the machine properly. Without step three, they've only locked one source out of six. Without step five, the energy already in the system is still there. Without step six, they have no confirmation that any of it worked.
 
 *[Beat.]*
 
