@@ -158,9 +158,11 @@ The temptation is obvious: cut the lock. Start the machine. Deal with the paperw
 *[Beat.]*
 
 **NARRATOR (V.O.):**
-The procedure is specific and it exists to prevent exactly the disaster you're imagining.
+The procedure is specific and it exists to prevent exactly the disaster you're imagining. And it's important to say what this is *not*: it's not a coworker's judgment call. This only happens under the direction of the employer, through a specific procedure that's been developed, documented, and built into the energy control program *before* anyone needs it. Nobody improvises this in the moment.
 
-First: verify that the authorized employee who applied the lock is not in the facility. Not in the building. Not in a different area. Not on break. Verified absent.
+<!-- source_ref: { citation: "29 CFR 1910.147(e)(3)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(e)(3)", anchor: "Exception to paragraph (e)(3): When the authorized employee who applied the lockout or tagout device is not available to remove it, that device may be removed under the direction of the employer, provided that specific procedures and training for such removal have been developed, documented and incorporated into the employer's energy control program." } -->
+
+That documented procedure has three elements. First: verify that the authorized employee who applied the lock is not in the facility. Not in the building. Not in a different area. Not on break. Verified absent.
 
 Second: make reasonable efforts to contact them. Call them. If you can't reach them, document the attempts.
 
@@ -190,20 +192,35 @@ That's why the notification requirement exists. The lock removal isn't complete 
 **NARRATOR (V.O.):**
 One more piece. The roles.
 
-The OSHA standard defines four types of employees in a lockout/tagout program. This matters because each role carries different responsibilities, different training requirements, and different obligations.
+This standard defines three roles in a lockout/tagout program. This matters because each role carries different responsibilities, different training requirements, and different obligations.
 
-*[VISUAL: Four roles — Authorized, Affected, Qualified, Other — arranged not as a hierarchy but as concentric circles around the equipment. Authorized closest. Other furthest.]*
+<!-- source_ref: { citation: "29 CFR 1910.147(b)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "Affected employee.   An employee whose job requires him/her to operate or use a machine or equipment on which servicing or maintenance is being performed under lockout or tagout, or whose job requires him/her to work in an area in which such servicing or maintenance is being performed. / Authorized employee.   A person who locks out or tags out machines or equipment in order to perform servicing or maintenance on that machine or equipment." } -->
 
-<!-- Panel-logic reasoning: Single VISUAL, diagram style. Not a panel sequence. The concentric arrangement teaches the relationship between roles and the equipment better than a list would. McCloud would call this a non-temporal image — it shows a structure, not a narrative. The spatial relationship IS the information. -->
+*[VISUAL: Three roles — Authorized, Affected, Other — arranged not as a hierarchy but as concentric circles around the equipment. Authorized closest. Other furthest.]*
+
+<!-- Panel-logic reasoning: Single VISUAL, diagram style. Not a panel sequence. The concentric arrangement teaches the relationship between roles and the equipment better than a list would. McCloud would call this a non-temporal image — it shows a structure, not a narrative. The spatial relationship IS the information. Three rings now, not four: this needs to be regenerated, not relabeled — the fourth ring wasn't just mislabeled, it didn't belong there. Flag NEW in the image manifest. -->
 
 **NARRATOR (V.O.):**
 **Authorized employees** perform the lockout. They're trained on every energy source, every isolation point, every procedure for the machines they service. They apply the locks. They do the work. They verify the isolation.
 
 **Affected employees** don't perform lockout, but their work is affected by it. An operator whose production line is shut down for maintenance is an affected employee. Their responsibility is clear: never attempt to restart or re-energize a machine that's locked out. Ever. For any reason.
 
-**Qualified employees** work on or near exposed energized parts. They have specialized training in electrical procedures, voltage identification, and clearance distances. They may work alongside authorized employees during lockout.
-
 **Other employees** work in areas where lockout might occur. They receive basic awareness training: lockout exists, locked-out equipment is off-limits, attempting to start a locked machine can kill the person working on it.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(c)(7)(i)(A), (B), (C)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(7)(i)(A)", anchor: "(A) Each authorized employee shall receive training in the recognition of applicable hazardous energy sources, the type and magnitude of the energy available in the workplace, and the methods and means necessary for energy isolation and control. / (B) Each affected employee shall be instructed in the purpose and use of the energy control procedure. / (C) All other employees whose work operations are or may be in an area where energy control procedures may be utilized, shall be instructed about the procedure, and about the prohibition relating to attempts to restart or reenergize machines or equipment which are locked out or tagged out." } -->
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+That's three roles, not four. You may also hear the term "qualified person" used around electrical work, and it's worth being precise about what that actually is — because it's a real OSHA term. It just doesn't live in this standard.
+
+*[Beat.]*
+
+"Qualified person" is defined in the electrical safety standards — 29 CFR 1910.399, in Subpart S — not in 1910.147. It means someone trained to work on or near exposed energized electrical parts: someone who's demonstrated the skills and knowledge to do that specific, higher-risk work safely.
+
+<!-- source_ref: { citation: "29 CFR 1910.399, \"Qualified person\"", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFR314553c63ae81f4/section-1910.399", anchor: "Qualified person.   One who has received training in and has demonstrated skills and knowledge in the construction and operation of electric equipment and installations and the hazards involved." } -->
+
+A qualified person might also be an authorized employee on a given lockout — those aren't mutually exclusive. But "qualified person" isn't a fourth lockout/tagout role. It's a different standard answering a different question: not "what's your job on this lockout," but "are you trained to work near live electrical parts at all."
 
 *[Beat.]*
 
@@ -236,7 +253,9 @@ The training certification is the proof that you were taught this before anyone 
 
 The inspection certification is the evidence that someone watched the procedure being performed correctly and verified it.
 
-The contractor certification is the guarantee that outside personnel know your procedures and you know theirs.
+And when outside contractors are on site, there's an information exchange, not a certificate — the standard requires the on-site employer and the outside employer to inform each other of their respective lockout/tagout procedures. It's not a document either side signs and files. It's a conversation that has to happen before contractors touch your equipment, so no one is guessing at a procedure they've never seen.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(f)(2)(i)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(f)(2)(i)", anchor: "Whenever outside servicing personnel are to be engaged in activities covered by the scope and application of this standard, the on-site employer and the outside employer shall inform each other of their respective lockout or tagout procedures." } -->
 
 *[Beat.]*
 
@@ -294,10 +313,12 @@ Everyone goes home safe.
 - Restoring equipment has its own seven-step sequence — check for personnel before removing any locks
 - Group lockout: one person, one lock still applies — the lockbox method scales the principle
 - Shift changes: new lock ON before old lock OFF — the overlap eliminates the gap
-- Emergency lock removal: verify absence, attempt contact, notify before return
-- Four roles: Authorized, Affected, Qualified, Other — each with specific responsibilities
+- Emergency lock removal: verify absence, attempt contact, notify before return — and only ever under the employer's documented procedure
+- Three roles: Authorized, Affected, Other — each with specific responsibilities. "Qualified person" is a real OSHA term, but it's an electrical-safety term (1910.399), not a fourth LOTO role
 - The paperwork is evidence that the system worked and everyone goes home safe
 - Annual inspections: the system checking itself
+
+**The course, in one line:** Six named energy sources, each with its own stored-energy shadow. Six steps that turn "off" into "safe." Three roles, each with a job. And a set of protocols — group lockout, shift overlap, emergency removal, outside contractors — for when the simple case gets complicated.
 
 **Course Complete.**
 *Lockout/Tagout — Control of Hazardous Energy*
@@ -338,10 +359,11 @@ A machine has room for only one lock on its energy isolation point, but four wor
 An operator's production line is shut down because maintenance is performing lockout/tagout on a connected machine. The operator is classified as:
 - A) An authorized employee, because they operate the equipment
 - B) An affected employee, whose primary responsibility is to never attempt to restart locked-out equipment
-- C) A qualified employee, because they understand how the machine works
+- C) A qualified person, since this standard uses that term for anyone experienced with the equipment
 - D) An other employee, because they aren't involved in the maintenance
 
 **Correct Answer: B**
+*(Distractor note for the build pass: C is wrong on two counts, and the quiz feedback should say so — this standard doesn't define "qualified person" at all, and where the term IS defined (1910.399), it means trained to work on or near exposed energized electrical parts, not "experienced with the equipment." This option exists to test the reframe taught in WHO DOES WHAT, not just to be a plausible-sounding wrong answer.)*
 
 ---
 
