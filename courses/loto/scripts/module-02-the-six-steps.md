@@ -145,7 +145,7 @@ Each worker applies their own lock. Each lock has one key. No master keys. No sh
 
 *[Beat.]*
 
-If three people are working on the same machine, three locks go on the isolation point. The machine cannot be re-energized until all three people have removed their own lock. No one removes someone else's lock. Ever — except through one narrow, employer-directed emergency procedure we'll cover in Module 3. That's not a coworker deciding to take your lock off. It's a documented process with its own steps, and it's the only exception to this rule.
+If three people are working on the same machine, three locks go on the isolation point. The machine cannot be re-energized until all three people have removed their own lock. No one removes someone else's lock. Ever — except through one narrow, employer-directed procedure for when the person who applied it isn't available to do it themselves. We'll cover it in Module 3. That's not a coworker deciding to take your lock off. It's a documented process with its own steps, and it's the only exception to this rule.
 
 **NARRATOR (V.O.):**
 Think about what this means. Your lock is your personal guarantee that the machine will not start while your hands are inside it. Not your supervisor's guarantee. Not the company's guarantee. Yours. You put it on. You take it off. Only when you are done and clear.

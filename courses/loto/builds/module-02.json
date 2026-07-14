@@ -23,7 +23,7 @@
 
     { "type": "keypoint", "kicker": "Step Four — Lock", "heading": "The physical barrier.\nOnly you have the key.", "body": "Once this lock is on, the disconnect cannot move to ON. Not by accident. Not by anyone, for any reason, unless they have the key.", "image": "img/s08-lockout.jpg" },
 
-    { "type": "concept", "label": "One Person, One Lock", "boxText": "Each worker applies their own lock. Each lock has one key.", "body": "If three people are working on the machine, three locks go on. No one removes someone else's lock — ever, except through one narrow, employer-directed emergency procedure (Module 3)." },
+    { "type": "concept", "label": "One Person, One Lock", "boxText": "Each worker applies their own lock. Each lock has one key.", "body": "If three people are working on the machine, three locks go on. No one removes someone else's lock — ever, except through one narrow, employer-directed procedure for when that person isn't available (Module 3)." },
 
     { "type": "reveal", "kicker": "Why No Master Keys", "heading": "Your lock.\nYour key.\nYour guarantee.", "body": "Not a regulation's phrase — a design principle. A master key means someone else can override your decision that the machine isn't safe yet. Your life, someone else's judgment. That's not a system. That's a gamble." },
 
@@ -35,7 +35,7 @@
 
     { "type": "reveal", "kicker": "Reaccumulation", "heading": "Sometimes step five\nisn't a one-time check.", "body": "Pneumatics re-pressurize. Capacitors recharge. Hydraulic pressure creeps back. If that's possible here, verification continues for as long as the job takes.", "source": { "citation": "29 CFR 1910.147(d)(5)(ii)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(ii)", "anchor": "If there is a possibility of reaccumulation of stored energy to a hazardous level, verification of isolation shall be continued until the servicing or maintenance is completed, or until the possibility of such accumulation no longer exists." } },
 
-    { "type": "keypoint", "kicker": "Step Six — Verify", "heading": "Push the button.\nWait for the silence.", "body": "Try to start the machine. If nothing happens, the lockout is complete. If something does happen, stop — you missed something. Verification isn't trust. It's proof.", "image": "img/s10-verify.jpg" },
+    { "type": "keypoint", "kicker": "Step Six — Verify", "heading": "Push the button.\nWait for the silence.", "body": "Try to start the machine. If nothing happens, the lockout is complete. Verification isn't trust — it's proof. After verification, return controls to OFF or NEUTRAL before you begin work.", "image": "img/s10-verify.jpg" },
 
     { "type": "list", "label": "Why People Skip It", "heading": "The Excuses", "items": [
       { "num": "1.", "text": "<strong>\"It's quick.\"</strong> Five-minute fix. In and out." },

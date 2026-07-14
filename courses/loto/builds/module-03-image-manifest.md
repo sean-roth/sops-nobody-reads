@@ -1,6 +1,8 @@
 # Module 3 — Slide → Image Manifest
 
-Built against the regenerated `module-03.json` (31 slides), Phase 4b of the LOTO Pass-4 rework. Every candidate below was opened and visually checked against the new slide content — not filename-matched.
+Built against the regenerated `module-03.json` (now 33 slides after Pass-6's BLOCKER-1.1 and FRICTION-2.1 fixes), Phase 4b of the LOTO Pass-4 rework. Every candidate below was opened and visually checked against the new slide content — not filename-matched.
+
+**Pass-6 update (FIX 6):** every file listed under "Rejected" and "Not individually viewed this pass" below has been moved to `courses/loto/_quarantine/module-03/img/` — out of the shipped package entirely, per audit NOTE 2.6. `s12-roles.jpg` (four-ring diagram) and `s13-documentation.jpg` (garbled text) are flagged there as unsafe to reuse without full regeneration. The "Reused" table below is now the complete, exact contents of the shipping `module-03/img/` directory.
 
 ## Reused (8 images — visually verified)
 
