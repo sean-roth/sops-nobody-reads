@@ -1,101 +1,106 @@
 {
   "title": "When Simple Gets Complicated",
-  "moduleNumber": 3, 
+  "moduleNumber": 3,
   "partLabel": "Part Three — The Edge Cases",
   "passingScore": 75,
 
   "slides": [
     { "type": "title", "moduleLabel": "Module 3", "heading": "When Simple\nGets Complicated", "subtitle": "Part Three — The Edge Cases", "brand": "SOPs Nobody Reads" },
-    
-    { "type": "scene", "label": "Cold Open", "text": "Shift change. The outgoing crew walks toward the exit. One of them pulls a lock off a disconnect on their way out. Casual. Done for the day.", "image": "img/s01-shift-change.jpg" },
-    
-    { "type": "scene", "label": "Scene", "text": "The disconnect has no lock now. The incoming crew is still in the break room getting briefed. For the next four minutes, this machine is unprotected.", "image": "img/s02-gap-in-protection.jpg" },
-    
-    { "type": "reveal", "kicker": "The Gap", "heading": "Four minutes.\nThat's the gap between\none crew's safety and the next.", "body": "And in that gap, anyone could start this machine. Shift change creates vulnerability unless managed properly.", "image": "img/s03-four-minutes.jpg" },
-    
-    { "type": "keypoint", "kicker": "Restoring Equipment", "heading": "Seven steps to\nbring it back safely", "body": "You've locked the machine out. You've done the work. Now it's time to restore the equipment. This has its own sequence, and it matters as much as the lockout itself.", "image": "img/s04-seven-steps.jpg" },
-    
-    { "type": "list", "label": "Restoration Steps", "heading": "In this order. Every time.", "items": [
-      { "num": "1.", "text": "<strong>Inspect:</strong> Work is finished, all tools accounted for" },
-      { "num": "2.", "text": "<strong>Clean up:</strong> Parts, rags, work aids back where they belong" },
-      { "num": "3.", "text": "<strong>Replace guards:</strong> Every guard back before machine starts" },
-      { "num": "4.", "text": "<strong>Check controls:</strong> Everything in neutral or safest position" },
-      { "num": "5.", "text": "<strong>Check for personnel:</strong> All workers verified clear and notified" },
-      { "num": "6.", "text": "<strong>Remove your lock:</strong> Only your lock. Not someone else's." },
-      { "num": "7.", "text": "<strong>Re-energize:</strong> Follow manufacturer's startup procedures" }
-    ], "image": "img/s05-restoration-checklist.jpg" },
-    
-    { "type": "concept", "label": "Check for Personnel", "boxText": "This is not a glance. This is a headcount.", "body": "If three people were working on this machine, three people must be verified clear before any lock comes off. Every person who was working must be accounted for and notified.", "image": "img/s06-headcount.jpg" },
-    
-    { "type": "keypoint", "kicker": "Group Lockout", "heading": "Multiple workers,\nmultiple locks", "body": "When multiple workers need to service the same equipment, each one applies their own lock. The principle scales: one person, one lock. The machine cannot restart until the last lock is off.", "image": "img/s07-multiple-locks.jpg" },
-    
-    { "type": "concept", "label": "Group Coordinator", "boxText": "Someone needs to be in charge. One authorized employee manages the overall lockout.", "body": "They don't replace individual locks. They organize the process, review procedures with everyone, and coordinate the work.", "image": "img/s08-coordinator.jpg" },
-    
-    { "type": "keypoint", "kicker": "Lockbox Method", "heading": "What if there's only\nroom for one lock?", "body": "One lock goes on the disconnect. The key to that lock goes inside a lockbox. Each worker puts their own lock on the lockbox. The machine can't start until every worker removes their lock from the box.", "image": "img/s09-lockbox-method.jpg" },
-    
-    { "type": "keypoint", "kicker": "Shift Change Protocol", "heading": "Continuous protection\nacross shift changes", "body": "The incoming crew applies their locks before the outgoing crew removes theirs. Overlap protection. The machine is never unprotected, not even for minutes.", "image": "img/s10-shift-overlap.jpg" },
-    
-    { "type": "keypoint", "kicker": "Emergency Lock Removal", "heading": "When someone leaves\ntheir lock behind", "body": "This requires special authorization. The absent employee must be contacted and verified. Management approval required. All affected personnel notified. This is not a casual decision.", "image": "img/s11-emergency-removal.jpg" },
-    
-    { "type": "concept", "label": "Roles and Responsibility", "boxText": "Authorized employee: Can apply and remove locks, coordinate group lockout. Affected employee: Notified of lockout, must stay clear.", "body": "Each role has specific responsibilities. Know which role you're in for each lockout situation. Authority matters. Clear communication matters.", "image": "img/s12-roles.jpg" },
-    
-    { "type": "keypoint", "kicker": "The Paperwork Reframe", "heading": "Documentation isn't\nbureaucracy", "body": "It's memory. Who's working where. What energy sources are controlled. When the work started. When it ended. When someone gets hurt, this documentation explains what went right and what went wrong.", "image": "img/s13-documentation.jpg" },
-    
-    { "type": "reveal", "kicker": "The Complete Picture", "heading": "LOTO isn't just\na six-step procedure", "body": "It's a comprehensive system. Individual lockout. Group lockout. Shift change protocols. Emergency procedures. Documentation. Each element protects against specific failure modes.", "image": "img/s14-complete-system.jpg" },
-    
-    { "type": "keypoint", "kicker": "Course Complete", "heading": "You now understand\nthe energy you don't see", "body": "Five types of hazardous energy. Six steps to control them. Protocols for complex situations. The tools to protect yourself and your coworkers. Two minutes and a padlock. That's all it takes.", "image": "img/s15-course-complete.jpg" },
-    
-    { "type": "summary", "heading": "LOTO Course — Key Concepts", "items": [
-      "LOTO is a comprehensive system, not just a procedure",
-      "Group lockout scales the one-person-one-lock principle",
-      "Lockbox method handles single-lock situations", 
-      "Shift change requires overlap protection",
-      "Emergency lock removal needs special authorization",
-      "Documentation provides memory and accountability",
-      "Everyone goes home safe — every shift, every day"
-    ] }
+
+    { "type": "scene", "label": "Cold Open", "text": "Shift change. A factory floor, afternoon bleeding into evening. The outgoing crew pulls their lock and heads for the exit.", "image": "img/s01-shift-change.jpg" },
+
+    { "type": "concept", "label": "The Gap", "boxText": "For the next four minutes, this machine is unprotected.", "body": "The outgoing crew pulled their locks. The incoming crew hasn't applied theirs yet. In that gap, anyone could start this machine.", "image": "img/s02-gap-in-protection.jpg" },
+
+    { "type": "list", "label": "Before the Edge Cases", "heading": "Restoring Equipment — Seven Steps", "items": [
+      { "num": "1.", "text": "<strong>Inspect.</strong> Make sure the work is actually finished." },
+      { "num": "2.", "text": "<strong>Clean up.</strong> Parts, rags, work aids back where they belong." },
+      { "num": "3.", "text": "<strong>Replace guards.</strong> Every guard goes back before startup." },
+      { "num": "4.", "text": "<strong>Check controls.</strong> Everything in neutral or its safest position." },
+      { "num": "5.", "text": "<strong>Check for personnel.</strong> A headcount, not a glance." },
+      { "num": "6.", "text": "<strong>Remove your lock.</strong> Only yours." },
+      { "num": "7.", "text": "<strong>Re-energize.</strong> Follow the documented startup sequence." }
+    ] },
+
+    { "type": "keypoint", "kicker": "The Critical Ones", "heading": "Check for personnel.\nRemove your lock.\nRe-energize.", "body": "This is a headcount, not a glance. Your lock — not someone else's. Follow the manufacturer's startup sequence, not the reverse of shutdown.", "image": "img/s06-headcount.jpg" },
+
+    { "type": "concept", "label": "Group Lockout", "boxText": "One worker, one machine, one lock — the principle scales.", "body": "A group coordinator manages the process without replacing individual locks. Each worker applies their own. The machine can't restart until the last lock is off.", "image": "img/s07-multiple-locks.jpg" },
+
+    { "type": "keypoint", "kicker": "The Lockbox Method", "heading": "One lock on the machine.\nThe key goes in a box.\nEveryone locks the box.", "body": "The machine can't restart until the lockbox opens. The lockbox can't open until every worker removes their lock. Same protection. Different geometry.", "image": "img/s09-lockbox-method.jpg" },
+
+    { "type": "reveal", "kicker": "The Solution", "heading": "New lock on.\nThen old lock off.", "body": "The incoming worker's lock goes on while the outgoing worker's lock is still there. At no point is the hasp empty. At no point is the machine unprotected.", "image": "img/s10-shift-overlap.jpg" },
+
+    { "type": "keypoint", "kicker": "Three Edge Cases", "heading": "Written into the standard,\nnot made up to save time.", "body": "Places where the standard draws its own boundaries. Learn them as boundaries, not shortcuts." },
+
+    { "type": "concept", "label": "Cord-and-Plug Equipment", "boxText": "Unplugged AND under your exclusive control — both, not one.", "body": "A bench grinder. A portable drill. If the plug stays in your hand, your pocket, your sight the whole time, this standard doesn't require lockout on it.", "source": { "citation": "29 CFR 1910.147(a)(2)(iii)(A)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(a)(2)(iii)(A)", "anchor": "Work on cord and plug connected electric equipment for which exposure to the hazards of unexpected energization or start up of the equipment is controlled by the unplugging of the equipment from the energy source and by the plug being under the exclusive control of the employee performing the servicing or maintenance." } },
+
+    { "type": "reveal", "kicker": "The Most Misused Exception", "heading": "Minor servicing —\nread the fence twice.", "body": "Normal production operations. Routine. Repetitive. Integral to production. Alternative measures providing effective protection. All of it. Every time.", "source": { "citation": "29 CFR 1910.147(a)(2)(ii), Note", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(a)(2)(ii)", "anchor": "Exception to paragraph (a)(2)(ii): Minor tool changes and adjustments, and other minor servicing activities, which take place during normal production operations, are not covered by this standard if they are routine, repetitive, and integral to the use of the equipment for production, provided that the work is performed using alternative measures which provide effective protection (See subpart O of this part)." } },
+
+    { "type": "keypoint", "kicker": "Not a Badge You Assume", "heading": "\"Clearing a jam\"\nis the classic misuse.", "body": "If your alternative measure isn't actually providing effective protection, you don't have an exception. You have an unprotected worker near a hazard." },
+
+    { "type": "concept", "label": "Testing / Positioning", "boxText": "An exact sequence, in order — not an ad-hoc override.", "body": "Clear tools and personnel. Remove LOTO devices. Energize, test or position. De-energize, reapply LOTO. Same discipline as the six steps.", "source": { "citation": "29 CFR 1910.147(f)(1)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(f)(1)", "anchor": "In situations in which lockout or tagout devices must be temporarily removed from the energy isolating device and the machine or equipment energized to test or position the machine, equipment or component thereof, the following sequence of actions shall be followed:" } },
+
+    { "type": "scene", "label": "Emergency Lock Removal", "text": "A disconnect with a single lock. Shift's over. The person whose lock this is? Gone. Not answering their phone.", "image": "img/s11-emergency-removal.jpg" },
+
+    { "type": "concept", "label": "Not a Coworker's Call", "boxText": "Only under the employer's direction, through a procedure documented in advance.", "body": "Nobody improvises this in the moment.", "source": { "citation": "29 CFR 1910.147(e)(3)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(e)(3)", "anchor": "Exception to paragraph (e)(3): When the authorized employee who applied the lockout or tagout device is not available to remove it, that device may be removed under the direction of the employer, provided that specific procedures and training for such removal have been developed, documented and incorporated into the employer's energy control program." } },
+
+    { "type": "list", "label": "The Documented Procedure", "heading": "Three Elements", "items": [
+      { "num": "1.", "text": "<strong>Verify the employee is absent.</strong> Not in the building, not on break." },
+      { "num": "2.", "text": "<strong>Make reasonable efforts to contact them.</strong> Document the attempts." },
+      { "num": "3.", "text": "<strong>Inform them before they return.</strong> Before they approach any equipment." }
+    ] },
+
+    { "type": "reveal", "kicker": "Why Notification Matters", "heading": "The lock removal isn't\ncomplete until they know.", "body": "A worker returning to a machine they think is locked out, reaching in confident — that's the alternative this requirement prevents." },
+
+    { "type": "concept", "label": "Three Roles — 29 CFR 1910.147(b)", "boxText": "Authorized. Affected. Other.", "body": "Each role carries different responsibilities, different training, different obligations.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Affected employee.   An employee whose job requires him/her to operate or use a machine or equipment on which servicing or maintenance is being performed under lockout or tagout, or whose job requires him/her to work in an area in which such servicing or maintenance is being performed. / Authorized employee.   A person who locks out or tags out machines or equipment in order to perform servicing or maintenance on that machine or equipment." } },
+
+    { "type": "keypoint", "kicker": "Authorized Employees", "heading": "They perform\nthe lockout.", "body": "Trained on every energy source, every isolation point. They apply the locks. They verify the isolation." },
+
+    { "type": "keypoint", "kicker": "Affected Employees", "heading": "Their work is affected —\nthey don't perform it.", "body": "An operator whose line is shut down for maintenance. Their job: never attempt to restart locked-out equipment. Ever." },
+
+    { "type": "concept", "label": "Other Employees", "boxText": "Basic awareness training.", "body": "Lockout exists. Locked-out equipment is off-limits. Attempting to start it can kill the person inside.", "source": { "citation": "29 CFR 1910.147(c)(7)(i)(A), (B), (C)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(7)(i)(A)", "anchor": "(A) Each authorized employee shall receive training in the recognition of applicable hazardous energy sources, the type and magnitude of the energy available in the workplace, and the methods and means necessary for energy isolation and control. / (B) Each affected employee shall be instructed in the purpose and use of the energy control procedure. / (C) All other employees whose work operations are or may be in an area where energy control procedures may be utilized, shall be instructed about the procedure, and about the prohibition relating to attempts to restart or reenergize machines or equipment which are locked out or tagged out." } },
+
+    { "type": "reveal", "kicker": "Real Term, Wrong Standard", "heading": "\"Qualified person\"\nisn't a fourth role.", "body": "It's a real OSHA term — just not from this standard. It means trained to work on or near exposed energized electrical parts.", "source": { "citation": "29 CFR 1910.399, \"Qualified person\"", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFR314553c63ae81f4/section-1910.399", "anchor": "Qualified person.   One who has received training in and has demonstrated skills and knowledge in the construction and operation of electric equipment and installations and the hazards involved." } },
+
+    { "type": "keypoint", "kicker": "Different Standard, Different Question", "heading": "Not \"what's your job\nhere\" — \"are you trained\nfor live electrical work.\"", "body": "A qualified person might also be an authorized employee on a lockout. Those aren't mutually exclusive. But qualified person answers a different question." },
+
+    { "type": "concept", "label": "The Forms, Reframed", "boxText": "Not bureaucracy. Evidence.", "body": "The procedure form is the map. The training certification is proof you were taught this. The inspection certification is proof someone verified it." },
+
+    { "type": "keypoint", "kicker": "Outside Contractors", "heading": "An information exchange.\nNot a certificate.", "body": "The on-site and outside employer inform each other of their procedures. A conversation, not a document either side signs and files.", "source": { "citation": "29 CFR 1910.147(f)(2)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(f)(2)(i)", "anchor": "Whenever outside servicing personnel are to be engaged in activities covered by the scope and application of this standard, the on-site employer and the outside employer shall inform each other of their respective lockout or tagout procedures." } },
+
+    { "type": "reveal", "kicker": "The Thesis", "heading": "Every piece of paper\nexists because someone\nwas hurt by its absence.", "body": "The paperwork isn't bureaucracy. It's evidence that the system worked and everyone goes home safe." },
+
+    { "type": "scene", "label": "Back to Shift Change", "text": "The same factory floor. Shift change. But now the handoff is different." },
+
+    { "type": "scene", "label": "Scene", "text": "The incoming worker inside the machine. Working steadily. The lock visible in the background. Protection in place." },
+
+    { "type": "reveal", "kicker": "Same Shift Change", "heading": "The difference is\nthirty seconds\nand a padlock.", "body": "The procedure is simple. The edge cases are manageable. The paperwork has a purpose. The principle never changes — it just adapts.", "image": "img/s15-course-complete.jpg" },
+
+    { "type": "keypoint", "kicker": "The Course, In One Line", "heading": "Six sources.\nSix steps.\nThree roles.", "body": "Six named energy sources, each with its own stored-energy shadow. Six steps that turn off into safe. Three roles, each with a job. And protocols for when the simple case gets complicated." },
+
+    { "type": "summary", "heading": "Module 3 — Key Concepts", "items": ["Restoring equipment has its own seven-step sequence — check for personnel before removing any locks", "Group lockout: one person, one lock still applies — the lockbox method scales the principle", "Shift changes: new lock ON before old lock OFF — the overlap eliminates the gap", "Scope exclusions: cord-and-plug, minor servicing, and testing/positioning are narrow, fenced exceptions — not shortcuts", "Emergency lock removal: verify absence, attempt contact, notify before return — only ever under the employer's documented procedure", "Three roles: Authorized, Affected, Other. \"Qualified person\" is a real OSHA term, but it's an electrical-safety term (1910.399), not a fourth LOTO role", "The paperwork is evidence that the system worked and everyone goes home safe"] }
   ],
 
   "quiz": [
     {
-      "question": "In group lockout situations with multiple workers, how many locks should be applied?",
-      "options": [
-        "One lock controlled by the supervisor",
-        "Two locks — one for electrical, one for mechanical",
-        "One lock per person working on the equipment",
-        "The minimum number required to secure all energy sources"
-      ],
-      "correct": 2
-    },
-    {
-      "question": "What is the lockbox method used for?",
-      "options": [
-        "Storing extra padlocks for future use",
-        "When multiple workers need lockout but only one lock fits the disconnect",
-        "Emergency storage of critical equipment keys",
-        "Group lockout situations with more than 5 workers"
-      ],
+      "question": "During a shift change on a machine that's under lockout, the correct procedure is:",
+      "options": ["The outgoing crew removes their locks, then the incoming crew applies theirs", "The incoming crew applies their locks while the outgoing crew's locks are still in place, then the outgoing crew removes theirs", "The outgoing crew leaves their locks for the incoming crew to use", "A supervisor holds a master lock during the transition"],
       "correct": 1
     },
     {
-      "question": "During shift change, when should the incoming crew apply their locks?",
-      "options": [
-        "After the outgoing crew removes all their locks",
-        "Before the outgoing crew removes their locks (overlap protection)",
-        "Only if work will continue into the next shift",
-        "At the supervisor's discretion"
-      ],
-      "correct": 1
+      "question": "A worker's lock is on a machine, but they've left the facility without removing it. The correct response is:",
+      "options": ["Cut the lock immediately — production is delayed", "Leave the lock in place indefinitely until the worker returns", "Verify the worker is absent, attempt to contact them, remove the lock following emergency procedures, and ensure the worker is notified before returning to work", "Have another authorized employee remove the lock since they have the same training"],
+      "correct": 2
     },
     {
-      "question": "What step comes immediately before removing locks during equipment restoration?",
-      "options": [
-        "Clean up the work area",
-        "Replace all machine guards",
-        "Check for personnel — verify all workers are clear",
-        "Re-energize the equipment"
-      ],
+      "question": "A machine has room for only one lock on its energy isolation point, but four workers need to service it. The correct approach is:",
+      "options": ["The team lead places the single lock and holds the key for the group", "Workers take turns — one works while the others wait, each applying their lock for their turn", "The coordinator locks the machine, places the key in a lockbox, and each worker places their own lock on the lockbox", "One lock is sufficient as long as everyone agrees not to remove it"],
       "correct": 2
+    },
+    {
+      "question": "An operator's production line is shut down because maintenance is performing lockout/tagout on a connected machine. The operator is classified as:",
+      "options": ["An authorized employee, because they operate the equipment", "An affected employee, whose primary responsibility is to never attempt to restart locked-out equipment", "A qualified person, since this standard uses that term for anyone experienced with the equipment", "An other employee, because they aren't involved in the maintenance"],
+      "correct": 1,
+      "source": { "citation": "29 CFR 1910.399, \"Qualified person\"", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFR314553c63ae81f4/section-1910.399", "anchor": "Qualified person.   One who has received training in and has demonstrated skills and knowledge in the construction and operation of electric equipment and installations and the hazards involved." }
     }
   ]
 }
