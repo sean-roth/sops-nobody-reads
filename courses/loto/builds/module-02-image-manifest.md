@@ -2,6 +2,8 @@
 
 Built against the regenerated `module-02.json` (23 slides), Phase 4b of the LOTO Pass-4 rework. Every candidate below was opened and visually checked against the new slide content — not filename-matched. Do not trust slide numbering carried over from the old build; both the script and the decomposition changed.
 
+**Pass-6 update (FIX 6):** every file listed under "Rejected" and "Not individually viewed this pass" below has been moved to `courses/loto/_quarantine/module-02/img/` — out of the shipped package entirely, per audit NOTE 2.6. The "Reused" table below is now the complete, exact contents of the shipping `module-02/img/` directory.
+
 ## Reused (7 images — visually verified)
 
 | Slide | Content | Image | Note |

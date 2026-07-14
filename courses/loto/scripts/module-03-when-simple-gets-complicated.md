@@ -42,10 +42,10 @@ Before we get to the edge cases, let's close the loop on the basic procedure. Yo
 
 This has its own sequence, and it matters as much as the lockout itself.
 
-*[VISUAL: Seven steps listed — Inspect, Clean Up, Replace Guards, Check Controls, Check for Personnel, Remove Locks, Re-energize.]*
+*[VISUAL: Eight steps listed — Inspect, Clean Up, Replace Guards, Check Controls, Check for Personnel, Remove Locks, Re-energize, Notify.]*
 
 **NARRATOR (V.O.):**
-Seven steps. Inspect the work — make sure it's actually finished and all your tools are accounted for. Clean up — parts, rags, work aids back where they belong. Replace guards — every guard goes back before the machine starts, with rare exceptions for startup adjustments. Check controls — everything in neutral or its safest position.
+Eight steps. Inspect the work — make sure it's actually finished and all your tools are accounted for. Clean up — parts, rags, work aids back where they belong. Replace guards — every guard goes back before the machine starts. Check controls — everything in neutral or its safest position.
 
 *[Beat.]*
 
@@ -62,7 +62,18 @@ This is not a glance. This is a headcount. If three people were working on this 
 
 *[Beat.]*
 
-The order matters here too. You don't remove locks before checking for personnel. You don't re-energize before replacing guards. Each step protects against a specific failure.
+**NARRATOR (V.O.):**
+And then the step that's easy to think of as optional. It isn't.
+
+**Notify affected employees that the job is done.** Not that you're about to remove the locks — you already told them that. This is the other half: the machine is back, it's live, and anyone who assumed it was still down needs to hear otherwise before they treat it like it's still safe to approach.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(c)(9); (e)(2)(ii); Appendix A, Restoring Equipment to Service, step (5)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(9)", anchor: "(c)(9): \"Affected employees shall be notified by the employer or authorized employee of the application and removal of lockout devices or tagout devices. Notification shall be given before the controls are applied, and after they are removed from the machine or equipment.\" / (e)(2)(ii): \"After lockout or tagout devices have been removed and before a machine or equipment is started, affected employees shall be notified that the lockout or tagout device(s) have been removed.\" / Appendix A step (5): \"Notify affected employees that the servicing or maintenance is completed and the machine or equipment is ready for use.\" -- three separate provisions in the frozen file, quoted separately here, not a continuous span. This step is positioned last to match Appendix A's own model sequence, where notification is step (5), after step (4)'s remove-and-reenergize." } -->
+
+This isn't a courtesy lap. It's the same logic as the notification you already know from an absent worker's lock removal — the lock removal, or the job's completion, isn't finished until the people who need to know actually know.
+
+*[Beat.]*
+
+The order matters here too. You don't remove locks before checking for personnel. You don't re-energize before replacing guards. You don't skip the notification because the job already feels done. Each step protects against a specific failure.
 
 ---
 
@@ -201,7 +212,7 @@ Three flexes. Three fences. None of them are permission to skip the procedure. T
 
 ---
 
-## EMERGENCY LOCK REMOVAL
+## WHEN THEY'RE NOT AVAILABLE
 
 **NARRATOR (V.O.):**
 Here's the scenario nobody wants to think about.
@@ -370,15 +381,16 @@ Everyone goes home safe.
 *[VISUAL: Module 3 summary card]*
 
 **Key Concepts:**
-- Restoring equipment has its own seven-step sequence — check for personnel before removing any locks
+- Restoring equipment has its own eight-step sequence — check for personnel before removing any locks, and notify affected employees at the end, not just before you start
 - Group lockout: one person, one lock still applies — the lockbox method scales the principle
 - Shift changes: new lock ON before old lock OFF — the overlap eliminates the gap
-- Emergency lock removal: verify absence, attempt contact, notify before return — and only ever under the employer's documented procedure
+- Scope exclusions: cord-and-plug, minor servicing, and testing/positioning are narrow, fenced exceptions — not shortcuts
+- Lock removal when the employee isn't available: verify absence, attempt contact, notify before return — and only ever under the employer's documented procedure
 - Three roles: Authorized, Affected, Other — each with specific responsibilities. "Qualified person" is a real OSHA term, but it's an electrical-safety term (1910.399), not a fourth LOTO role
 - The paperwork is evidence that the system worked and everyone goes home safe
 - Annual inspections: the system checking itself
 
-**The course, in one line:** Six named energy sources, each with its own stored-energy shadow. Six steps that turn "off" into "safe." Three roles, each with a job. And a set of protocols — group lockout, shift overlap, emergency removal, outside contractors — for when the simple case gets complicated.
+**The course, in one line:** Six named energy sources, each with its own stored-energy shadow. Six steps that turn "off" into "safe." Three roles, each with a job. And a set of protocols — group lockout, shift overlap, lock removal when someone's not available, outside contractors — for when the simple case gets complicated.
 
 **Course Complete.**
 *Lockout/Tagout — Control of Hazardous Energy*
@@ -401,7 +413,7 @@ During a shift change on a machine that's under lockout, the correct procedure i
 A worker's lock is on a machine, but they've left the facility without removing it. The correct response is:
 - A) Cut the lock immediately — production is delayed
 - B) Leave the lock in place indefinitely until the worker returns
-- C) Verify the worker is absent, attempt to contact them, remove the lock following emergency procedures, and ensure the worker is notified before returning to work
+- C) Verify the worker is absent, attempt to contact them, remove the lock following the employer's documented procedure for an unavailable employee, and ensure the worker is notified before returning to work
 - D) Have another authorized employee remove the lock since they have the same training
 
 **Correct Answer: C**
@@ -447,7 +459,7 @@ An operator's production line is shut down because maintenance is performing loc
 - Cord-and-plug: single panel, hand on the plug (not the tool). Minor servicing: single panel, purpose-built clearing tool doing real work. Testing/positioning: single VISUAL, five-step ordered diagram (same treatment as the six-steps/seven-steps visuals elsewhere in the course).
 - Reasoning: Three narrow scope exclusions, each needs exactly one picture-specific image — the point in each case is a single condition (exclusive control; a designed tool, not improvisation; ordered sequence), not a narrative beat. No panel sequences needed here. All three are new; none map to existing art. Flag all three for the image manifest.
 
-**Emergency lock removal (1 panel + gutter):**
+**Not-available lock removal (1 panel + gutter):**
 - Subject-to-subject. Lock being removed + phone showing contact attempts.
 - Reasoning: The physical act and the documentation happen together. McCloud: juxtaposition as argument. The gutter after this section is the heaviest in the module — the learner imagines a worker returning to a machine they think is locked out.
 
@@ -468,7 +480,7 @@ action-to-action × 3 (lockbox method)
 moment-to-moment × 2 (shift change solution)
 scene-to-scene (to "when the standard flexes")
 single panel × 2 + single visual × 1 (three scope exclusions)
-subject-to-subject (emergency removal)
+subject-to-subject (not-available removal)
 scene-to-scene (callback)
 action-to-action × 2 (callback — correct shift change)
 subject-to-subject (callback — worker inside machine)
@@ -477,7 +489,7 @@ subject-to-subject (callback — worker inside machine)
 ### Gutter Inventory
 1. **Cold open — empty disconnect during gap:** Learner imagines someone starting the machine during the four-minute window
 2. **Shift change solution — overlap:** Learner contrasts the seamless overlap with the cold open's gap
-3. **Emergency removal — worker returns to "locked" machine:** Learner imagines reaching into a machine they think is safe. The heaviest implication gutter in the course.
+3. **Not-available removal — worker returns to "locked" machine:** Learner imagines reaching into a machine they think is safe. The heaviest implication gutter in the course.
 4. **Callback — correct procedure:** Relief. Resolution. The system works when it's followed.
 
 ### Abstraction Map
@@ -485,7 +497,7 @@ subject-to-subject (callback — worker inside machine)
 - Group lockout: High detail on the hasp and locks. The locks are the teaching element.
 - Lockbox method: Medium-high detail. The lockbox itself should be recognizable as a real object.
 - Shift change panels: High detail on the hasp. Moment-to-moment demands clarity on what's changing between frames.
-- Emergency removal: Medium detail. The phone/documentation adds a mundane, bureaucratic texture that contrasts with the life-or-death stakes.
+- Not-available removal: Medium detail. The phone/documentation adds a mundane, bureaucratic texture that contrasts with the life-or-death stakes.
 - Paperwork: Typography-dominant. The form gets one detailed panel. Everything after is voice.
 - Callback: Medium detail matching cold open. Consistency signals "same place, different outcome."
 
@@ -494,7 +506,7 @@ subject-to-subject (callback — worker inside machine)
 - Group lockout: Clear, logical. The lockbox explanation should feel satisfying — an elegant solution to a real constraint.
 - Shift change: Precise. The solution is simple and the explanation should be equally clean.
 - When the standard flexes: Precise, a little stern. These are boundaries, not permissions — the minor-servicing beat in particular should read as a warning label, not an invitation. No hedging on the conditions.
-- Emergency removal: Heavy. This is the scenario that should make people uncomfortable. The gutter does the work.
+- Not-available removal: Heavy. This is the scenario that should make people uncomfortable. The gutter does the work.
 - Roles: Informational. Brisk. This section needs to be clear without being tedious.
 - Paperwork: The emotional pivot of the module. The reframing — "paperwork is evidence that the system worked and everyone goes home safe" — earns its weight from everything that came before. This is the quiet thesis.
 - Callback: Warm. Resolved. The same scene, done right. Course-closing energy.

@@ -4,6 +4,8 @@ Built against the regenerated `module-01.json` (32 slides), Phase 2 of the LOTO 
 
 Every existing image in `courses/loto/builds/module-01/img/` was opened and visually checked against the new slide content before being marked as a candidate — not assumed from its filename.
 
+**Pass-6 update (FIX 6):** every file listed under "Rejected" and "Not individually viewed this pass" below has been moved to `courses/loto/_quarantine/module-01/img/` — out of the shipped package entirely, per audit NOTE 2.6. The "Reused" list below is now the complete, exact contents of the shipping `module-01/img/` directory.
+
 ## Reused (11 images — visually verified against new slide content)
 
 | Slide # | Type | Content | Image | Note |

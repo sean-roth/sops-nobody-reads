@@ -115,7 +115,7 @@
         "All of the machine's named sources, plus whatever stored or residual energy each one could still be holding after shutdown — even if only three sources are obvious, checking is what step one is for"
       ],
       "correct": 3,
-      "source": { "citation": "29 CFR 1910.147(b); (d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / (d)(5)(i) stored-or-residual-energy requirement" }
+      "source": { "citation": "29 CFR 1910.147(b); (d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." }
     },
     {
       "question": "The six-step lockout sequence exists because:",

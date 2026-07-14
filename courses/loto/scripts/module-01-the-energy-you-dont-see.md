@@ -373,7 +373,7 @@ Sarah needs to replace a roller bearing on a conveyor system. The conveyor has a
 
 **Correct Answer: D**
 
-<!-- source_ref: { citation: "29 CFR 1910.147(b); (d)(5)(i)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "Energy source. Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / (d)(5)(i) stored-or-residual-energy requirement" } -->
+<!-- source_ref: { citation: "29 CFR 1910.147(b); (d)(5)(i)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", anchor: "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." } -->
 
 **Question 4:**
 The six-step lockout sequence exists because:
