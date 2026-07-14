@@ -141,6 +141,66 @@ Four minutes. That's what the cold open's gap was. And this is how you close it.
 
 ---
 
+## WHEN THE STANDARD FLEXES
+
+**NARRATOR (V.O.):**
+Three more edge cases. These aren't exceptions someone made up to save time. They're written into the standard itself — places where it draws its own boundaries. Learn them as boundaries, not as shortcuts.
+
+*[PANEL: A bench grinder on a workbench, plugged into a wall outlet. A worker's hand rests on the plug itself — not the tool, the plug.]*
+
+<!-- Panel-logic reasoning: Single panel, hand on the plug, not the tool. The image needs to teach the exclusive-control condition, not just "this is a pluggable tool." Picture-specific — the hand's position on the plug IS the point. New panel; flag for the image manifest. -->
+
+**NARRATOR (V.O.):**
+First: cord-and-plug equipment. A bench grinder. A portable drill. Anything you can unplug. If you unplug it, and the plug stays in your control — your hand, your pocket, your sight — the whole time you're working on it, this standard doesn't require lockout/tagout on that piece of equipment.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(a)(2)(iii)(A)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(a)(2)(iii)(A)", anchor: "Work on cord and plug connected electric equipment for which exposure to the hazards of unexpected energization or start up of the equipment is controlled by the unplugging of the equipment from the energy source and by the plug being under the exclusive control of the employee performing the servicing or maintenance." } -->
+
+Notice that's two conditions, not one. Unplugged — and under your exclusive control. If you unplug it and set the plug down on the bench where anyone could pick it up and plug it back in, you don't have exclusive control anymore. You have an unlocked disconnect with extra steps.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+Second — and this is the one to be careful with, because it's the most misused exception in the entire standard: minor servicing.
+
+*[PANEL: Close-up on gloved hands using a purpose-built clearing tool to clear a jam from a piece of equipment — not reaching bare-handed into the point of operation.]*
+
+<!-- Panel-logic reasoning: The image has to show the "alternative measures which provide effective protection" condition doing real work — a designed tool, not improvisation. This is the panel most likely to get misread if it's too casual; keep it visibly deliberate. New panel; flag for the image manifest. -->
+
+**NARRATOR (V.O.):**
+Minor tool changes. Minor adjustments. Other minor servicing. This standard doesn't require full lockout for that specific task — but only if every one of these is true, all at once, every time:
+
+It happens during normal production operations. It's routine. It's repetitive. It's integral to the equipment's production use. And it's done using alternative measures that provide effective protection.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(a)(2)(ii), Note", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(a)(2)(ii)", anchor: "Exception to paragraph (a)(2)(ii): Minor tool changes and adjustments, and other minor servicing activities, which take place during normal production operations, are not covered by this standard if they are routine, repetitive, and integral to the use of the equipment for production, provided that the work is performed using alternative measures which provide effective protection (See subpart O of this part)." } -->
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+Read that list again. All of it. Every time. Not "it's quick." Not "we always do it this way." "Clearing a jam" is the classic misuse of this exception — someone reaches into a point of operation because it feels routine, without the alternative protection the standard actually requires as the price of that routineness. If your alternative measure isn't actually providing effective protection, you don't have a minor-servicing exception. You have an unprotected worker near a hazard, wearing the exception like a badge it didn't earn.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+Third: testing and positioning. Sometimes you have to bring a machine back to life in the middle of a job — not because you're done, but because you need to test something, or move a component into position, before you can keep working.
+
+*[VISUAL: Five ordered steps, arranged as a sequence: Clear tools and materials — Clear personnel — Remove lockout/tagout devices — Energize, test or position — De-energize, reapply lockout/tagout.]*
+
+<!-- Panel-logic reasoning: Single VISUAL, not a panel sequence — this is a procedural diagram, same treatment as the six-steps and seven-steps visuals elsewhere in the course. The order is the entire teaching point. New visual; flag for the image manifest. -->
+
+**NARRATOR (V.O.):**
+The standard allows this, but only through an exact sequence, in order. Clear the machine of tools and materials. Clear personnel from the area. Remove the lockout or tagout devices. Energize, and do the test or the positioning. Then de-energize again and reapply lockout/tagout to continue the work.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(f)(1)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(f)(1)", anchor: "In situations in which lockout or tagout devices must be temporarily removed from the energy isolating device and the machine or equipment energized to test or position the machine, equipment or component thereof, the following sequence of actions shall be followed:" } -->
+
+That's not "unlock it, do the thing, relock it whenever." It's a procedure with the same discipline as the six steps you already know — because re-energizing a machine mid-job is exactly the moment this whole standard exists to control.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+Three flexes. Three fences. None of them are permission to skip the procedure. They're the standard telling you exactly where its own edges are — and exactly what has to be true before you're standing on the right side of one.
+
+---
+
 ## EMERGENCY LOCK REMOVAL
 
 **NARRATOR (V.O.):**
@@ -383,6 +443,10 @@ An operator's production line is shut down because maintenance is performing loc
 - Moment-to-moment. New lock on, then old lock off.
 - Reasoning: The order is everything. Moment-to-moment forces the learner to see the overlap — both locks present simultaneously. This is the exact inverse of the cold open's error. The pacing makes the solution feel as deliberate as the problem felt careless.
 
+**When the standard flexes (2 new panels + 1 visual):**
+- Cord-and-plug: single panel, hand on the plug (not the tool). Minor servicing: single panel, purpose-built clearing tool doing real work. Testing/positioning: single VISUAL, five-step ordered diagram (same treatment as the six-steps/seven-steps visuals elsewhere in the course).
+- Reasoning: Three narrow scope exclusions, each needs exactly one picture-specific image — the point in each case is a single condition (exclusive control; a designed tool, not improvisation; ordered sequence), not a narrative beat. No panel sequences needed here. All three are new; none map to existing art. Flag all three for the image manifest.
+
 **Emergency lock removal (1 panel + gutter):**
 - Subject-to-subject. Lock being removed + phone showing contact attempts.
 - Reasoning: The physical act and the documentation happen together. McCloud: juxtaposition as argument. The gutter after this section is the heaviest in the module — the learner imagines a worker returning to a machine they think is locked out.
@@ -402,6 +466,8 @@ subject-to-subject (cold open — empty disconnect)
 scene-to-scene (to teaching)
 action-to-action × 3 (lockbox method)
 moment-to-moment × 2 (shift change solution)
+scene-to-scene (to "when the standard flexes")
+single panel × 2 + single visual × 1 (three scope exclusions)
 subject-to-subject (emergency removal)
 scene-to-scene (callback)
 action-to-action × 2 (callback — correct shift change)
@@ -427,6 +493,7 @@ subject-to-subject (callback — worker inside machine)
 - Cold open: Quiet dread. The gap. Not dramatic — just the absence of protection during a transition that happens every day.
 - Group lockout: Clear, logical. The lockbox explanation should feel satisfying — an elegant solution to a real constraint.
 - Shift change: Precise. The solution is simple and the explanation should be equally clean.
+- When the standard flexes: Precise, a little stern. These are boundaries, not permissions — the minor-servicing beat in particular should read as a warning label, not an invitation. No hedging on the conditions.
 - Emergency removal: Heavy. This is the scenario that should make people uncomfortable. The gutter does the work.
 - Roles: Informational. Brisk. This section needs to be clear without being tedious.
 - Paperwork: The emotional pivot of the module. The reframing — "paperwork is evidence that the system worked and everyone goes home safe" — earns its weight from everything that came before. This is the quiet thesis.
