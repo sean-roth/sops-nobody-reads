@@ -12,7 +12,7 @@ Three provisions of 29 CFR 1910.147 are within scope of the standard but current
 - **Minor-servicing exception — 1910.147(a)(2)(ii) Note.** The standard's minor tool-change/adjustment exception (routine, repetitive, integral to production, using alternative measures providing effective protection). Unaddressed; course teaches the cautious default.
 - **Testing/positioning re-energization — 1910.147(f)(1).** The standard's specific sequence for temporarily re-energizing equipment to test or position it during service. Unaddressed.
 
-**Decision needed:** For each of the three — record as a deliberate scope exclusion (with rationale, on the record per §2.4), or fold it into the course as new content? If excluded, does the accountable-signer sign-off happen now or wait for a client engagement where it matters?
+**Resolved — folded in, per Sean.** All three exclusions (cord-and-plug, minor servicing, testing/positioning) were written into the M3 script as new fenced content in Phase 4a, shipped in the Phase 4b build regeneration, and have been re-verified present and correctly fenced by every subsequent audit (07-14, 07-14 round 2) and fix pass through Pass-7. This entry previously read "open" after the decision had already been made and shipped — three consecutive audits flagged the log/main mismatch (07-14 4.1, 07-14 round-2 FRICTION 4.1). Status corrected here to match what main has taught since Phase 4a.
 
 ---
 
@@ -27,6 +27,32 @@ Two places in the course rely on reasoning that goes slightly beyond the plain t
 
 ---
 
+## 3. Notification-ordering conflict — Appendix A step (5) vs. 1910.147(e)(2)(ii) — §5 conflict-log item
+
+Two passages in the frozen source disagree on *when* the post-lockout notification happens, relative to restarting the machine:
+
+- **Appendix A, Restoring Equipment to Service** (non-mandatory model procedure) sequences its steps as: (4) "Remove the lockout devices and reenergize the machine or equipment," then (5) "Notify affected employees that the servicing or maintenance is completed and the machine or equipment is ready for use." Notification is last, after reenergizing.
+- **1910.147(e)(2)(ii)** (mandatory) requires: "After lockout or tagout devices have been removed and before a machine or equipment is started, affected employees shall be notified that the lockout or tagout device(s) have been removed." Notification is required *before* the machine is started.
+
+Pass-6 restored the after-removal notification as a single step, positioned last (matching Appendix A's sequence) under a single anchor comment that silently noted the Appendix-A-ordering rationale. The 07-14 round-2 audit (BLOCKER 1.1) caught the resulting contradiction: the course's own "re-energize" step was taught as executing the startup sequence, then notification followed — landing after the mandatory (e)(2)(ii) window, on a machine the course itself described as already "live."
+
+**Resolution (Pass-7, applied to main; flagged here for Sean's sign-off, not yet confirmed):** Appendix A is an explicitly non-mandatory model procedure; 1910.147(e)(2)(ii) is a mandatory requirement. Where the two conflict on timing, the mandatory provision governs. The course now teaches **two distinct notifications**, each anchored separately:
+
+1. A **before-start** notification, positioned between "Remove your lock" and "Re-energize" — anchored to (e)(2)(ii) alone, telling affected employees the lockout devices have been removed, before the machine can move again.
+2. A **closing** notification, retained as the last step — anchored to (c)(9) and Appendix A step (5) together, telling affected employees the servicing is complete and the machine is ready for use, after it's running.
+
+This reading is also the only one under which Appendix A is internally consistent with itself: its own step (5) language ("ready for use") only makes sense as a distinct, later beat if "reenergize" (restore power) and "start"/"use" (operate) are read as different events from the before-start notice required by (e)(2)(ii).
+
+**Needs Sean's sign-off:** this is a genuine within-source conflict resolved by an editorial call (specific-and-mandatory governs general-and-non-mandatory), not a mechanical fix. If Sean reads the conflict differently, the split and the two anchors should be revisited.
+
+---
+
 ## Status
 
-Both items are open. Neither blocks the Phase 4 script fixes or build regeneration — none of the shipped fixes depend on resolving these. Route through the conflict-log / decision-record process (Durability Standard §5) when Sean is ready to rule on them.
+| Item | Status |
+|---|---|
+| 1. Scope exclusions | Resolved — folded in, per Sean (shipped Phase 4a, re-verified through Pass-7) |
+| 2. Interpretation letters as secondary sources | Open — no shipped fix depends on it |
+| 3. Notification-ordering conflict (Appendix A vs. (e)(2)(ii)) | Resolution applied to main in Pass-7 — pending Sean's sign-off |
+
+Route items 2 and 3 through the conflict-log / decision-record process (Durability Standard §5) when Sean is ready to rule on them.

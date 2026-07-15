@@ -1,3 +1,15 @@
+> **QUARANTINED (Pass-7, FIX C2).** This is the original pre-rework planning document —
+> its filenames (`s01-morning-maintenance-shop.jpg`, `s57-four-roles-diagram.jpg`, etc.)
+> do not match any file that has ever shipped in a `module-0X/img/` directory, and its
+> content predates the Phase 1–4 rework: "five energy types," "five locks," a fourth
+> "Qualified" role in the roles diagram, "Emergency Lock Removal," a seven-step restore
+> checklist. None of this reflects current course content. It sat in `builds/` — implying
+> currency — through three audits (07-14, 07-14 round 2) before being caught.
+>
+> The current, accurate, per-slide image record is each module's
+> `builds/module-0X-image-manifest.md`, verified against the shipped JSON at every fix
+> pass. Treat this file as historical only; do not use it to generate or select images.
+
 # Image Prompts — LOTO Course (Lockout/Tagout — Control of Hazardous Energy)
 
 ## Style Reference

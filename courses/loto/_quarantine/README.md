@@ -25,3 +25,13 @@ relabel — before it goes anywhere near a shipped build.
 **Do not restore any file from this folder into a `module-0X/img/` directory without
 first checking it against the current script and JSON** — several of these were built
 for narrative beats or taxonomies that no longer exist in the course.
+
+## `IMAGE-PROMPTS.md` (added Pass-7, FIX C2)
+
+Not an image — the pre-rework prompt/planning document, moved here whole because it sat
+in `builds/` implying it was current when it wasn't: wrong filenames throughout (none
+match any shipped image), stale "five energy"/"five locks"/"four roles (incl.
+Qualified)"/"Emergency Lock Removal" language, and a seven-step restore checklist. Three
+audits caught the drift before anyone moved it. The per-module
+`builds/module-0X-image-manifest.md` files are the current source of truth for what each
+slide's image is and why.

@@ -42,38 +42,54 @@ Before we get to the edge cases, let's close the loop on the basic procedure. Yo
 
 This has its own sequence, and it matters as much as the lockout itself.
 
-*[VISUAL: Eight steps listed — Inspect, Clean Up, Replace Guards, Check Controls, Check for Personnel, Remove Locks, Re-energize, Notify.]*
+*[VISUAL: Nine steps listed — Inspect, Clean Up, Replace Guards, Check Controls, Check for Personnel, Remove Locks, Notify (Devices Removed), Re-energize, Notify (Ready for Use).]*
 
 **NARRATOR (V.O.):**
-Eight steps. Inspect the work — make sure it's actually finished and all your tools are accounted for. Clean up — parts, rags, work aids back where they belong. Replace guards — every guard goes back before the machine starts. Check controls — everything in neutral or its safest position.
+Nine steps. Inspect the work — make sure it's actually finished and all your tools are accounted for. Clean up — parts, rags, work aids back where they belong. Replace guards — every guard goes back before the machine starts. Check controls — everything in neutral or its safest position.
 
 *[Beat.]*
 
 **NARRATOR (V.O.):**
 Then the critical ones.
 
-**Check for personnel.** Look at the work area. Every person who was working on or near this equipment must be clear. Accounted for. Notified that the lockout is being removed.
+**Check for personnel.** Look at the work area. Every person who was working on or near this equipment must be clear. Accounted for.
 
 This is not a glance. This is a headcount. If three people were working on this machine, three people must be verified clear before any lock comes off.
 
 **Remove your lock.** Your lock. Not someone else's. Only yours. The person who put the lock on takes the lock off. If your coworker went home and left their lock on, that's not your problem to solve — that's a procedure we'll cover in a moment.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+And then the step that's easy to skip, because it feels like it should come at the end. It doesn't.
+
+**Notify affected employees that the lockout devices have been removed.** Before this machine restarts — not after. The standard is specific about the window: after the locks come off, and before the machine is started, the people who might be affected need to hear that it can move again.
+
+<!-- source_ref: { citation: "29 CFR 1910.147(e)(2)(ii)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(e)(2)(ii)", anchor: "After lockout or tagout devices have been removed and before a machine or equipment is started, affected employees shall be notified that the lockout or tagout device(s) have been removed." } -->
+
+This is the same logic as the notification you already know from an absent worker's lock removal — but here it's the other direction. The locks are off. Before anyone touches a start button, the people who might be in the way need to know that.
+
+*[Beat.]*
+
+**NARRATOR (V.O.):**
+Only then:
 
 **Re-energize.** Follow the manufacturer's startup procedures. Not the reverse of shutdown — the specific startup sequence documented for this equipment.
 
 *[Beat.]*
 
 **NARRATOR (V.O.):**
-And then the step that's easy to think of as optional. It isn't.
+And one more notification closes the loop — a different one, at the end.
 
-**Notify affected employees that the job is done.** Not that you're about to remove the locks — you already told them that. This is the other half: the machine is back, it's live, and anyone who assumed it was still down needs to hear otherwise before they treat it like it's still safe to approach.
+**Notify affected employees that the job is complete and the machine is ready for use.** Not that it can move — that it's back in service. That's a separate piece of information, and it comes after the machine is running again, not before.
 
-<!-- source_ref: { citation: "29 CFR 1910.147(c)(9); (e)(2)(ii); Appendix A, Restoring Equipment to Service, step (5)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(9)", anchor: "(c)(9): \"Affected employees shall be notified by the employer or authorized employee of the application and removal of lockout devices or tagout devices. Notification shall be given before the controls are applied, and after they are removed from the machine or equipment.\" / (e)(2)(ii): \"After lockout or tagout devices have been removed and before a machine or equipment is started, affected employees shall be notified that the lockout or tagout device(s) have been removed.\" / Appendix A step (5): \"Notify affected employees that the servicing or maintenance is completed and the machine or equipment is ready for use.\" -- three separate provisions in the frozen file, quoted separately here, not a continuous span. This step is positioned last to match Appendix A's own model sequence, where notification is step (5), after step (4)'s remove-and-reenergize." } -->
+<!-- source_ref: { citation: "29 CFR 1910.147(c)(9); Appendix A, Restoring Equipment to Service, step (5)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(9)", anchor: "(c)(9): \"Affected employees shall be notified by the employer or authorized employee of the application and removal of lockout devices or tagout devices. Notification shall be given before the controls are applied, and after they are removed from the machine or equipment.\" / Appendix A step (5): \"Notify affected employees that the servicing or maintenance is completed and the machine or equipment is ready for use.\" -- two separate provisions in the frozen file, quoted separately here, not a continuous span. This is the closing notification, distinct from the before-start notification above; see DECISIONS-NEEDED.md §5 for the ordering conflict between (e)(2)(ii) and Appendix A's own model sequence that this split resolves." } -->
 
-This isn't a courtesy lap. It's the same logic as the notification you already know from an absent worker's lock removal — the lock removal, or the job's completion, isn't finished until the people who need to know actually know.
+That's two different notifications, not one. The first tells people the machine can move again, before it does. The second tells people the job is actually finished, once it's running. Skip either one, and someone who assumed the old state is still true gets surprised by the new one.
 
 *[Beat.]*
 
-The order matters here too. You don't remove locks before checking for personnel. You don't re-energize before replacing guards. You don't skip the notification because the job already feels done. Each step protects against a specific failure.
+The order matters here too. You don't remove locks before checking for personnel. You don't re-energize before notifying that the devices are off. You don't skip the closing notification because the job already feels done. Each step protects against a specific failure.
 
 ---
 
@@ -162,7 +178,7 @@ Three more edge cases. These aren't exceptions someone made up to save time. The
 <!-- Panel-logic reasoning: Single panel, hand on the plug, not the tool. The image needs to teach the exclusive-control condition, not just "this is a pluggable tool." Picture-specific — the hand's position on the plug IS the point. New panel; flag for the image manifest. -->
 
 **NARRATOR (V.O.):**
-First: cord-and-plug equipment. A bench grinder. A portable drill. Anything you can unplug. If you unplug it, and the plug stays in your control — your hand, your pocket, your sight — the whole time you're working on it, this standard doesn't require lockout/tagout on that piece of equipment.
+First: cord-and-plug equipment. A bench grinder. A portable drill. Anything you can unplug. If you unplug it, and the plug stays under your exclusive control — your hand, your pocket, not set down anywhere someone else could reach it — the whole time you're working on it, this standard doesn't require lockout/tagout on that piece of equipment.
 
 <!-- source_ref: { citation: "29 CFR 1910.147(a)(2)(iii)(A)", url: "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(a)(2)(iii)(A)", anchor: "Work on cord and plug connected electric equipment for which exposure to the hazards of unexpected energization or start up of the equipment is controlled by the unplugging of the equipment from the energy source and by the plug being under the exclusive control of the employee performing the servicing or maintenance." } -->
 
@@ -381,7 +397,7 @@ Everyone goes home safe.
 *[VISUAL: Module 3 summary card]*
 
 **Key Concepts:**
-- Restoring equipment has its own eight-step sequence — check for personnel before removing any locks, and notify affected employees at the end, not just before you start
+- Restoring equipment has its own nine-step sequence — check for personnel before removing any locks, notify that devices are removed before re-energizing, and notify that the job is complete once it's running
 - Group lockout: one person, one lock still applies — the lockbox method scales the principle
 - Shift changes: new lock ON before old lock OFF — the overlap eliminates the gap
 - Scope exclusions: cord-and-plug, minor servicing, and testing/positioning are narrow, fenced exceptions — not shortcuts
