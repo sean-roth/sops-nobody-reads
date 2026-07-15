@@ -1,8 +1,10 @@
 # Module 3 — Slide → Image Manifest
 
-Built against the regenerated `module-03.json` (now 33 slides after Pass-6's BLOCKER-1.1 and FRICTION-2.1 fixes), Phase 4b of the LOTO Pass-4 rework. Every candidate below was opened and visually checked against the new slide content — not filename-matched.
+Built against the regenerated `module-03.json` (now 36 slides after Pass-7's notification-ordering split and affected-becomes-authorized restoration; was 33 after Pass-6's BLOCKER-1.1 and FRICTION-2.1 fixes), Phase 4b of the LOTO Pass-4 rework. Every candidate below was opened and visually checked against the new slide content — not filename-matched.
 
 **Pass-6 update (FIX 6):** every file listed under "Rejected" and "Not individually viewed this pass" below has been moved to `courses/loto/_quarantine/module-03/img/` — out of the shipped package entirely, per audit NOTE 2.6. `s12-roles.jpg` (four-ring diagram) and `s13-documentation.jpg` (garbled text) are flagged there as unsafe to reuse without full regeneration. The "Reused" table below is now the complete, exact contents of the shipping `module-03/img/` directory.
+
+**Pass-7 note (FIX C2):** the "Emergency Lock Removal" label below is relabeled to match the course's unavailability framing (the trigger was never a regulatory "emergency," per (e)(3)). **Slide numbers in this document are not reliable** — the 07-14 round-2 audit (NOTE 3.5) flagged them as predating an earlier renumber, and Pass-7 added three more slides (the notification split plus affected-becomes-authorized) without renumbering this table row by row, since several rows were already off before that change. Treat the "Slide" column as an approximate pointer, not ground truth — `module-03.json` is the ground truth for current slide position.
 
 ## Reused (8 images — visually verified)
 
@@ -14,7 +16,7 @@ Built against the regenerated `module-03.json` (now 33 slides after Pass-6's BLO
 | 6 | Group Lockout | `s07-multiple-locks.jpg` | Four colored padlocks on one hasp, no text. Matches "each worker applies their own lock" well (script says five; four reads close enough, not a contradiction). |
 | 7 | The Lockbox Method | `s09-lockbox-method.jpg` | Open lockbox with a key inside, three padlocks on the box. Excellent match, no text. |
 | 8 | Shift Changes — Solution (overlap) | `s10-shift-overlap.jpg` | Two locks on one hasp together — visually IS the overlap concept. Strong match. |
-| 14 | Emergency Lock Removal | `s11-emergency-removal.jpg` | Single padlock on a disconnect, quiet empty facility, pliers on a workbench. Strong match, no text. |
+| 14 | Removal When the Authorized Employee Is Unavailable | `s11-emergency-removal.jpg` | Single padlock on a disconnect, quiet empty facility, pliers on a workbench. Strong match, no text. |
 | 29 | Callback closing / course recap | `s15-course-complete.jpg` | Worker walking away through a doorway, padlock on belt, dozens of padlocks visible on a panel. Strong symbolic close, no text. |
 
 ## Rejected — do not reuse
@@ -37,8 +39,8 @@ Built against the regenerated `module-03.json` (now 33 slides after Pass-6's BLO
 | 10 | **Cord-and-plug** — hand on the plug, not the tool | **Explicitly flagged in the brief.** New scope-exclusion content from Phase 4a; no prior art exists at all. |
 | 11 | **Minor-servicing** — purpose-built clearing tool in use | **Explicitly flagged in the brief.** Same — brand new content. |
 | 13 | **Testing/positioning** — five-step ordered sequence diagram | **Explicitly flagged in the brief.** Same — brand new content, procedural diagram treatment (same style as the six-steps/seven-steps visuals). |
-| 4 | Restoring Equipment — seven-step list | `s04` rejected (footprints, weak match) |
-| 16 | Emergency removal — three-elements list | No existing equivalent verified this pass |
+| 4 | Restoring Equipment — nine-step list | `s04` rejected (footprints, weak match) |
+| 16 | Removal when unavailable — three-elements list | No existing equivalent verified this pass |
 
 ## No image needed by design (remaining slides)
 

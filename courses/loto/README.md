@@ -12,9 +12,9 @@ Three-module training course on OSHA's Control of Hazardous Energy (Lockout/Tago
 
 | Module | Title | Duration | Focus |
 |--------|-------|----------|-------|
-| 1 | The Energy You Don't See | 15-20 min | Five energy types, "off" vs "safe", stored energy |
+| 1 | The Energy You Don't See | 15-20 min | Six energy sources, "off" vs "safe", stored energy |
 | 2 | The Six Steps | 20-25 min | Full lockout sequence, one-person-one-lock, verification |
-| 3 | When Simple Gets Complicated | 15-20 min | Group lockout, shift changes, emergency removal, roles |
+| 3 | When Simple Gets Complicated | 15-20 min | Group lockout, shift changes, removal when the authorized employee is unavailable, roles |
 
 ## Visual Direction
 
@@ -29,13 +29,14 @@ Sequential art methodology (panel-logic skill). Scott McCloud's principles appli
 
 - [x] SOP Analysis / Training Brief
 - [x] Scripts (all three modules)
-- [ ] LXD Decomposition (MODULE JSON)
-- [ ] Industrial Theme CSS
-- [ ] Panel Generation (Replicate)
-- [ ] HTML Player Builds
+- [x] LXD Decomposition (MODULE JSON)
+- [x] Industrial Theme CSS
+- [x] Panel Generation (Replicate)
+- [x] HTML Player Builds
 - [ ] SCORM Packaging
 
 ## Regulatory Source
 
-29 CFR 1910.147 — OSHA Control of Hazardous Energy Standard
-Source document: Texas OSHCON Sample Written Program
+29 CFR 1910.147 — OSHA Control of Hazardous Energy Standard (including Appendix A), and 29 CFR 1910.399 (Qualified Person, Subpart S) for the qualified-person reframe in Module 3.
+
+Every taught claim traces to a frozen, checksummed copy of the regulation text — not to a secondary or paraphrased source. See `sources/PROVENANCE.md` for the frozen files, fetch method, and cross-checks, and `docs/standards/DURABILITY-STANDARD.md` for the sourcing discipline this course follows.

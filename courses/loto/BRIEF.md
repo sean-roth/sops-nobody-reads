@@ -64,7 +64,7 @@ Credibility signal — demonstrates SOPs Nobody Reads understands regulated, com
 ## Knowledge Gaps (for client-specific deployment)
 
 1. Machine-specific LOTO procedures
-2. Definition of "reasonable efforts" for emergency lock removal
+2. Definition of "reasonable efforts" for lock removal when the authorized employee is unavailable
 3. When tagout alone is acceptable
 4. Real incident data / near-misses
 5. Stored energy specifics by equipment type
