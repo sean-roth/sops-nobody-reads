@@ -19,19 +19,15 @@
 
     { "type": "keypoint", "kicker": "A Barrier Against What?", "heading": "Most people think\nelectricity.", "body": "That's fair. It's the one that gets all the safety posters.", "image": "img/s06-electrical-symbol.jpg" },
 
-    { "type": "concept", "label": "Energy Source — 29 CFR 1910.147(b)", "boxText": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.", "body": "Six named sources, not five. If you only think about one, the other five can kill you while you're being careful about electricity.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } },
+    { "type": "concept", "label": "Energy Source — 29 CFR 1910.147(b)", "boxText": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.", "body": "You've worked around most of these for years without needing a list. The list matters because the one you're not thinking about is the one that gets you.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } },
 
-    { "type": "concept", "label": "Electrical Energy", "boxText": "Current flowing through conductors. Touch the wrong thing and current flows through you instead of the wire.", "body": "The breaker panel, the junction box, the motor leads. This is the danger everyone respects.", "image": "img/s07-electrical-panel.jpg" },
+    { "type": "keypoint", "kicker": "The Ones You Already Know", "heading": "Electrical.\nMechanical.\nHydraulic. Pneumatic.", "body": "Current in the wire. Motion in the gears and springs. Pressure in the fluid or the air. You've worked around all four for years — the breaker panel, the junction box, the cylinders that press and clamp and lift.", "image": "img/s09-pneumatic-system.jpg", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "hydraulic, pneumatic" } },
 
-    { "type": "keypoint", "kicker": "Two Separate Sources", "heading": "Hydraulic energy.\nPneumatic energy.", "body": "Pressurized fluid — oil in a hydraulic system, air in a pneumatic one. They press, they clamp, they lift, they cut.", "image": "img/s09-pneumatic-system.jpg", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "hydraulic, pneumatic" } },
+    { "type": "concept", "label": "The Underweighted Pair", "boxText": "Chemical. Thermal.", "body": "Corrosives and solvents in supply lines — a valve that didn't fully close, a residual you assumed was gone. Heat and cold that can burn or scald. If your work touches food processing, thermal is not a footnote — it's as real as electrical.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "thermal" } },
 
-    { "type": "concept", "label": "Mechanical Energy", "boxText": "Moving and rotating parts. Springs, flywheels — anything that stores energy in tension, compression, or rotation.", "body": "Part of how the machine works, every time it runs.", "image": "img/s08-mechanical-parts.jpg" },
+    { "type": "reveal", "kicker": "What's Still Live", "heading": "Off at the switch.\nStill live inside.", "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.", "source": { "citation": "29 CFR 1910.147(d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." } },
 
-    { "type": "keypoint", "kicker": "Reactive Substances", "heading": "Chemical energy\nin supply lines.", "body": "Corrosives. Solvents. Gases. A residual chemical in a line you assumed was empty. A valve that didn't fully close." },
-
-    { "type": "concept", "label": "Thermal Energy", "boxText": "Heat — and cold — that can burn, scald, or otherwise injure. Steam lines, ovens, hot surfaces.", "body": "If your work touches food processing, thermal is not a footnote. It's as real as electrical.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "thermal" } },
-
-    { "type": "reveal", "kicker": "What's Still Live", "heading": "This is the heart\nof this module.", "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.", "source": { "citation": "29 CFR 1910.147(d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." } },
+    { "type": "concept", "label": "Stored Energy — Defined", "boxText": "The energy that remains in a system after you've isolated it from its source.", "body": "Every one of the six sources can leave a shadow like this behind. The next few screens show you where it hides." },
 
     { "type": "concept", "label": "Electrical — Still Live", "boxText": "Capacitors hold electrical energy the way a battery does, and can discharge it through you in a fraction of a second.", "body": "They're in motors, control boards, switch gears. Flipping the breaker isn't enough." },
 
@@ -41,19 +37,13 @@
 
     { "type": "reveal", "kicker": "Not a Seventh Source", "heading": "The most common way\nstored energy kills.", "body": "A press platen held up by hydraulic pressure. A crane load held by a brake. Gravity is constant and patient — and it doesn't give warnings.", "image": "img/s11-stored-energy.jpg", "source": { "citation": "Appendix A to 29 CFR 1910.147, step (6)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147", "anchor": "Stored or residual energy (such as that in capacitors, springs, elevated machine members, rotating flywheels, hydraulic systems, and air, gas, steam, or water pressure, etc.) must be dissipated or restrained by methods such as grounding, repositioning, blocking, bleeding down, etc." } },
 
-    { "type": "keypoint", "kicker": "OSHA's Own Words", "heading": "Capacitors. Springs.\nSuspended loads. Trapped pressure.", "body": "This is what OSHA's own model procedure calls out by name as stored or residual energy — dissipated or restrained before anyone reaches into the machine." },
-
-    { "type": "reveal", "kicker": "The Convergence", "heading": "Not one energy source.\nPotentially all six.", "body": "Each one requires its own method of isolation, its own method of verification. Flipping a breaker addresses one. Maybe." },
+    { "type": "reveal", "kicker": "The Convergence", "heading": "Not one energy source.\nPotentially all six.", "body": "OSHA's own model procedure names these by name — dissipated or restrained before anyone reaches into the machine. Each one requires its own method of isolation, its own verification. Flipping a breaker addresses one. Maybe." },
 
     { "type": "scene", "label": "What Does Off Look Like?", "text": "A conveyor belt. Still. Not moving. The controls are in the off position. To every sense you have, this machine is safe." },
 
-    { "type": "reveal", "kicker": "The Thesis", "heading": "\"Off\" and \"safe\"\nare not the same word.", "body": "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated, every stored energy hazard addressed, and the isolation verified." },
-
-    { "type": "keypoint", "kicker": "", "heading": "\"Off\" is a button\nyou push.\n\"Safe\" is a process\nyou complete.", "body": "" },
+    { "type": "reveal", "kicker": "The Thesis", "heading": "\"Off\" is a button\nyou push.\n\"Safe\" is a process\nyou complete.", "body": "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated, every stored energy hazard addressed, and the isolation verified." },
 
     { "type": "scene", "label": "Back to the Cold Open", "text": "The machine in the cold open was \"off.\" The stop button worked. But the electrical disconnect wasn't locked. <em>It was off. It wasn't safe.</em>", "image": "img/s03-unlocked-disconnect.jpg" },
-
-    { "type": "concept", "label": "Stored Energy — Defined", "boxText": "The energy that remains in a system after you've isolated it from its source.", "body": "You closed the valve. New energy can't enter. But the energy already in the line? It's still there. The fluid is still pressurized." },
 
     { "type": "keypoint", "kicker": "The Principle", "heading": "Isolation stops new energy\nfrom entering.", "body": "It doesn't remove what's already present. That's why lockout/tagout has six steps, not three — the first three isolate. The next three deal with what's left." },
 
@@ -72,17 +62,9 @@
 
     { "type": "scene", "label": "Scene", "text": "The disconnect, locked. A tag filled out and hanging. A hand on the start button — pressing it. <em>Nothing happens.</em> Verification." },
 
-    { "type": "reveal", "kicker": "The Only Barrier", "heading": "Two minutes.\nFour ounces.", "body": "That's the barrier — between everything that machine could still do and the person who reaches inside it. Everyone goes home safe.", "image": "img/s13-two-minutes-padlock.jpg" },
+    { "type": "reveal", "kicker": "The Only Barrier", "heading": "Two minutes.\nFour ounces.", "body": "Four ounces of brass on a hasp. That's the barrier — between everything that machine could still do and the person who reaches inside it. Everyone goes home safe.", "image": "img/s13-two-minutes-padlock.jpg" },
 
-    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": [
-      "Lockout/tagout is a barrier, not just a procedure",
-      "OSHA names six sources: electrical, mechanical, hydraulic, pneumatic, chemical, thermal",
-      "Stored/residual energy can stay live after every source is shut off",
-      "\"Off\" and \"safe\" are not the same thing",
-      "Isolation stops new energy — it doesn't remove what's already there",
-      "The six-step sequence exists because each step closes a different gap",
-      "Simple is what makes it dangerous — simple feels skippable"
-    ], "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } }
+    { "type": "summary", "heading": "Module 1 — Key Concepts", "items": ["Lockout/tagout is a barrier — a stopped machine isn't a secured one", "OSHA names six sources: electrical, mechanical, hydraulic, pneumatic, chemical, thermal", "Stored/residual energy can stay live after every source is shut off", "\"Off\" and \"safe\" are not the same thing", "Isolation stops new energy — it doesn't remove what's already there", "The six-step sequence exists because each step closes a different gap", "Simple is what makes it dangerous — simple feels skippable"], "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } }
   ],
 
   "quiz": [
