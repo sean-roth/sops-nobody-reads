@@ -59,23 +59,43 @@
   "quiz": [
     {
       "question": "Before beginning any lockout/tagout procedure, the first thing an authorized employee should do is:",
-      "options": ["Place a padlock on the main electrical disconnect", "Review the machine-specific lockout procedure to identify all energy sources and isolation points", "Notify their supervisor that they're beginning maintenance", "Turn off the machine using the stop button"],
-      "correct": 1
+      "options": [
+        "Review the machine-specific procedure for every energy source and isolation point",
+        "Place a padlock on the machine's main electrical disconnect",
+        "Notify a supervisor that maintenance is starting",
+        "Turn the machine off using the stop button"
+      ],
+      "correct": 0
     },
     {
       "question": "Three workers are performing maintenance on the same piece of equipment. How many locks should be on the energy isolation point?",
-      "options": ["One lock — the lead worker applies it for the team", "Two locks — one from the team and one from the supervisor", "Three locks — each worker applies their own lock with their own key", "One lock with three keys, so any worker can remove it when they're done"],
+      "options": [
+        "One lock — the crew lead applies it for everyone",
+        "Two locks — one for the crew, one for the supervisor",
+        "Three locks — one per worker, each with their own key",
+        "One lock with three keys, so anyone can remove it"
+      ],
       "correct": 2
     },
     {
       "question": "After completing steps 1 through 5 of the lockout procedure, the authorized employee should:",
-      "options": ["Begin maintenance work immediately since the machine is isolated and locked", "Attempt to energize the equipment using operating controls to verify the lockout is complete", "Have a supervisor inspect the lockout before proceeding", "Wait 15 minutes to ensure all stored energy has dissipated"],
-      "correct": 1
+      "options": [
+        "Begin the maintenance work immediately since the machine is isolated",
+        "Have a supervisor personally inspect the lockout before proceeding",
+        "Wait fifteen minutes to be sure stored energy has dissipated",
+        "Try to start the machine using its normal controls to confirm the lockout holds"
+      ],
+      "correct": 3
     },
     {
-      "question": "A maintenance worker needs to replace a sensor on a machine. It's a two-minute job, and the machine is already stopped. The worker decides to skip the lockout procedure because it would take longer than the repair. This decision is:",
-      "options": ["Reasonable — the procedure is designed for major maintenance, not quick fixes", "Acceptable if the worker stays alert and watches for hazards", "Dangerous — the procedure applies regardless of job duration, and short jobs are where complacency is highest", "Fine as long as another worker stands nearby as a spotter"],
-      "correct": 2
+      "question": "Sarah needs to replace a sensor on a machine. It's a two-minute job, and the machine is already stopped. She considers skipping the lockout procedure because it would take longer than the repair itself. This is:",
+      "options": [
+        "Reasonable — the procedure is for major maintenance, not quick fixes",
+        "Dangerous — the procedure applies regardless of job length, and short jobs breed complacency",
+        "Acceptable if she stays alert and watches for hazards",
+        "Fine as long as a coworker stands by as a spotter"
+      ],
+      "correct": 1
     }
   ]
 }

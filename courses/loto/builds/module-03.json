@@ -90,23 +90,43 @@
   "quiz": [
     {
       "question": "During a shift change on a machine that's under lockout, the correct procedure is:",
-      "options": ["The outgoing crew removes their locks, then the incoming crew applies theirs", "The incoming crew applies their locks while the outgoing crew's locks are still in place, then the outgoing crew removes theirs", "The outgoing crew leaves their locks for the incoming crew to use", "A supervisor holds a master lock during the transition"],
+      "options": [
+        "Outgoing crew removes locks first, then incoming crew applies theirs",
+        "Incoming crew's locks go on before outgoing crew's locks come off",
+        "Outgoing crew leaves their locks for incoming crew to reuse",
+        "A supervisor holds a master lock through the transition"
+      ],
       "correct": 1
     },
     {
-      "question": "A worker's lock is on a machine, but they've left the facility without removing it. The correct response is:",
-      "options": ["Cut the lock immediately — production is delayed", "Leave the lock in place indefinitely until the worker returns", "Verify the worker is absent, attempt to contact them, remove the lock following the employer's documented procedure for an unavailable employee, and ensure the worker is notified before returning to work", "Have another authorized employee remove the lock since they have the same training"],
-      "correct": 2
+      "question": "Dave's lock is on a machine, but he's left the facility without removing it. The correct response is:",
+      "options": [
+        "Verify he's absent, attempt contact, follow the documented procedure, and notify him before he returns",
+        "Cut the lock immediately — production is delayed",
+        "Leave the lock in place until Dave comes back, however long that takes",
+        "Have another authorized employee remove it — same training, same authority"
+      ],
+      "correct": 0
     },
     {
       "question": "A machine has room for only one lock on its energy isolation point, but four workers need to service it. The correct approach is:",
-      "options": ["The team lead places the single lock and holds the key for the group", "Workers take turns — one works while the others wait, each applying their lock for their turn", "The coordinator locks the machine, places the key in a lockbox, and each worker places their own lock on the lockbox", "One lock is sufficient as long as everyone agrees not to remove it"],
-      "correct": 2
+      "options": [
+        "The team lead places the one lock and holds the key",
+        "Workers take turns, each applying their lock only during their shift",
+        "One lock is fine if everyone agrees not to touch it",
+        "The coordinator locks it, keys go in a lockbox, everyone locks the box"
+      ],
+      "correct": 3
     },
     {
       "question": "An operator's production line is shut down because maintenance is performing lockout/tagout on a connected machine. The operator is classified as:",
-      "options": ["An authorized employee, because they operate the equipment", "An affected employee, whose primary responsibility is to never attempt to restart locked-out equipment", "A qualified person, since this standard uses that term for anyone experienced with the equipment", "An other employee, because they aren't involved in the maintenance"],
-      "correct": 1,
+      "options": [
+        "An authorized employee, since they operate this equipment daily",
+        "An other employee, since they're not involved in the maintenance",
+        "An affected employee — their job is to never restart locked-out equipment",
+        "A qualified person, since this standard uses that term for anyone experienced with the machine"
+      ],
+      "correct": 2,
       "source": { "citation": "29 CFR 1910.399, \"Qualified person\"", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-S/subject-group-ECFR314553c63ae81f4/section-1910.399", "anchor": "Qualified person.   One who has received training in and has demonstrated skills and knowledge in the construction and operation of electric equipment and installations and the hazards involved." }
     }
   ]
