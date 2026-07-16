@@ -4,6 +4,8 @@ Built against the regenerated `module-02.json` (23 slides), Phase 4b of the LOTO
 
 **Pass-6 update (FIX 6):** every file listed under "Rejected" and "Not individually viewed this pass" below has been moved to `courses/loto/_quarantine/module-02/img/` — out of the shipped package entirely, per audit NOTE 2.6. The "Reused" table below is now the complete, exact contents of the shipping `module-02/img/` directory.
 
+**Learner-language rework update (Pass 6, current):** `module-02.json` is now **22 slides**, not 23 — REWORK-2026-07-16.md §6 merged "Tags vs. Locks" and "The Actual Structure" into one slide (keeping the surviving slide's image) and normalized the six step slides to a single type. No image was dropped or added; every image below still ships on the slide that taught its content, just possibly retyped (keypoint -> concept) rather than moved. Slide numbers below predate the rework.
+
 ## Reused (7 images — visually verified)
 
 | Slide | Content | Image | Note |
