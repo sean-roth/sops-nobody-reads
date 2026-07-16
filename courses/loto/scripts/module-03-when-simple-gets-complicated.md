@@ -1,5 +1,7 @@
 # Module 3: When Simple Gets Complicated
 
+**Superseded by `builds/module-03.json`** — the build is canonical as of the learner-language rework (2026-07-16); this script was not back-ported and no longer reflects shipped content. See `REWORK-2026-07-16.md`, decision 1.
+
 **Duration:** 15-20 minutes
 **Part:** Three — The Edge Cases
 **Course:** Lockout/Tagout — Control of Hazardous Energy
