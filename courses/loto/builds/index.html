@@ -40,14 +40,6 @@ html, body {
   z-index: 9999;
   opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grainShift 0.6s steps(4) infinite;
-}
-@keyframes grainShift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-2%, -1%); }
-  50% { transform: translate(1%, 2%); }
-  75% { transform: translate(-1%, -2%); }
-  100% { transform: translate(2%, 1%); }
 }
 
 .vignette {
@@ -61,14 +53,14 @@ html, body {
 .container {
   position: relative;
   min-height: 100vh;
-  padding: 8vh 6vw 6vh 6vw;
-  max-width: 1200px;
+  padding: clamp(3rem, 8vh, 5rem) clamp(1.5rem, 6vw, 4rem) clamp(2.5rem, 6vh, 4rem);
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 8vh;
+  margin-bottom: clamp(3rem, 8vh, 5.5rem);
 }
 
 .course-label {
@@ -76,8 +68,8 @@ html, body {
   font-size: clamp(0.7rem, 1.2vw, 0.9rem);
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  color: var(--accent-orange);
-  margin-bottom: 2vh;
+  color: var(--text-dim);
+  margin-bottom: 1.25rem;
   font-weight: 500;
 }
 
@@ -87,7 +79,7 @@ html, body {
   font-weight: 700;
   line-height: 1.1;
   color: var(--text-primary);
-  margin-bottom: 1.5vh;
+  margin-bottom: 1rem;
 }
 
 .course-subtitle {
@@ -96,7 +88,7 @@ html, body {
   font-weight: 400;
   font-style: italic;
   color: var(--accent-orange);
-  margin-bottom: 3vh;
+  margin-bottom: 1.75rem;
 }
 
 .course-description {
@@ -106,82 +98,114 @@ html, body {
   color: var(--text-dim);
   font-weight: 300;
   max-width: 55ch;
-  margin: 0 auto 1vh;
+  margin: 0 auto 0.75rem;
 }
 
 .course-meta {
   font-family: var(--font-mono);
   font-size: 0.8rem;
-  color: var(--accent-orange-dim);
+  color: var(--text-dim);
   letter-spacing: 0.1em;
 }
 
-.modules-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3vh 3vw;
-  margin-bottom: 8vh;
+.modules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: clamp(3rem, 8vh, 5.5rem);
 }
 
-.module-card {
+.module-row {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto 1.75rem;
+  align-items: center;
+  gap: 1.5rem;
   background: rgba(15,31,56,0.8);
   border: 1px solid rgba(232,237,244,0.1);
   border-radius: 8px;
-  padding: 4vh 3vw;
-  transition: all 0.3s ease;
-  position: relative;
+  padding: 1.5rem 1.75rem;
+  text-decoration: none;
+  transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
   backdrop-filter: blur(6px);
 }
 
-.module-card:hover {
-  border-color: rgba(245,158,11,0.4);
-  background: rgba(15,31,56,0.95);
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(245,158,11,0.1);
-}
-
-.module-card.available {
-  cursor: pointer;
-}
-
-.module-card.available:hover {
+.module-row:hover {
   border-color: var(--accent-orange);
-  box-shadow: 0 12px 40px rgba(245,158,11,0.2);
+  background: rgba(15,31,56,0.95);
+  transform: translateX(4px);
 }
 
-.module-number {
+.module-row:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 3px;
+}
+
+.row-number {
   font-family: var(--font-display);
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--accent-orange);
-  margin-bottom: 1vh;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  line-height: 1;
+  text-align: center;
 }
 
-.module-title {
+.row-title {
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.3;
-  margin-bottom: 1.5vh;
+  line-height: 1.25;
+  margin-bottom: 0.35rem;
 }
 
-.module-part {
+.row-hook {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.row-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.4rem;
+  text-align: right;
+}
+
+.row-part {
   font-family: var(--font-mono);
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   color: var(--text-dim);
-  margin-bottom: 2vh;
-  opacity: 0.8;
+}
+
+.row-duration {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--text-dim);
+  opacity: 0.85;
+}
+
+.row-arrow {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  color: var(--accent-orange);
+  transition: transform 0.25s ease;
+}
+
+.module-row:hover .row-arrow,
+.module-row:focus-visible .row-arrow {
+  transform: translateX(4px);
 }
 
 .contact-section {
   text-align: center;
-  margin-bottom: 6vh;
-  padding: 6vh 0;
+  margin-bottom: 2.5rem;
+  padding: 3.5rem 0;
   border-top: 1px solid rgba(232,237,244,0.08);
 }
 
@@ -190,7 +214,7 @@ html, body {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 2vh;
+  margin-bottom: 1.25rem;
 }
 
 .contact-subtext {
@@ -199,13 +223,13 @@ html, body {
   color: var(--text-dim);
   font-weight: 300;
   max-width: 50ch;
-  margin: 0 auto 4vh;
+  margin: 0 auto 2.25rem;
   line-height: 1.6;
 }
 
 .contact-btn {
   display: inline-block;
-  padding: 1.8vh 3vw;
+  padding: 0.9rem 2rem;
   background: var(--accent-orange-dim);
   border: 1px solid var(--accent-orange);
   border-radius: 6px;
@@ -216,7 +240,7 @@ html, body {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background 0.25s, color 0.25s, transform 0.25s, box-shadow 0.25s;
   text-decoration: none;
 }
 
@@ -227,13 +251,18 @@ html, body {
   box-shadow: 0 8px 24px rgba(245,158,11,0.3);
 }
 
+.contact-btn:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 3px;
+}
+
 .contact-email {
   display: block;
-  margin-top: 2vh;
+  margin-top: 1.25rem;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   color: var(--text-dim);
-  opacity: 0.7;
+  opacity: 0.85;
 }
 
 .contact-email a {
@@ -247,7 +276,7 @@ html, body {
 
 .brand-footer {
   text-align: center;
-  padding-top: 4vh;
+  padding-top: 2.25rem;
   border-top: 1px solid rgba(232,237,244,0.06);
 }
 
@@ -270,40 +299,53 @@ html, body {
 
 .regulatory-line {
   font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   color: var(--text-dim);
-  opacity: 0.6;
-  margin-top: 1vh;
+  opacity: 0.85;
+  margin-top: 0.6rem;
   letter-spacing: 0.1em;
 }
 
-.container::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 3;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.02) 2px,
-    rgba(0,0,0,0.02) 4px
-  );
+@media (max-width: 768px) {
+  .module-row {
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.4rem 1rem;
+    padding: 1.25rem 1.25rem;
+  }
+
+  .row-number {
+    font-size: 1.5rem;
+    grid-row: 1;
+  }
+
+  .row-main {
+    grid-row: 1;
+  }
+
+  .row-side {
+    grid-column: 2;
+    grid-row: 2;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+    text-align: left;
+  }
+
+  .row-arrow {
+    display: none;
+  }
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 4vh 4vw;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
   }
-  
-  .modules-grid {
-    grid-template-columns: 1fr;
-    gap: 2.5vh;
-  }
-  
-  .module-card {
-    padding: 3vh 4vw;
+
+  .module-row:hover,
+  .contact-btn:hover,
+  .module-row:hover .row-arrow {
+    transform: none;
   }
 }
 </style>
@@ -327,24 +369,45 @@ Control of Hazardous Energy</h1>
   </header>
 
 
-  <main class="modules-grid">
-    <article class="module-card available" onclick="window.location.href='module-01/index.html'">
-      <div class="module-number">Module 1</div>
-      <h2 class="module-title">The Energy You Don't See</h2>
-      <div class="module-part">Part One — Respect the Simple Thing</div>
-    </article>
+  <main class="modules-list">
+    <a class="module-row" href="module-01/index.html">
+      <div class="row-number">01</div>
+      <div class="row-main">
+        <h2 class="row-title">The Energy You Don't See</h2>
+        <p class="row-hook">&ldquo;Off&rdquo; and &ldquo;safe&rdquo; are not the same word. Start here.</p>
+      </div>
+      <div class="row-side">
+        <span class="row-part">Part One — Respect the Simple Thing</span>
+        <span class="row-duration">~20 min</span>
+      </div>
+      <span class="row-arrow" aria-hidden="true">&rarr;</span>
+    </a>
 
-    <article class="module-card available" onclick="window.location.href='module-02/index.html'">
-      <div class="module-number">Module 2</div>
-      <h2 class="module-title">The Six Steps</h2>
-      <div class="module-part">Part Two — The Procedure That Keeps You Alive</div>
-    </article>
+    <a class="module-row" href="module-02/index.html">
+      <div class="row-number">02</div>
+      <div class="row-main">
+        <h2 class="row-title">The Six Steps</h2>
+        <p class="row-hook">A sign is a request. A lock is a fact.</p>
+      </div>
+      <div class="row-side">
+        <span class="row-part">Part Two — The Procedure That Keeps You Alive</span>
+        <span class="row-duration">~15 min</span>
+      </div>
+      <span class="row-arrow" aria-hidden="true">&rarr;</span>
+    </a>
 
-    <article class="module-card available" onclick="window.location.href='module-03/index.html'">
-      <div class="module-number">Module 3</div>
-      <h2 class="module-title">When Simple Gets Complicated</h2>
-      <div class="module-part">Part Three — The Edge Cases</div>
-    </article>
+    <a class="module-row" href="module-03/index.html">
+      <div class="row-number">03</div>
+      <div class="row-main">
+        <h2 class="row-title">When Simple Gets Complicated</h2>
+        <p class="row-hook">Shift changes, group lockout, and the exceptions people get wrong.</p>
+      </div>
+      <div class="row-side">
+        <span class="row-part">Part Three — The Edge Cases</span>
+        <span class="row-duration">~25 min</span>
+      </div>
+      <span class="row-arrow" aria-hidden="true">&rarr;</span>
+    </a>
   </main>
 
   <section class="contact-section">
