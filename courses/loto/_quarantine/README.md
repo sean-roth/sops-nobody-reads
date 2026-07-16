@@ -26,6 +26,16 @@ relabel — before it goes anywhere near a shipped build.
 first checking it against the current script and JSON** — several of these were built
 for narrative beats or taxonomies that no longer exist in the course.
 
+## `module-01/img/s07-electrical-panel.jpg`, `s08-mechanical-parts.jpg`; `module-03/img/s06-headcount.jpg` (added learner-language rework, Pass 6)
+
+Orphaned by the rework's slide merges/cuts, not content defects. M1's "Electrical Energy"
+and "Mechanical Energy" slides merged into "The Ones You Already Know" (keeping only the
+surviving slide's own image, per REWORK-2026-07-16.md §2/§12: image refs may move with a
+slide or drop on merge, no new images). M3's "The Critical Ones" slide was cut entirely,
+its emphasis folded into the restoration list items' own text. All three images are clean
+and reusable if a future pass regenerates the merged slides into separate ones again —
+check against the current script and JSON first, same rule as everything else here.
+
 ## `IMAGE-PROMPTS.md` (added Pass-7, FIX C2)
 
 Not an image — the pre-rework prompt/planning document, moved here whole because it sat

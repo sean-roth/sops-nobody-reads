@@ -1,5 +1,7 @@
 # Module 2: The Six Steps
 
+**Superseded by `builds/module-02.json`** — the build is canonical as of the learner-language rework (2026-07-16); this script was not back-ported and no longer reflects shipped content. See `REWORK-2026-07-16.md`, decision 1.
+
 **Duration:** 20-25 minutes
 **Part:** Two — The Procedure That Keeps You Alive
 **Course:** Lockout/Tagout — Control of Hazardous Energy
