@@ -15,9 +15,9 @@
 
     { "type": "reveal", "kicker": "The Difference", "heading": "He stopped the machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything." },
 
-    { "type": "keypoint", "kicker": "What Most People Think", "heading": "LOTO is just putting\na padlock on a breaker", "body": "And that's not wrong, exactly. But it's so incomplete that it might as well be. Lockout/tagout isn't a procedure. It's a barrier.", "image": "img/s05-simple-padlock.jpg" },
+    { "type": "keypoint", "kicker": "What Most People Think", "heading": "LOTO is just putting\na padlock on a breaker", "body": "And that's not wrong, exactly. But it's so incomplete that it might as well be. Lockout/tagout isn't just a procedure. It's a barrier.", "image": "img/s05-simple-padlock.jpg" },
 
-    { "type": "keypoint", "kicker": "", "heading": "Most people think\nelectricity.", "body": "That's fair. It's the one that gets all the safety posters.", "image": "img/s06-electrical-symbol.jpg" },
+    { "type": "keypoint", "kicker": "A Barrier Against What?", "heading": "Most people think\nelectricity.", "body": "That's fair. It's the one that gets all the safety posters.", "image": "img/s06-electrical-symbol.jpg" },
 
     { "type": "concept", "label": "Energy Source — 29 CFR 1910.147(b)", "boxText": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.", "body": "Six named sources, not five. If you only think about one, the other five can kill you while you're being careful about electricity.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy." } },
 
@@ -31,7 +31,7 @@
 
     { "type": "concept", "label": "Thermal Energy", "boxText": "Heat — and cold — that can burn, scald, or otherwise injure. Steam lines, ovens, hot surfaces.", "body": "If your work touches food processing, thermal is not a footnote. It's as real as electrical.", "source": { "citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "thermal" } },
 
-    { "type": "reveal", "kicker": "Movement B — What's Still Live", "heading": "This is the heart\nof this module.", "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.", "source": { "citation": "29 CFR 1910.147(d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." } },
+    { "type": "reveal", "kicker": "What's Still Live", "heading": "This is the heart\nof this module.", "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.", "source": { "citation": "29 CFR 1910.147(d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe." } },
 
     { "type": "concept", "label": "Electrical — Still Live", "boxText": "Capacitors hold electrical energy the way a battery does, and can discharge it through you in a fraction of a second.", "body": "They're in motors, control boards, switch gears. Flipping the breaker isn't enough." },
 
