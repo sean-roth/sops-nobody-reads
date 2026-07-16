@@ -56,3 +56,5 @@ This reading is also the only one under which Appendix A is internally consisten
 | 3. Notification-ordering conflict (Appendix A vs. (e)(2)(ii)) | Resolution applied to main in Pass-7 — pending Sean's sign-off |
 
 Route items 2 and 3 through the conflict-log / decision-record process (Durability Standard §5) when Sean is ready to rule on them.
+
+Approved — Sean, 07-15-2026
