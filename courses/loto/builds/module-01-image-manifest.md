@@ -4,7 +4,9 @@ Built against the regenerated `module-01.json` (32 slides), Phase 2 of the LOTO 
 
 **Learner-language rework update (Pass 6):** `module-01.json` was **27 slides**, not 32 — REWORK-2026-07-16.md §5 merged the five separate energy-type slides (old 9–13: electrical, hydraulic/pneumatic, mechanical, chemical, thermal) into two ("The Ones You Already Know" and "The Underweighted Pair"). The surviving merged slide kept `s09-pneumatic-system.jpg` (it also carries the hydraulic/pneumatic source citation); `s07-electrical-panel.jpg` and `s08-mechanical-parts.jpg` were no longer referenced and were quarantined. No other image assignments changed at that pass.
 
-**Gate B fix pass 2 update (current):** `module-01.json` is now **26 slides**. FIX 4 merged the two "most people think" slides into one, kept `s05-simple-padlock.jpg` (the surviving slide's own image), and orphaned `s06-electrical-symbol.jpg` — quarantined (`_quarantine/module-01/img/`, see that folder's README; clean, reusable if the merge is ever undone). No other image assignment changed this pass. Slide numbers throughout the rest of this file predate both passes and no longer line up 1:1 with current positions; `module-01.json` is the ground truth for current slide position.
+**Gate B fix pass 2 update:** `module-01.json` was **26 slides**. FIX 4 merged the two "most people think" slides into one, kept `s05-simple-padlock.jpg` (the surviving slide's own image), and orphaned `s06-electrical-symbol.jpg` — quarantined. No other image assignment changed at that pass.
+
+**Final polish pass update (current):** `module-01.json` is now **25 slides**. Cut "What Does Off Look Like?" (redundant off/safe scene-setup, FIX 5) — that slide carried no image, so nothing was orphaned this pass. No image assignment changed. Slide numbers throughout the rest of this file predate all three passes and no longer line up 1:1 with current positions; `module-01.json` is the ground truth for current slide position.
 
 Every existing image in `courses/loto/builds/module-01/img/` was opened and visually checked against the new slide content before being marked as a candidate — not assumed from its filename.
 
