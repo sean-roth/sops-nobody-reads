@@ -36,6 +36,13 @@ its emphasis folded into the restoration list items' own text. All three images 
 and reusable if a future pass regenerates the merged slides into separate ones again —
 check against the current script and JSON first, same rule as everything else here.
 
+## `module-01/img/s06-electrical-symbol.jpg` (added Gate B fix pass 2)
+
+Orphaned by the same class of merge as the entry above: "What Most People Think" and "A
+Barrier Against What?" merged into one slide (FIX 4, two "most people think" slides before
+content), keeping only the surviving slide's own image (`s05-simple-padlock.jpg`). Clean,
+reusable if the merge is ever undone — check against current script and JSON first.
+
 ## `IMAGE-PROMPTS.md` (added Pass-7, FIX C2)
 
 Not an image — the pre-rework prompt/planning document, moved here whole because it sat
