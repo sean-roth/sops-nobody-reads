@@ -7,7 +7,7 @@
   "slides": [
     { "type": "title", "moduleLabel": "Module 3", "heading": "When Simple\nGets Complicated", "subtitle": "Part Three — The Edge Cases", "brand": "SOPs Nobody Reads" },
 
-    { "type": "scene", "label": "Cold Open", "text": "Shift change. A factory floor, afternoon bleeding into evening. Dave pulls his lock off the disconnect and heads for the exit — outgoing crew, done for the day.", "image": "img/s01-shift-change.jpg" },
+    { "type": "scene", "label": "Shift Change", "text": "Shift change. A factory floor, afternoon bleeding into evening. Dave pulls his lock off the disconnect and heads for the exit — outgoing crew, done for the day.", "image": "img/s01-shift-change.jpg" },
 
     { "type": "concept", "label": "The Gap", "boxText": "For the next four minutes, this machine is unprotected.", "body": "The outgoing crew pulled their locks. The incoming crew hasn't applied theirs yet. In that gap, anyone could start this machine.", "image": "img/s02-gap-in-protection.jpg" },
 
@@ -27,17 +27,14 @@
       { "num": "7.", "text": "<strong>Notify — devices removed.</strong> Before the machine restarts, not after — they need to know first." }
     ], "source": { "citation": "29 CFR 1910.147(e)(2)(ii)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(e)(2)(ii)", "anchor": "After lockout or tagout devices have been removed and before a machine or equipment is started, affected employees shall be notified that the lockout or tagout device(s) have been removed." } },
 
-    { "type": "list", "label": "Ending a Lockout", "heading": "Back Online", "items": [
-      { "num": "8.", "text": "<strong>Re-energize.</strong> Follow the documented startup sequence." },
-      { "num": "9.", "text": "<strong>Notify — ready for use.</strong> A separate notice, once the job's actually done." }
-    ], "source": { "citation": "29 CFR 1910.147(c)(9); Appendix A, Restoring Equipment to Service, step (5)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(9)", "anchor": "(c)(9): \"Affected employees shall be notified by the employer or authorized employee of the application and removal of lockout devices or tagout devices. Notification shall be given before the controls are applied, and after they are removed from the machine or equipment.\" / Appendix A step (5): \"Notify affected employees that the servicing or maintenance is completed and the machine or equipment is ready for use.\"" } },
+    { "type": "reveal", "kicker": "Back Online", "heading": "Re-energize.\nThen tell them\nit's done.", "body": "Follow the documented startup sequence. Then a separate notice — once the job's actually complete, affected employees hear it's ready for use.", "source": { "citation": "29 CFR 1910.147(c)(9); Appendix A, Restoring Equipment to Service, step (5)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(c)(9)", "anchor": "(c)(9): \"Affected employees shall be notified by the employer or authorized employee of the application and removal of lockout devices or tagout devices. Notification shall be given before the controls are applied, and after they are removed from the machine or equipment.\" / Appendix A step (5): \"Notify affected employees that the servicing or maintenance is completed and the machine or equipment is ready for use.\"" } },
 
     { "type": "options", "heading": "Who Gets Told, When", "options": [
-      { "letter": "1", "title": "Before locks go on", "desc": "Affected employees are notified." },
-      { "letter": "2", "title": "Locks coming off, before restart", "desc": "Affected employees are notified." },
-      { "letter": "3", "title": "Job complete, machine running", "desc": "Affected employees are notified." },
-      { "letter": "4", "title": "Lock removed in your absence", "desc": "You're notified, before you return to any equipment." },
-      { "letter": "5", "title": "Shift change", "desc": "The handoff is the notification." }
+      { "letter": "1", "title": "Before locks go on", "desc": "The people who'll be affected know it's about to happen." },
+      { "letter": "2", "title": "Locks coming off, before restart", "desc": "They know before it can move again — not after." },
+      { "letter": "3", "title": "Job complete, machine running", "desc": "A separate notice, once the job's actually finished." },
+      { "letter": "4", "title": "Lock removed in your absence", "desc": "You're told before you touch anything, not after." },
+      { "letter": "5", "title": "Shift change", "desc": "The handoff itself is the notice — no separate step needed." }
     ] },
 
     { "type": "scene", "label": "When They're Not Available", "text": "A disconnect with a single lock. Shift's over. Dave's lock. Dave's gone. Not answering his phone.", "image": "img/s11-emergency-removal.jpg" },
@@ -46,7 +43,7 @@
 
     { "type": "reveal", "kicker": "Why Notification Matters", "heading": "The lock removal isn't\ncomplete until they know.", "body": "A worker returning to a machine they think is locked out, reaching in confident — that's the alternative this requirement prevents." },
 
-    { "type": "keypoint", "kicker": "Three Edge Cases", "heading": "Written into the standard,\nnot made up to save time.", "body": "Places where the standard draws its own boundaries. Learn them as boundaries, not shortcuts." },
+    { "type": "keypoint", "kicker": "Three Edge Cases", "heading": "The standard draws\nits own boundaries\nin three places.", "body": "Cord-and-plug equipment. Minor servicing. Testing and positioning. Each one is narrow and specific." },
 
     { "type": "concept", "label": "Cord-and-Plug Equipment", "boxText": "Unplugged AND under your exclusive control — both, not one.", "body": "A bench grinder. A portable drill. If the plug stays under your exclusive control — your hand, your pocket, not set down anywhere someone else could reach it — this standard doesn't require lockout on it.", "source": { "citation": "29 CFR 1910.147(a)(2)(iii)(A)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(a)(2)(iii)(A)", "anchor": "Work on cord and plug connected electric equipment for which exposure to the hazards of unexpected energization or start up of the equipment is controlled by the unplugging of the equipment from the energy source and by the plug being under the exclusive control of the employee performing the servicing or maintenance." } },
 

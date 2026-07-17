@@ -7,11 +7,11 @@
   "slides": [
     { "type": "title", "moduleLabel": "Module 2", "heading": "The Six Steps", "subtitle": "Part Two — The Procedure That Keeps You Alive", "brand": "SOPs Nobody Reads" },
 
-    { "type": "scene", "label": "Cold Open", "text": "A breaker panel in a hallway. A handwritten sign: \"DO NOT TURN ON — Mike working on Line 3.\" A hand reaches past it and flips the breaker to ON." },
+    { "type": "scene", "label": "The Breaker Panel", "text": "A breaker panel in a hallway. A handwritten sign: \"DO NOT TURN ON — Mike working on Line 3.\" A hand reaches past it and flips the breaker to ON." },
 
     { "type": "reveal", "kicker": "The Difference", "heading": "A sign is not\na lock.", "body": "A sign is a request. A lock is a fact. And the difference between a request and a fact is the distance between going home tonight and not." },
 
-    { "type": "keypoint", "kicker": "Why Order Matters", "heading": "Six steps.\nEach one closes\na different gap.", "body": "You already know why. Each step handles something the previous step couldn't — skip a layer and there's a gap, and a gap in this process is a gap in your protection." },
+    { "type": "keypoint", "kicker": "Why Order Matters", "heading": "Six steps.\nEach one closes\na different gap.", "body": "You already proved that. Here's the six steps that do it." },
 
     { "type": "concept", "label": "Step One — Prepare", "boxText": "Find the machine-specific lockout procedure — every energy source, where it enters, what device isolates it.", "body": "This is the step most people skip. It feels like paperwork. But this form is the map. Guessing gets people hurt.", "image": "img/s05-prepare.jpg" },
 
@@ -33,7 +33,7 @@
 
     { "type": "reveal", "kicker": "Reaccumulation", "heading": "Sometimes step five\nisn't a one-time check.", "body": "Pneumatics re-pressurize. Capacitors recharge. Hydraulic pressure creeps back. If that's possible here, verification continues for as long as the job takes.", "source": { "citation": "29 CFR 1910.147(d)(5)(ii)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(ii)", "anchor": "If there is a possibility of reaccumulation of stored energy to a hazardous level, verification of isolation shall be continued until the servicing or maintenance is completed, or until the possibility of such accumulation no longer exists." } },
 
-    { "type": "concept", "label": "Step Six — Verify", "boxText": "Push the button. Wait for the silence.", "body": "Try to start the machine. If nothing happens, the lockout is complete. Verification isn't trust — it's proof. After verification, return controls to OFF or NEUTRAL before you begin work.", "image": "img/s10-verify.jpg" },
+    { "type": "concept", "label": "Step Six — Verify", "boxText": "Push the button. Wait for the silence.", "body": "Try to start the machine. If nothing happens, the lockout is complete. Return controls to OFF or NEUTRAL before you begin work. Verification isn't trust — it's proof.", "image": "img/s10-verify.jpg" },
 
     { "type": "list", "label": "Why People Skip It", "heading": "The Excuses", "items": [
       { "num": "1.", "text": "<strong>\"It's quick.\"</strong> Five-minute fix. In and out." },
