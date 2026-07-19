@@ -11,11 +11,11 @@
 
     { "type": "reveal", "kicker": "The Difference", "heading": "A sign is not\na lock.", "body": "A sign is a request. A lock is a fact. And the difference between a request and a fact is the distance between going home tonight and not." },
 
-    { "type": "keypoint", "kicker": "Why Order Matters", "heading": "Six steps.\nEach one closes\na different gap.", "body": "You already proved that. Here's the six steps that do it." },
+    { "type": "teaching-caption", "kicker": "Why Order Matters", "heading": "Six steps.\nEach one closes\na different gap.", "body": "You already proved that. Here's the six steps that do it." },
 
     { "type": "concept", "label": "Step One — Prepare", "boxText": "Find the machine-specific lockout procedure — every energy source, where it enters, what device isolates it.", "body": "This is the step most people skip. It feels like paperwork. But this form is the map. Guessing gets people hurt.", "image": "img/s05-prepare.jpg" },
 
-    { "type": "keypoint", "kicker": "Step One — Notify", "heading": "Notify everyone\naffected.", "body": "What's being locked out. Why. How long. Who's responsible. An affected employee who doesn't know about the lockout might try to start the machine." },
+    { "type": "teaching-caption", "kicker": "Step One — Notify", "heading": "Notify everyone\naffected.", "body": "What's being locked out. Why. How long. Who's responsible. An affected employee who doesn't know about the lockout might try to start the machine." },
 
     { "type": "concept", "label": "Step Two — Shutdown", "boxText": "Wait for zero. Not \"almost stopped.\"", "body": "Use the normal stopping procedure — the one documented, the one you were trained on.", "image": "img/s06-shutdown.jpg" },
 
@@ -23,7 +23,7 @@
 
     { "type": "concept", "label": "Step Four — Lock", "boxText": "The physical barrier. Only you have the key.", "body": "Once this lock is on, the disconnect cannot move to ON. Not by accident. Not by anyone, for any reason, unless they have the key.", "image": "img/s08-lockout.jpg" },
 
-    { "type": "keypoint", "kicker": "One Person, One Lock", "heading": "Each worker applies their own lock. Each lock has one key.", "body": "If three people are working on the machine, three locks go on. No one removes someone else's lock — ever, except through one narrow, employer-directed procedure for when that person isn't available (Module 3)." },
+    { "type": "teaching-caption", "kicker": "One Person, One Lock", "heading": "Each worker applies their own lock. Each lock has one key.", "body": "If three people are working on the machine, three locks go on. No one removes someone else's lock — ever, except through one narrow, employer-directed procedure for when that person isn't available (Module 3)." },
 
     { "type": "reveal", "kicker": "Why No Master Keys", "heading": "Your lock.\nYour key.\nYour guarantee.", "body": "A master key means someone else can override your decision that the machine isn't safe yet. Your life, someone else's judgment. That's not a system. That's a gamble." },
 
@@ -35,7 +35,7 @@
 
     { "type": "concept", "label": "Step Six — Verify", "boxText": "Push the button. Wait for the silence.", "body": "Try to start the machine. If nothing happens, the lockout is complete. Return controls to OFF or NEUTRAL before you begin work. Verification isn't trust — it's proof.", "image": "img/s10-verify.jpg" },
 
-    { "type": "list", "label": "Why People Skip It", "heading": "The Excuses", "items": [
+    { "type": "consolidation", "label": "Why People Skip It", "heading": "The Excuses", "items": [
       { "num": "1.", "text": "<strong>\"It's quick.\"</strong> Five-minute fix. In and out." },
       { "num": "2.", "text": "<strong>\"I've done it before.\"</strong> A hundred times. Nothing happened." },
       { "num": "3.", "text": "<strong>\"It's already off.\"</strong> They pressed the stop button." },
@@ -45,15 +45,15 @@
 
     { "type": "reveal", "kicker": "The Truth", "heading": "Most of the time,\nnothing bad happens.", "body": "That's the truth. But \"most of the time\" is not \"always.\" And the one time it isn't fine, there's no partial outcome." },
 
-    { "type": "keypoint", "kicker": "The Whole Point", "heading": "Simple enough that\nthere's no good reason\nnot to do it.", "body": "Every time. Even the five-minute jobs. Especially the five-minute jobs." },
+    { "type": "teaching-caption", "kicker": "The Whole Point", "heading": "Simple enough that\nthere's no good reason\nnot to do it.", "body": "Every time. Even the five-minute jobs. Especially the five-minute jobs." },
 
-    { "type": "scene", "label": "Back to the Breaker Panel", "text": "The same breaker panel. The sign is gone. In its place: a padlock, a tag, properly filled out. The breaker physically cannot be flipped." },
+    { "type": "callback", "label": "Back to the Breaker Panel", "text": "The same breaker panel. The sign is gone. In its place: a padlock, a tag, properly filled out. The breaker physically cannot be flipped." },
 
     { "type": "scene", "label": "Scene", "text": "Inside the machine. Gloved hands working steadily. Unhurried. They know the machine is safe because they made it safe." },
 
     { "type": "reveal", "kicker": "The Only Difference", "heading": "A sign is a request.\nA lock is a fact.", "body": "Six steps. A few minutes. A padlock. Everyone goes home safe." },
 
-    { "type": "summary", "heading": "Module 2 — Key Concepts", "items": ["The six steps build on each other — each one handles what the previous step couldn't", "Prepare: identify all energy sources using the machine-specific procedure", "Shutdown: use normal stopping procedures, verify all movement has stopped", "Isolate: disconnect from every energy source, not just electrical", "Lock: one person, one lock, no master keys — your lock is your personal guarantee", "Stored energy: address what's left; where energy can build back, verification continues until the job is done", "Verify: try to start the machine — silence is proof", "Tags supplement locks but never replace them by default"] }
+    { "type": "consolidation", "heading": "Module 2 — Key Concepts", "items": ["The six steps build on each other — each one handles what the previous step couldn't", "Prepare: identify all energy sources using the machine-specific procedure", "Shutdown: use normal stopping procedures, verify all movement has stopped", "Isolate: disconnect from every energy source, not just electrical", "Lock: one person, one lock, no master keys — your lock is your personal guarantee", "Stored energy: address what's left; where energy can build back, verification continues until the job is done", "Verify: try to start the machine — silence is proof", "Tags supplement locks but never replace them by default"] }
   ],
 
   "quiz": [
