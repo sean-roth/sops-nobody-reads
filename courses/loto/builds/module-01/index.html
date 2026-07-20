@@ -5,67 +5,64 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Module 1: The Energy You Don't See | SOPs Nobody Reads</title>
 <style>
-/* ============================================
-   SOPs Nobody Reads — Module Player
-   Aesthetic: Industrial Safety / OSHA Training
-   Industrial theme: Steel, safety yellow, warning red
-   ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;600;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-dark: #1a1a1a;
-  --bg-card: #2a2a2a;
-  --bg-warm: #333333;
-  --steel: #e5e7eb;
-  --steel-dim: #9ca3af;
-  --safety-yellow: #fbbf24;
-  --warning-red: #ef4444;
-  --caution-orange: #f59e0b;
-  --steel-blue: #64748b;
-  --steel-blue-light: #94a3b8;
-  --success-green: #10b981;
-  --dark-red: #7f1d1d;
-  --dark-green: #14532d;
-  --charcoal: #374151;
-  --font-display: 'Roboto Slab', Georgia, serif;
-  --font-body: 'Source Sans Pro', 'Segoe UI', sans-serif;
-  --font-ui: 'Inter', 'Segoe UI', sans-serif;
+  /* Light default — sourced from sopsnobodyreads-site/styles.css */
+  --bg: #f4ede0;
+  --bg-panel: #ece1cd;
+  --bg-panel-2: #e4d7bf;
+  --ink: #1f3a2e;
+  --ink-dim: #6b5d4a;
+  --accent: #3a1f2e;
+  --accent-wash: rgba(58, 31, 46, 0.06);
+  --accent-wash-strong: rgba(58, 31, 46, 0.12);
+  --rule: rgba(31, 58, 46, 0.12);
+  --rule-strong: rgba(31, 58, 46, 0.22);
+  --correct: #1f7a4d;
+  --incorrect: #b3261e;
+
+  /* Fixed on-image scheme — LOTO's industrial-noir imagery is dark regardless of
+     chrome mode, so text over it stays on this scheme in both light and dark (§S5). */
+  --onimage-ink: #f4ede0;
+  --onimage-ink-dim: #d8c9a8;
+  --onimage-scrim-from: rgba(10, 14, 11, 0.35);
+  --onimage-scrim-to: rgba(8, 11, 9, 0.86);
+
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-ui: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+
+  --measure: 40rem;
+  --page-max: 64rem;
+  --gutter: 1.5rem;
+}
+
+:root.dark {
+  --bg: #141f19;
+  --bg-panel: #1c2b22;
+  --bg-panel-2: #24362a;
+  --ink: #f2ead9;
+  --ink-dim: #b9ac95;
+  --accent: #e0a8c4;
+  --accent-wash: rgba(224, 168, 196, 0.08);
+  --accent-wash-strong: rgba(224, 168, 196, 0.16);
+  --rule: rgba(242, 234, 217, 0.14);
+  --rule-strong: rgba(242, 234, 217, 0.24);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
   height: 100%;
-  overflow: hidden;
-  background: var(--bg-dark);
-  color: var(--steel);
+  background: var(--bg);
+  color: var(--ink);
 }
 
-.grain {
-  position: fixed;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.04;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grainShift 0.8s steps(4) infinite;
-}
-@keyframes grainShift {
-  0% { transform: translate(0, 0); }
-  25% { transform: translate(-2%, -1%); }
-  50% { transform: translate(1%, 2%); }
-  75% { transform: translate(-1%, -2%); }
-  100% { transform: translate(2%, 1%); }
-}
-
-.vignette {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-  background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+body {
+  font-family: var(--font-body);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .player {
@@ -74,7 +71,6 @@ html, body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-body);
 }
 
 .slide-container {
@@ -90,604 +86,544 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   padding: 4vh 8vw;
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.5s ease;
   pointer-events: none;
-  background-color: var(--bg-dark);
+  background: var(--bg);
+  color: var(--ink);
 }
-.slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
+.slide.active { opacity: 1; pointer-events: auto; }
 
-/* --- Background image support --- */
 .slide.has-image {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  color: var(--onimage-ink);
 }
-
 .slide.has-image::before {
   content: '';
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(ellipse at center,
-    rgba(26,26,26,0.6) 0%,
-    rgba(26,26,26,0.82) 100%);
+  background: radial-gradient(ellipse at center, var(--onimage-scrim-from) 0%, var(--onimage-scrim-to) 100%);
+}
+.slide.has-image > * { position: relative; z-index: 2; }
+
+/* ============================================================
+   Register I — Source-authoritative
+   ============================================================ */
+
+/* teaching-caption — the reserved hero treatment. Only sourced truths get this. */
+.slide-teaching-caption .kicker {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 2vh;
+}
+.slide.has-image.slide-teaching-caption .kicker { color: var(--onimage-ink-dim); }
+.slide-teaching-caption h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4.4vw, 3.6rem);
+  line-height: 1.18;
+  max-width: 32ch;
+  margin-bottom: 3vh;
+}
+.slide-teaching-caption .body {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  line-height: 1.55;
+  color: var(--ink-dim);
+  max-width: 42ch;
+}
+.slide.has-image.slide-teaching-caption .body { color: var(--onimage-ink-dim); }
+
+/* concept — sourced definition, boxed. Register-I weight, panel-delimited. */
+.slide-concept .concept-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 2.5vh;
+}
+.slide.has-image.slide-concept .concept-label { color: var(--onimage-ink-dim); }
+.slide-concept .concept-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: 2.5vh 3vw;
+  margin: 0 auto 3vh;
+  max-width: 42ch;
+}
+.slide.has-image .concept-box {
+  background: rgba(20, 26, 22, 0.55);
+  border-color: rgba(244, 237, 224, 0.28);
+  backdrop-filter: blur(2px);
+}
+.slide-concept .box-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+.slide.has-image .box-text { color: var(--onimage-ink); }
+.slide-concept .body {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.5vw, 1.1rem);
+  line-height: 1.55;
+  color: var(--ink-dim);
+  max-width: 40ch;
+}
+.slide.has-image.slide-concept .body { color: var(--onimage-ink-dim); }
+
+/* consolidation — folds summary + list. Order-aware structure, Register-I authority. */
+.slide-consolidation h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  color: var(--ink);
+  margin-bottom: 4vh;
+  max-width: 34ch;
+}
+.slide-consolidation .consolidation-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 2vh;
+}
+/* list-shaped consolidation (ordered, numbered) */
+.slide-consolidation .consolidation-list {
+  list-style: none;
+  text-align: left;
+  max-width: 42ch;
+}
+.slide-consolidation .consolidation-list .c-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2.2vh;
+}
+.slide-consolidation .consolidation-list .c-num {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 1.6rem;
+}
+.slide-consolidation .consolidation-list .c-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.slide-consolidation .consolidation-list .c-text strong { color: var(--ink); font-weight: 600; }
+/* grid-shaped consolidation (unordered review) */
+.slide-consolidation .consolidation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4vh 2.5vw;
+  max-width: 52rem;
+  text-align: left;
+}
+.slide-consolidation .consolidation-grid .c-item {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.slide-consolidation .consolidation-grid .c-item::before {
+  content: '\2014';
+  color: var(--accent);
+  margin-right: 0.5em;
+  font-weight: 600;
 }
 
-.slide-scene.has-image::before {
-  background: radial-gradient(ellipse at center,
-    rgba(26,26,26,0.68) 0%,
-    rgba(26,26,26,0.88) 100%);
-}
+/* ============================================================
+   Register II — Held-up-for-examination
+   ============================================================ */
 
-.slide-concept.has-image::before {
-  background: radial-gradient(ellipse at center,
-    rgba(26,26,26,0.65) 0%,
-    rgba(26,26,26,0.85) 100%);
+/* misconception-held-up — the new container. A belief the course refutes.
+   Always lighter than teaching-caption; the "lighter" is bought with scale,
+   quotation and containment — never with sub-AA contrast (§S2/§S4). */
+.slide-misconception-held-up .misconception-frame {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+  margin-bottom: 2.5vh;
 }
-
-.slide-options.has-image::before {
-  background: radial-gradient(ellipse at center,
-    rgba(26,26,26,0.58) 0%,
-    rgba(26,26,26,0.82) 100%);
-}
-
-.slide-list.has-image::before {
-  background: radial-gradient(ellipse at center,
-    rgba(26,26,26,0.65) 0%,
-    rgba(26,26,26,0.85) 100%);
-}
-
-.slide.has-image > * {
+.slide.has-image.slide-misconception-held-up .misconception-frame { color: var(--onimage-ink-dim); }
+.slide-misconception-held-up .misconception-quote {
   position: relative;
-  z-index: 2;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.15rem, 2.4vw, 1.85rem);
+  line-height: 1.4;
+  color: var(--ink-dim);
+  max-width: 28ch;
+  padding: 0 0 0 1.2rem;
+  border-left: 3px solid var(--rule-strong);
+  text-align: left;
 }
+.slide.has-image .misconception-quote {
+  color: var(--onimage-ink-dim);
+  border-left-color: rgba(244, 237, 224, 0.35);
+}
+.slide-misconception-held-up .misconception-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  line-height: 1.5;
+  color: var(--ink-dim);
+  max-width: 38ch;
+  margin-top: 3vh;
+  opacity: 0.85;
+}
+.slide.has-image.slide-misconception-held-up .misconception-body { color: var(--onimage-ink-dim); }
 
-/* --- Slide type styles --- */
+/* options — alternatives held for comparison, non-quiz. Equal weight, all below Register I. */
+.slide-options h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  color: var(--ink);
+  margin-bottom: 4vh;
+  max-width: 34ch;
+}
+.slide.has-image .slide-options h2 { color: var(--onimage-ink); }
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vh;
+  max-width: 42rem;
+  width: 100%;
+}
+.option {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1.6vh 2vw;
+  text-align: left;
+}
+.slide.has-image .option {
+  background: rgba(20, 26, 22, 0.5);
+  border-color: rgba(244, 237, 224, 0.2);
+}
+.option-letter {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent);
+  background: var(--bg-panel-2);
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.option-content h3 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: clamp(0.92rem, 1.5vw, 1.05rem);
+  color: var(--ink);
+  margin-bottom: 0.3vh;
+}
+.slide.has-image .option-content h3 { color: var(--onimage-ink); }
+.option-content p {
+  font-family: var(--font-body);
+  font-size: clamp(0.82rem, 1.3vw, 0.95rem);
+  line-height: 1.4;
+  color: var(--ink-dim);
+}
+.slide.has-image .option-content p { color: var(--onimage-ink-dim); }
+
+/* scene — establishing / narrative beat. Image-forward, minimal low-weight text. */
+.slide-scene .scene-label {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-dim);
+  margin-bottom: 1.5vh;
+}
+.slide.has-image.slide-scene .scene-label { color: var(--onimage-ink-dim); }
+.slide-scene p {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 2vw, 1.55rem);
+  line-height: 1.45;
+  color: var(--ink-dim);
+  max-width: 38ch;
+}
+.slide.has-image.slide-scene p { color: var(--onimage-ink); }
+.slide-scene em { color: var(--accent); font-style: normal; font-weight: 600; }
+.slide.has-image.slide-scene em { color: var(--onimage-ink); text-decoration: underline; text-decoration-color: rgba(244,237,224,0.5); }
+
+/* ============================================================
+   Register III — Transitional
+   ============================================================ */
+
+/* reveal — the turn. A deliberate visual break: II gives way to I. */
+.slide-reveal {
+  background: linear-gradient(180deg, var(--accent-wash) 0%, transparent 55%);
+}
+.slide.has-image.slide-reveal::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(224,168,196,0.14) 0%, transparent 60%);
+}
+.slide-reveal .kicker {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 2vh;
+}
+.slide.has-image.slide-reveal .kicker { color: var(--onimage-ink-dim); }
+.slide-reveal h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4.2vw, 3.4rem);
+  line-height: 1.2;
+  color: var(--ink);
+  max-width: 30ch;
+  margin-bottom: 3vh;
+}
+.slide.has-image .slide-reveal h2 { color: var(--onimage-ink); }
+.slide-reveal .body {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  line-height: 1.45;
+  color: var(--accent);
+  max-width: 36ch;
+}
+.slide.has-image .slide-reveal .body { color: var(--onimage-ink-dim); }
+
+/* callback — connective reference. Echoes an earlier beat at reduced weight. */
+.slide-callback { opacity: 0.98; }
+.slide-callback .callback-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-dim);
+  opacity: 0.75;
+  margin-bottom: 1.5vh;
+}
+.slide.has-image.slide-callback .callback-label { color: var(--onimage-ink-dim); }
+.slide-callback p {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(0.98rem, 1.8vw, 1.35rem);
+  line-height: 1.45;
+  color: var(--ink-dim);
+  max-width: 36ch;
+  opacity: 0.92;
+}
+.slide.has-image.slide-callback p { color: var(--onimage-ink); }
+.slide-callback em { color: var(--accent); font-style: normal; font-weight: 600; }
+.slide.has-image.slide-callback em { color: var(--onimage-ink); text-decoration: underline; text-decoration-color: rgba(244,237,224,0.5); }
+
+/* ============================================================
+   Register IV — Frame and assessment
+   ============================================================ */
 
 .slide-title {
-  text-align: center;
-  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
+  background: var(--bg);
 }
 .slide-title .module-label {
   font-family: var(--font-ui);
-  font-size: clamp(0.7rem, 1.2vw, 0.9rem);
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--safety-yellow);
-  margin-bottom: 2vh;
+  font-size: 0.8rem;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  margin-bottom: 2.5vh;
 }
 .slide-title h1 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  color: var(--steel);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.12;
+  color: var(--ink);
   margin-bottom: 2vh;
+  max-width: 20ch;
 }
 .slide-title .subtitle {
   font-family: var(--font-body);
-  font-size: clamp(0.9rem, 1.8vw, 1.3rem);
-  color: var(--steel-dim);
   font-style: italic;
-  font-weight: 400;
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  color: var(--ink-dim);
 }
 .slide-title .brand {
   position: absolute;
   bottom: 4vh;
   font-family: var(--font-ui);
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--steel-blue);
+  color: var(--ink-dim);
+  opacity: 0.7;
 }
 
-.slide-scene {
-  text-align: center;
-  background: linear-gradient(170deg, #2a2a2a 0%, var(--bg-dark) 100%);
-}
-.slide-scene .scene-label {
+.quiz-container { max-width: 42rem; width: 100%; }
+.quiz-container h2 {
   font-family: var(--font-ui);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--caution-orange);
-  margin-bottom: 1vh;
-}
-.slide-scene p {
-  font-size: clamp(1.1rem, 2.2vw, 1.8rem);
-  line-height: 1.4;
-  color: var(--steel);
-  max-width: 65vw;
-  font-style: italic;
-}
-.slide-scene em {
-  color: var(--warning-red);
   font-weight: 600;
-  font-style: normal;
-}
-
-.slide-keypoint {
-  text-align: center;
-  background: linear-gradient(170deg, #222 0%, var(--bg-dark) 100%);
-}
-.slide-keypoint .kicker {
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--safety-yellow);
-  margin-bottom: 2vh;
-  font-weight: 600;
-}
-.slide-keypoint h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--steel);
-  margin-bottom: 3vh;
-  max-width: 80vw;
-}
-.slide-keypoint .body {
-  font-size: clamp(0.95rem, 1.8vw, 1.25rem);
-  line-height: 1.5;
-  color: var(--steel-dim);
-  max-width: 70vw;
-}
-
-.slide-reveal {
-  text-align: center;
-  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
-}
-.slide-reveal .kicker {
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--safety-yellow);
-  margin-bottom: 2vh;
-  font-weight: 600;
-}
-.slide-reveal h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4.5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.15;
-  color: var(--steel);
-  margin-bottom: 3vh;
-  max-width: 80vw;
-}
-.slide-reveal .body {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  line-height: 1.4;
-  color: var(--steel-blue);
-  max-width: 65vw;
-  font-style: italic;
-}
-
-.slide-concept {
-  text-align: center;
-  background: linear-gradient(170deg, #1e1e1e 0%, var(--bg-dark) 100%);
-}
-.slide-concept .concept-label {
-  font-family: var(--font-ui);
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--safety-yellow);
-  margin-bottom: 3vh;
-  font-weight: 600;
-}
-.slide-concept .concept-box {
-  background: var(--charcoal);
-  border: 2px solid var(--safety-yellow);
-  border-radius: 8px;
-  padding: 2.5vh 3vw;
-  margin: 0 auto 3vh;
-  max-width: 75vw;
-}
-.slide-concept .box-text {
-  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-  line-height: 1.4;
-  color: var(--steel);
-  font-weight: 600;
-}
-.slide-concept .body {
-  font-size: clamp(0.9rem, 1.7vw, 1.2rem);
-  line-height: 1.5;
-  color: var(--steel-dim);
-  max-width: 70vw;
-}
-
-.slide-list {
-  padding-left: 10vw;
-  background: linear-gradient(170deg, #1e1e1e 0%, var(--bg-dark) 100%);
-}
-.slide-list .list-label {
-  font-family: var(--font-ui);
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--safety-yellow);
+  letter-spacing: 0.18em;
+  color: var(--accent);
   margin-bottom: 2vh;
-  font-weight: 600;
 }
-.slide-list h2 {
+.quiz-question {
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-  font-weight: 700;
-  color: var(--steel);
-  margin-bottom: 4vh;
-  line-height: 1.2;
-}
-.slide-list .list-items {
-  list-style: none;
-}
-.slide-list .list-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 2.5vh;
-  max-width: 70vw;
-}
-.slide-list .item-num {
-  font-family: var(--font-ui);
-  font-size: 1.1rem;
   font-weight: 600;
-  color: var(--safety-yellow);
-  margin-right: 1.5vw;
-  min-width: 2rem;
-}
-.slide-list .item-text {
-  font-size: clamp(0.9rem, 1.7vw, 1.2rem);
-  line-height: 1.5;
-  color: var(--steel-dim);
-}
-.slide-list strong {
-  color: var(--steel);
-  font-weight: 600;
-}
-
-.slide-summary {
-  text-align: center;
-  background: linear-gradient(170deg, var(--bg-warm) 0%, var(--bg-dark) 100%);
-}
-.slide-summary h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
-  font-weight: 700;
-  color: var(--steel);
-  margin-bottom: 4vh;
-  line-height: 1.2;
-}
-.slide-summary .summary-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5vh;
-  max-width: 80vw;
-}
-.slide-summary .summary-item {
-  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.6rem);
   line-height: 1.4;
-  color: var(--steel-dim);
-  text-align: left;
-  padding: 0.5vh 0;
+  color: var(--ink);
+  margin-bottom: 3.5vh;
 }
-.slide-summary .summary-item::before {
-  content: "—";
-  color: var(--safety-yellow);
-  margin-right: 0.5em;
-  font-weight: 600;
-}
-
-.slide-options {
-  text-align: center;
-  background: linear-gradient(170deg, #222 0%, var(--bg-dark) 100%);
-}
-.slide-options h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2.3rem);
-  font-weight: 700;
-  color: var(--steel);
-  margin-bottom: 4vh;
-  line-height: 1.3;
-  max-width: 80vw;
-}
-.slide-options .options-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
-  max-width: 75vw;
-}
-.slide-options .option {
+.quiz-options { display: flex; flex-direction: column; gap: 1.2vh; margin-bottom: 2.5vh; }
+.quiz-option {
   display: flex;
   align-items: center;
-  background: var(--bg-card);
-  border: 2px solid transparent;
-  border-radius: 8px;
-  padding: 2vh 2.5vw;
+  gap: 1.25rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 1.5vh 2vw;
   text-align: left;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
 }
-.slide-options .option.highlighted {
-  border-color: var(--safety-yellow);
-  background: rgba(251, 191, 36, 0.1);
-}
-.slide-options .option-letter {
+.quiz-option:hover { border-color: var(--accent); }
+.quiz-option.selected { border-color: var(--accent); background: var(--accent-wash-strong); }
+.quiz-option.correct { border-color: var(--correct); background: rgba(31,122,77,0.09); }
+.quiz-option.incorrect { border-color: var(--incorrect); background: rgba(179,38,30,0.09); opacity: 0.75; }
+.quiz-option .option-letter {
   font-family: var(--font-ui);
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--safety-yellow);
-  background: var(--charcoal);
-  width: 2.5rem;
-  height: 2.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--bg-panel-2);
+  width: 2rem; height: 2rem;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 2vw;
+  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }
-.slide-options .option-content h3 {
-  font-size: clamp(0.95rem, 1.8vw, 1.3rem);
-  font-weight: 600;
-  color: var(--steel);
-  margin-bottom: 0.5vh;
-}
-.slide-options .option-content p {
-  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
-  line-height: 1.4;
-  color: var(--steel-dim);
+.quiz-option.correct .option-letter { background: var(--correct); color: #fff; }
+.quiz-option.incorrect .option-letter { background: var(--incorrect); color: #fff; }
+.quiz-option .option-text { font-family: var(--font-body); font-size: clamp(0.9rem, 1.5vw, 1.05rem); color: var(--ink); }
+.quiz-feedback {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  line-height: 1.5;
+  color: var(--ink-dim);
+  padding: 1.6vh 1.6vw;
+  background: var(--bg-panel);
+  border-left: 3px solid var(--accent);
+  text-align: left;
 }
 
-/* --- Bottom Bar --- */
+/* close — was results. The module's resting note, equipped not merely informed. */
+.close-container { max-width: 34rem; }
+.close-container h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  color: var(--ink);
+  margin-bottom: 2.5vh;
+}
+.close-score {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  margin: 1vh 0 2.5vh;
+}
+.close-score.pass { color: var(--correct); }
+.close-score.fail { color: var(--incorrect); }
+.close-message {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.7vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--ink-dim);
+  margin-bottom: 4vh;
+}
+.close-actions { display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+.close-note {
+  margin-top: 3vh;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+}
+
+/* ============================================================
+   Chrome — nav, progress, buttons (identical across every course, §S4)
+   ============================================================ */
 
 .bottom-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5vh 3vw;
-  background: var(--charcoal);
-  border-top: 1px solid var(--steel-blue);
+  gap: 1rem;
+  padding: 1.4vh 2.5vw;
+  background: var(--bg-panel);
+  border-top: 1px solid var(--rule);
   font-family: var(--font-ui);
 }
-
+.bottom-bar-left { display: flex; align-items: center; gap: 0.6rem; }
 .nav-btn {
   font-family: var(--font-ui);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  color: var(--steel);
+  color: var(--ink);
   background: transparent;
-  border: 1px solid var(--steel-blue);
-  border-radius: 4px;
-  padding: 0.8rem 1.2rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  padding: 0.65rem 1.1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
   text-decoration: none;
   display: inline-block;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
-.nav-btn:hover:not(:disabled) {
-  background: var(--safety-yellow);
-  color: var(--bg-dark);
-  border-color: var(--safety-yellow);
-}
-.nav-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
+.nav-btn:hover:not(:disabled) { background: var(--accent); color: #fff; border-color: var(--accent); }
+.nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.nav-btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+.nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-.progress-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.progress-track {
-  width: 200px;
-  height: 6px;
-  background: var(--bg-dark);
-  border-radius: 3px;
-  overflow: hidden;
-}
-.progress-fill {
-  height: 100%;
-  background: var(--safety-yellow);
-  border-radius: 3px;
-  transition: width 0.3s ease;
-  width: 0%;
-}
-.progress-text {
-  font-size: 0.8rem;
-  color: var(--steel-dim);
-  min-width: 4rem;
-  text-align: center;
-}
+.progress-section { display: flex; align-items: center; gap: 0.85rem; }
+.progress-track { width: 180px; height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width 0.25s ease; width: 0%; }
+.progress-text { font-size: 0.78rem; color: var(--ink-dim); min-width: 3.5rem; text-align: center; }
+.nav-buttons { display: flex; gap: 0.6rem; }
 
-.nav-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-/* --- Quiz Styles --- */
-
-.quiz-container {
-  text-align: center;
-  max-width: 80vw;
-}
-.quiz-container h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2.3rem);
-  font-weight: 700;
-  color: var(--steel);
-  margin-bottom: 4vh;
-  line-height: 1.3;
-}
-.quiz-options {
-  display: flex;
-  flex-direction: column;
-  gap: 2vh;
-  margin-bottom: 3vh;
-}
-.quiz-option {
-  display: flex;
-  align-items: center;
-  background: var(--bg-card);
-  border: 2px solid transparent;
-  border-radius: 8px;
-  padding: 2vh 2.5vw;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.quiz-option:hover {
-  border-color: var(--steel-blue);
-}
-.quiz-option.selected {
-  border-color: var(--safety-yellow);
-  background: rgba(251, 191, 36, 0.1);
-}
-.quiz-option.correct {
-  border-color: var(--success-green);
-  background: rgba(16, 185, 129, 0.1);
-}
-.quiz-option.incorrect {
-  border-color: var(--warning-red);
-  background: rgba(239, 68, 68, 0.1);
-  opacity: 0.6;
-}
-.quiz-option .option-letter {
-  font-family: var(--font-ui);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--safety-yellow);
-  background: var(--charcoal);
-  width: 2.2rem;
-  height: 2.2rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 2vw;
-  flex-shrink: 0;
-}
-.quiz-option.correct .option-letter {
-  background: var(--success-green);
-  color: white;
-}
-.quiz-option.incorrect .option-letter {
-  background: var(--warning-red);
-  color: white;
-}
-.quiz-option .option-text {
-  font-size: clamp(0.9rem, 1.7vw, 1.2rem);
-  line-height: 1.4;
-  color: var(--steel);
-}
-
-.quiz-feedback {
-  font-size: clamp(0.85rem, 1.5vw, 1.1rem);
-  line-height: 1.4;
-  color: var(--steel-dim);
-  margin-top: 2vh;
-  padding: 2vh;
-  background: var(--bg-card);
-  border-radius: 6px;
-  border-left: 4px solid var(--safety-yellow);
-}
-
-/* Results slide */
-.results-container {
-  text-align: center;
-  max-width: 70vw;
-}
-.results-container h2 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 700;
-  color: var(--steel);
-  margin-bottom: 3vh;
-}
-.score-display {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 700;
-  margin: 3vh 0;
-}
-.score-display.pass {
-  color: var(--success-green);
-}
-.score-display.fail {
-  color: var(--warning-red);
-}
-.results-message {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  line-height: 1.4;
-  color: var(--steel-dim);
-  margin-bottom: 4vh;
-}
-.results-actions {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-.results-actions .nav-btn {
-  min-width: 8rem;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .slide {
-    padding: 3vh 5vw;
-  }
-  .progress-track {
-    width: 120px;
-  }
-  .nav-buttons {
-    gap: 0.5rem;
-  }
-  .nav-btn {
-    font-size: 0.75rem;
-    padding: 0.6rem 0.8rem;
-  }
-  .slide-options .options-container,
-  .quiz-options {
-    max-width: 90vw;
-  }
-}
-
-@media (max-width: 480px) {
-  .slide {
-    padding: 2vh 4vw;
-  }
-  .bottom-bar {
-    padding: 1vh 2vw;
-  }
-  .progress-section {
-    gap: 0.5rem;
-  }
-  .progress-track {
-    width: 80px;
-  }
-}
-
-/* Text shadow for body text over dark backgrounds - enhanced */
-.slide-keypoint .body,
-.slide-reveal .body,
-.slide-concept .body,
-.slide-scene p,
-.slide-list .item-text,
-.slide-concept .box-text {
-  text-shadow: 0 2px 12px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
-}
-
-/* --- Citation chip (Reviewer mode) --- */
 .citation-chip {
   position: absolute;
-  right: 2vw;
+  right: 1.5vw;
   bottom: 1.5vh;
   z-index: 3;
   display: inline-flex;
@@ -695,58 +631,45 @@ html, body {
   gap: 0.4em;
   font-family: var(--font-ui);
   font-size: 0.72rem;
-  letter-spacing: 0.03em;
-  color: var(--steel-dim);
-  background: rgba(42,42,42,0.72);
-  border: 1px solid var(--steel-blue);
-  border-radius: 4px;
+  color: var(--ink-dim);
+  background: var(--bg-panel);
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
   padding: 0.4em 0.7em;
   text-decoration: none;
-  backdrop-filter: blur(3px);
-  transition: color 0.2s ease, border-color 0.2s ease;
 }
-.citation-chip:hover {
-  color: var(--safety-yellow);
-  border-color: var(--safety-yellow);
+.slide.has-image .citation-chip {
+  background: rgba(20,26,22,0.65);
+  border-color: rgba(244,237,224,0.3);
+  color: var(--onimage-ink-dim);
 }
-.citation-chip-icon {
-  opacity: 0.8;
+.citation-chip:hover { color: var(--accent); border-color: var(--accent); }
+
+@media (max-width: 768px) {
+  .slide { padding: 3vh 6vw; }
+  .progress-track { width: 100px; }
+  .nav-btn { font-size: 0.72rem; padding: 0.55rem 0.8rem; }
+  .options-container, .quiz-options { max-width: 90vw; }
 }
 
-/* --- Learner/Reviewer toggle --- */
-.bottom-bar-left {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
 }
-.mode-toggle-btn[aria-pressed="true"] {
-  background: var(--safety-yellow);
-  color: var(--bg-dark);
-  border-color: var(--safety-yellow);
-}
-
-
-
 
 </style>
 </head>
-
 <body>
-<div class="grain"></div>
-<div class="vignette"></div>
-
 <div class="player" id="player">
   <div class="slide-container" id="slideContainer"></div>
 
   <div class="bottom-bar">
     <div class="bottom-bar-left">
-      <a href="../index.html" class="nav-btn">MENU</a>
-      <button class="nav-btn mode-toggle-btn" id="modeToggleBtn" onclick="toggleReviewerMode()" aria-pressed="false" title="Toggle citation view for review/compliance">Learner Mode</button>
+      <a href="../index.html" class="nav-btn">Menu</a>
+      <button class="nav-btn" id="darkToggleBtn" onclick="toggleDarkMode()" aria-pressed="false" title="Toggle dark mode">Dark</button>
+      <button class="nav-btn" id="modeToggleBtn" onclick="toggleReviewerMode()" aria-pressed="false" title="Toggle citation view for review/compliance">Learner Mode</button>
     </div>
     <div class="progress-section">
-      <div class="progress-track">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
       <span class="progress-text" id="progressText">1 / 1</span>
     </div>
     <div class="nav-buttons">
@@ -763,72 +686,314 @@ const MODULE = {
   "partLabel": "Part One — Respect the Simple Thing",
   "passingScore": 75,
   "slides": [
-    {"type": "title", "moduleLabel": "Module 1", "heading": "The Energy\nYou Don't See", "subtitle": "Part One — Respect the Simple Thing", "brand": "SOPs Nobody Reads"},
-    {"type": "scene", "label": "Tuesday Morning", "text": "This is a Tuesday morning. Nothing about it is unusual. The work order says bearing replacement. Twenty-minute job. He's done it a hundred times.", "image": "img/s01-tuesday-morning.jpg"},
-    {"type": "scene", "label": "Scene", "text": "He presses the stop button. The belt slows. Stops. He opens the access panel, pulls out a wrench, and starts loosening a bolt on the roller bearing.", "image": "img/s02-working-inside.jpg"},
-    {"type": "concept", "label": "The Problem", "boxText": "He pressed the stop button. The belt isn't moving. So he's working.", "body": "But the electrical disconnect ten feet away has no lock. No tag. Just an unprotected switch that anyone could flip.", "image": "img/s03-unlocked-disconnect.jpg"},
-    {"type": "reveal", "kicker": "The Difference", "heading": "He stopped the machine.\nHe didn't secure it.", "body": "There's a difference. And the difference is everything."},
-    {"type": "keypoint", "kicker": "Where People Start", "heading": "LOTO is just putting\na padlock on a breaker", "body": "Lockout/tagout isn't just a procedure — it's a barrier. And when people picture the hazard, they usually picture one thing: electricity, the one that gets all the safety posters.", "image": "img/s05-simple-padlock.jpg"},
-    {"type": "concept", "label": "Energy Source — 29 CFR 1910.147(b)", "boxText": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.", "body": "You've worked around most of these for years without needing a list. The list matters because the one you're not thinking about is the one that gets you.", "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy."}},
-    {"type": "keypoint", "kicker": "The Ones You Already Know", "heading": "Electrical.\nMechanical.\nHydraulic. Pneumatic.", "body": "The breaker panel, the junction box, the cylinders that press and clamp and lift.", "image": "img/s09-pneumatic-system.jpg", "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "hydraulic, pneumatic"}},
-    {"type": "concept", "label": "The Underweighted Pair", "boxText": "Chemical. Thermal.", "body": "Corrosives and solvents in supply lines — a valve that didn't fully close, a residual you assumed was gone. Heat and cold that can burn or scald. If your work touches food processing, thermal is not a footnote — it's as real as electrical.", "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "thermal"}},
-    {"type": "reveal", "kicker": "What's Still Live", "heading": "Off at the switch.\nStill live inside.", "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.", "source": {"citation": "29 CFR 1910.147(d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)", "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe."}},
-    {"type": "concept", "label": "Stored Energy — Defined", "boxText": "The energy that remains in a system after you've isolated it from its source.", "body": "Every one of the six sources can leave a shadow like this behind. The next few screens show you where it hides."},
-    {"type": "concept", "label": "Electrical — Still Live", "boxText": "Capacitors hold electrical energy the way a battery does, and can discharge it through you in a fraction of a second.", "body": "They're in motors, control boards, switch gears. Flipping the breaker isn't enough."},
-    {"type": "keypoint", "kicker": "Still Live", "heading": "2000 PSI doesn't vanish\nbecause you closed the valve.", "body": "It's still in the line, still in the cylinder, still waiting. At that pressure, a pinhole leak can pierce skin."},
-    {"type": "concept", "label": "Mechanical — Still Live", "boxText": "A compressed spring doesn't care whether the machine is on or off. It's loaded. It wants to release.", "body": "If you're between the spring and where it wants to go, the machine being off doesn't help you."},
-    {"type": "reveal", "kicker": "Where Gravity Fits", "heading": "The most common way\nstored energy kills.", "body": "A press platen held up by hydraulic pressure. A crane load held by a brake. Gravity is constant and patient — and it doesn't give warnings.", "image": "img/s11-stored-energy.jpg", "source": {"citation": "Appendix A to 29 CFR 1910.147, step (6)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147", "anchor": "Stored or residual energy (such as that in capacitors, springs, elevated machine members, rotating flywheels, hydraulic systems, and air, gas, steam, or water pressure, etc.) must be dissipated or restrained by methods such as grounding, repositioning, blocking, bleeding down, etc."}},
-    {"type": "keypoint", "kicker": "The Convergence", "heading": "Not one energy source.\nPotentially all six.", "body": "OSHA's own model procedure requires exactly this — dissipated or restrained before anyone reaches into the machine. Each one requires its own method of isolation, its own verification. Flipping a breaker addresses one. Maybe."},
-    {"type": "reveal", "kicker": "Off vs. Safe", "heading": "\"Off\" is a button\nyou push.\n\"Safe\" is a process\nyou complete.", "body": "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated, every stored energy hazard addressed, and the isolation verified."},
-    {"type": "scene", "label": "The Disconnect, Revisited", "text": "The machine that started this — the stop button worked, but the electrical disconnect wasn't locked. <em>It was off. It wasn't safe.</em>", "image": "img/s03-unlocked-disconnect.jpg"},
-    {"type": "keypoint", "kicker": "The Principle", "heading": "Isolation stops new energy\nfrom entering.", "body": "It doesn't remove what's already present. That's why lockout/tagout has six steps, not three — the first three isolate. The next three deal with what's left."},
-    {"type": "list", "label": "Coming in Module 2", "heading": "The Six Steps", "items": [{"num": "1.", "text": "<strong>Prepare.</strong> Identify every energy source."}, {"num": "2.", "text": "<strong>Shut down.</strong> Stop the machine properly."}, {"num": "3.", "text": "<strong>Isolate.</strong> Disconnect from every source."}, {"num": "4.", "text": "<strong>Lock.</strong> Secure the isolation."}, {"num": "5.", "text": "<strong>Address stored energy.</strong> Deal with what's left."}, {"num": "6.", "text": "<strong>Verify.</strong> Prove it worked."}]},
-    {"type": "keypoint", "kicker": "Why It Matters", "heading": "Simple is exactly\nwhat makes it dangerous.", "body": "Simple feels like something you can shortcut. The moment you treat a six-step procedure like it's beneath your attention is the moment it fails to protect you."},
-    {"type": "scene", "label": "Back to Tuesday Morning", "text": "Same Tuesday. Same bearing job. But now, before walking to the conveyor, the gloved hands reach for the lockout station. Pull a yellow padlock from its hook."},
-    {"type": "scene", "label": "Scene", "text": "The disconnect, locked. A tag filled out and hanging. A hand on the start button — pressing it. <em>Nothing happens.</em> Verification."},
-    {"type": "reveal", "kicker": "The Only Barrier", "heading": "Two minutes.\nFour ounces.", "body": "Four ounces of brass on a hasp. That's the barrier — between everything that machine could still do and the person who reaches inside it. Everyone goes home safe.", "image": "img/s13-two-minutes-padlock.jpg"},
-    {"type": "summary", "heading": "Module 1 — Key Concepts", "items": ["Lockout/tagout is a barrier — a stopped machine isn't a secured one", "OSHA names six sources: electrical, mechanical, hydraulic, pneumatic, chemical, thermal", "Stored/residual energy can stay live after every source is shut off", "\"Off\" and \"safe\" are not the same thing", "Isolation stops new energy — it doesn't remove what's already there", "The six-step sequence exists because each step closes a different gap", "Simple is what makes it dangerous — simple feels skippable"], "source": {"citation": "29 CFR 1910.147(b)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy."}},
+    {
+      "type": "title",
+      "moduleLabel": "Module 1",
+      "heading": "The Energy\nYou Don't See",
+      "subtitle": "Part One — Respect the Simple Thing",
+      "brand": "SOPs Nobody Reads"
+    },
+    {
+      "type": "scene",
+      "label": "Tuesday Morning",
+      "text": "This is a Tuesday morning. Nothing about it is unusual. The work order says bearing replacement. Twenty-minute job. He's done it a hundred times.",
+      "image": "img/s01-tuesday-morning.jpg"
+    },
+    {
+      "type": "scene",
+      "label": "Scene",
+      "text": "He presses the stop button. The belt slows. Stops. He opens the access panel, pulls out a wrench, and starts loosening a bolt on the roller bearing.",
+      "image": "img/s02-working-inside.jpg"
+    },
+    {
+      "type": "concept",
+      "label": "The Problem",
+      "boxText": "He pressed the stop button. The belt isn't moving. So he's working.",
+      "body": "But the electrical disconnect ten feet away has no lock. No tag. Just an unprotected switch that anyone could flip.",
+      "image": "img/s03-unlocked-disconnect.jpg"
+    },
+    {
+      "type": "reveal",
+      "kicker": "The Difference",
+      "heading": "He stopped the machine.\nHe didn't secure it.",
+      "body": "There's a difference. And the difference is everything."
+    },
+    {
+      "type": "misconception-held-up",
+      "kicker": "Where People Start",
+      "heading": "LOTO is just putting\na padlock on a breaker",
+      "body": "Lockout/tagout isn't just a procedure — it's a barrier. And when people picture the hazard, they usually picture one thing: electricity, the one that gets all the safety posters.",
+      "image": "img/s05-simple-padlock.jpg"
+    },
+    {
+      "type": "concept",
+      "label": "Energy Source — 29 CFR 1910.147(b)",
+      "boxText": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy.",
+      "body": "You've worked around most of these for years without needing a list. The list matters because the one you're not thinking about is the one that gets you.",
+      "source": {
+        "citation": "29 CFR 1910.147(b)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)",
+        "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy."
+      }
+    },
+    {
+      "type": "teaching-caption",
+      "kicker": "The Ones You Already Know",
+      "heading": "Electrical.\nMechanical.\nHydraulic. Pneumatic.",
+      "body": "The breaker panel, the junction box, the cylinders that press and clamp and lift.",
+      "image": "img/s09-pneumatic-system.jpg",
+      "source": {
+        "citation": "29 CFR 1910.147(b)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)",
+        "anchor": "hydraulic, pneumatic"
+      }
+    },
+    {
+      "type": "concept",
+      "label": "The Underweighted Pair",
+      "boxText": "Chemical. Thermal.",
+      "body": "Corrosives and solvents in supply lines — a valve that didn't fully close, a residual you assumed was gone. Heat and cold that can burn or scald. If your work touches food processing, thermal is not a footnote — it's as real as electrical.",
+      "source": {
+        "citation": "29 CFR 1910.147(b)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)",
+        "anchor": "thermal"
+      }
+    },
+    {
+      "type": "reveal",
+      "kicker": "What's Still Live",
+      "heading": "Off at the switch.\nStill live inside.",
+      "body": "You can shut off every one of those six sources at their point of entry, and energy can still be sitting inside the machine, live, waiting.",
+      "source": {
+        "citation": "29 CFR 1910.147(d)(5)(i)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(d)(5)(i)",
+        "anchor": "Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe."
+      }
+    },
+    {
+      "type": "concept",
+      "label": "Stored Energy — Defined",
+      "boxText": "The energy that remains in a system after you've isolated it from its source.",
+      "body": "Every one of the six sources can leave a shadow like this behind. The next few screens show you where it hides."
+    },
+    {
+      "type": "concept",
+      "label": "Electrical — Still Live",
+      "boxText": "Capacitors hold electrical energy the way a battery does, and can discharge it through you in a fraction of a second.",
+      "body": "They're in motors, control boards, switch gears. Flipping the breaker isn't enough."
+    },
+    {
+      "type": "teaching-caption",
+      "kicker": "Still Live",
+      "heading": "2000 PSI doesn't vanish\nbecause you closed the valve.",
+      "body": "It's still in the line, still in the cylinder, still waiting. At that pressure, a pinhole leak can pierce skin."
+    },
+    {
+      "type": "concept",
+      "label": "Mechanical — Still Live",
+      "boxText": "A compressed spring doesn't care whether the machine is on or off. It's loaded. It wants to release.",
+      "body": "If you're between the spring and where it wants to go, the machine being off doesn't help you."
+    },
+    {
+      "type": "reveal",
+      "kicker": "Where Gravity Fits",
+      "heading": "The most common way\nstored energy kills.",
+      "body": "A press platen held up by hydraulic pressure. A crane load held by a brake. Gravity is constant and patient — and it doesn't give warnings.",
+      "image": "img/s11-stored-energy.jpg",
+      "source": {
+        "citation": "Appendix A to 29 CFR 1910.147, step (6)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147",
+        "anchor": "Stored or residual energy (such as that in capacitors, springs, elevated machine members, rotating flywheels, hydraulic systems, and air, gas, steam, or water pressure, etc.) must be dissipated or restrained by methods such as grounding, repositioning, blocking, bleeding down, etc."
+      }
+    },
+    {
+      "type": "teaching-caption",
+      "kicker": "The Convergence",
+      "heading": "Not one energy source.\nPotentially all six.",
+      "body": "OSHA's own model procedure requires exactly this — dissipated or restrained before anyone reaches into the machine. Each one requires its own method of isolation, its own verification. Flipping a breaker addresses one. Maybe."
+    },
+    {
+      "type": "reveal",
+      "kicker": "Off vs. Safe",
+      "heading": "\"Off\" is a button\nyou push.\n\"Safe\" is a process\nyou complete.",
+      "body": "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated, every stored energy hazard addressed, and the isolation verified."
+    },
+    {
+      "type": "callback",
+      "label": "The Disconnect, Revisited",
+      "text": "The machine that started this — the stop button worked, but the electrical disconnect wasn't locked. <em>It was off. It wasn't safe.</em>",
+      "image": "img/s03-unlocked-disconnect.jpg"
+    },
+    {
+      "type": "teaching-caption",
+      "kicker": "The Principle",
+      "heading": "Isolation stops new energy\nfrom entering.",
+      "body": "It doesn't remove what's already present. That's why lockout/tagout has six steps, not three — the first three isolate. The next three deal with what's left."
+    },
+    {
+      "type": "consolidation",
+      "label": "Coming in Module 2",
+      "heading": "The Six Steps",
+      "items": [
+        {
+          "num": "1.",
+          "text": "<strong>Prepare.</strong> Identify every energy source."
+        },
+        {
+          "num": "2.",
+          "text": "<strong>Shut down.</strong> Stop the machine properly."
+        },
+        {
+          "num": "3.",
+          "text": "<strong>Isolate.</strong> Disconnect from every source."
+        },
+        {
+          "num": "4.",
+          "text": "<strong>Lock.</strong> Secure the isolation."
+        },
+        {
+          "num": "5.",
+          "text": "<strong>Address stored energy.</strong> Deal with what's left."
+        },
+        {
+          "num": "6.",
+          "text": "<strong>Verify.</strong> Prove it worked."
+        }
+      ]
+    },
+    {
+      "type": "teaching-caption",
+      "kicker": "Why It Matters",
+      "heading": "Simple is exactly\nwhat makes it dangerous.",
+      "body": "Simple feels like something you can shortcut. The moment you treat a six-step procedure like it's beneath your attention is the moment it fails to protect you."
+    },
+    {
+      "type": "callback",
+      "label": "Back to Tuesday Morning",
+      "text": "Same Tuesday. Same bearing job. But now, before walking to the conveyor, the gloved hands reach for the lockout station. Pull a yellow padlock from its hook."
+    },
+    {
+      "type": "scene",
+      "label": "Scene",
+      "text": "The disconnect, locked. A tag filled out and hanging. A hand on the start button — pressing it. <em>Nothing happens.</em> Verification."
+    },
+    {
+      "type": "reveal",
+      "kicker": "The Only Barrier",
+      "heading": "Two minutes.\nFour ounces.",
+      "body": "Four ounces of brass on a hasp. That's the barrier — between everything that machine could still do and the person who reaches inside it. Everyone goes home safe.",
+      "image": "img/s13-two-minutes-padlock.jpg"
+    },
+    {
+      "type": "consolidation",
+      "heading": "Module 1 — Key Concepts",
+      "items": [
+        "Lockout/tagout is a barrier — a stopped machine isn't a secured one",
+        "OSHA names six sources: electrical, mechanical, hydraulic, pneumatic, chemical, thermal",
+        "Stored/residual energy can stay live after every source is shut off",
+        "\"Off\" and \"safe\" are not the same thing",
+        "Isolation stops new energy — it doesn't remove what's already there",
+        "The six-step sequence exists because each step closes a different gap",
+        "Simple is what makes it dangerous — simple feels skippable"
+      ],
+      "source": {
+        "citation": "29 CFR 1910.147(b)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)",
+        "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy."
+      }
+    }
   ],
   "quiz": [
-    {"question": "A maintenance worker turns off a machine using the stop button and the machine is no longer moving. This means:", "options": ["It's off, but off and safe aren't the same thing yet", "The machine is safe to work on now that it's stopped", "Only the main breaker needs a lock before work can begin", "Any stored energy has already released on its own"], "correct": 0},
-    {"question": "After closing the supply valve on a hydraulic line, the pressure gauge still shows 2000 PSI. This is because:", "options": ["The valve is faulty and needs to be replaced before continuing", "Closing the valve blocks new energy — the energy already in the line stays", "The pressure gauge is broken and misreading the actual pressure", "Hydraulic systems always carry some harmless residual pressure"], "correct": 1},
-    {"question": "Sarah needs to replace a roller bearing on a conveyor system with an electrical motor and a hydraulic tensioning system. Beyond switching off both, what does she still need to check?", "options": ["Nothing further — both sources are off, so the equipment is safe", "Only the hydraulic side; electrical rarely holds energy after shutdown", "Whether a supervisor has verified the shutdown before she begins", "Whether stored energy remains — a charged capacitor, a pressurized line — even after shutdown"], "correct": 3, "source": {"citation": "29 CFR 1910.147(b); (d)(5)(i)", "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)", "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe."}},
-    {"question": "The six-step lockout sequence exists because:", "options": ["OSHA requires documentation of each step for compliance", "The steps are a simplified version of a more complex process", "Each step closes a different gap — skip one and it stays open", "Extra steps make the procedure harder to skip entirely"], "correct": 2}
+    {
+      "question": "A maintenance worker turns off a machine using the stop button and the machine is no longer moving. This means:",
+      "options": [
+        "It's off, but off and safe aren't the same thing yet",
+        "The machine is safe to work on now that it's stopped",
+        "Only the main breaker needs a lock before work can begin",
+        "Any stored energy has already released on its own"
+      ],
+      "correct": 0
+    },
+    {
+      "question": "After closing the supply valve on a hydraulic line, the pressure gauge still shows 2000 PSI. This is because:",
+      "options": [
+        "The valve is faulty and needs to be replaced before continuing",
+        "Closing the valve blocks new energy — the energy already in the line stays",
+        "The pressure gauge is broken and misreading the actual pressure",
+        "Hydraulic systems always carry some harmless residual pressure"
+      ],
+      "correct": 1
+    },
+    {
+      "question": "Sarah needs to replace a roller bearing on a conveyor system with an electrical motor and a hydraulic tensioning system. Beyond switching off both, what does she still need to check?",
+      "options": [
+        "Nothing further — both sources are off, so the equipment is safe",
+        "Only the hydraulic side; electrical rarely holds energy after shutdown",
+        "Whether a supervisor has verified the shutdown before she begins",
+        "Whether stored energy remains — a charged capacitor, a pressurized line — even after shutdown"
+      ],
+      "correct": 3,
+      "source": {
+        "citation": "29 CFR 1910.147(b); (d)(5)(i)",
+        "url": "https://www.ecfr.gov/current/title-29/subtitle-B/chapter-XVII/part-1910/subpart-J/section-1910.147#p-1910.147(b)",
+        "anchor": "Any source of electrical, mechanical, hydraulic, pneumatic, chemical, thermal, or other energy. / Following the application of lockout or tagout devices to energy isolating devices, all potentially hazardous stored or residual energy shall be relieved, disconnected, restrained, and otherwise rendered safe."
+      }
+    },
+    {
+      "question": "The six-step lockout sequence exists because:",
+      "options": [
+        "OSHA requires documentation of each step for compliance",
+        "The steps are a simplified version of a more complex process",
+        "Each step closes a different gap — skip one and it stays open",
+        "Extra steps make the procedure harder to skip entirely"
+      ],
+      "correct": 2
+    }
   ]
 };
 
-// Player JavaScript (same as AI onboarding, no modifications needed)
+
 let currentSlide = 0;
 let quizAnswers = [];
 let quizMode = false;
 let currentQuizQuestion = 0;
 let isAnswered = false;
 
-// Reviewer mode: view state only, in-memory for this session. NOT persisted
-// (no localStorage) — this player gets packaged for SCORM/LMS delivery, and
-// LMS iframe storage-partitioning makes localStorage unreliable inside an SCO.
-// Never touches SCORM/LMS calls or completion/score tracking.
+// Reviewer mode and dark-mode are view state only, in-memory for this session.
+// NOT persisted (no localStorage/sessionStorage) — this player gets packaged
+// for SCORM/LMS delivery, and LMS iframe storage-partitioning makes browser
+// storage unreliable inside an SCO (§S4 delivery-safe).
 let reviewerMode = false;
+let darkMode = false;
 
 function toggleReviewerMode() {
   reviewerMode = !reviewerMode;
   const btn = document.getElementById('modeToggleBtn');
   btn.textContent = reviewerMode ? 'Reviewer Mode' : 'Learner Mode';
   btn.setAttribute('aria-pressed', String(reviewerMode));
-  renderSlide();
+  renderCurrent();
 }
 
-// Returns citation chip HTML, or '' if reviewer mode is off or the source
-// is missing/incomplete. Fail-safe: never renders a partial or fabricated
-// citation — citation and url are both required.
+function toggleDarkMode() {
+  darkMode = !darkMode;
+  document.documentElement.classList.toggle('dark', darkMode);
+  const btn = document.getElementById('darkToggleBtn');
+  btn.textContent = darkMode ? 'Light' : 'Dark';
+  btn.setAttribute('aria-pressed', String(darkMode));
+}
+
+function renderCurrent() {
+  if (quizMode) { renderQuiz(); } else { renderSlide(); }
+}
+
+// Citation chip (Reviewer mode). Fail-safe: never renders a partial or
+// fabricated citation — citation and url are both required (Build Methodology §M3).
 function renderCitation(source) {
   if (!reviewerMode || !source || !source.citation || !source.url) return '';
-  return `
-    <a class="citation-chip" href="${source.url}" target="_blank" rel="noopener">
-      <span class="citation-chip-icon">&sect;</span>${source.citation}
-    </a>
-  `;
+  return `<a class="citation-chip" href="${source.url}" target="_blank" rel="noopener"><span>&sect;</span> ${source.citation}</a>`;
 }
+
+function nl2br(s) { return (s || '').replace(/\\n/g, '<br>'); }
 
 function initPlayer() {
   renderSlide();
@@ -838,206 +1003,150 @@ function initPlayer() {
 
 function renderSlide() {
   const container = document.getElementById('slideContainer');
-  
-  if (quizMode) {
-    renderQuiz();
-    return;
-  }
-  
   const slide = MODULE.slides[currentSlide];
   if (!slide) return;
-  
-  let html = '';
+
+  let inner = '';
   let slideClasses = `slide slide-${slide.type}`;
-  
-  if (slide.image) {
-    slideClasses += ' has-image';
-  }
-  
+  if (slide.image) slideClasses += ' has-image';
+  const bgStyle = slide.image ? `background-image: url('${slide.image}')` : '';
+
   switch (slide.type) {
     case 'title':
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          <div class="module-label">${slide.moduleLabel}</div>
-          <h1>${slide.heading.replace(/\\n/g, '<br>')}</h1>
-          <div class="subtitle">${slide.subtitle}</div>
-          <div class="brand">${slide.brand}</div>
-        </div>
+      inner = `
+        <div class="module-label">${slide.moduleLabel}</div>
+        <h1>${nl2br(slide.heading)}</h1>
+        <div class="subtitle">${slide.subtitle}</div>
+        <div class="brand">${slide.brand}</div>
       `;
       break;
-      
+
     case 'scene':
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          <div class="scene-label">${slide.label}</div>
-          <p>${slide.text}</p>
-        </div>
+      inner = `
+        <div class="scene-label">${slide.label}</div>
+        <p>${slide.text}</p>
       `;
       break;
-      
-    case 'keypoint':
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
-          <h2>${slide.heading.replace(/\\n/g, '<br>')}</h2>
-          <div class="body">${slide.body}</div>
-        </div>
+
+    case 'callback':
+      inner = `
+        <div class="callback-label">${slide.label}</div>
+        <p>${slide.text}</p>
       `;
       break;
-      
+
+    case 'teaching-caption':
+      inner = `
+        ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+        <h2>${nl2br(slide.heading)}</h2>
+        <div class="body">${slide.body}</div>
+      `;
+      break;
+
+    case 'misconception-held-up':
+      inner = `
+        <div class="misconception-frame">${slide.kicker || 'Where people start'}</div>
+        <div class="misconception-quote">&ldquo;${nl2br(slide.heading)}&rdquo;</div>
+        ${slide.body ? `<div class="misconception-body">${slide.body}</div>` : ''}
+      `;
+      break;
+
     case 'reveal':
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          <div class="kicker">${slide.kicker}</div>
-          <h2>${slide.heading.replace(/\\n/g, '<br>')}</h2>
-          <div class="body">${slide.body}</div>
-        </div>
+      inner = `
+        <div class="kicker">${slide.kicker}</div>
+        <h2>${nl2br(slide.heading)}</h2>
+        <div class="body">${slide.body}</div>
       `;
       break;
-      
+
     case 'concept':
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          <div class="concept-label">${slide.label}</div>
-          <div class="concept-box">
-            <div class="box-text">${slide.boxText}</div>
-          </div>
-          <div class="body">${slide.body}</div>
-        </div>
+      inner = `
+        <div class="concept-label">${slide.label}</div>
+        <div class="concept-box"><div class="box-text">${slide.boxText}</div></div>
+        <div class="body">${slide.body}</div>
       `;
       break;
-      
-    case 'list':
-      const listItems = slide.items.map(item => `
-        <div class="list-item">
-          <div class="item-num">${item.num}</div>
-          <div class="item-text">${item.text}</div>
+
+    case 'consolidation': {
+      const isList = Array.isArray(slide.items) && slide.items.length > 0 && typeof slide.items[0] === 'object';
+      const body = isList
+        ? `<ol class="consolidation-list">${slide.items.map(it => `
+            <li class="c-item"><span class="c-num">${it.num}</span><span class="c-text">${it.text}</span></li>
+          `).join('')}</ol>`
+        : `<div class="consolidation-grid">${slide.items.map(it => `<div class="c-item">${it}</div>`).join('')}</div>`;
+      inner = `
+        ${slide.label ? `<div class="consolidation-label">${slide.label}</div>` : ''}
+        <h2>${slide.heading}</h2>
+        ${body}
+      `;
+      break;
+    }
+
+    case 'options': {
+      const opts = slide.options.map(o => `
+        <div class="option ${slide.highlighted === o.letter ? 'highlighted' : ''}">
+          <div class="option-letter">${o.letter}</div>
+          <div class="option-content"><h3>${o.title}</h3><p>${o.desc}</p></div>
         </div>
       `).join('');
-      
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          <div class="list-label">${slide.label}</div>
-          <h2>${slide.heading}</h2>
-          <div class="list-items">
-            ${listItems}
-          </div>
-        </div>
-      `;
+      inner = `<h2>${slide.heading}</h2><div class="options-container">${opts}</div>`;
       break;
-      
-    case 'summary':
-      const summaryItems = slide.items.map(item => `
-        <div class="summary-item">${item}</div>
-      `).join('');
-      
-      html = `
-        <div class="${slideClasses}">
-          <h2>${slide.heading}</h2>
-          <div class="summary-grid">
-            ${summaryItems}
-          </div>
-        </div>
-      `;
-      break;
-      
-    case 'options':
-      const options = slide.options.map(option => `
-        <div class="option ${slide.highlighted === option.letter ? 'highlighted' : ''}">
-          <div class="option-letter">${option.letter}</div>
-          <div class="option-content">
-            <h3>${option.title}</h3>
-            <p>${option.desc}</p>
-          </div>
-        </div>
-      `).join('');
-      
-      html = `
-        <div class="${slideClasses}" style="${slide.image ? `background-image: url('${slide.image}')` : ''}">
-          <h2>${slide.heading}</h2>
-          <div class="options-container">
-            ${options}
-          </div>
-        </div>
-      `;
-      break;
+    }
   }
 
-  html += renderCitation(slide.source);
-
-  container.innerHTML = html;
-
-  // Activate the slide
-  setTimeout(() => {
-    const slideEl = container.querySelector('.slide');
-    if (slideEl) slideEl.classList.add('active');
-  }, 50);
+  inner += renderCitation(slide.source);
+  container.innerHTML = `<div class="${slideClasses}" style="${bgStyle}">${inner}</div>`;
+  requestAnimationFrame(() => {
+    const el = container.querySelector('.slide');
+    if (el) el.classList.add('active');
+  });
 }
 
 function renderQuiz() {
   const container = document.getElementById('slideContainer');
-  
-  if (currentQuizQuestion >= MODULE.quiz.length) {
-    renderResults();
-    return;
-  }
-  
-  const question = MODULE.quiz[currentQuizQuestion];
-  const options = question.options.map((option, index) => {
+
+  if (currentQuizQuestion >= MODULE.quiz.length) { renderClose(); return; }
+
+  const q = MODULE.quiz[currentQuizQuestion];
+  const options = q.options.map((option, index) => {
     const letter = String.fromCharCode(65 + index);
-    let classes = 'quiz-option';
-    
+    let cls = 'quiz-option';
     if (isAnswered) {
-      if (index === question.correct) {
-        classes += ' correct';
-      } else if (quizAnswers[currentQuizQuestion] === index) {
-        classes += ' incorrect';
-      }
+      if (index === q.correct) cls += ' correct';
+      else if (quizAnswers[currentQuizQuestion] === index) cls += ' incorrect';
     } else if (quizAnswers[currentQuizQuestion] === index) {
-      classes += ' selected';
+      cls += ' selected';
     }
-    
     return `
-      <div class="${classes}" onclick="${!isAnswered ? `selectAnswer(${index})` : ''}">
+      <div class="${cls}" onclick="${!isAnswered ? `selectAnswer(${index})` : ''}">
         <div class="option-letter">${letter}</div>
         <div class="option-text">${option}</div>
       </div>
     `;
   }).join('');
-  
+
   let feedback = '';
   if (isAnswered) {
-    const isCorrect = quizAnswers[currentQuizQuestion] === question.correct;
-    feedback = `
-      <div class="quiz-feedback">
-        ${isCorrect ? 'Correct!' : 'Incorrect.'} ${getQuizFeedback(currentQuizQuestion)}
-      </div>
-    `;
+    const isCorrect = quizAnswers[currentQuizQuestion] === q.correct;
+    feedback = `<div class="quiz-feedback">${isCorrect ? 'Correct.' : 'Incorrect.'} ${getQuizFeedback(currentQuizQuestion)}</div>`;
   }
-  
-  let html = `
+
+  const html = `
     <div class="slide slide-quiz active">
       <div class="quiz-container">
-        <h2>Question ${currentQuizQuestion + 1}</h2>
-        <p style="margin-bottom: 3vh; color: var(--steel-dim); font-size: clamp(1rem, 2vw, 1.3rem);">
-          ${question.question}
-        </p>
-        <div class="quiz-options">
-          ${options}
-        </div>
+        <h2>Question ${currentQuizQuestion + 1} of ${MODULE.quiz.length}</h2>
+        <div class="quiz-question">${q.question}</div>
+        <div class="quiz-options">${options}</div>
         ${feedback}
+        ${renderCitation(q.source)}
       </div>
     </div>
   `;
-
-  html += renderCitation(question.source);
-
   container.innerHTML = html;
 }
 
 function selectAnswer(answerIndex) {
   if (isAnswered) return;
-  
   quizAnswers[currentQuizQuestion] = answerIndex;
   isAnswered = true;
   renderQuiz();
@@ -1045,44 +1154,35 @@ function selectAnswer(answerIndex) {
 }
 
 function getQuizFeedback(questionIndex) {
-  const feedbacks = [
-    "\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated and the isolation verified — two different things.",
-    "Closing the valve stops new energy from entering. It doesn't remove the energy that was already in the line — that's stored energy.",
-    "Every named source deserves a check, and stored or residual energy can outlast all of them. Checking is what step one is for.",
-    "Each of the six steps closes a different gap. Skip one, and that gap stays open."
-  ];
+  const feedbacks = ["\"Off\" means the controls are in the off position. \"Safe\" means every energy source has been isolated and the isolation verified — two different things.","Closing the valve stops new energy from entering. It doesn't remove the energy that was already in the line — that's stored energy.","Every named source deserves a check, and stored or residual energy can outlast all of them. Checking is what step one is for.","Each of the six steps closes a different gap. Skip one, and that gap stays open."];
   return feedbacks[questionIndex] || '';
 }
 
-function renderResults() {
+// close — was "results". The module's resting note (§S3).
+function renderClose() {
   const container = document.getElementById('slideContainer');
-  const correctAnswers = quizAnswers.filter((answer, index) => answer === MODULE.quiz[index].correct).length;
+  const correctAnswers = quizAnswers.filter((a, i) => a === MODULE.quiz[i].correct).length;
   const totalQuestions = MODULE.quiz.length;
   const percentage = Math.round((correctAnswers / totalQuestions) * 100);
   const passed = percentage >= MODULE.passingScore;
-  
+
   const html = `
-    <div class="slide slide-results active">
-      <div class="results-container">
+    <div class="slide slide-close active">
+      <div class="close-container">
         <h2>Module ${MODULE.moduleNumber} Complete</h2>
-        <div class="score-display ${passed ? 'pass' : 'fail'}">
-          ${percentage}%
-        </div>
-        <div class="results-message">
+        <div class="close-score ${passed ? 'pass' : 'fail'}">${percentage}%</div>
+        <div class="close-message">
           ${correctAnswers} of ${totalQuestions} questions correct<br>
-          ${passed ? 'You passed! Well done.' : `You need ${MODULE.passingScore}% to pass. Please review the material and try again.`}
+          ${passed ? 'You passed. Well done.' : `You need ${MODULE.passingScore}% to pass. Please review the material and try again.`}
         </div>
-        <div class="results-actions">
-          ${!passed ? `<button class="nav-btn" onclick="restartQuiz()">Try Again</button>` : ''}
+        <div class="close-actions">
+          ${!passed ? '<button class="nav-btn" onclick="restartQuiz()">Try Again</button>' : ''}
           <a href="../module-02/index.html" class="nav-btn">Next Module &#8594;</a>
         </div>
-        <p style="margin-top: 3vh; font-size: 0.9rem; color: var(--steel-dim);">
-          Module 1 of 3 &mdash; Continue to learn the six-step LOTO procedure.
-        </p>
+        <p class="close-note">Module 1 of 3 &mdash; Continue to learn the six-step LOTO procedure.</p>
       </div>
     </div>
   `;
-  
   container.innerHTML = html;
 }
 
@@ -1102,22 +1202,18 @@ function nextSlide() {
         isAnswered = false;
         renderQuiz();
       } else {
-        renderResults();
+        renderClose();
       }
     }
+  } else if (currentSlide < MODULE.slides.length - 1) {
+    currentSlide++;
+    renderSlide();
   } else {
-    if (currentSlide < MODULE.slides.length - 1) {
-      currentSlide++;
-      renderSlide();
-    } else {
-      // Start quiz
-      quizMode = true;
-      currentQuizQuestion = 0;
-      isAnswered = false;
-      renderQuiz();
-    }
+    quizMode = true;
+    currentQuizQuestion = 0;
+    isAnswered = false;
+    renderQuiz();
   }
-  
   updateProgress();
   updateNavButtons();
 }
@@ -1135,63 +1231,47 @@ function prevSlide() {
     currentSlide--;
     renderSlide();
   }
-  
   updateProgress();
   updateNavButtons();
 }
 
 function updateProgress() {
-  const totalSlides = MODULE.slides.length + MODULE.quiz.length;
-  const currentPos = quizMode ? MODULE.slides.length + currentQuizQuestion + 1 : currentSlide + 1;
-  const percentage = (currentPos / totalSlides) * 100;
-  
-  document.getElementById('progressFill').style.width = `${percentage}%`;
-  document.getElementById('progressText').textContent = `${currentPos} / ${totalSlides}`;
+  const total = MODULE.slides.length + MODULE.quiz.length;
+  const pos = quizMode ? MODULE.slides.length + currentQuizQuestion + 1 : currentSlide + 1;
+  document.getElementById('progressFill').style.width = `${(pos / total) * 100}%`;
+  document.getElementById('progressText').textContent = `${pos} / ${total}`;
 }
 
 function updateNavButtons() {
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  
-  prevBtn.disabled = (!quizMode && currentSlide === 0) || (quizMode && currentQuizQuestion === 0 && currentSlide === 0);
-  
+  prevBtn.disabled = !quizMode && currentSlide === 0;
+
   if (quizMode) {
     nextBtn.disabled = !isAnswered;
-    if (currentQuizQuestion >= MODULE.quiz.length - 1 && isAnswered) {
-      nextBtn.textContent = 'Results ►';
-    } else {
-      nextBtn.textContent = 'Next ►';
-    }
+    nextBtn.textContent = (currentQuizQuestion >= MODULE.quiz.length - 1 && isAnswered) ? 'Results ►' : 'Next ►';
   } else {
     nextBtn.disabled = false;
-    if (currentSlide === MODULE.slides.length - 1) {
-      nextBtn.textContent = 'Quiz ►';
-    } else {
-      nextBtn.textContent = 'Next ►';
-    }
+    nextBtn.textContent = (currentSlide === MODULE.slides.length - 1) ? 'Quiz ►' : 'Next ►';
   }
 }
 
-// Event listeners
 document.getElementById('prevBtn').addEventListener('click', prevSlide);
 document.getElementById('nextBtn').addEventListener('click', nextSlide);
 
-// Keyboard navigation
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) {
-    nextSlide();
-  } else if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) {
-    prevSlide();
-  }
+  if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) nextSlide();
+  else if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) prevSlide();
 });
 
-// Initialize player
 initPlayer();
 
-// SCORM API stubs (graceful degradation)
+// SCORM API stubs (graceful degradation) — the player never touches SCORM/LMS
+// calls or completion/score tracking beyond this; runs standalone, in an
+// iframe, or as a SCORM package identically (§S4 delivery-safe).
 window.API = window.API || {
   LMSInitialize: () => 'true',
-  LMSCommit: () => 'true', 
+  LMSCommit: () => 'true',
   LMSFinish: () => 'true',
   LMSGetValue: () => '',
   LMSSetValue: () => 'true',
@@ -1199,6 +1279,7 @@ window.API = window.API || {
   LMSGetErrorString: () => '',
   LMSGetDiagnostic: () => ''
 };
+
 </script>
 </body>
 </html>
