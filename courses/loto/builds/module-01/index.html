@@ -476,14 +476,22 @@ body {
 }
 .slide.has-image.shape-figure .figure-caption { color: var(--onimage-ink); }
 
-/* sequence — ordered steps as a visible progression, not a stacked list. */
+/* sequence — ordered steps as a visible progression, not a stacked list.
+   Rows are computed in render() (see seqRows()), not fixed at 3-per-row:
+   a trailing single-item row reads as an orphan, so a 7-item sequence
+   lays out 3+4 rather than 3+3+1. Each row is its own grid (column count
+   set inline per row), so the connector below only needs :not(:last-child)
+   — no nth-child row-size math, correct for any row size. */
 .slide-consolidation .consolidation-sequence {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 4vh 1.5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
   max-width: 58rem;
   width: 100%;
+}
+.slide-consolidation .consolidation-sequence .seq-row {
+  display: grid;
+  gap: 1.5vw;
 }
 .slide-consolidation .consolidation-sequence .seq-step {
   position: relative;
@@ -515,12 +523,7 @@ body {
   max-width: 17ch;
 }
 .slide-consolidation .consolidation-sequence .seq-text strong { color: var(--ink); font-weight: 600; }
-/* connector to the next step — within the same row of three, and never
-   past the last item overall (:not(:last-child) added for consistency
-   with M2/M3, ported back here — harmless for this slide's 6 items, since
-   nth-child(3n) already excluded item 6, but item counts aren't always
-   divisible by 3, e.g. M3's 7-item "Before It Restarts"). */
-.slide-consolidation .consolidation-sequence .seq-step:not(:nth-child(3n)):not(:last-child)::after {
+.slide-consolidation .consolidation-sequence .seq-step:not(:last-child)::after {
   content: '';
   position: absolute;
   top: 1.25rem;
@@ -530,7 +533,7 @@ body {
   background: var(--rule-strong);
 }
 @media (max-width: 768px) {
-  .slide-consolidation .consolidation-sequence { grid-template-columns: 1fr; gap: 3vh; }
+  .slide-consolidation .consolidation-sequence .seq-row { grid-template-columns: 1fr !important; }
   .slide-consolidation .consolidation-sequence .seq-step::after { display: none; }
 }
 
@@ -1112,6 +1115,22 @@ function renderCitation(source) {
 
 function nl2br(s) { return (s || '').replace(/\\n/g, '<br>'); }
 
+// sequence shape — split items into rows of 3, but never leave a lone
+// trailing item (3+3+1 reads as an orphan): fold it back into the row
+// before, so 7 items lay out 3+4, 4 lays out as one row of 4, etc.
+function seqRows(items) {
+  const n = items.length;
+  const full = Math.floor(n / 3);
+  const rem = n % 3;
+  const rowSizes = new Array(full).fill(3);
+  if (rem === 1 && rowSizes.length > 0) rowSizes[rowSizes.length - 1] += 1;
+  else if (rem > 0) rowSizes.push(rem);
+  const rows = [];
+  let idx = 0;
+  for (const size of rowSizes) { rows.push(items.slice(idx, idx + size)); idx += size; }
+  return rows;
+}
+
 function initPlayer() {
   renderSlide();
   updateProgress();
@@ -1198,9 +1217,11 @@ function renderSlide() {
       const isList = Array.isArray(slide.items) && slide.items.length > 0 && typeof slide.items[0] === 'object';
       const isSequence = isList && slide.shape === 'sequence';
       const body = isSequence
-        ? `<ol class="consolidation-sequence">${slide.items.map(it => `
-            <li class="seq-step"><span class="seq-num">${it.num}</span><span class="seq-text">${it.text}</span></li>
-          `).join('')}</ol>`
+        ? `<div class="consolidation-sequence">${seqRows(slide.items).map(row => `
+            <div class="seq-row" style="grid-template-columns: repeat(${row.length}, minmax(0, 1fr));">
+              ${row.map(it => `<div class="seq-step"><span class="seq-num">${it.num}</span><span class="seq-text">${it.text}</span></div>`).join('')}
+            </div>
+          `).join('')}</div>`
         : isList
         ? `<ol class="consolidation-list">${slide.items.map(it => `
             <li class="c-item"><span class="c-num">${it.num}</span><span class="c-text">${it.text}</span></li>
