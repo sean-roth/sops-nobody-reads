@@ -143,8 +143,8 @@ body {
 }
 .slide.has-image.slide-teaching-caption .body { color: var(--onimage-ink-dim); }
 
-/* concept — sourced definition, boxed. Register-I weight, panel-delimited. */
-.slide-concept .concept-label {
+/* definition (was concept) — sourced definition, boxed. Register-I weight, panel-delimited. */
+.slide-definition .definition-label {
   font-family: var(--font-ui);
   font-size: 0.78rem;
   font-weight: 600;
@@ -153,8 +153,8 @@ body {
   color: var(--accent);
   margin-bottom: 2.5vh;
 }
-.slide.has-image.slide-concept .concept-label { color: var(--onimage-ink-dim); }
-.slide-concept .concept-box {
+.slide.has-image.slide-definition .definition-label { color: var(--onimage-ink-dim); }
+.slide-definition .definition-box {
   background: var(--bg-panel);
   border: 1px solid var(--rule-strong);
   border-radius: 3px;
@@ -162,12 +162,12 @@ body {
   margin: 0 auto 3vh;
   max-width: 42ch;
 }
-.slide.has-image .concept-box {
+.slide.has-image .definition-box {
   background: rgba(20, 26, 22, 0.55);
   border-color: rgba(244, 237, 224, 0.28);
   backdrop-filter: blur(2px);
 }
-.slide-concept .box-text {
+.slide-definition .box-text {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: clamp(1.1rem, 2vw, 1.55rem);
@@ -175,14 +175,14 @@ body {
   color: var(--ink);
 }
 .slide.has-image .box-text { color: var(--onimage-ink); }
-.slide-concept .body {
+.slide-definition .body {
   font-family: var(--font-body);
   font-size: clamp(0.92rem, 1.5vw, 1.1rem);
   line-height: 1.55;
   color: var(--ink-dim);
   max-width: 40ch;
 }
-.slide.has-image.slide-concept .body { color: var(--onimage-ink-dim); }
+.slide.has-image.slide-definition .body { color: var(--onimage-ink-dim); }
 
 /* consolidation — folds summary + list. Order-aware structure, Register-I authority. */
 .slide-consolidation h2 {
@@ -302,7 +302,7 @@ body {
   margin-bottom: 4vh;
   max-width: 34ch;
 }
-.slide.has-image .slide-options h2 { color: var(--onimage-ink); }
+.slide.has-image.slide-options h2 { color: var(--onimage-ink); }
 .options-container {
   display: flex;
   flex-direction: column;
@@ -410,7 +410,7 @@ body {
   max-width: 30ch;
   margin-bottom: 3vh;
 }
-.slide.has-image .slide-reveal h2 { color: var(--onimage-ink); }
+.slide.has-image.slide-reveal h2 { color: var(--onimage-ink); }
 .slide-reveal .body {
   font-family: var(--font-body);
   font-style: italic;
@@ -419,7 +419,7 @@ body {
   color: var(--accent);
   max-width: 36ch;
 }
-.slide.has-image .slide-reveal .body { color: var(--onimage-ink-dim); }
+.slide.has-image.slide-reveal .body { color: var(--onimage-ink-dim); }
 
 /* callback — connective reference. Echoes an earlier beat at reduced weight. */
 .slide-callback { opacity: 0.98; }
@@ -446,6 +446,112 @@ body {
 .slide.has-image.slide-callback p { color: var(--onimage-ink); }
 .slide-callback em { color: var(--accent); font-style: normal; font-weight: 600; }
 .slide.has-image.slide-callback em { color: var(--onimage-ink); text-decoration: underline; text-decoration-color: rgba(244,237,224,0.5); }
+
+/* ============================================================
+   Shape axis — orthogonal to register (§S3). A shape class rides
+   alongside the type/register classes on the same .slide element,
+   so — same rule as has-image — compound it (.slide.shape-x), never
+   space it, or it silently falls back to the type's default shape.
+   ============================================================ */
+
+/* figure — a quantity leads at scale; the rest of the line is caption. */
+.slide.shape-figure .figure-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.4rem, 9vw, 7.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 2vh;
+}
+.slide.has-image.shape-figure .figure-value { color: var(--onimage-ink); }
+.slide.shape-figure .figure-caption {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  line-height: 1.3;
+  color: var(--ink);
+  max-width: 26ch;
+  margin-bottom: 3vh;
+}
+.slide.has-image.shape-figure .figure-caption { color: var(--onimage-ink); }
+
+/* sequence — ordered steps as a visible progression, not a stacked list. */
+.slide-consolidation .consolidation-sequence {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4vh 1.5vw;
+  max-width: 58rem;
+  width: 100%;
+}
+.slide-consolidation .consolidation-sequence .seq-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1vh;
+}
+.slide-consolidation .consolidation-sequence .seq-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 1.05rem;
+  flex-shrink: 0;
+}
+.slide-consolidation .consolidation-sequence .seq-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  line-height: 1.45;
+  color: var(--ink-dim);
+  max-width: 17ch;
+}
+.slide-consolidation .consolidation-sequence .seq-text strong { color: var(--ink); font-weight: 600; }
+/* connector to the next step — within the same row of three, and never
+   past the last item overall (§ generalized from M1: nth-child(3n) alone
+   only happened to exclude M1's last item because 6 is divisible by 3;
+   :not(:last-child) makes it correct for any item count, e.g. M3's 7). */
+.slide-consolidation .consolidation-sequence .seq-step:not(:nth-child(3n)):not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1.25rem;
+  left: calc(50% + 1.55rem);
+  width: calc(100% - 1.5rem);
+  height: 2px;
+  background: var(--rule-strong);
+}
+@media (max-width: 768px) {
+  .slide-consolidation .consolidation-sequence { grid-template-columns: 1fr; gap: 3vh; }
+  .slide-consolidation .consolidation-sequence .seq-step::after { display: none; }
+}
+
+/* stark-cut — one or two lines at large scale, little or no elaboration.
+   Its cost: the reveal's usual body is de-emphasized, small and quiet,
+   rather than dropped (content stays verbatim — §M1 of the brief). */
+.slide.shape-stark-cut h2 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  line-height: 1.08;
+  max-width: 20ch;
+  white-space: pre-line;
+}
+.slide.shape-stark-cut .body {
+  margin-top: 4.5vh;
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  font-style: normal;
+  color: var(--ink-dim);
+  opacity: 0.8;
+  max-width: 32ch;
+}
+.slide.has-image.shape-stark-cut .body { color: var(--onimage-ink-dim); opacity: 1; }
 
 /* ============================================================
    Register IV — Frame and assessment
@@ -700,6 +806,7 @@ const MODULE = {
     },
     {
       "type": "reveal",
+      "shape": "stark-cut",
       "kicker": "The Difference",
       "heading": "A sign is not\na lock.",
       "body": "A sign is a request. A lock is a fact. And the difference between a request and a fact is the distance between going home tonight and not."
@@ -711,7 +818,7 @@ const MODULE = {
       "body": "You already proved that. Here's the six steps that do it."
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Step One — Prepare",
       "boxText": "Find the machine-specific lockout procedure — every energy source, where it enters, what device isolates it.",
       "body": "This is the step most people skip. It feels like paperwork. But this form is the map. Guessing gets people hurt.",
@@ -724,21 +831,21 @@ const MODULE = {
       "body": "What's being locked out. Why. How long. Who's responsible. An affected employee who doesn't know about the lockout might try to start the machine."
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Step Two — Shutdown",
       "boxText": "Wait for zero. Not \"almost stopped.\"",
       "body": "Use the normal stopping procedure — the one documented, the one you were trained on.",
       "image": "img/s06-shutdown.jpg"
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Step Three — Isolate",
       "boxText": "Disconnect from every energy source. Not just electrical.",
       "body": "Electrical: disconnect to OFF, verify breaker connections open. Hydraulic/pneumatic: valves CLOSED. Chemical: valves closed, lines bled or capped. The word is isolate, not reduce.",
       "image": "img/s07-isolate.jpg"
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Step Four — Lock",
       "boxText": "The physical barrier. Only you have the key.",
       "body": "Once this lock is on, the disconnect cannot move to ON. Not by accident. Not by anyone, for any reason, unless they have the key.",
@@ -757,7 +864,7 @@ const MODULE = {
       "body": "A master key means someone else can override your decision that the machine isn't safe yet. Your life, someone else's judgment. That's not a system. That's a gamble."
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Tags vs. Locks",
       "boxText": "A lock can refuse. A tag can only ask.",
       "body": "Tag-only fits two cases: the device can't physically take a lock, or the employer can prove tagout protects just as well as lockout would. Tags supplement locks. They don't replace them by default.",
@@ -769,7 +876,7 @@ const MODULE = {
       }
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Step Five — Stored Energy",
       "boxText": "New energy can't enter. But the energy already inside hasn't gone anywhere.",
       "body": "Hydraulic lines: bleed until zero. Suspended loads: lower or block. Springs: release carefully. Capacitors: discharge per procedure.",
@@ -787,7 +894,7 @@ const MODULE = {
       }
     },
     {
-      "type": "concept",
+      "type": "definition",
       "label": "Step Six — Verify",
       "boxText": "Push the button. Wait for the silence.",
       "body": "Try to start the machine. If nothing happens, the lockout is complete. Return controls to OFF or NEUTRAL before you begin work. Verification isn't trust — it's proof.",
@@ -844,6 +951,7 @@ const MODULE = {
     },
     {
       "type": "reveal",
+      "shape": "stark-cut",
       "kicker": "The Only Difference",
       "heading": "A sign is a request.\nA lock is a fact.",
       "body": "Six steps. A few minutes. A padlock. Everyone goes home safe."
@@ -963,6 +1071,7 @@ function renderSlide() {
 
   let inner = '';
   let slideClasses = `slide slide-${slide.type}`;
+  if (slide.shape) slideClasses += ` shape-${slide.shape}`;
   if (slide.image) slideClasses += ' has-image';
   const bgStyle = slide.image ? `background-image: url('${slide.image}')` : '';
 
@@ -991,11 +1100,20 @@ function renderSlide() {
       break;
 
     case 'teaching-caption':
-      inner = `
-        ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
-        <h2>${nl2br(slide.heading)}</h2>
-        <div class="body">${slide.body}</div>
-      `;
+      if (slide.shape === 'figure') {
+        inner = `
+          ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+          <div class="figure-value">${slide.figure}</div>
+          <div class="figure-caption">${nl2br(slide.heading)}</div>
+          <div class="body">${slide.body}</div>
+        `;
+      } else {
+        inner = `
+          ${slide.kicker ? `<div class="kicker">${slide.kicker}</div>` : ''}
+          <h2>${nl2br(slide.heading)}</h2>
+          <div class="body">${slide.body}</div>
+        `;
+      }
       break;
 
     case 'misconception-held-up':
@@ -1014,17 +1132,22 @@ function renderSlide() {
       `;
       break;
 
-    case 'concept':
+    case 'definition':
       inner = `
-        <div class="concept-label">${slide.label}</div>
-        <div class="concept-box"><div class="box-text">${slide.boxText}</div></div>
+        <div class="definition-label">${slide.label}</div>
+        <div class="definition-box"><div class="box-text">${slide.boxText}</div></div>
         <div class="body">${slide.body}</div>
       `;
       break;
 
     case 'consolidation': {
       const isList = Array.isArray(slide.items) && slide.items.length > 0 && typeof slide.items[0] === 'object';
-      const body = isList
+      const isSequence = isList && slide.shape === 'sequence';
+      const body = isSequence
+        ? `<ol class="consolidation-sequence">${slide.items.map(it => `
+            <li class="seq-step"><span class="seq-num">${it.num}</span><span class="seq-text">${it.text}</span></li>
+          `).join('')}</ol>`
+        : isList
         ? `<ol class="consolidation-list">${slide.items.map(it => `
             <li class="c-item"><span class="c-num">${it.num}</span><span class="c-text">${it.text}</span></li>
           `).join('')}</ol>`

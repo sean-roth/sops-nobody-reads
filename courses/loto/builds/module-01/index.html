@@ -515,8 +515,12 @@ body {
   max-width: 17ch;
 }
 .slide-consolidation .consolidation-sequence .seq-text strong { color: var(--ink); font-weight: 600; }
-/* connector to the next step, within the same row of three */
-.slide-consolidation .consolidation-sequence .seq-step:not(:nth-child(3n))::after {
+/* connector to the next step — within the same row of three, and never
+   past the last item overall (:not(:last-child) added for consistency
+   with M2/M3, ported back here — harmless for this slide's 6 items, since
+   nth-child(3n) already excluded item 6, but item counts aren't always
+   divisible by 3, e.g. M3's 7-item "Before It Restarts"). */
+.slide-consolidation .consolidation-sequence .seq-step:not(:nth-child(3n)):not(:last-child)::after {
   content: '';
   position: absolute;
   top: 1.25rem;
@@ -527,7 +531,7 @@ body {
 }
 @media (max-width: 768px) {
   .slide-consolidation .consolidation-sequence { grid-template-columns: 1fr; gap: 3vh; }
-  .slide-consolidation .consolidation-sequence .seq-step:not(:nth-child(3n))::after { display: none; }
+  .slide-consolidation .consolidation-sequence .seq-step::after { display: none; }
 }
 
 /* stark-cut — one or two lines at large scale, little or no elaboration.
