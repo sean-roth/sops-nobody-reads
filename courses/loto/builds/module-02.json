@@ -15,7 +15,7 @@
 
     { "type": "definition", "label": "Step One — Prepare", "boxText": "Find the machine-specific lockout procedure — every energy source, where it enters, what device isolates it.", "body": "This is the step most people skip. It feels like paperwork. But this form is the map. Guessing gets people hurt.", "image": "img/s05-prepare.jpg" },
 
-    { "type": "teaching-caption", "kicker": "Step One — Notify", "heading": "Notify everyone\naffected.", "body": "What's being locked out. Why. How long. Who's responsible. An affected employee who doesn't know about the lockout might try to start the machine." },
+    { "type": "teaching-caption", "kicker": "Notify", "heading": "Notify everyone\naffected.", "body": "What's being locked out. Why. How long. Who's responsible. An affected employee who doesn't know about the lockout might try to start the machine." },
 
     { "type": "definition", "label": "Step Two — Shutdown", "boxText": "Wait for zero. Not \"almost stopped.\"", "body": "Use the normal stopping procedure — the one documented, the one you were trained on.", "image": "img/s06-shutdown.jpg" },
 
