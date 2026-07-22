@@ -47,6 +47,7 @@ A working instance of the pattern the course runner should inherit:
 - 2026-07-21 — Form factor: **CLI for seat/agent management first; visual dashboard for viewing the rendered course**; unified GUI later.
 - 2026-07-21 — **Git as database** reaffirmed; documents → HTML/CSS/images; one repo per client; scale deferred until ~a dozen clients.
 - 2026-07-21 — Demo audience = **cold-call prospects**; the demo is the call's proof artifact (constraints below).
+- 2026-07-21 — **Sequencing flip confirmed by Sean:** chrome consolidation → nl2br (one-file, in the shared chrome) → voice audit → deployment check. LXD/aesthetic-design skill conformance trails post-demo.
 
 ## Outreach constraints on the demo (from `phonebooth/_agent/README.md`)
 
@@ -70,3 +71,4 @@ Format: **T# — step** · seat · inputs · driver · outputs · gate · *app n
 - **T2 — Scope decisions.** Human + orchestrator · T1 questions · — · the Decisions above + this file · gate: the human's answers. *App note: the decisions log is distinct from task state; decisions constrain all future briefs.*
 - **T3 — Merge PR #79 (content pass).** Human · verified PR + screenshots · sign-off · merged to `main` · gate: human sign-off (domain appropriateness). *App note: merge is human-gated; the app may execute a merge, never initiate one.*
 - **T4 — Context intake (outreach).** Orchestrator · phonebooth `_agent/` README, ROADMAP, orchestrator/, app-v0-scope.md · meta-task · outreach constraints + precedent pattern + RECONCILE item · gate: none (read-only). *App note: the orchestrator needs cross-repo read access; a deliverable's constraints can live in a different repo than the deliverable.*
+- **T5 — Chrome consolidation brief.** Orchestrator · verified `builds/` layout (repo listing) + Decisions + the M1 acceptance-gate lesson · Sean's sequencing confirmation · `courses/loto/CHROME-CONSOLIDATION-2026-07-21.md`, carrying its own audit checklist · gate: none (builder picks it up). *App note: a brief that embeds its own audit checklist makes brief→build→audit machine-followable end to end; per-pass brief templates are the extractable prompt files. Also: the orchestrator's path assumptions from memory were wrong (module JSONs sit beside the module dirs, not inside them) — "verify repo layout before writing the brief" is a runner step, not a nicety.*
