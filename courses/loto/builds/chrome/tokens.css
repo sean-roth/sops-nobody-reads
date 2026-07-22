@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Light default — sourced from sopsnobodyreads-site/styles.css */
+  --bg: #f4ede0;
+  --bg-panel: #ece1cd;
+  --bg-panel-2: #e4d7bf;
+  --ink: #1f3a2e;
+  --ink-dim: #6b5d4a;
+  --accent: #3a1f2e;
+  --accent-wash: rgba(58, 31, 46, 0.06);
+  --accent-wash-strong: rgba(58, 31, 46, 0.12);
+  --rule: rgba(31, 58, 46, 0.12);
+  --rule-strong: rgba(31, 58, 46, 0.22);
+  --correct: #1f7a4d;
+  --incorrect: #b3261e;
+
+  /* Fixed on-image scheme — LOTO's industrial-noir imagery is dark regardless of
+     chrome mode, so text over it stays on this scheme in both light and dark (§S5). */
+  --onimage-ink: #f4ede0;
+  --onimage-ink-dim: #d8c9a8;
+  --onimage-scrim-from: rgba(10, 14, 11, 0.35);
+  --onimage-scrim-to: rgba(8, 11, 9, 0.86);
+
+  --font-display: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-ui: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+
+  --measure: 40rem;
+  --page-max: 64rem;
+  --gutter: 1.5rem;
+}
+
+:root.dark {
+  --bg: #141f19;
+  --bg-panel: #1c2b22;
+  --bg-panel-2: #24362a;
+  --ink: #f2ead9;
+  --ink-dim: #b9ac95;
+  --accent: #e0a8c4;
+  --accent-wash: rgba(224, 168, 196, 0.08);
+  --accent-wash-strong: rgba(224, 168, 196, 0.16);
+  --rule: rgba(242, 234, 217, 0.14);
+  --rule-strong: rgba(242, 234, 217, 0.24);
+}
