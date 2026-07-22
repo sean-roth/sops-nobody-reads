@@ -47,6 +47,21 @@ This reading is also the only one under which Appendix A is internally consisten
 
 ---
 
+## 4. `MODULE_CHROME` text — inside or outside the source-fidelity regime? (surfaced by PR #80, 2026-07-21)
+
+The chrome-consolidation three-way diff surfaced three pieces of learner-facing text that were never in the frozen `module-0N.json` parity mirror — they were hard-coded (and forked) inside each player's renderer: the per-question quiz feedback explanations (D3), the close-slide next-module link label (D4), and the close-slide note (D5). PR #80 relocates them, verbatim, to a per-module `MODULE_CHROME` block in each thin shell; `MODULE` remains deep-equal to its frozen `.json`. The builder's change note flags the same question (Judgment call 1).
+
+**Decision needed:** where does this text live long-term?
+
+- **(a)** Fold into the `.json` under the parity regime next time the freeze lifts. Quiz feedback is instructional content — it tells a learner *why* an answer is right or wrong, and arguably owes the same sourcing/anchoring discipline as slide copy.
+- **(b)** Declare it chrome copy — navigation/service text governed by the outreach voice rules rather than the source-fidelity regime. Defensible for the next-link label and close note (D4/D5); harder to defend for quiz feedback (D3).
+
+A split ruling — (a) for D3, (b) for D4/D5 — is plausible and may be the natural line.
+
+**Not a merge blocker for #80:** the relocation is verbatim and rendering-identical; this item is about the text's governance home, not the text.
+
+---
+
 ## Status
 
 | Item | Status |
@@ -54,7 +69,8 @@ This reading is also the only one under which Appendix A is internally consisten
 | 1. Scope exclusions | Resolved — folded in, per Sean (shipped Phase 4a, re-verified through Pass-7) |
 | 2. Interpretation letters as secondary sources | Open — no shipped fix depends on it |
 | 3. Notification-ordering conflict (Appendix A vs. (e)(2)(ii)) | Resolution applied to main in Pass-7 — pending Sean's sign-off |
+| 4. `MODULE_CHROME` text placement | Open — surfaced by PR #80 (2026-07-21); not a merge blocker |
 
-Route items 2 and 3 through the conflict-log / decision-record process (Durability Standard §5) when Sean is ready to rule on them.
+Route items 2–4 through the conflict-log / decision-record process (Durability Standard §5) when Sean is ready to rule on them.
 
-Approved — Sean, 07-15-2026
+Approved — Sean, 07-15-2026 (items 1–3 as then listed; item 4 added 2026-07-21, unreviewed)
