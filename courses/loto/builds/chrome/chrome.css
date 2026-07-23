@@ -664,7 +664,8 @@ body {
   border-top: 1px solid var(--rule);
   font-family: var(--font-ui);
 }
-.bottom-bar-left { display: flex; align-items: center; gap: 0.6rem; }
+.bottom-bar-left { display: flex; align-items: center; gap: 0.6rem; position: relative; }
+
 .nav-btn {
   font-family: var(--font-ui);
   font-size: 0.82rem;
@@ -683,6 +684,20 @@ body {
 .nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .nav-btn[aria-pressed="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
 .nav-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* The three controls below (#modeToggleBtn, #darkToggleBtn, the Menu link)
+   live once in the DOM and are reparented by player.js's arrangeBarControls()
+   between .bottom-bar-left (desktop, direct flex children, original order)
+   and #moreMenu (phone popover, brief's required order) — actual DOM
+   relocation, not a CSS reorder. (`order`/flex-direction:*-reverse would
+   only change paint position: Tab always follows DOM order, so a CSS-only
+   reorder would put one of the two contexts' tab sequence out of step with
+   what's on screen.) At desktop #moreMenu is left empty, so plain
+   `display: none` is enough — nothing inside it needs preserving.
+   (Declared after .nav-btn so this display:none override wins the cascade —
+   same specificity, later wins.) */
+.bar-more-btn { display: none; }
+.bar-more-menu { display: none; }
 
 .progress-section { display: flex; align-items: center; gap: 0.85rem; }
 .progress-track { width: 180px; height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden; }
@@ -719,6 +734,48 @@ body {
   .progress-track { width: 100px; }
   .nav-btn { font-size: 0.72rem; padding: 0.55rem 0.8rem; }
   .options-container, .quiz-options { max-width: 90vw; }
+}
+
+/* Phone nav (MOBILE-NAV-2026-07-23). Below 768px the bar already tightens
+   (above); below this breakpoint there just isn't room for Menu + Dark +
+   Learner Mode + a usable progress track + Prev/Next in one row, so the
+   three left-cluster controls collapse into the ⋯ popover. Chosen at
+   640px per the brief; verified comfortable down to 360px. Stacking order
+   inside the popover (Learner/Reviewer toggle, Dark toggle, Menu) comes
+   from player.js's arrangeBarControls() moving the real nodes into #moreMenu
+   in that order — nothing to set here. */
+@media (max-width: 640px) {
+  .bar-more-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; }
+
+  .bar-more-menu {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    margin-bottom: 0.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.35rem;
+    background: var(--bg-panel);
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    padding: 0.5rem;
+    min-width: 180px;
+    z-index: 20;
+  }
+  .bar-more-menu.open { display: flex; }
+  /* align-items: stretch (above) makes every popover item full-width;
+     buttons center their text by default, the anchor doesn't. */
+  .bar-menu-link { text-align: center; }
+
+  /* All bar/popover tap targets ≥44px — the shared ≤768px sizing above
+     doesn't clear that bar on its own. */
+  .nav-btn { min-height: 44px; font-size: 0.75rem; padding: 0.5rem 0.65rem; }
+
+  /* Progress track flexes into whatever room the ⋯ trigger and Prev/Next
+     leave, instead of holding a fixed width regardless of available space. */
+  .progress-section { flex: 1 1 auto; min-width: 0; }
+  .progress-track { flex: 1 1 auto; width: auto; max-width: 180px; min-width: 60px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
