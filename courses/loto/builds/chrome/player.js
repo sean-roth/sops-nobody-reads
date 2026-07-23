@@ -10,8 +10,9 @@
                        nextLabel    — close-screen "next" link label
                        closeNote    — close-screen resting note
 
-   nl2br() is preserved as a pre-existing no-op (bug intact by design — the
-   deck-wide fix is a separate pass). Do not "fix" it here. */
+   nl2br() converts the real newlines that MODULE heading text carries into
+   <br>. It was a pre-existing no-op until the NL2BR pass (2026-07-23) — the
+   deck-wide fix the consolidation set up (courses/loto/CHANGE-NOTE-nl2br.md). */
 
 // The player chrome DOM — identical across all three modules, injected into
 // the shell's single #app mount so it lives in exactly one place.
@@ -80,7 +81,11 @@ function renderCitation(source) {
   return `<a class="citation-chip" href="${source.url}" target="_blank" rel="noopener"><span>&sect;</span> ${source.citation}</a>`;
 }
 
-function nl2br(s) { return (s || '').replace(/\\n/g, '<br>'); }
+// nl2br — MODULE headings carry real newline characters; render each as a <br>.
+// slide.heading is the sole consumer (title, teaching-caption, misconception-held-up,
+// reveal). The pre-2026-07-23 pattern matched a literal backslash-n sequence, which
+// the parsed data never contains, so it silently no-op'd (the NL2BR-PASS bug).
+function nl2br(s) { return (s || '').replace(/\n/g, '<br>'); }
 
 // sequence shape — split items into rows of 3, but never leave a lone
 // trailing item (3+3+1 reads as an orphan): fold it back into the row
