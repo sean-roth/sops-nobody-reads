@@ -126,6 +126,19 @@ html, body {
   outline-offset: 3px;
 }
 
+/* Coming-soon state (M2/M3 in the demo cut): a menu state, not architecture —
+   reversal is one class + one tag swap per row. pointer-events:none removes the
+   click path and every hover affordance; the arrow is hidden but its grid column
+   is preserved, so there is no layout shift vs. the live row. */
+.coming-soon {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.coming-soon .row-arrow {
+  visibility: hidden;
+}
+
 .row-number {
   font-family: var(--font-display);
   font-size: 2rem;
@@ -346,15 +359,15 @@ html, body {
 
 <div class="container">
   <header class="header">
-    <div class="course-label">Industrial Safety Training</div>
+    <div class="course-label">Industrial Safety</div>
     <h1 class="course-title">Lockout/Tagout<br>
 Control of Hazardous Energy</h1>
     <div class="course-subtitle">Six steps. A padlock. Everyone goes home safe.</div>
     <p class="course-description">
-      Essential training for controlling hazardous energy during service and maintenance. 
+      Essential onboarding for controlling hazardous energy during service and maintenance.
       Every module is based on the OSHA standard and cites it as it teaches, so you can verify the content against the source instead of taking our word for it.
     </p>
-    <div class="course-meta">3 modules &bull; Self-paced &bull; Based on OSHA 29 CFR 1910.147</div>
+    <div class="course-meta">3 modules &bull; Module 1 open now &bull; Self-paced &bull; Based on OSHA 29 CFR 1910.147</div>
   </header>
 
 
@@ -372,7 +385,7 @@ Control of Hazardous Energy</h1>
       <span class="row-arrow" aria-hidden="true">&rarr;</span>
     </a>
 
-    <a class="module-row" href="module-02/index.html">
+    <div class="module-row coming-soon" aria-disabled="true">
       <div class="row-number">02</div>
       <div class="row-main">
         <h2 class="row-title">The Six Steps</h2>
@@ -380,12 +393,12 @@ Control of Hazardous Energy</h1>
       </div>
       <div class="row-side">
         <span class="row-part">Part Two — The Procedure That Keeps You Alive</span>
-        <span class="row-duration">~15 min</span>
+        <span class="row-duration">Coming soon</span>
       </div>
       <span class="row-arrow" aria-hidden="true">&rarr;</span>
-    </a>
+    </div>
 
-    <a class="module-row" href="module-03/index.html">
+    <div class="module-row coming-soon" aria-disabled="true">
       <div class="row-number">03</div>
       <div class="row-main">
         <h2 class="row-title">When Simple Gets Complicated</h2>
@@ -393,10 +406,10 @@ Control of Hazardous Energy</h1>
       </div>
       <div class="row-side">
         <span class="row-part">Part Three — The Edge Cases</span>
-        <span class="row-duration">~25 min</span>
+        <span class="row-duration">Coming soon</span>
       </div>
       <span class="row-arrow" aria-hidden="true">&rarr;</span>
-    </a>
+    </div>
   </main>
 
   <section class="contact-section">
