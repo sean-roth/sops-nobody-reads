@@ -421,6 +421,7 @@ function updateProgress() {
   const pos = quizMode ? MODULE.slides.length + currentQuizQuestion + 1 : currentSlide + 1;
   document.getElementById('progressFill').style.width = `${(pos / total) * 100}%`;
   document.getElementById('progressText').textContent = `${pos} / ${total}`;
+  document.getElementById('slideContainer').scrollTop = 0; // MOBILE-READABILITY-2026-07-23: every slide change starts scrolled to top
 }
 
 function updateNavButtons() {
