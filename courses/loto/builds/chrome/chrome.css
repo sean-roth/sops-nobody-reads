@@ -500,7 +500,7 @@ body {
    not at this scale, where natural wrap can turn two lines into three.
    Scoped to this shape only — flagged, not fixed deck-wide (out of pass). */
 .slide.shape-stark-cut h2 {
-  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);   /* was clamp(2.6rem, 7vw, 5.5rem) — fits 4-line stark-cut headings + caption */
   line-height: 1.08;
   max-width: 20ch;
   white-space: pre-line;
