@@ -6,12 +6,12 @@
 
 ---
 
-## System map (as of 2026-07-21)
+## System map (as of 2026-07-22)
 
 **Repos**
-- `sops-nobody-reads` — courses, governing standards (law), players, ledgers, this file. The app's home.
+- `sops-nobody-reads` — courses, governing standards (law), players, ledgers, this file. The app's home. **Public; served by GitHub Pages** (see deployment, below).
 - `phonebooth` — outreach. `_agent/` is the sales system; `_agent/orchestrator/` is the working lead-gen pipeline (**the architectural precedent**, below); `_agent/strategy/app-v0-scope.md` is the client-facing v0 shell spec (DRAFT).
-- `sopsnobodyreads-site` — the public site; serves the demo URL. Deployment path from a merged course build to `sopsnobodyreads.com/demo`: **open question** below.
+- `sopsnobodyreads-site` — the public site. `vercel.json` rewrites `/demo` → `sean-roth.github.io/sops-nobody-reads/courses/loto/builds/` — i.e. the demo serves **directly from this repo's `main`**. **Merging to `main` = publishing the demo** (Pages rebuild ~1–2 min).
 - Per-client repos (future) — one repo per client; documents → HTML/CSS/images. Scale structure deferred until ~a dozen clients show the shape organically.
 
 **Seats** (always separate contexts — decided 2026-07-21)
@@ -33,12 +33,13 @@ A working instance of the pattern the course runner should inherit:
 
 - **Standards** (`docs/standards/`) — law. Durability (source), Slide-Type v0.2 (structure), Build Methodology (process).
 - **Frozen source** (`courses/<course>/sources/`) — content authority; the course renders it, never overrides it.
-- **Brief** — orchestrator → builder task spec. *Pending: brief templates as committed files per pass type.*
+- **Brief** — orchestrator → builder task spec. *Templates pending; three real briefs now exist to extract from.*
 - **Change note + screenshots** — builder → handback.
 - **PR diff** — the auditor's ground truth.
 - **Ledgers** — `ADDITIONS-LEDGER.md` (§8 additions), `BUILD-LESSONS.md` (each real error → the automated safeguard it implies).
 - **Handoff** — serialized orchestrator state across sessions.
 - **Seat prompts** (`docs/app/seats/`) — kickoff templates per seat; the extractable prompt files.
+- **Audit reports** (`courses/<course>/AUDIT-*.md`) — the auditor's committed verdicts.
 - **This trace** — record → spec.
 
 ## Decisions (dated)
@@ -49,21 +50,25 @@ A working instance of the pattern the course runner should inherit:
 - 2026-07-21 — **Git as database** reaffirmed; documents → HTML/CSS/images; one repo per client; scale deferred until ~a dozen clients.
 - 2026-07-21 — Demo audience = **cold-call prospects**; the demo is the call's proof artifact (constraints below).
 - 2026-07-21 — **Sequencing flip confirmed by Sean:** chrome consolidation → nl2br (one-file, in the shared chrome) → voice audit → deployment check. LXD/aesthetic-design skill conformance trails post-demo.
+- 2026-07-22 — **Post-merge audit of #80: PASS, closed** (report `courses/loto/AUDIT-2026-07-22-pr80.md`, commit `9242d6f`; all A1–A7 + attention items; no remediation). The chrome layer is verified ground.
+- 2026-07-22 — **Sean's business direction:** SNR is *an app with a lot of service* — "helping people get it just right is key." Resolves the RECONCILE item per the dual-rule reading: build client-facing surfaces plus whatever makes the service fast; every other layer waits until it's *needed* ("I want to need a CRM").
+- 2026-07-22 — **Demo cut for the morning:** Module 1 live; M2/M3 greyed "coming soon" (menu state, one-commit reversible — not because M2/M3 are broken, but because one excellent module is the sharper pitch and matches the founding-offer story). Morning order: NL2BR-PASS → DEMO-CUT-MENU → phone check at `/demo` → **dial**. Cold audits for both passes run same-day post-merge — a *chosen* gate ordering.
 
 ## Outreach constraints on the demo (from `phonebooth/_agent/README.md`)
 
 - The call sends a prospect to **sopsnobodyreads.com/demo** — one URL, no login, likely opened **on a phone** in a shop office. Mobile rendering and page weight are demo-blocking concerns, not polish.
-- Demo copy is a prospect-facing outreach surface and inherits the voice rules: plain, short sentences; say "onboarding"/"module," never "training"; never AI / blockchain / SCORM / LMS / "compliance" / "platform" / "solution." → **Needs an explicit voice audit** of the course menu and any intro copy.
+- Demo copy is a prospect-facing outreach surface and inherits the voice rules: plain, short sentences; say "onboarding"/"module," never "training"; never AI / blockchain / SCORM / LMS / "compliance" / "platform" / "solution." → Voice audit of the menu run 2026-07-22: three "training" instances found; fixes folded into `DEMO-CUT-MENU-2026-07-23.md`; contact section already on-voice.
 - The demo must read as *a shop's own procedure, faithfully rendered* — the Learner/Reviewer citation toggle is the trust feature and should be discoverable without narration.
 
 ## Open items for the spec (running)
 
-- **RECONCILE (needs Sean):** `app-v0-scope.md` scopes v0 to client-touching surfaces (Wizard-of-Oz rule: don't build what the client never sees), while the 2026-07-21 meta-task instruments exactly the unseen machinery. Proposed reading: the Wizard-of-Oz rule governs the *client-facing* build; the phonebooth roadmap rule (build only what a felt bottleneck demands) governs the *Sean-facing* machinery — and this trace exists to log which frictions are actually felt, so the runner is built from evidence, not appetite.
-- **Deployment path:** how does a merged LOTO build reach `sopsnobodyreads.com/demo`? (Vercel autodeploys the site repo; courses live in this one.) Unverified.
-- **Prompt storage:** each seat's prompt and each pass type's brief template as versioned files (inherit the lead-gen pattern). *In progress — first extracted: `docs/app/seats/auditor.md` (2026-07-22).*
+- ~~RECONCILE~~ — **RESOLVED 2026-07-22** by Sean's business-direction decision (above).
+- ~~Deployment path~~ — **RESOLVED 2026-07-22:** `sopsnobodyreads.com/demo` → Vercel 308 to `/demo/` → rewrite to GitHub Pages serving this repo's `main` (`courses/loto/builds/`). No sync step exists or is needed; merge = publish; Pages rebuild ~1–2 min. *Consequence logged at T11: the human merge gate is also the publish gate.*
+- **Client-repo serving model (decide before client #1):** the public-repo + Pages + rewrite trick works for the public demo, but client repos will hold confidential SOPs — private repos + authenticated serving required; the demo's mechanism cannot be the client mechanism.
+- **Prompt storage:** seat prompts and per-pass brief templates as versioned files. *In progress — `docs/app/seats/auditor.md` extracted (2026-07-22); three real briefs exist to template from.*
 - **Auditor cleanliness in-app:** fresh context per audit, enforced mechanically, not by convention.
 - **Cost metering:** log Anthropic + Replicate spend per delivered module from day one (pulled forward from `app-v0-scope.md`).
-- **Gate artifacts need a home outside `main` history.** A full screenshot matrix is ~30 MB/pass; committed to `main` that compounds forever in git history. Working convention: matrix committed to the pass branch for the audit, stripped by a cleanup commit after the audit passes, then squash-merged — evidence preserved on the PR, `main` stays light. *Update 2026-07-22: #80 landed as a regular merge before the strip, so this pass's matrix is in `main`'s history; tree cleanup pending (delete `courses/loto/screenshots/chrome-consolidation/` from the working tree). The strip-then-squash convention applies from the next pass.*
+- **Gate artifacts need a home outside `main` history.** Working convention: matrix committed to the pass branch for the audit, stripped by a cleanup commit after audit, then squash-merged — evidence preserved on the PR, `main` stays light. *#80 landed as a regular merge before the strip (matrix now in `main` history; tree cleanup pending: delete `courses/loto/screenshots/chrome-consolidation/`). Convention applies from NL2BR-PASS onward.*
 
 ## Trace entries
 
@@ -77,3 +82,6 @@ Format: **T# — step** · seat · inputs · driver · outputs · gate · *app n
 - **T6 — Handback received; orchestrator conformance review (PR #80).** Orchestrator · PR file list + `CHANGE-NOTE-chrome-consolidation.md` (branch `chrome-consolidation`) · Sonnet handback · verdict: shape conforms (chrome trio + 3 thin shells at +11/−~1140 each; JSONs and menu absent from the diff; divergence table complete, D1–D5 correctly classified drift-vs-content; 3 judgment calls disclosed; exactly 1 new CSS rule, `#app{height:100%}`) + DECISIONS-NEEDED item 4 filed + auditor attention points relayed · gate: **cold audit still required before merge** (orchestrator review is not the audit). *App notes: (1) the full-matrix gate caught a real regression — the height-chain collapse read as ~2% diff on sparse slides and ~88% on image slides; a sampled gate could have dismissed 2% as noise, so no-sampling is now evidence-backed, not doctrine. (2) Consolidation worked as a governance X-ray: it surfaced learner-facing text living outside the parity mirror (`MODULE_CHROME`). (3) The builder escalated judgment calls to the human mid-build, bypassing the orchestrator — legitimate (the human outranks the orchestrator) but the app must require such approvals to land in the change note, which happened here. (4) Gate artifacts are heavy — see the open item; audit-then-strip before squash-merge.*
 - **T7 — PR #80 merged by human ahead of the cold audit (2026-07-22 16:42Z).** Human · PR #80 + builder self-check (A1–A7) · merge button (web UI, regular merge, commit `888bebd`) · chrome consolidation on `main` · gate: human sign-off exercised; **cold audit pending → converted to a post-merge audit** (comparison baseline = merge-base `a61bfe0`; remedy on FAIL = revert or fix pass, orchestrator's call). *App note: gates can fire out of order — the human owns the button and may press it before the audit completes. The runner must support post-merge audits rather than assume gate ordering, and should surface gate state ("audit: pending") at merge time so an out-of-order merge is a choice, not an accident.*
 - **T8 — Auditor seat prompt extracted.** Orchestrator · Anthropic Fable-prompting guidance (platform docs) + the post-merge audit need · Sean's request for a short kickoff · `docs/app/seats/auditor.md` (template) + a filled post-merge instance handed to Sean · gate: none. *App note: first seat prompt is now a committed file per the lead-gen pattern. The short-kickoff doctrine held up against official guidance — the brief's embedded checklist is the "concrete thing to verify against," so the kickoff carries only seat, pointers, trust rule, and output contract.*
+- **T9 — Post-merge audit of #80 closed: PASS (2026-07-22).** Auditor (cold, separate session) · §Audit checklist + merge-base `a61bfe0` + PR #80 · auditor kickoff prompt · `courses/loto/AUDIT-2026-07-22-pr80.md` on `main` (commit `9242d6f`, parented on the exact audited tip) — all seven items + all three attention items PASS with methods; byte-identity caveat closed by independent re-render; one capture artifact resolved; no remediation · gate: closed. *App note: the audit-report-as-committed-file worked end to end — verdict travels with evidence, and the parent-commit discipline ("parented on the exact tip I audited") is worth encoding: an audit report should state precisely which tree it audited.*
+- **T10 — Direction set (late-night, Sean).** Human · the week's build results + tomorrow's calling goal · Sean's own read · Decisions: business = app with a lot of service (RECONCILE resolved); demo cut = M1 live + M2/M3 coming soon; morning order ending in **dial**; same-day post-merge audits as chosen ordering · gate: none (this IS the human gate speaking). *App note: strategy arrives at odd hours in natural language; the orchestrator's job is to convert it into briefs and decision-log entries the same night so the morning is pure execution. "Inputs over outcomes" is also the runner's metric design: count dials, passes shipped, briefs consumed — not yeses.*
+- **T11 — Morning runway prep.** Orchestrator · live menu file + `sopsnobodyreads-site` root + `vercel.json` · T10 decisions · voice-audit findings (three "training" instances; contact section already on-voice) + **deployment mechanism discovered** (`/demo` → Pages on this repo's `main`; merge = publish; between T7 and T9 unaudited code was briefly live — it passed, but the coupling is now explicit) + client-repo privacy flag + `NL2BR-PASS-2026-07-23.md` and `DEMO-CUT-MENU-2026-07-23.md` committed · gate: none (builder picks up in the morning). *App note: the runner must treat "merge to main" as a deploy action wherever Pages-style serving exists — the merge confirmation should say what it publishes. And the voice audit is a grep plus a judgment pass: automatable as a lint with a human-review pile for verb-form edge cases.*
