@@ -490,6 +490,60 @@ body {
   .slide-consolidation .consolidation-sequence .seq-step::after { display: none; }
 }
 
+/* Phone readability (MOBILE-READABILITY-2026-07-23). The ≤768px collapse
+   above traded width for height inside a frame with no height to give
+   (.slide-container was overflow:hidden, nothing scrolled) — dense
+   consolidation slides clipped, and consolidation-grid's auto-fit was
+   sizing itself to max-width rather than the flex parent's actual width
+   (.slide uses align-items:center, not stretch, so nothing constrained it),
+   centering an oversized grid and spilling cards off both edges. */
+@media (max-width: 640px) {
+  /* Sean's explicit design: six steps read as two columns, row-major,
+     1.2/3.4/5.6 — flatten .seq-row (display:contents) so the six .seq-step
+     children become direct grid items of .consolidation-sequence in DOM
+     order; grid auto-placement alone then guarantees that reading order,
+     rather than hoping two independently-sized rows-of-3 reflow evenly. */
+  .slide-consolidation .consolidation-sequence {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2vh 4vw;
+  }
+  .slide-consolidation .consolidation-sequence .seq-row { display: contents; }
+  /* Sized for the old single-row horizontal layout; loosen for the ~140-
+     160px columns here so text uses the actual available width instead of
+     wrapping narrower than it needs to. Connector line stays suppressed —
+     inherited from the ≤768px rule above (640 is a subset of that range),
+     and a row-major 2-col wrap has no clean way to draw one regardless
+     (it would need to skip every other step to avoid pointing into the
+     next row down). */
+  .slide-consolidation .consolidation-sequence .seq-text { max-width: none; }
+
+  /* Same family, same fix: force exactly 2 columns instead of the
+     auto-fit/260px-floor sizing that produced the overflow above. Odd
+     item counts (M1: 7, M2: 8, M3: 8) leave the last row half-empty —
+     acceptable; not worth replicating seqRows()'s desktop orphan-folding
+     for a plain review grid that never had it. consolidation-list (a
+     numbered paragraph list, not card/step-like — M2 slide 16) is
+     deliberately not touched here; it relies on the scroll backstop below
+     like any other slide type nobody's specifically restructured. */
+  .slide-consolidation .consolidation-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Systemic backstop: dense slides scroll instead of clip. Scoped to
+     phone widths only — desktop stays overflow:hidden, unchanged. */
+  .slide-container { overflow-y: auto; overflow-x: hidden; }
+  /* .slide centers its content vertically; centered content that overflows
+     pushes half the excess ABOVE its own top edge, which a scroll
+     container can't reach (scrollTop can't go negative) — the classic
+     "centered overflow is half unreachable" bug. `safe center` falls back
+     to start-alignment exactly when content overflows, leaving short
+     slides centered as today. Verified against both Chromium and WebKit
+     (Playwright) before relying on it: plain `center` left the first node
+     unreachable at the top; `safe center` did not, in both engines. Plain
+     `center` stays as the fallback for any engine that doesn't parse the
+     `safe` keyword. */
+  .slide { justify-content: center; justify-content: safe center; }
+}
+
 /* stark-cut — one or two lines at large scale, little or no elaboration.
    Its cost: the reveal's usual body is de-emphasized, small and quiet,
    rather than dropped (content stays verbatim — §M1 of the brief).

@@ -3,7 +3,8 @@
 Branch: `loto-mobile-readability`, off `main` (post-#83, includes the
 mobile-nav popover work — unrelated file regions, no overlap expected).
 
-Status: plan committed, build in progress. Results filled in at handback.
+Status: built, self-checked, handback below. Plan section left as originally
+committed; deviations and discoveries are called out explicitly in Results.
 
 ---
 
@@ -129,3 +130,143 @@ gate, and the usual desktop 1440 pixel-diff for R4.
 menu file, `restartQuiz()`'s pre-existing progress-update gap — this pass
 touches `chrome/chrome.css` and one line of `chrome/player.js` only (plus
 the `tools/capture` extension and this change note).
+
+---
+
+## Results
+
+### Discovery: slide 25's real defect was horizontal, not vertical
+
+Built the overflow-audit harness first and ran it against the unmodified
+branch before writing any fix. It reported slide 20 clipping vertically
+(as the brief describes) but slide 25 as **not** clipping at all — at the
+brief's exact nominal dimensions, `#slideContainer`'s `scrollHeight` was
+*exactly* equal to `clientHeight` for slide 25, at every viewport tested.
+Two different slides landing on a suspiciously exact tie is a methodology
+signal, not a coincidence, so I checked the actual rendered geometry
+(`getBoundingClientRect`) rather than trusting the aggregate scroll numbers.
+
+`.consolidation-grid` (slide 25's actual shape — see Plan) uses
+`grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))`. `.slide` is
+`align-items: center` (not the flex default `stretch`), so nothing
+constrains `.consolidation-grid`'s width to the available space — `auto-fit`
+computed track count against the grid's own `max-width: 52rem` instead,
+producing **three** 260px columns (780px) inside a ~330px-wide slide. The
+oversized grid then got centered, spilling items 1/4/7 off the left edge and
+part of 3/6 off the right — confirmed by measuring: those items' `left`
+values were negative or beyond the viewport width. This reads to a real
+user as fragmented, cut-off text on both edges (see the before/after
+screenshots below), not "scroll down for more" — arguably worse than
+slide 20's defect, and a pure vertical-scroll backstop does nothing for it;
+it has to be fixed at the source.
+
+The planned fix (`grid-template-columns: repeat(2, 1fr)`, no `auto-fit`,
+no `minmax` floor) turned out to resolve this too, verified before writing
+it into `chrome.css`: injected the rule live via `page.evaluate` against
+the running page and re-measured — `scrollWidth` dropped to match
+`clientWidth` exactly, items landed at the two expected x-positions. Added
+an `overflow-audit.js` check for horizontal overflow specifically (`scrollWidth
+> clientWidth`) alongside the vertical one — the original audit design only
+looked for vertical clipping and would have missed this class of bug
+entirely, the same way eyeballing did before this pass.
+
+### Discovery: the brief's nominal test dimensions don't reproduce slide 20's reported clipping
+
+At the brief's exact 390×844 / 360×800, slide 20 measured 30-60px of
+*headroom* before this pass's fix — not clipped. Sean's device check is the
+ground truth (the defect is real), so this is a test-methodology gap, not a
+reason to doubt the brief. Root-caused by testing at a reduced height
+(390×704, 360×660 — roughly nominal device height minus typical mobile
+browser chrome: address bar, toolbar) and confirming slide 20 clips there
+in headless Chromium too, with a comparable margin to what the reduced
+height implies is realistic. Added these as a second, disclosed viewport
+pair (`390x704-chrome`, `360x660-chrome`) in `overflow-audit.js` and this
+pass's capture recipe — genuinely stress-testing the fix's margins rather
+than testing at dimensions where the original bug is already borderline
+gone. Module-03's equivalent slide (7 items, one more than M1's 6) clips
+even at the *nominal* heights — see the audit report; a real, denser
+example of the same underlying issue, not a hypothetical.
+
+### `justify-content: safe center` — verified, not assumed
+
+Per the Plan's stated risk: tested a minimal repro (a centered flex column
+inside a fixed-height `overflow-y: auto` container, deliberately taller
+than the container) against both Chromium and WebKit via Playwright before
+writing this into `chrome.css`. Plain `justify-content: center` left the
+first item's top edge 9px above the container's own top edge — confirmed
+unreachable by scrolling to `scrollTop: 0` (can't go negative). `justify-
+content: safe center` (with plain `center` declared first as the fallback
+for any engine that doesn't parse `safe`) put the first item's top edge at
++7px in both engines — fully reachable at `scrollTop: 0`, and the last item
+still fully reachable at max scroll. Both engines identical; shipped as
+plain `center` immediately followed by `safe center` in the same
+declaration block.
+
+### Bar/slide anatomy at ≤640px (unchanged from the mobile-nav pass above 640px — this pass doesn't touch the bar)
+
+- **Slide 20 (`.consolidation-sequence`):** `.seq-row` becomes `display:
+  contents`; the container becomes a 2-column grid. The six `.seq-step`s
+  are direct grid items in unchanged DOM order (1-6), so grid auto-
+  placement alone produces 1·2 / 3·4 / 5·6 — verified both in the DOM
+  (`querySelectorAll('.seq-step')` order) and by measured position (items
+  0/1 share a row with 0 left of 1; 2/3 the next row down; 4/5 the last).
+  Connector line stays suppressed via the pre-existing ≤768px rule (640 is
+  a subset of that range — nothing new needed). `.seq-text`'s `max-width`
+  loosens from `17ch` (sized for the old single-row layout) to `none`.
+- **Grid family (slide 25, plus M2 slide 22 and M3 slide 30 for free, same
+  shared CSS):** forced to exactly 2 columns, no `auto-fit`/`minmax` floor.
+  `.consolidation-list` (M2 slide 16 — a numbered paragraph list, not
+  card-like) is deliberately untouched; relies on the backstop like any
+  other slide type nobody's specifically restructured.
+- **Systemic backstop:** `.slide-container` is `overflow-y: auto;
+  overflow-x: hidden` at ≤640px only (desktop unchanged, `overflow: hidden`).
+  `.slide`'s `justify-content` gets the `safe center` fallback described
+  above, same breakpoint.
+- **`player.js`:** one line in `updateProgress()` — the single function
+  already called after every transition regardless of which render path ran
+  — resets `#slideContainer.scrollTop` to 0.
+
+### Overflow audit — the measured check
+
+Full before/after table for all three modules: `courses/loto/OVERFLOW-AUDIT-
+mobile-readability.md` (raw data: `overflow-before.json`/`overflow-after.json`
+alongside the screenshots — regenerable via `tools/capture/overflow-audit.js`
+against any checkout). 736 checks (3 modules × ~92 waypoints incl. quiz/close
+× 4 viewports × 2 modes).
+
+| | Before | After |
+|---|---|---|
+| Clipped (any) | 36 | 2 |
+| Clipped-and-unscrollable | n/a\* | **0** |
+
+\* `overflow: hidden` still allows JS to set `scrollTop` — it just gives no
+user-facing scroll affordance — so "before" clipped rows aren't meaningfully
+separable into stuck/not-stuck; every clipped row before this pass was
+inaccessible to a real user by construction. Only "after" has a real
+scrolls-vs-stuck distinction.
+
+**M1 (this pass's actual scope): 240 checks, 0 clipped, 0 stuck** — the
+2-column reflow alone eliminated overflow entirely, even at the stress
+dimensions. **M2/M3 (read-only, no fixes applied): 2 residual clipped
+rows**, both module-03/slide-7 at the most aggressive stress dimension
+(360×660-chrome) — both `scrolls` (backstop reaches the bottom), zero stuck.
+
+### Screenshot inventory
+
+`courses/loto/screenshots/mobile-readability/` (branch-only, strips before
+squash-merge): desktop 1440×900 × `{light,dark}` × `{slide20,slide25}` ×
+`{before,after}` (8 files, R4 evidence — 0.0000% diff, all 4 pairs) + phone
+390×844/360×800 × `{light,dark}` × `{slide20,slide25}` × `{before,after}`
+(16 files, eyes-on gate) + the raw overflow-audit JSON.
+
+### Self-check
+
+| ID | Check | Result |
+|---|---|---|
+| R1 | Diff confined to `chrome/` + change note + `tools/capture` extension | **PASS** — `git diff --stat main`: `chrome.css` (+54), `player.js` (+1) only |
+| R2 | Slide 20 at 360/390: two columns, 1·2/3·4/5·6, all six visible | **PASS** — `readability-selfcheck.js`: DOM order `1.`-`6.` unchanged; measured positions confirm row-major pairing (0/1 same row, 2/3 next, 4/5 last); screenshots confirm visually at both widths/modes |
+| R3 | Zero clipped-and-unscrollable across all 29 M1 waypoints, both widths/modes; M2/M3 report attached | **PASS** — 0/240 M1 checks clipped (see audit); M2/M3 report attached, 2 residual (both `scrolls`, 0 stuck) |
+| R4 | Desktop (>640px) pixel-identical to `main` | **PASS** — 0.0000% across all 4 before/after pairs |
+| R5 | Scroll resets on slide change; quiz/close unaffected above threshold | **PASS** — `readability-selfcheck.js`: scrollTop set to 20 on a genuinely-overflowing waypoint, confirmed reset to 0 after `nextSlide()`; quiz and close screens confirmed not clipped (no spurious scroll behavior introduced) |
+
+No console/page errors observed across any capture or audit run.
