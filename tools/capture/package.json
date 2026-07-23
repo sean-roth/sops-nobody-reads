@@ -1,0 +1,15 @@
+{
+  "name": "loto-capture",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deterministic screenshot capture + pixel-diff harness for LOTO player passes. Committed infrastructure (per MOBILE-NAV-2026-07-23 trace T16) — the prior matrix lived in a scratchpad and didn't survive the session.",
+  "type": "commonjs",
+  "scripts": {
+    "install-browsers": "playwright install chromium"
+  },
+  "dependencies": {
+    "pixelmatch": "^5.3.0",
+    "playwright": "^1.61.1",
+    "pngjs": "^7.0.0"
+  }
+}
