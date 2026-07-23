@@ -22,9 +22,12 @@ const PLAYER_MARKUP = `
 
   <div class="bottom-bar">
     <div class="bottom-bar-left">
-      <a href="../index.html" class="nav-btn">Menu</a>
-      <button class="nav-btn" id="darkToggleBtn" onclick="toggleDarkMode()" aria-pressed="false" title="Toggle dark mode">Dark</button>
-      <button class="nav-btn" id="modeToggleBtn" onclick="toggleReviewerMode()" aria-pressed="false" title="Toggle citation view for review/compliance">Learner Mode</button>
+      <button class="nav-btn bar-more-btn" id="moreBtn" onclick="toggleMoreMenu()" aria-haspopup="true" aria-expanded="false" aria-controls="moreMenu" aria-label="View options">&#8943;</button>
+      <div class="bar-more-menu" id="moreMenu">
+        <button class="nav-btn" id="modeToggleBtn" onclick="toggleReviewerMode()" aria-pressed="false" title="Toggle citation view for review/compliance">Learner Mode</button>
+        <button class="nav-btn" id="darkToggleBtn" onclick="toggleDarkMode()" aria-pressed="false" title="Toggle dark mode">Dark</button>
+        <a href="../index.html" class="nav-btn bar-menu-link" onclick="closeMoreMenu()">Menu</a>
+      </div>
     </div>
     <div class="progress-section">
       <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
@@ -60,6 +63,7 @@ function toggleReviewerMode() {
   btn.textContent = reviewerMode ? 'Reviewer Mode' : 'Learner Mode';
   btn.setAttribute('aria-pressed', String(reviewerMode));
   renderCurrent();
+  closeMoreMenu({ returnFocus: true });
 }
 
 function toggleDarkMode() {
@@ -68,7 +72,59 @@ function toggleDarkMode() {
   const btn = document.getElementById('darkToggleBtn');
   btn.textContent = darkMode ? 'Light' : 'Dark';
   btn.setAttribute('aria-pressed', String(darkMode));
+  closeMoreMenu({ returnFocus: true });
 }
+
+// Bottom-bar "more" popover (phone widths only — at desktop #moreMenu sits
+// empty and hidden, see arrangeBarControls() below and chrome.css). Trigger
+// and menu are a plain disclosure, not a full ARIA menu widget: Tab moves
+// through the popover's buttons in normal document order rather than a
+// roving-tabindex/arrow-key pattern, since nothing here needs more than that.
+function openMoreMenu() {
+  document.getElementById('moreMenu').classList.add('open');
+  document.getElementById('moreBtn').setAttribute('aria-expanded', 'true');
+}
+
+function closeMoreMenu(opts) {
+  const returnFocus = !!(opts && opts.returnFocus);
+  const menu = document.getElementById('moreMenu');
+  if (!menu.classList.contains('open')) return;
+  menu.classList.remove('open');
+  const btn = document.getElementById('moreBtn');
+  btn.setAttribute('aria-expanded', 'false');
+  if (returnFocus) btn.focus();
+}
+
+function toggleMoreMenu() {
+  const menu = document.getElementById('moreMenu');
+  if (menu.classList.contains('open')) closeMoreMenu({ returnFocus: true });
+  else openMoreMenu();
+}
+
+// Relocates the three controls between the inline bar (desktop) and the
+// popover (phone widths) — not just a CSS visibility swap. `order` (or
+// flex-direction: *-reverse) only changes paint position, never tab order,
+// which always follows DOM order; a CSS-only reorder would make one of the
+// two contexts tab in the wrong sequence. Physically moving the nodes keeps
+// natural tab order correct in both, with zero explicit tabindex.
+const PHONE_BAR_MQ = window.matchMedia('(max-width: 640px)');
+
+function arrangeBarControls() {
+  const left = document.querySelector('.bottom-bar-left');
+  const moreMenu = document.getElementById('moreMenu');
+  const learnerBtn = document.getElementById('modeToggleBtn');
+  const darkBtn = document.getElementById('darkToggleBtn');
+  const menuLink = document.querySelector('.bar-menu-link');
+
+  if (PHONE_BAR_MQ.matches) {
+    moreMenu.append(learnerBtn, darkBtn, menuLink); // popover order (brief): Learner, Dark, Menu
+  } else {
+    left.append(menuLink, darkBtn, learnerBtn); // desktop order (main, unchanged): Menu, Dark, Learner
+    closeMoreMenu(); // in case a resize/rotation crossed the breakpoint while open
+  }
+}
+
+PHONE_BAR_MQ.addEventListener('change', arrangeBarControls);
 
 function renderCurrent() {
   if (quizMode) { renderQuiz(); } else { renderSlide(); }
@@ -382,6 +438,7 @@ function updateNavButtons() {
 }
 
 mountChrome();
+arrangeBarControls();
 
 document.getElementById('prevBtn').addEventListener('click', prevSlide);
 document.getElementById('nextBtn').addEventListener('click', nextSlide);
@@ -389,6 +446,18 @@ document.getElementById('nextBtn').addEventListener('click', nextSlide);
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight' && !document.getElementById('nextBtn').disabled) nextSlide();
   else if (e.key === 'ArrowLeft' && !document.getElementById('prevBtn').disabled) prevSlide();
+  else if (e.key === 'Escape') closeMoreMenu({ returnFocus: true });
+});
+
+// Outside tap/click closes the popover. No returnFocus here — an outside
+// click should let focus follow whatever the user actually clicked, not get
+// yanked back to the trigger.
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('moreMenu');
+  const btn = document.getElementById('moreBtn');
+  if (!menu.classList.contains('open')) return;
+  if (menu.contains(e.target) || btn.contains(e.target)) return;
+  closeMoreMenu();
 });
 
 initPlayer();
