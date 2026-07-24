@@ -1,0 +1,922 @@
+[
+  {
+    "waypoint": "module-01-1440x900-dark-close",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-quiz-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-quiz-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-quiz-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-quiz-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-10",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-11",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-12",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-13",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-14",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-15",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-16",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-17",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-18",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-19",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-2",
+    "diffPixels": 45199,
+    "pct": 3.4876
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-20",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-21",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-22",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-23",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-24",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-25",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-3",
+    "diffPixels": 58785,
+    "pct": 4.5359
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-5",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-6",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-7",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-8",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-dark-slide-9",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-close",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-quiz-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-quiz-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-quiz-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-quiz-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-10",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-11",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-12",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-13",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-14",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-15",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-16",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-17",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-18",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-19",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-2",
+    "diffPixels": 45199,
+    "pct": 3.4876
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-20",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-21",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-22",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-23",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-24",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-25",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-3",
+    "diffPixels": 58785,
+    "pct": 4.5359
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-5",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-6",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-7",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-8",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-01-1440x900-light-slide-9",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-close",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-quiz-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-quiz-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-quiz-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-quiz-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-10",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-11",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-12",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-13",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-14",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-15",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-16",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-17",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-18",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-19",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-20",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-21",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-22",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-5",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-6",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-7",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-8",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-dark-slide-9",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-close",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-quiz-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-quiz-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-quiz-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-quiz-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-10",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-11",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-12",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-13",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-14",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-15",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-16",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-17",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-18",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-19",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-20",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-21",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-22",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-5",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-6",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-7",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-8",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-02-1440x900-light-slide-9",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-close",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-quiz-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-quiz-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-quiz-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-quiz-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-10",
+    "diffPixels": 37498,
+    "pct": 2.8934
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-11",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-12",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-13",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-14",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-15",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-16",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-17",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-18",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-19",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-2",
+    "diffPixels": 59980,
+    "pct": 4.6281
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-20",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-21",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-22",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-23",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-24",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-25",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-26",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-27",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-28",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-29",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-30",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-5",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-6",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-7",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-8",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-dark-slide-9",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-close",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-quiz-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-quiz-2",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-quiz-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-quiz-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-1",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-10",
+    "diffPixels": 37498,
+    "pct": 2.8934
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-11",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-12",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-13",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-14",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-15",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-16",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-17",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-18",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-19",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-2",
+    "diffPixels": 59980,
+    "pct": 4.6281
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-20",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-21",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-22",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-23",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-24",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-25",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-26",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-27",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-28",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-29",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-3",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-30",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-4",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-5",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-6",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-7",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-8",
+    "diffPixels": 0,
+    "pct": 0
+  },
+  {
+    "waypoint": "module-03-1440x900-light-slide-9",
+    "diffPixels": 0,
+    "pct": 0
+  }
+]

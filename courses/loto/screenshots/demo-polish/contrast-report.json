@@ -1,0 +1,194 @@
+[
+  {
+    "viewport": "1440x900",
+    "mode": "light",
+    "selector": ".slide-scene p",
+    "textRgb": [
+      244,
+      237,
+      224
+    ],
+    "fontSize": 24.8,
+    "fontWeight": 400,
+    "worstCaseBg": [
+      72,
+      70,
+      20
+    ],
+    "worstCasePoint": {
+      "x": 555,
+      "y": 400
+    },
+    "contrastRatio": 8.34,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "viewport": "1440x900",
+    "mode": "light",
+    "selector": ".slide-scene .scene-label",
+    "textRgb": [
+      216,
+      201,
+      168
+    ],
+    "fontSize": 12.48,
+    "fontWeight": 600,
+    "worstCaseBg": [
+      71,
+      53,
+      38
+    ],
+    "worstCasePoint": {
+      "x": 731,
+      "y": 327
+    },
+    "contrastRatio": 7.11,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "viewport": "1440x900",
+    "mode": "dark",
+    "selector": ".slide-scene p",
+    "textRgb": [
+      244,
+      237,
+      224
+    ],
+    "fontSize": 24.8,
+    "fontWeight": 400,
+    "worstCaseBg": [
+      72,
+      70,
+      20
+    ],
+    "worstCasePoint": {
+      "x": 555,
+      "y": 400
+    },
+    "contrastRatio": 8.34,
+    "threshold": 3,
+    "pass": true
+  },
+  {
+    "viewport": "1440x900",
+    "mode": "dark",
+    "selector": ".slide-scene .scene-label",
+    "textRgb": [
+      216,
+      201,
+      168
+    ],
+    "fontSize": 12.48,
+    "fontWeight": 600,
+    "worstCaseBg": [
+      71,
+      53,
+      38
+    ],
+    "worstCasePoint": {
+      "x": 731,
+      "y": 327
+    },
+    "contrastRatio": 7.11,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "viewport": "390x844",
+    "mode": "light",
+    "selector": ".slide-scene p",
+    "textRgb": [
+      244,
+      237,
+      224
+    ],
+    "fontSize": 16.8,
+    "fontWeight": 400,
+    "worstCaseBg": [
+      67,
+      57,
+      40
+    ],
+    "worstCasePoint": {
+      "x": 195,
+      "y": 381
+    },
+    "contrastRatio": 9.73,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "viewport": "390x844",
+    "mode": "light",
+    "selector": ".slide-scene .scene-label",
+    "textRgb": [
+      216,
+      201,
+      168
+    ],
+    "fontSize": 12.48,
+    "fontWeight": 600,
+    "worstCaseBg": [
+      74,
+      55,
+      39
+    ],
+    "worstCasePoint": {
+      "x": 195,
+      "y": 323
+    },
+    "contrastRatio": 6.88,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "viewport": "390x844",
+    "mode": "dark",
+    "selector": ".slide-scene p",
+    "textRgb": [
+      244,
+      237,
+      224
+    ],
+    "fontSize": 16.8,
+    "fontWeight": 400,
+    "worstCaseBg": [
+      67,
+      57,
+      40
+    ],
+    "worstCasePoint": {
+      "x": 195,
+      "y": 381
+    },
+    "contrastRatio": 9.73,
+    "threshold": 4.5,
+    "pass": true
+  },
+  {
+    "viewport": "390x844",
+    "mode": "dark",
+    "selector": ".slide-scene .scene-label",
+    "textRgb": [
+      216,
+      201,
+      168
+    ],
+    "fontSize": 12.48,
+    "fontWeight": 600,
+    "worstCaseBg": [
+      74,
+      55,
+      39
+    ],
+    "worstCasePoint": {
+      "x": 195,
+      "y": 323
+    },
+    "contrastRatio": 6.88,
+    "threshold": 4.5,
+    "pass": true
+  }
+]
