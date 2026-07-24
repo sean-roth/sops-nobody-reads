@@ -23,4 +23,17 @@ Real errors caught while building the LOTO demo, and what each one teaches the s
 
 ---
 
+## L2 · Housekeeping runbook named the wrong directory · 2026-07-24
+
+**What it was.** `HOUSEKEEPING-2026-07-24.md` step 1 was drafted to remediate `AUDIT-2026-07-24-sitting.md`'s V1/B1/R1 evidence-on-`main` FAILs — three directories, one per FAIL. The drafted `git rm` command listed `screenshots/chrome-consolidation` (132 files, PR #80, cold-audited PASS 2026-07-22, not part of this sitting) instead of `screenshots/demo-cut-menu` (4 files, the actual V1 target). Run as written, it would have left V1 unremediated while deleting an unrelated, 33x-larger directory — and step 4's own verify-by-read would only have caught it after the commit, if read against the audit rather than against the doc's own claim.
+
+**How it got through.** `chrome-consolidation` was a real, named pending-cleanup item — logged in `WORKFLOW-TRACE.md`'s open items on 2026-07-22, predating this sitting and PR #82 (demo-cut-menu) entirely. Drafting the runbook from memory of "what's known to be stale" pulled in the older, more familiar name instead of the newer one the current audit actually named. Nothing checked the runbook's path list against the audit report's own evidence inventory (which states exact file counts per directory) before the runbook was committed.
+
+**The safeguard it implies.** A remediation runbook that names specific paths should be cross-checked — mechanically, by diffing its path list against the source audit's own enumerated evidence paths/counts — before it's pasted into a builder session, not hand-verified by re-reading prose. 4+24+26=54 was checkable in one line against T24's "prune the 54 evidence files."
+
+- *Audit, now:* when a runbook is generated from an audit report, diff its file/path list against the audit's own "as of `<sha>`, main carries N files under X/" accounting before execution.
+- *App, later:* remediation steps should be derived programmatically from the audit report's structured findings (a path + count per FAIL), not re-typed by a drafting pass.
+
+---
+
 *Started 2026-07-20. Add an entry whenever a real error is caught, especially one that got past a review — the ones that slip through are the ones worth a check.*

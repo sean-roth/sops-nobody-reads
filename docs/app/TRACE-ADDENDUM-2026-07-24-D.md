@@ -38,3 +38,21 @@ Fold into the master trace with addendums A–C at the reflection session.
   truth — keep that property. (3) The auditor pinned exact trees per pass and
   reported concurrent-merge contamination risk unprompted — encode tree-pinning in
   the auditor template.*
+
+- **T25 — Housekeeping executed; runbook bug caught before it ran
+  (2026-07-24).** Human + Claude (ad hoc session, cross-repo entry via a
+  pasted GitHub URL) · `HOUSEKEEPING-2026-07-24.md` · cross-check against
+  `AUDIT-2026-07-24-sitting.md`'s own evidence counts + T24's "54 evidence
+  files" ruling before executing · step 1 corrected (drafted command pruned
+  `chrome-consolidation` instead of `demo-cut-menu` — the real V1 target;
+  both pruned as separate commits, since chrome-consolidation is a genuine
+  but unrelated 2026-07-22 open item) + steps 2–3 executed as drafted +
+  `BUILD-LESSONS.md` L2 + doc correction · gate: none (mechanical,
+  verified by read per the runbook's own step 4).
+  *App note: the runbook was drafted by an orchestrator session and
+  executed cold by a different session with no shared context beyond the
+  committed files — the same seat-separation property as an audit — and
+  that separation is what surfaced the bug: the executing session checked
+  the runbook's claims against the audit's own numbers instead of
+  trusting the prose. Runbooks-as-committed-files get the same benefit
+  audits do, for free, if whoever executes them reads skeptically.*
