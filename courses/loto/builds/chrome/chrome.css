@@ -317,7 +317,23 @@ body {
   color: var(--ink-dim);
   margin-bottom: 1.5vh;
 }
-.slide.has-image.slide-scene .scene-label { color: var(--onimage-ink-dim); }
+/* DEMO-POLISH-2026-07-24: measured (contrast-check.js), not assumed — the
+   label unpaneled (matching .definition-label's precedent of sitting
+   outside its box) fails AA on the busiest scene slide: 3.12-3.45:1 against
+   this image's warm mid-tones, vs the 4.5:1 small-text floor. Swapping to
+   the brighter --onimage-ink token instead would pass by measurement here,
+   but every other on-image kicker/label in this file uses the dim ink
+   consistently (a register-hierarchy convention, not a one-off) — panel it
+   like the paragraph instead of breaking that pattern for scene alone. */
+.slide.has-image.slide-scene .scene-label {
+  color: var(--onimage-ink-dim);
+  display: inline-block;
+  background: rgba(20, 26, 22, 0.55);
+  border: 1px solid rgba(244, 237, 224, 0.28);
+  border-radius: 3px;
+  padding: 0.5em 0.9em;
+  backdrop-filter: blur(2px);
+}
 .slide-scene p {
   font-family: var(--font-body);
   font-style: italic;
@@ -327,7 +343,22 @@ body {
   color: var(--ink-dim);
   max-width: 38ch;
 }
-.slide.has-image.slide-scene p { color: var(--onimage-ink); }
+/* DEMO-POLISH-2026-07-24: the whole-slide scrim (.slide.has-image::before)
+   is a radial gradient, weakest at center — exactly where centered scene
+   text sits — so it can't carry text contrast alone (Sean's device note).
+   Default treatment: extend the same glass-panel vocabulary already used
+   for .definition-box/.option/.citation-chip on images (identical rgba
+   pair) to the scene paragraph itself, giving it its own local contrast
+   independent of what's behind it. The label above gets the same panel
+   for the same reason, measured — see that rule's comment. */
+.slide.has-image.slide-scene p {
+  color: var(--onimage-ink);
+  background: rgba(20, 26, 22, 0.55);
+  border: 1px solid rgba(244, 237, 224, 0.28);
+  border-radius: 3px;
+  padding: 2.5vh 3vw;
+  backdrop-filter: blur(2px);
+}
 .slide-scene em { color: var(--accent); font-style: normal; font-weight: 600; }
 .slide.has-image.slide-scene em { color: var(--onimage-ink); text-decoration: underline; text-decoration-color: rgba(244,237,224,0.5); }
 
@@ -777,6 +808,11 @@ body {
   text-decoration: none;
 }
 .slide.has-image .citation-chip {
+  /* Restores position:absolute against the scrim-lifting rule above
+     (.slide.has-image > *, (0,2,0)) — this selector is (0,3,0) and already
+     wins outright; without this, the chip drops into normal flow and lands
+     wherever the centered content stack ends (DEMO-POLISH-2026-07-24). */
+  position: absolute;
   background: rgba(20,26,22,0.65);
   border-color: rgba(244,237,224,0.3);
   color: var(--onimage-ink-dim);

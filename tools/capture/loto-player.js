@@ -44,6 +44,16 @@ async function setDarkMode(page, { isPhoneWidth, wantDark }) {
   await btn.click();
 }
 
+// Sets Reviewer/Learner mode by clicking the real #modeToggleBtn wherever
+// it currently lives — same rationale as setDarkMode above.
+async function setReviewerMode(page, { isPhoneWidth, wantReviewer }) {
+  const btn = page.locator('#modeToggleBtn');
+  const pressed = (await btn.getAttribute('aria-pressed')) === 'true';
+  if (pressed === wantReviewer) return;
+  if (isPhoneWidth) await page.locator('#moreBtn').click();
+  await btn.click();
+}
+
 async function openMoreMenu(page) {
   await page.locator('#moreBtn').click();
 }
@@ -56,4 +66,4 @@ async function closeMoreMenu(page) {
   if (isOpen) await page.keyboard.press('Escape');
 }
 
-module.exports = { gotoWaypoint, setDarkMode, openMoreMenu, closeMoreMenu };
+module.exports = { gotoWaypoint, setDarkMode, setReviewerMode, openMoreMenu, closeMoreMenu };
