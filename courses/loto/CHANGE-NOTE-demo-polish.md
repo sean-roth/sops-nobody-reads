@@ -182,3 +182,128 @@ popover elevation, `restartQuiz()` progress gap). No module shells, no
 either item in this pass (both confirmed above).
 
 ---
+
+## Results
+
+### Item 1 — citation chip
+
+Shipped exactly the planned fix: `position: absolute;` added to
+`.slide.has-image .citation-chip` (chrome.css:779–787). No other property
+changed; `right`/`bottom`/`z-index` were never affected by the bug.
+
+Confirmed live, before and after, via `getBoundingClientRect()` logged by
+the capture recipe — not just eyeballed. Before: slide 7 (has-image)
+chip top/bottom = 554/580 of an 833-tall slide, overlapping the body
+text's last line; slide 6 (plain) chip bottom = 819.5, correctly pinned.
+After: **slide 7's chip rect is pixel-identical to slide 6's** at both
+viewports —
+
+| | 1440×900 | 390×844 |
+|---|---|---|
+| slide 7 (image), after | `{x:1282.8, y:793.3, right:1418.4, bottom:819.5}` | `{x:248.5, y:736.5, right:384.2, bottom:762.7}` |
+| slide 6 (plain), after | `{x:1282.8, y:793.3, right:1418.4, bottom:819.5}` | `{x:248.5, y:736.5, right:384.2, bottom:762.7}` |
+
+Same numbers to four decimal places, both viewports, both modes (the
+on-image color variant is the only remaining difference, which is correct
+and pre-existing). Screenshots confirm visually:
+`evidence/demo-polish` → `chip/`.
+
+The fix is a plain CSS rule keyed on `.citation-chip`/`.has-image`, not
+slide-type-conditional, so it applies uniformly to every `renderSlide()`
+branch — verified structurally in the Plan, and spot-verified live on one
+representative case (`teaching-caption`) rather than re-proving the same
+mechanism per slide type.
+
+### Item 2 — scene panel
+
+Shipped the planned default: the definition-box glass-panel treatment
+(same rgba pair, same border-radius/padding/backdrop-filter vocabulary)
+extended to `.slide.has-image.slide-scene p` (chrome.css:321–337).
+
+**Deviation from the plan, driven by measurement.** The plan proposed
+leaving `.scene-label` unpaneled, matching `.definition-label`'s
+precedent, "to be confirmed empirically, not assumed." It wasn't
+confirmed — `contrast-check.js` measured the label at **3.12–3.45:1**
+against module-01 slide 2's actual rendered pixels (warm mid-tones near
+the hard hat/machinery), against a 4.5:1 floor for text this size. Rather
+than brighten the label's color (which would pass by measurement here but
+break the dim-kicker convention every other on-image label/kicker in this
+file follows — a register-hierarchy inconsistency, not a one-off), it now
+gets the same panel treatment as the paragraph (chrome.css:311–320),
+producing a small label pill sitting just above the text panel. Visually
+checked at both viewports, both modes — reads as an intentional
+label-plus-caption pairing, not a layout accident.
+
+**Composite-contrast check (`contrast-check.js`, new — see Plan for the
+technique), all 8 viewport×mode×element combinations: PASS.**
+
+| Viewport | Mode | Element | Font size | Threshold | Ratio | Result |
+|---|---|---|---|---|---|---|
+| 1440×900 | light | `p` | 24.8px | 3:1 (large) | 8.57 | PASS |
+| 1440×900 | light | `.scene-label` | 12.5px | 4.5:1 | 6.88 | PASS |
+| 1440×900 | dark | `p` | 24.8px | 3:1 (large) | 8.57 | PASS |
+| 1440×900 | dark | `.scene-label` | 12.5px | 4.5:1 | 6.88 | PASS |
+| 390×844 | light | `p` | 16.8px | 4.5:1 | 9.70 | PASS |
+| 390×844 | light | `.scene-label` | 12.5px | 4.5:1 | 6.88 | PASS |
+| 390×844 | dark | `p` | 16.8px | 4.5:1 | 9.70 | PASS |
+| 390×844 | dark | `.scene-label` | 12.5px | 4.5:1 | 6.88 | PASS |
+
+(Full data, including worst-case sample point and background RGB per row:
+`evidence/demo-polish/contrast-report.json`.) The `p` threshold changes
+between viewports because its `clamp()` font-size crosses the WCAG
+large-text line (≥24px) at 1440 but not at 390 — the checker reads the
+actual computed size per viewport rather than assuming one threshold.
+
+**Shipped vs. selection.** Per the brief, the default is what ships in
+this PR — Sean has not yet chosen between it and the two alternates below;
+that happens at his device check, same as any other handback. If he
+prefers an alternate, that's a follow-up swap, not cause to reopen this
+PR. Whichever he picks is a pending Slide-Type Standard amendment per the
+brief (not applied to the standard in this pass).
+
+**Alternates, captured only (`evidence/demo-polish/scene/*-alt-*.png`),
+not in `chrome.css`:**
+- (a) strengthened localized scrim — a horizontal dark band
+  (`linear-gradient`, transparent → 0.78 → transparent) behind the text
+  zone, no box.
+- (b) tuned text-shadow — no background at all; multi-layer shadow on the
+  paragraph and label.
+
+**M2/M3 sweep (read-only, no data/content changes):** module-02 has no
+has-image scene slides (nothing to capture). module-03 slides 1 and 9 both
+receive the same panel treatment for free, since `chrome.css` is shared
+verbatim — captured and visually confirmed clean at both viewports, both
+modes (`evidence/demo-polish/scene/module-03-*`).
+
+### Regression gates
+
+**Overflow audit** (`tools/capture/overflow-audit.js`, re-run against the
+fixed tree): 736 checks, 2 clipped, 0 clipped-and-unscrollable —
+**field-for-field identical** to the #84 baseline
+(`courses/loto/screenshots/mobile-readability/overflow-after.json` on
+`main`): same two rows (module-03 slide-7, the 360×660-chrome stress
+viewport, both modes), same `scrollWorks: true`. Zero regressions,
+confirmed by diff, not by matching aggregate counts.
+
+**Desktop pixel-diff, full deck, both modes** (184 waypoints — every
+slide, quiz question, and close screen across all three modules, Learner
+mode): **8 of 184 changed**, and all 8 are exactly the has-image scene
+slides this pass touches — module-01 slides 2/3 (1-indexed), module-03
+slides 2/10 (1-indexed), each ×2 modes. Nothing else in the deck moved.
+(Learner mode was used for this sweep, matching the deck's default state;
+it doesn't exercise the citation chip, which is covered directly and
+separately above — the two fixes don't overlap on any single slide in
+this deck, so one full-deck sweep in the default view already accounts
+for every unintended-change risk.) Report:
+`evidence/demo-polish/full-deck-diff-report.json`.
+
+### Self-check
+
+| ID | Check | Result |
+|---|---|---|
+| P1 | Diff confined to scope; `main` gains no capture artifacts | **PASS** — `git diff --stat main` (this branch): `chrome.css`, this change note, `tools/capture/{loto-player.js,contrast-check.js,demo-polish.recipe.js}` only. All captures on `evidence/demo-polish`, never this branch. |
+| P2 | Citation chip bottom-right on image + plain slides, Reviewer mode, both modes, both widths; `> *` override no longer applies | **PASS** — rects pixel-identical between image and plain slides at both viewports/modes (table above); confirmed via `getBoundingClientRect()`, not eyeballed. |
+| P3 | Shipped scene treatment matches Sean's selection (recorded in change note); alternates present in evidence branch | **Shipped = the brief's specified default** (Sean's selection among default/alternates is a post-handback step, not yet made — see above). Both alternates present: `evidence/demo-polish/scene/*-alt-scrim.png`, `*-alt-shadow.png`. |
+| P4 | Overflow audit: zero regressions vs #84 baseline; no unintended visual change outside scene text + chip | **PASS** — overflow field-for-field identical to baseline; full-deck pixel-diff shows changes on exactly the 4 intended has-image scene slides (×2 modes) and nowhere else. |
+
+No console/page errors observed across any capture or audit run.
