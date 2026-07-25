@@ -110,3 +110,85 @@ The seat template's `{{ATTENTION_POINTS}}` mechanism (works as designed). The
 orchestrator and builder seat prompts. Anything in `tools/capture` — Pass 6
 describes what to measure, not new instruments. The v0.2 Slide-Type Standard
 itself.
+
+---
+
+## Results
+
+Both documents written as planned. Three additions beyond the plan, each called
+out below; nothing planned was dropped.
+
+### A. `course-audit-SPEC.md` v1.1
+
+Shipped the lane router, Pass 6 (R1–R6), the four render tells, and the
+deliverable rename. v1.0's Preamble, Passes 0–5, both Guards, and all eight
+original named tells are preserved verbatim.
+
+**Addition 1 (beyond plan) — Pass 4 gains an explicit BLOCKER rule.** While
+placing Pass 6 it became clear the #85 P3 failure had no home in v1.0. Pass 4
+already covers "does every decision record match the shipped state," but a
+change note recording a decision as *unmade* while the artifact embodying it has
+shipped is a sharper case than a record reading "pending," and it is the exact
+failure the week produced. Added as one sentence with its provenance, rather
+than left to be re-derived by the next auditor.
+
+**Addition 2 (beyond plan) — Scope extended.** v1.0's scope list names scripts,
+build JSON, players including their JavaScript, and docs. It predates chrome
+consolidation, so the shared stylesheet — the single file now governing what a
+learner sees across all three modules — was not in scope for a course audit.
+Added.
+
+**Addition 3 (beyond plan) — Pass 5 now hands off to Pass 6 explicitly.** One
+line, because "citation integrity" reads as covering the chip's rendering and
+does not.
+
+**Judgment call inside Pass 6.** R1–R6 are written as *what must be true*, not
+as commands to run specific tools. `tools/capture` will change; the conformance
+requirement should not have to change with it. The trade is that Pass 6 is not
+directly executable by a fresh auditor without reading the tools directory —
+accepted, because the alternative is a spec that goes stale on the next tooling
+pass, and because "the model's own verification plan usually beats a scripted
+one" is the stated rationale for the sibling document's brevity.
+
+### B. `auditor.md` v2
+
+Shipped S1–S6 and the revised template. The lane router is one paragraph rather
+than a duplicate of the course spec's table — the table lives in one place.
+
+**Judgment call — the template got two lines longer, not shorter.** v1's stated
+design is four elements and no more. v2 adds a pointer to §Standing rules and a
+`{{TREE}}` slot. Both were things the #85 kickoff hand-wrote; carrying them in
+the template is what makes the seat non-bespoke, which is the commission. The
+duplication warning is respected: the rules are pointed at, never restated.
+
+**Documented, not fixed:** the standing rules are only load-bearing if the
+kickoff actually points at them. A pasted template whose pointer the operator
+strips silently loses S1–S6. The structural fix is the runner launching seats
+from committed prompts (snr-app FINDINGS §6 requirement 1), not a doc change.
+
+### C. Not in this PR
+
+`snr-app/docs/FINDINGS.md` is a separate repo and ships as its own PR.
+
+### Self-check
+
+| # | Plan commitment | Result |
+|---|---|---|
+| 1 | v1.0 content preserved except where noted | **PASS** — Preamble, Passes 0–5, Guards G1/G2, 8 original tells verbatim; the three additions are itemised above |
+| 2 | Pass 6 derived from §S5 + the instrument fleet, not invented | **PASS** — R1 restates §S5's composite rule; R2/R4/R5/R6 restate detection classes the tools already implement; R3 is the survey the #85 kickoff asked for |
+| 3 | Render tells earned in real findings | **PASS** — all four cite the #85 audit, matching the doc's standing rule that a named tell is earned, not theorised |
+| 4 | Coldness rule replaced, not merely softened | **PASS** — S1 is a sourcing rule; enforcement moved to launch config + disclosure |
+| 5 | No new law: Durability Standard, Build Methodology, Slide-Type Standard untouched | **PASS** — no files outside `docs/standards/course-audit-SPEC.md` and `docs/app/seats/auditor.md` changed |
+| 6 | Breaking rename flagged for Sean, not assumed | **PASS** — flagged inline in the spec and in the PR body; no existing file renamed by this PR |
+| 7 | Proposal status, stops at the PR | **PASS** — not merged; both documents state they are proposals pending ruling |
+
+### Open for the reviewers
+
+- **The rename is the only breaking item.** If it is rejected, the router table
+  and the Deliverable section both need the old filename; nothing else changes.
+- **Pass 6 has no worked example yet.** The first course audit that runs it will
+  produce META feedback, which is how v1.0 got good. Worth running it against
+  LOTO before treating it as settled.
+- **The auditor seat wrote its own seat prompt.** That is a conflict worth
+  naming: the seat proposing the rules it will be judged by. The orchestrator
+  reviewing this is the check, and it is the reason this stops at the PR.
