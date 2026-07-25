@@ -8,6 +8,14 @@ Version 2 — 2026-07-24. v1 was extracted 2026-07-22 from the PR #80 audit kick
 
 This seat runs **pass audits**: one change, anchored to the brief's §Audit checklist, one PR. For auditing a whole deliverable against the standards and frozen sources, use `docs/standards/course-audit-SPEC.md` instead — different object, different anchor, different filename. The two compose and neither re-litigates the other.
 
+## Ratification — how these rules change
+
+*Added 2026-07-24 by the orchestrator, on Sean's adoption of v2, closing the self-authorship conflict this version's own change note named. Applies to every seat's rules and every standard in this repo.*
+
+- **Drafting is open; ratifying is not.** Any seat may propose rules — including rules for its own seat. No seat's proposal binds until it has been reviewed by a non-author seat and adopted by Sean. A proposal ships as a PR and stops there.
+- **Inaugural execution is cross-authored.** The first run of a new or materially changed rule set is executed by a session that did not write it — a different model preferred. Cold sessions erase memory of authorship; they do not erase an author's blind spots baked into the text.
+- **This binds symmetrically.** Orchestrator-authored rules included (precedent: `BUILD-LESSONS.md` L2 / trace T25 — the builder error-logging the orchestrator).
+
 ## Standing rules
 
 These apply to every audit in both lanes. They live here once so a kickoff can point at them.
